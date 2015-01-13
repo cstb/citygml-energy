@@ -78,6 +78,7 @@
           <element name="endUse" type="gml:CodeType"/>
           <element minOccurs="0" name="energyAmount" type="energy:_TimeSeriesPropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="energyDistribution" type="energy:EnergyDistributionSystemPropertyType"/>
+		  <element maxOccurs="unbounded" minOccurs="0" name="energyDemands" type="energy:EnergyDemandPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -104,7 +105,7 @@
           </element>
           <element name="isSunExposed" type="boolean"/>
           <element name="isGroundCoupled" type="boolean"/>
-          <element minOccurs="0" name="relates" type="energy:_OpeningPropertyType"/>
+          <element minOccurs="0" name="relates" type="bldg:OpeningPropertyType"/>
           <element minOccurs="0" name="adjacentTo" type="energy:ThermalZonePropertyType"/>
         </sequence>
       </extension>
@@ -214,9 +215,9 @@
             </annotation>
           </element>
           <element minOccurs="0" name="number" type="integer"/>
-          <element minOccurs="0" name="productAndinstallationDocument" type="core:ExternalReferencePropertyType"/>
+          <element minOccurs="0" name="productAndinstallationDocument" type="core:ExternalReferenceType"/>
           <element minOccurs="0" name="yearOfManufacture" type="gYear"/>
-          <element minOccurs="0" name="installedIn" type="bldg:_AbstractBuildingPropertyType"/>
+          <element minOccurs="0" name="installedIn" type="bldg:AbstractBuildingType"/>
           <element maxOccurs="unbounded" name="consumes" type="energy:EnergySourcePropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="has" type="energy:OperationModePropertyType"/>
         </sequence>
@@ -301,6 +302,7 @@
               <documentation>Percentaged transmittance of shading surface</documentation>
             </annotation>
           </element>
+		  <element maxOccurs="unbounded" minOccurs="0" name="construction" type="energy:ConstructionPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -725,7 +727,7 @@
         <sequence>
           <element minOccurs="0" name="cellMaterialType" type="string"/>
           <element name="collectorSurface"/>
-          <element minOccurs="0" name="installedOn" type="energy:_BoundarySurfacePropertyType"/>
+          <element minOccurs="0" name="installedOn" type="bldg:BoundarySurfacePropertyType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -962,7 +964,7 @@
         <sequence>
           <element name="collectorSurface"/>
           <element minOccurs="0" name="technologyType" type="string"/>
-          <element minOccurs="0" name="installedOn" type="energy:_BoundarySurfacePropertyType"/>
+          <element minOccurs="0" name="installedOn" type="bldg:BoundarySurfacePropertyType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -1067,8 +1069,6 @@
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
   </complexType>
-  <element maxOccurs="unbounded" minOccurs="0" name="construction" type="energy:ConstructionPropertyType"/>
-  <element maxOccurs="unbounded" minOccurs="0" name="energyDemands" type="energy:EnergyDemandPropertyType"/>
   <element name="Facilities" substitutionGroup="gml:_Feature" type="energy:FacilitiesType">
     <annotation>
       <documentation>Facilities and Appliances inside the usage zone or building unit, which consumes and dissipate energy.</documentation>
@@ -1139,8 +1139,8 @@ http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosp
     </sequence>
   </complexType>
   <element name="correspondsTo" substitutionGroup="bldg:_GenericApplicationPropertyOfBoundarySurface" type="energy:ThermalBoundarySurfacePropertyType"/>
-  <element name="equippedWith" substitutionGroup="bldg:_GenericApplicationPropertyOfBoundarySurface" type="energy:SolarThermalSystemPropertyType"/>
-  <element name="equippedWith" substitutionGroup="bldg:_GenericApplicationPropertyOfBoundarySurface" type="energy:PhotovoltaicSystemPropertyType"/>
+  <element name="solarThermalSystem" substitutionGroup="bldg:_GenericApplicationPropertyOfBoundarySurface" type="energy:SolarThermalSystemPropertyType"/>
+  <element name="photovoltaicSystem" substitutionGroup="bldg:_GenericApplicationPropertyOfBoundarySurface" type="energy:PhotovoltaicSystemPropertyType"/>
   <element name="ControlType" substitutionGroup="gml:_Object" type="energy:ControlTypeType"/>
   <complexType name="ControlTypeType">
     <sequence>
@@ -1444,7 +1444,7 @@ By convention, inclination = 0 for horizontal plane.</documentation>
               <attributeGroup ref="gml:AssociationAttributeGroup"/>
             </complexType>
           </element>
-          <element minOccurs="0" name="correspondsTo" type="energy:_BoundarySurfacePropertyType"/>
+          <element minOccurs="0" name="correspondsTo" type="bldg:BoundarySurfacePropertyType"/>
         </sequence>
       </extension>
     </complexContent>
