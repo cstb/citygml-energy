@@ -3,20 +3,44 @@
   <import namespace="http://www.opengis.net/citygml/building/2.0" schemaLocation="../../CityGML/building.xsd"/>
   <import namespace="http://www.opengis.net/gml" schemaLocation="../../3.1.1/base/gml.xsd"/>
   <!--XML Schema document created by ShapeChange-->
-  <element name="HeatPump" substitutionGroup="energy:EnergyConversionSystem" type="energy:HeatPumpType"/>
-  <complexType name="HeatPumpType">
+  <element name="HeatExchangeType" substitutionGroup="gml:_Object" type="energy:HeatExchangeTypeType">
+    <annotation>
+      <documentation>Contributions of the different types of heat or cool exchange (convective, radiant and latent)</documentation>
+    </annotation>
+  </element>
+  <complexType name="HeatExchangeTypeType">
+    <sequence>
+      <element minOccurs="0" name="convectiveFraction"/>
+      <element minOccurs="0" name="latentFraction"/>
+      <element minOccurs="0" name="radiantFraction"/>
+      <element name="totalValue"/>
+    </sequence>
+  </complexType>
+  <complexType name="HeatExchangeTypePropertyType">
+    <sequence>
+      <element ref="energy:HeatExchangeType"/>
+    </sequence>
+  </complexType>
+  <element name="EnergyDistributionSystem" substitutionGroup="gml:_Feature" type="energy:EnergyDistributionSystemType">
+    <annotation>
+      <documentation>Energy distribution system is a system in charge of delivering the energy inside the building, from the place of energy production to the place of end-use. It consists then in the storage (including battery/tank and pipe volumes), the circulation pumps, the distribution pipes and the end use units (radiators, fan coils etc.).</documentation>
+    </annotation>
+  </element>
+  <complexType name="EnergyDistributionSystemType">
     <complexContent>
-      <extension base="energy:EnergyConversionSystemType">
+      <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element minOccurs="0" name="carnotEfficiency" type="double"/>
-          <element name="heatSource" type="gml:CodeType"/>
+          <element minOccurs="0" name="distributionPerimeter" type="gml:CodeType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="endUseUnit" type="energy:EndUseUnitPropertyType"/>
+          <element minOccurs="0" name="energySupply" type="energy:EnergySupplyPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="storageSystem" type="energy:_StorageSystemPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="HeatPumpPropertyType">
+  <complexType name="EnergyDistributionSystemPropertyType">
     <sequence minOccurs="0">
-      <element ref="energy:HeatPump"/>
+      <element ref="energy:EnergyDistributionSystem"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
   </complexType>
@@ -42,78 +66,40 @@
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
   </complexType>
-  <element name="EnergySupply" substitutionGroup="gml:_Feature" type="energy:EnergySupplyType">
+  <element name="EnergyCoverage" substitutionGroup="gml:_Feature" type="energy:EnergyCoverageType">
     <annotation>
-      <documentation>Energy supply is the part of the energy produced by the energy conversion systems which is used to satisfy the end-use demand of a city object.</documentation>
+      <documentation>Determine the level of energy coverage (may be time depending) by a given operation mode of an energy conversion system.</documentation>
     </annotation>
   </element>
-  <complexType name="EnergySupplyType">
+  <complexType name="EnergyCoverageType">
     <complexContent>
       <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element minOccurs="0" name="endUse" type="gml:CodeType"/>
-          <element minOccurs="0" name="energyAmount" type="energy:_TimeSeriesPropertyType"/>
-          <element minOccurs="0" name="medium" type="gml:CodeType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="coverage" type="energy:EnergyCoveragePropertyType"/>
-          <element maxOccurs="unbounded" name="producedBy" type="energy:OperationModePropertyType"/>
+          <element name="coverageRatio" type="energy:_TimeSeriesPropertyType"/>
+          <element minOccurs="0" name="coveredBy" type="energy:OperationModePropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="EnergySupplyPropertyType">
+  <complexType name="EnergyCoveragePropertyType">
     <sequence minOccurs="0">
-      <element ref="energy:EnergySupply"/>
+      <element ref="energy:EnergyCoverage"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
   </complexType>
-  <element name="EnergyDemand" substitutionGroup="gml:_Feature" type="energy:EnergyDemandType">
-    <annotation>
-      <documentation>Energy demand is the useful energy required to satisfy a specific end-use, such as heating, cooling, domestic hot water etc.</documentation>
-    </annotation>
-  </element>
-  <complexType name="EnergyDemandType">
+  <element name="SolarThermalSystem" substitutionGroup="energy:_SolarEnergySystem" type="energy:SolarThermalSystemType"/>
+  <complexType name="SolarThermalSystemType">
     <complexContent>
-      <extension base="gml:AbstractFeatureType">
+      <extension base="energy:_SolarEnergySystemType">
         <sequence>
-          <element name="endUse" type="gml:CodeType"/>
-          <element minOccurs="0" name="energyAmount" type="energy:_TimeSeriesPropertyType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="energyDistribution" type="energy:EnergyDistributionSystemPropertyType"/>
-		  <element maxOccurs="unbounded" minOccurs="0" name="energyDemands" type="energy:EnergyDemandPropertyType"/>
+          <element minOccurs="0" name="technologyType" type="string"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="EnergyDemandPropertyType">
+  <complexType name="SolarThermalSystemPropertyType">
     <sequence minOccurs="0">
-      <element ref="energy:EnergyDemand"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-  </complexType>
-  <element name="SurfaceComponent" substitutionGroup="core:_CityObject" type="energy:SurfaceComponentType">
-    <annotation>
-      <documentation>Part of the thermal boundary surface corresponding to an homogeneous construction component (e.g. windows, wall, insulated part of a wall etc.)</documentation>
-    </annotation>
-  </element>
-  <complexType name="SurfaceComponentType">
-    <complexContent>
-      <extension base="core:AbstractCityObjectType">
-        <sequence>
-          <element name="area">
-            <annotation>
-              <documentation>Area of the surface [m²], portion of the related thermal boundary surface.</documentation>
-            </annotation>
-          </element>
-          <element name="isSunExposed" type="boolean"/>
-          <element name="isGroundCoupled" type="boolean"/>
-          <element minOccurs="0" name="relates" type="bldg:OpeningPropertyType"/>
-          <element minOccurs="0" name="adjacentTo" type="energy:ThermalZonePropertyType"/>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="SurfaceComponentPropertyType">
-    <sequence minOccurs="0">
-      <element ref="energy:SurfaceComponent"/>
+      <element ref="energy:SolarThermalSystem"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
   </complexType>
@@ -126,13 +112,58 @@
       <element ref="energy:_Schedule"/>
     </sequence>
   </complexType>
-  <simpleType name="ConditioningTypeType">
-    <restriction base="string">
-      <enumeration value="Conditioned"/>
-      <enumeration value="Unconditioned"/>
-      <enumeration value="None"/>
-    </restriction>
-  </simpleType>
+  <element name="CombinedHeatPower" substitutionGroup="energy:EnergyConversionSystem" type="energy:CombinedHeatPowerType"/>
+  <complexType name="CombinedHeatPowerType">
+    <complexContent>
+      <extension base="energy:EnergyConversionSystemType">
+        <sequence>
+          <element name="technologyType" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="CombinedHeatPowerPropertyType">
+    <sequence minOccurs="0">
+      <element ref="energy:CombinedHeatPower"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="_SolarEnergySystem" substitutionGroup="energy:EnergyConversionSystem" type="energy:_SolarEnergySystemType"/>
+  <complexType abstract="true" name="_SolarEnergySystemType">
+    <complexContent>
+      <extension base="energy:EnergyConversionSystemType">
+        <sequence>
+          <element name="collectorSurface"/>
+          <element name="panelInclination"/>
+          <element name="panelAzimuth"/>
+          <element minOccurs="0" name="installedOn" type="bldg:BoundarySurfacePropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="_SolarEnergySystemPropertyType">
+    <sequence minOccurs="0">
+      <element ref="energy:_SolarEnergySystem"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="PowerDistributionSystem" substitutionGroup="energy:EnergyDistributionSystem" type="energy:PowerDistributionSystemType"/>
+  <complexType name="PowerDistributionSystemType">
+    <complexContent>
+      <extension base="energy:EnergyDistributionSystemType">
+        <sequence>
+          <element minOccurs="0" name="current"/>
+          <element minOccurs="0" name="voltage"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="PowerDistributionSystemPropertyType">
+    <sequence minOccurs="0">
+      <element ref="energy:PowerDistributionSystem"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
   <element abstract="true" name="_StorageSystem" substitutionGroup="gml:_Feature" type="energy:_StorageSystemType">
     <annotation>
       <documentation>System storing energy. A same storage may store the energy of different end-users and different end-use.</documentation>
@@ -151,122 +182,6 @@
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
   </complexType>
-  <element name="PowerStorageSystem" substitutionGroup="energy:_StorageSystem" type="energy:PowerStorageSystemType"/>
-  <complexType name="PowerStorageSystemType">
-    <complexContent>
-      <extension base="energy:_StorageSystemType">
-        <sequence>
-          <element minOccurs="0" name="batteryTechnology" type="string"/>
-          <element minOccurs="0" name="powerCapacity" type="integer"/>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="PowerStorageSystemPropertyType">
-    <sequence minOccurs="0">
-      <element ref="energy:PowerStorageSystem"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-  </complexType>
-  <element name="Absorptance" substitutionGroup="gml:_Object" type="energy:AbsorptanceType">
-    <annotation>
-      <documentation>Percentaged  energy absorptance in different wavelength ranges</documentation>
-    </annotation>
-  </element>
-  <complexType name="AbsorptanceType">
-    <sequence>
-      <element name="percentage" type="double">
-        <annotation>
-          <documentation>Percentage of energy absorptance</documentation>
-        </annotation>
-      </element>
-      <element name="surface" type="energy:SurfaceSideType">
-        <annotation>
-          <documentation>Wavelength range</documentation>
-        </annotation>
-      </element>
-      <element name="wavelengthRange" type="energy:WavelengthRangeTypeType"/>
-    </sequence>
-  </complexType>
-  <complexType name="AbsorptancePropertyType">
-    <sequence>
-      <element ref="energy:Absorptance"/>
-    </sequence>
-  </complexType>
-  <element name="EnergyConversionSystem" substitutionGroup="gml:_Feature" type="energy:EnergyConversionSystemType">
-    <annotation>
-      <documentation>Energy conversion system is a system producing the energy necessary to satisfy the end-use (or to feed the networks) from an energy source.</documentation>
-    </annotation>
-  </element>
-  <complexType name="EnergyConversionSystemType">
-    <complexContent>
-      <extension base="gml:AbstractFeatureType">
-        <sequence>
-          <element minOccurs="0" name="efficiencyIndicator" type="string">
-            <annotation>
-              <documentation>COP, EER, W/(m3/h) etc.</documentation>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="installedNominalPower"/>
-          <element minOccurs="0" name="model" type="string"/>
-          <element minOccurs="0" name="nominalEfficiency">
-            <annotation>
-              <documentation>give also Efficiency Unit (COP, EEF, W/cfm, %, other)</documentation>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="number" type="integer"/>
-          <element minOccurs="0" name="productAndinstallationDocument" type="core:ExternalReferenceType"/>
-          <element minOccurs="0" name="yearOfManufacture" type="gYear"/>
-          <element minOccurs="0" name="installedIn" type="bldg:AbstractBuildingType"/>
-          <element maxOccurs="unbounded" name="consumes" type="energy:EnergySourcePropertyType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="has" type="energy:OperationModePropertyType"/>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="EnergyConversionSystemPropertyType">
-    <sequence minOccurs="0">
-      <element ref="energy:EnergyConversionSystem"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-  </complexType>
-  <element name="ConstructionOrientation" substitutionGroup="core:_CityObject" type="energy:ConstructionOrientationType">
-    <annotation>
-      <documentation>Determines the usage of Construction in terms of the Layer order.</documentation>
-    </annotation>
-  </element>
-  <complexType name="ConstructionOrientationType">
-    <complexContent>
-      <extension base="core:AbstractCityObjectType">
-        <sequence>
-          <element name="baseConstruction" type="energy:ConstructionPropertyType">
-            <annotation>
-              <documentation>Reference to the Construction being used.</documentation>
-            </annotation>
-          </element>
-          <element name="orientation" type="boolean">
-            <annotation>
-              <documentation>If &lt;i&gt;orientation == true&lt;/i&gt; the layers are used in the specified order (see  Construction), otherwise in reverse order.</documentation>
-            </annotation>
-          </element>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="ConstructionOrientationPropertyType">
-    <sequence minOccurs="0">
-      <element ref="energy:ConstructionOrientation"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-  </complexType>
-  <simpleType name="WavelengthRangeTypeType">
-    <restriction base="string">
-      <enumeration value="Solar"/>
-      <enumeration value="IR"/>
-      <enumeration value="Visible"/>
-      <enumeration value="Total"/>
-    </restriction>
-  </simpleType>
   <element name="Construction" substitutionGroup="core:_CityObject" type="energy:ConstructionType">
     <annotation>
       <documentation>A Construction is a combination of layers, such as a wall or a roof.
@@ -313,68 +228,249 @@
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
   </complexType>
-  <element name="Transmittance" substitutionGroup="gml:_Object" type="energy:TransmittanceType">
+  <element name="UsageZone" substitutionGroup="core:_CityObject" type="energy:UsageZoneType">
     <annotation>
-      <documentation>Percentaged  energy transmittance in different wavelength ranges</documentation>
+      <documentation>A usage zone is a zone of a building with homogeneous usage type.</documentation>
     </annotation>
   </element>
-  <complexType name="TransmittanceType">
-    <sequence>
-      <element name="percentage" type="double"/>
-      <element name="wavelengthRange" type="energy:WavelengthRangeTypeType"/>
-    </sequence>
-  </complexType>
-  <complexType name="TransmittancePropertyType">
-    <sequence>
-      <element ref="energy:Transmittance"/>
-    </sequence>
-  </complexType>
-  <element name="ElectricalResistance" substitutionGroup="energy:EnergyConversionSystem" type="energy:ElectricalResistanceType"/>
-  <complexType name="ElectricalResistanceType">
-    <complexContent>
-      <extension base="energy:EnergyConversionSystemType">
-        <sequence/>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="ElectricalResistancePropertyType">
-    <sequence minOccurs="0">
-      <element ref="energy:ElectricalResistance"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-  </complexType>
-  <simpleType name="ThermalBoundarySurfaceTypeType">
-    <restriction base="string">
-      <enumeration value="OuterWall"/>
-      <enumeration value="SharedWall"/>
-      <enumeration value="FlatRoof"/>
-      <enumeration value="PitchedRoof"/>
-      <enumeration value="CellarCeiling"/>
-      <enumeration value="BasementFloor"/>
-      <enumeration value="TopCeiling">
-        <annotation>
-          <documentation>Ceiling of the highest storey of the zone.</documentation>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <element name="Layer" substitutionGroup="core:_CityObject" type="energy:LayerType">
-    <annotation>
-      <documentation>A Layer is a combination of one of more materials, references via a LayerComponent.</documentation>
-    </annotation>
-  </element>
-  <complexType name="LayerType">
+  <complexType name="UsageZoneType">
     <complexContent>
       <extension base="core:AbstractCityObjectType">
         <sequence>
-          <element maxOccurs="unbounded" name="layerComponent" type="energy:LayerComponentPropertyType"/>
+          <element minOccurs="0" name="coolingSchedule" type="energy:_SchedulePropertyType">
+            <annotation>
+              <documentation>Temperature schedule [°C] of the active cooling inside the usage zone.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="heatingSchedule" type="energy:_SchedulePropertyType">
+            <annotation>
+              <documentation>Temperature schedule [°C] of the active heating inside the usage zone.</documentation>
+            </annotation>
+          </element>
+          <element name="usageZoneClass" type="gml:CodeType">
+            <annotation>
+              <documentation>Usage class of the zone.</documentation>
+            </annotation>
+          </element>
+          <element name="usedArea">
+            <annotation>
+              <documentation>Used floor area [m²].</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="usedFloorNumbers" type="integer">
+            <annotation>
+              <documentation>List of the number of floors part of the usage zone (0 = ground level).</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="ventilationSchedule" type="energy:_SchedulePropertyType">
+            <annotation>
+              <documentation>Air change rate [1/h] schedule of the ventilation system inside the usage zone.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="contains" type="energy:BuildingUnitPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="occupiedBy" type="energy:OccupancyPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="has" type="energy:FacilitiesPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="LayerPropertyType">
+  <complexType name="UsageZonePropertyType">
     <sequence minOccurs="0">
-      <element ref="energy:Layer"/>
+      <element ref="energy:UsageZone"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <simpleType name="ConditioningTypeType">
+    <restriction base="string">
+      <enumeration value="Conditioned"/>
+      <enumeration value="Unconditioned"/>
+      <enumeration value="None"/>
+    </restriction>
+  </simpleType>
+  <element name="TimeValuesProperties" substitutionGroup="gml:_Object" type="energy:TimeValuesPropertiesType">
+    <annotation>
+      <documentation>Information and properties of a given variable.</documentation>
+    </annotation>
+  </element>
+  <complexType name="TimeValuesPropertiesType">
+    <sequence>
+      <element minOccurs="0" name="acquisitionMethod" type="string"/>
+      <element minOccurs="0" name="interpolationType" type="gml:CodeType">
+        <annotation>
+          <documentation>InterpolcationType defined in WaterML:
+http://def.seegrid.csiro.au/sissvoc/ogc-def/resource?uri=http://www.opengis.net/def/waterml/2.0/interpolationType/</documentation>
+        </annotation>
+      </element>
+      <element name="qualityDescription" type="string"/>
+      <element name="source" type="string"/>
+      <element minOccurs="0" name="uom"/>
+      <element minOccurs="0" name="variableLabel" type="string"/>
+    </sequence>
+  </complexType>
+  <complexType name="TimeValuesPropertiesPropertyType">
+    <sequence>
+      <element ref="energy:TimeValuesProperties"/>
+    </sequence>
+  </complexType>
+  <element name="ElectricalAppliances" substitutionGroup="energy:Facilities" type="energy:ElectricalAppliancesType">
+    <annotation>
+      <documentation>Electrical appliances inside the building unit or building zone.</documentation>
+    </annotation>
+  </element>
+  <complexType name="ElectricalAppliancesType">
+    <complexContent>
+      <extension base="energy:FacilitiesType">
+        <sequence>
+          <element minOccurs="0" name="electricalPower"/>
+          <element minOccurs="0" name="heatLosses" type="energy:HeatExchangeTypePropertyType"/>
+          <element name="name" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="ElectricalAppliancesPropertyType">
+    <sequence minOccurs="0">
+      <element ref="energy:ElectricalAppliances"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="ThermalBoundarySurface" substitutionGroup="core:_CityObject" type="energy:ThermalBoundarySurfaceType">
+    <annotation>
+      <documentation>Thermal boundary surfaces are quasi-coplanar surfaces bounding the thermal zone. They may be linked to the gml:BoundarySurface when possible, but not necessary (e.g. cellar ceiling or top storey ceiling in the case of LOD1-3)</documentation>
+    </annotation>
+  </element>
+  <complexType name="ThermalBoundarySurfaceType">
+    <complexContent>
+      <extension base="core:AbstractCityObjectType">
+        <sequence>
+          <element minOccurs="0" name="azimuth">
+            <annotation>
+              <documentation>Azimuth angle of the normal surface vector.
+By convention:
+- azimuth = 0 for north orientation.
+- Horizontal surface have a azimuth = 0.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="inclination">
+            <annotation>
+              <documentation>Inclination angle of the normal surface vector.
+By convention, inclination = 0 for horizontal plane.</documentation>
+            </annotation>
+          </element>
+          <element name="type" type="energy:ThermalBoundarySurfaceTypeType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="partOf" type="energy:ThermalZonePropertyType"/>
+          <element maxOccurs="unbounded" name="composedOf">
+            <complexType>
+              <sequence minOccurs="0">
+                <element ref="energy:SurfaceComponent"/>
+              </sequence>
+              <attributeGroup ref="gml:AssociationAttributeGroup"/>
+            </complexType>
+          </element>
+          <element minOccurs="0" name="correspondsTo" type="bldg:BoundarySurfacePropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="ThermalBoundarySurfacePropertyType">
+    <sequence minOccurs="0">
+      <element ref="energy:ThermalBoundarySurface"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="DHWFacilities" substitutionGroup="energy:Facilities" type="energy:DHWFacilitiesType">
+    <annotation>
+      <documentation>Facilities for domestic hot water usage.</documentation>
+    </annotation>
+  </element>
+  <complexType name="DHWFacilitiesType">
+    <complexContent>
+      <extension base="energy:FacilitiesType">
+        <sequence>
+          <element minOccurs="0" name="numberOfBath" type="integer"/>
+          <element minOccurs="0" name="numberOfShower" type="integer"/>
+          <element minOccurs="0" name="numberOfWashBasin" type="integer"/>
+          <element minOccurs="0" name="waterStorageVolume"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="DHWFacilitiesPropertyType">
+    <sequence minOccurs="0">
+      <element ref="energy:DHWFacilities"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="IrregularTimeSeries" substitutionGroup="energy:_TimeSeries" type="energy:IrregularTimeSeriesType">
+    <annotation>
+      <documentation>Irregular time series is the opposite of a regular time series. The data in the time series follows a temporal sequence, but the measurements might not happen at a regular time interval.
+http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosphere.streams.timeseries-toolkit.doc/doc/timeseries-regular.html</documentation>
+    </annotation>
+  </element>
+  <complexType name="IrregularTimeSeriesType">
+    <complexContent>
+      <extension base="energy:_TimeSeriesType">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="contains" type="energy:MeasurementPointPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IrregularTimeSeriesPropertyType">
+    <sequence>
+      <element ref="energy:IrregularTimeSeries"/>
+    </sequence>
+  </complexType>
+  <element name="Facilities" substitutionGroup="gml:_Feature" type="energy:FacilitiesType">
+    <annotation>
+      <documentation>Facilities and Appliances inside the usage zone or building unit, which consumes and dissipate energy.</documentation>
+    </annotation>
+  </element>
+  <complexType name="FacilitiesType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element minOccurs="0" name="operationSchedules" type="energy:_SchedulePropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="FacilitiesPropertyType">
+    <sequence minOccurs="0">
+      <element ref="energy:Facilities"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="PowerStorageSystem" substitutionGroup="energy:_StorageSystem" type="energy:PowerStorageSystemType"/>
+  <complexType name="PowerStorageSystemType">
+    <complexContent>
+      <extension base="energy:_StorageSystemType">
+        <sequence>
+          <element minOccurs="0" name="batteryTechnology" type="string"/>
+          <element minOccurs="0" name="powerCapacity" type="integer"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="PowerStorageSystemPropertyType">
+    <sequence minOccurs="0">
+      <element ref="energy:PowerStorageSystem"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="PhotovoltaicSystem" substitutionGroup="energy:_SolarEnergySystem" type="energy:PhotovoltaicSystemType"/>
+  <complexType name="PhotovoltaicSystemType">
+    <complexContent>
+      <extension base="energy:_SolarEnergySystemType">
+        <sequence>
+          <element minOccurs="0" name="cellMaterialType" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="PhotovoltaicSystemPropertyType">
+    <sequence minOccurs="0">
+      <element ref="energy:PhotovoltaicSystem"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
   </complexType>
@@ -408,6 +504,300 @@
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
   </complexType>
+  <element name="atticType" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" type="energy:ConditioningTypeType"/>
+  <element name="averageStoreyHeight" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding"/>
+  <element name="basementCeilingHeightAboveGroundSurface" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding"/>
+  <element name="basementType" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" type="energy:ConditioningTypeType"/>
+  <element name="buildingType" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" type="gml:CodeType"/>
+  <element name="constructionStyle" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" type="string"/>
+  <element name="eavesHeight" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding"/>
+  <element name="energyPerformanceCertification" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" type="anyURI"/>
+  <element name="grossVolume" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding"/>
+  <element name="landmarked" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" type="boolean"/>
+  <element name="referenceGeoCoordinates" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" type="gml:PointPropertyType"/>
+  <element name="referenceHeatedFloorArea" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding">
+    <annotation>
+      <documentation>Floor area [m²] considered for the normalization of the standard energy demands.</documentation>
+    </annotation>
+  </element>
+  <element name="refurbishmentClass" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" type="string">
+    <annotation>
+      <documentation>to defined better....</documentation>
+    </annotation>
+  </element>
+  <element name="ridgeHeight" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" type="gml:LengthType"/>
+  <element name="yearOfRefurbishment" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" type="gYear"/>
+  <element name="usageZones" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" type="energy:UsageZonePropertyType"/>
+  <element name="thermalZones" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" type="energy:ThermalZonePropertyType"/>
+  <element abstract="true" name="AbstractMaterial" substitutionGroup="core:_CityObject" type="energy:AbstractMaterialType">
+    <annotation>
+      <documentation>Abstract superclass for all Material classes. A Material is a homogeneous substance that can be used to form elements.</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="AbstractMaterialType">
+    <complexContent>
+      <extension base="core:AbstractCityObjectType">
+        <sequence>
+          <element minOccurs="0" name="imageTexture" type="energy:ImageTexturePropertyType">
+            <annotation>
+              <documentation>Reference to a texture file</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="referenceURI" type="anyURI">
+            <annotation>
+              <documentation>Reference to internal or external information sources.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="AbstractMaterialPropertyType">
+    <sequence minOccurs="0">
+      <element ref="energy:AbstractMaterial"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="indoorShading" substitutionGroup="bldg:_GenericApplicationPropertyOfOpening" type="energy:ShadingTypePropertyType"/>
+  <element name="openableRatio" substitutionGroup="bldg:_GenericApplicationPropertyOfOpening">
+    <annotation>
+      <documentation>Fraction of the opening area which can be opened.</documentation>
+    </annotation>
+  </element>
+  <element name="outdoorShading" substitutionGroup="bldg:_GenericApplicationPropertyOfOpening" type="energy:ShadingTypePropertyType"/>
+  <element name="ScheduleLoD0" substitutionGroup="energy:_Schedule" type="energy:ScheduleLoD0Type"/>
+  <complexType name="ScheduleLoD0Type">
+    <complexContent>
+      <extension base="energy:_ScheduleType">
+        <sequence>
+          <element name="averageValue"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="ScheduleLoD0PropertyType">
+    <sequence>
+      <element ref="energy:ScheduleLoD0"/>
+    </sequence>
+  </complexType>
+  <element name="ImageTexture" substitutionGroup="gml:_Feature" type="energy:ImageTextureType">
+    <annotation>
+      <documentation>This is an X3D element to map a texture to this material. From X3D specification: The ImageTexture node defines a texture map by specifying an image file and general parameters for mapping to geometry. Texture maps are defined in a 2D coordinate system (s, t) that ranges from [0.0, 1.0] in both directions. The bottom edge of the image corresponds to the S-axis of the texture map, and left edge of the image corresponds to the T-axis of the texture map. The lower-left pixel of the image corresponds to s=0, t=0, and the top-right pixel of the image corresponds to s=1, t=1. &lt;!--When fixed: add type="x3d:ImageTexture"--&gt;</documentation>
+    </annotation>
+  </element>
+  <complexType name="ImageTextureType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="url" type="anyURI">
+            <annotation>
+              <documentation>Specifies location of the image. From X3D specification: The texture is read from the URL specified by the url field. When the url field contains no values, texturing is disabled. Browsers shall support the JPEG and PNG image file formats. In addition, browsers may support other image formats (e.g. CGM) which can be rendered into a 2D image. Support for the GIF format is also recommended (including transparency).</documentation>
+            </annotation>
+          </element>
+          <element name="repeatS" type="boolean">
+            <annotation>
+              <documentation>From X3D specification: If repeatS is TRUE, the texture map is repeated outside the [0.0, 1.0] texture coordinate range in the S direction so that it fills the shape. If repeatS is FALSE, the texture coordinates are clamped in the S direction to lie within the [0.0, 1.0] range.</documentation>
+            </annotation>
+          </element>
+          <element name="repeatT" type="boolean">
+            <annotation>
+              <documentation>From X3D specification: If repeatT is TRUE, the texture map is repeated outside the [0.0, 1.0] texture coordinate range in the T direction so that it fills the shape. If repeatT is FALSE, the texture coordinates are clamped in the T direction to lie within the [0.0, 1.0] range.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="ImageTexturePropertyType">
+    <sequence minOccurs="0">
+      <element ref="energy:ImageTexture"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="Transmittance" substitutionGroup="gml:_Object" type="energy:TransmittanceType">
+    <annotation>
+      <documentation>Percentaged  energy transmittance in different wavelength ranges</documentation>
+    </annotation>
+  </element>
+  <complexType name="TransmittanceType">
+    <sequence>
+      <element name="percentage" type="double"/>
+      <element name="wavelengthRange" type="energy:WavelengthRangeTypeType"/>
+    </sequence>
+  </complexType>
+  <complexType name="TransmittancePropertyType">
+    <sequence>
+      <element ref="energy:Transmittance"/>
+    </sequence>
+  </complexType>
+  <element name="EndUseUnit" substitutionGroup="gml:_Feature" type="energy:EndUseUnitType">
+    <annotation>
+      <documentation>Final device(s) which deliver the required end-use to the end-user in his end-use place (e.g. radiators or convectors for heating etc.)</documentation>
+    </annotation>
+  </element>
+  <complexType name="EndUseUnitType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element minOccurs="0" name="installedNominalPower" type="energy:HeatExchangeTypePropertyType"/>
+          <element minOccurs="0" name="number" type="integer"/>
+          <element name="type" type="gml:CodeType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="EndUseUnitPropertyType">
+    <sequence minOccurs="0">
+      <element ref="energy:EndUseUnit"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="SurfaceComponent" substitutionGroup="core:_CityObject" type="energy:SurfaceComponentType">
+    <annotation>
+      <documentation>Part of the thermal boundary surface corresponding to an homogeneous construction component (e.g. windows, wall, insulated part of a wall etc.)</documentation>
+    </annotation>
+  </element>
+  <complexType name="SurfaceComponentType">
+    <complexContent>
+      <extension base="core:AbstractCityObjectType">
+        <sequence>
+          <element name="area">
+            <annotation>
+              <documentation>Area of the surface [m²], portion of the related thermal boundary surface.</documentation>
+            </annotation>
+          </element>
+          <element name="isSunExposed" type="boolean"/>
+          <element name="isGroundCoupled" type="boolean"/>
+          <element minOccurs="0" name="relates" type="bldg:OpeningPropertyType"/>
+          <element minOccurs="0" name="adjacentTo" type="energy:ThermalZonePropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SurfaceComponentPropertyType">
+    <sequence minOccurs="0">
+      <element ref="energy:SurfaceComponent"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="LayerComponent" substitutionGroup="gml:_Object" type="energy:LayerComponentType">
+    <annotation>
+      <documentation>&lt;p&gt; &lt;img src="../png/LayerComponent-Illustration.png"&gt;&lt;/p&gt;</documentation>
+    </annotation>
+  </element>
+  <complexType name="LayerComponentType">
+    <sequence>
+      <element name="material" type="energy:AbstractMaterialPropertyType">
+        <annotation>
+          <documentation>Reference to the correspondinf Material</documentation>
+        </annotation>
+      </element>
+      <element default="100.0" minOccurs="0" name="areaFraction">
+        <annotation>
+          <documentation>Percentage (1 - 100%) of the layer area that the referenced Material is made from.</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="thickness">
+        <annotation>
+          <documentation>Thickness of a layer component.</documentation>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="LayerComponentPropertyType">
+    <sequence>
+      <element ref="energy:LayerComponent"/>
+    </sequence>
+  </complexType>
+  <element name="EnergyDemand" substitutionGroup="gml:_Feature" type="energy:EnergyDemandType">
+    <annotation>
+      <documentation>Energy demand is the useful energy required to satisfy a specific end-use, such as heating, cooling, domestic hot water etc.</documentation>
+    </annotation>
+  </element>
+  <complexType name="EnergyDemandType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="endUse" type="gml:CodeType"/>
+          <element minOccurs="0" name="energyAmount" type="energy:_TimeSeriesPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="energyDistribution" type="energy:EnergyDistributionSystemPropertyType"/>
+		  <element maxOccurs="unbounded" minOccurs="0" name="energyDemands" type="energy:EnergyDemandPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="EnergyDemandPropertyType">
+    <sequence minOccurs="0">
+      <element ref="energy:EnergyDemand"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="OperationMode" substitutionGroup="gml:_Feature" type="energy:OperationModeType">
+    <annotation>
+      <documentation>Operation mode details the operation of the energy conversion system for a specific end-use and operation time.</documentation>
+    </annotation>
+  </element>
+  <complexType name="OperationModeType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element minOccurs="0" name="controls" type="energy:ControlTypePropertyType"/>
+          <element name="endUse" type="gml:CodeType"/>
+          <element minOccurs="0" name="operationTime" type="energy:_SchedulePropertyType"/>
+          <element minOccurs="0" name="yearlyGlobalEfficiency"/>
+          <element minOccurs="0" name="belongs" type="energy:EnergyConversionSystemPropertyType"/>
+          <element maxOccurs="unbounded" name="produced" type="energy:EnergySupplyPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="OperationModePropertyType">
+    <sequence minOccurs="0">
+      <element ref="energy:OperationMode"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="Occupancy" substitutionGroup="gml:_Feature" type="energy:OccupancyType">
+    <annotation>
+      <documentation>Occupancy is an aggregated group of occupants of a usage zone or building unit, which can be residents, workers, visitors etc.</documentation>
+    </annotation>
+  </element>
+  <complexType name="OccupancyType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element minOccurs="0" name="internGains" type="energy:HeatExchangeTypePropertyType"/>
+          <element minOccurs="0" name="numberOfOccupants" type="integer"/>
+          <element minOccurs="0" name="occupancyRate" type="energy:_SchedulePropertyType"/>
+          <element minOccurs="0" name="occupantType" type="gml:CodeType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="consiststOf" type="energy:HouseholdPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="OccupancyPropertyType">
+    <sequence minOccurs="0">
+      <element ref="energy:Occupancy"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="DistrictNetworkSubstation" substitutionGroup="energy:EnergyConversionSystem" type="energy:DistrictNetworkSubstationType"/>
+  <complexType name="DistrictNetworkSubstationType">
+    <complexContent>
+      <extension base="energy:EnergyConversionSystemType">
+        <sequence>
+          <element name="networkId" type="string"/>
+          <element name="networkNodeId" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="DistrictNetworkSubstationPropertyType">
+    <sequence minOccurs="0">
+      <element ref="energy:DistrictNetworkSubstation"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
   <element name="Reflectance" substitutionGroup="gml:_Object" type="energy:ReflectanceType">
     <annotation>
       <documentation>Percentaged  energy reflectance in different wavelength ranges</documentation>
@@ -433,39 +823,307 @@
       <element ref="energy:Reflectance"/>
     </sequence>
   </complexType>
-  <element name="PowerDistributionSystem" substitutionGroup="energy:EnergyDistributionSystem" type="energy:PowerDistributionSystemType"/>
-  <complexType name="PowerDistributionSystemType">
+  <element name="Absorptance" substitutionGroup="gml:_Object" type="energy:AbsorptanceType">
+    <annotation>
+      <documentation>Percentaged  energy absorptance in different wavelength ranges</documentation>
+    </annotation>
+  </element>
+  <complexType name="AbsorptanceType">
+    <sequence>
+      <element name="percentage" type="double">
+        <annotation>
+          <documentation>Percentage of energy absorptance</documentation>
+        </annotation>
+      </element>
+      <element name="surface" type="energy:SurfaceSideType">
+        <annotation>
+          <documentation>Wavelength range</documentation>
+        </annotation>
+      </element>
+      <element name="wavelengthRange" type="energy:WavelengthRangeTypeType"/>
+    </sequence>
+  </complexType>
+  <complexType name="AbsorptancePropertyType">
+    <sequence>
+      <element ref="energy:Absorptance"/>
+    </sequence>
+  </complexType>
+  <element name="MeasurementPoint" substitutionGroup="gml:_Object" type="energy:MeasurementPointType"/>
+  <complexType name="MeasurementPointType">
+    <sequence>
+      <element name="time"/>
+      <element name="value" type="double"/>
+    </sequence>
+  </complexType>
+  <complexType name="MeasurementPointPropertyType">
+    <sequence>
+      <element ref="energy:MeasurementPoint"/>
+    </sequence>
+  </complexType>
+  <element name="EnergyConversionSystem" substitutionGroup="gml:_Feature" type="energy:EnergyConversionSystemType">
+    <annotation>
+      <documentation>Energy conversion system is a system producing the energy necessary to satisfy the end-use (or to feed the networks) from an energy source.</documentation>
+    </annotation>
+  </element>
+  <complexType name="EnergyConversionSystemType">
     <complexContent>
-      <extension base="energy:EnergyDistributionSystemType">
+      <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element minOccurs="0" name="current"/>
-          <element minOccurs="0" name="voltage"/>
+          <element minOccurs="0" name="efficiencyIndicator" type="string">
+            <annotation>
+              <documentation>COP, EER, W/(m3/h) etc.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="installedNominalPower"/>
+          <element minOccurs="0" name="model" type="string"/>
+          <element minOccurs="0" name="nominalEfficiency">
+            <annotation>
+              <documentation>give also Efficiency Unit (COP, EEF, W/cfm, %, other)</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="number" type="integer"/>
+          <element minOccurs="0" name="productAndinstallationDocument" type="core:ExternalReferenceType"/>
+          <element minOccurs="0" name="yearOfManufacture" type="gYear"/>
+          <element minOccurs="0" name="installedIn" type="bldg:AbstractBuildingType"/>
+          <element maxOccurs="unbounded" name="consumes" type="energy:EnergySourcePropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="has" type="energy:OperationModePropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="PowerDistributionSystemPropertyType">
+  <complexType name="EnergyConversionSystemPropertyType">
     <sequence minOccurs="0">
-      <element ref="energy:PowerDistributionSystem"/>
+      <element ref="energy:EnergyConversionSystem"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="_TimeSeries" substitutionGroup="gml:_Object" type="energy:_TimeSeriesType">
-    <annotation>
-      <documentation>Consistent series of time-depending values.</documentation>
-    </annotation>
-  </element>
-  <complexType abstract="true" name="_TimeSeriesType">
+  <element name="ControlType" substitutionGroup="gml:_Object" type="energy:ControlTypeType"/>
+  <complexType name="ControlTypeType">
     <sequence>
-      <element name="id" type="string"/>
-      <element name="temporalExtent"/>
-      <element minOccurs="0" name="variableProperties" type="energy:TimeValuesPropertiesPropertyType"/>
+      <element name="controlledVariable" type="string"/>
+      <element name="setPoint" type="energy:_SchedulePropertyType"/>
     </sequence>
   </complexType>
-  <complexType name="_TimeSeriesPropertyType">
+  <complexType name="ControlTypePropertyType">
     <sequence>
-      <element ref="energy:_TimeSeries"/>
+      <element ref="energy:ControlType"/>
     </sequence>
+  </complexType>
+  <element name="ShadingType" substitutionGroup="gml:_Object" type="energy:ShadingTypeType"/>
+  <complexType name="ShadingTypeType">
+    <sequence>
+      <element name="maximumCoverRatio">
+        <annotation>
+          <documentation>Maximum fraction of the related opening which can be covered with the shading device.</documentation>
+        </annotation>
+      </element>
+      <element name="name" type="string"/>
+      <element name="transmittance" type="energy:TransmittancePropertyType"/>
+    </sequence>
+  </complexType>
+  <complexType name="ShadingTypePropertyType">
+    <sequence>
+      <element ref="energy:ShadingType"/>
+    </sequence>
+  </complexType>
+  <element name="OpaqueMaterial" substitutionGroup="energy:AbstractMaterial" type="energy:OpaqueMaterialType">
+    <annotation>
+      <documentation>Opaque material.</documentation>
+    </annotation>
+  </element>
+  <complexType name="OpaqueMaterialType">
+    <complexContent>
+      <extension base="energy:AbstractMaterialType">
+        <sequence>
+          <element minOccurs="0" name="conductivity">
+            <annotation>
+              <documentation>Conductivity of material</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="density">
+            <annotation>
+              <documentation>Density of material</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="permeance">
+            <annotation>
+              <documentation>The rate water vapor is allowed through a surface</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="porosity">
+            <annotation>
+              <documentation>The ratio of the total amount of void space in a material (due to poses, small channels, and so on) to the bulk volume occupied by the material.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="specificHeat">
+            <annotation>
+              <documentation>Specific heat of material</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="OpaqueMaterialPropertyType">
+    <sequence minOccurs="0">
+      <element ref="energy:OpaqueMaterial"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <simpleType name="WavelengthRangeTypeType">
+    <restriction base="string">
+      <enumeration value="Solar"/>
+      <enumeration value="IR"/>
+      <enumeration value="Visible"/>
+      <enumeration value="Total"/>
+    </restriction>
+  </simpleType>
+  <element name="Emittance" substitutionGroup="gml:_Object" type="energy:EmittanceType">
+    <annotation>
+      <documentation>Percentaged infra-red emissivity</documentation>
+    </annotation>
+  </element>
+  <complexType name="EmittanceType">
+    <sequence>
+      <element name="percentage" type="double"/>
+      <element name="surface" type="energy:SurfaceSideType"/>
+      <element name="wavelengthRange" type="energy:WavelengthRangeTypeType"/>
+    </sequence>
+  </complexType>
+  <complexType name="EmittancePropertyType">
+    <sequence>
+      <element ref="energy:Emittance"/>
+    </sequence>
+  </complexType>
+  <element name="EnergySupply" substitutionGroup="gml:_Feature" type="energy:EnergySupplyType">
+    <annotation>
+      <documentation>Energy supply is the part of the energy produced by the energy conversion systems which is used to satisfy the end-use demand of a city object.</documentation>
+    </annotation>
+  </element>
+  <complexType name="EnergySupplyType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element minOccurs="0" name="endUse" type="gml:CodeType"/>
+          <element minOccurs="0" name="energyAmount" type="energy:_TimeSeriesPropertyType"/>
+          <element minOccurs="0" name="medium" type="gml:CodeType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="coverage" type="energy:EnergyCoveragePropertyType"/>
+          <element maxOccurs="unbounded" name="producedBy" type="energy:OperationModePropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="EnergySupplyPropertyType">
+    <sequence minOccurs="0">
+      <element ref="energy:EnergySupply"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="Boiler" substitutionGroup="energy:EnergyConversionSystem" type="energy:BoilerType"/>
+  <complexType name="BoilerType">
+    <complexContent>
+      <extension base="energy:EnergyConversionSystemType">
+        <sequence>
+          <element name="condensation" type="boolean"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="BoilerPropertyType">
+    <sequence minOccurs="0">
+      <element ref="energy:Boiler"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="Layer" substitutionGroup="core:_CityObject" type="energy:LayerType">
+    <annotation>
+      <documentation>A Layer is a combination of one of more materials, references via a LayerComponent.</documentation>
+    </annotation>
+  </element>
+  <complexType name="LayerType">
+    <complexContent>
+      <extension base="core:AbstractCityObjectType">
+        <sequence>
+          <element maxOccurs="unbounded" name="layerComponent" type="energy:LayerComponentPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="LayerPropertyType">
+    <sequence minOccurs="0">
+      <element ref="energy:Layer"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="Household" substitutionGroup="gml:_Feature" type="energy:HouseholdType">
+    <annotation>
+      <documentation>Household is a group of persons living in the same dwelling, in the case where occupant type is residents.</documentation>
+    </annotation>
+  </element>
+  <complexType name="HouseholdType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element minOccurs="0" name="residenceType" type="gml:CodeType"/>
+          <element minOccurs="0" name="type" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="HouseholdPropertyType">
+    <sequence minOccurs="0">
+      <element ref="energy:Household"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="correspondsTo" substitutionGroup="bldg:_GenericApplicationPropertyOfBoundarySurface" type="energy:ThermalBoundarySurfacePropertyType"/>
+  <element name="equippedWith" substitutionGroup="bldg:_GenericApplicationPropertyOfBoundarySurface" type="energy:_SolarEnergySystemPropertyType"/>
+  <element name="EnergyCarrier" substitutionGroup="gml:_Object" type="energy:EnergyCarrierType">
+    <annotation>
+      <documentation>Energy form containing the energy (e.g. fuel, renewable energy etc.)</documentation>
+    </annotation>
+  </element>
+  <complexType name="EnergyCarrierType">
+    <sequence>
+      <element name="co2EmissionFactor"/>
+      <element minOccurs="0" name="energyDensity"/>
+      <element name="primaryEnergyFactor"/>
+      <element name="type" type="gml:CodeType"/>
+    </sequence>
+  </complexType>
+  <complexType name="EnergyCarrierPropertyType">
+    <sequence>
+      <element ref="energy:EnergyCarrier"/>
+    </sequence>
+  </complexType>
+  <element name="ConstructionOrientation" substitutionGroup="core:_CityObject" type="energy:ConstructionOrientationType">
+    <annotation>
+      <documentation>Determines the usage of Construction in terms of the Layer order.</documentation>
+    </annotation>
+  </element>
+  <complexType name="ConstructionOrientationType">
+    <complexContent>
+      <extension base="core:AbstractCityObjectType">
+        <sequence>
+          <element name="baseConstruction" type="energy:ConstructionPropertyType">
+            <annotation>
+              <documentation>Reference to the Construction being used.</documentation>
+            </annotation>
+          </element>
+          <element name="orientation" type="boolean">
+            <annotation>
+              <documentation>If &lt;i&gt;orientation == true&lt;/i&gt; the layers are used in the specified order (see  Construction), otherwise in reverse order.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="ConstructionOrientationPropertyType">
+    <sequence minOccurs="0">
+      <element ref="energy:ConstructionOrientation"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
   </complexType>
   <element name="Glazing" substitutionGroup="energy:AbstractMaterial" type="energy:GlazingType">
     <annotation>
@@ -521,304 +1179,6 @@
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
   </complexType>
-  <element name="atticType" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" type="energy:ConditioningTypeType"/>
-  <element name="averageStoreyHeight" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding"/>
-  <element name="basementCeilingHeightAboveGroundSurface" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding"/>
-  <element name="basementType" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" type="energy:ConditioningTypeType"/>
-  <element name="buildingType" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" type="gml:CodeType"/>
-  <element name="constructionStyle" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" type="string"/>
-  <element name="eavesHeight" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding"/>
-  <element name="energyPerformanceCertification" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" type="anyURI"/>
-  <element name="grossVolume" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding"/>
-  <element name="landmarked" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" type="boolean"/>
-  <element name="referenceGeoCoordinates" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" type="gml:PointPropertyType"/>
-  <element name="referenceHeatedFloorArea" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding">
-    <annotation>
-      <documentation>Floor area [m²] considered for the normalization of the standard energy demands.</documentation>
-    </annotation>
-  </element>
-  <element name="refurbishmentClass" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" type="string">
-    <annotation>
-      <documentation>to defined better....</documentation>
-    </annotation>
-  </element>
-  <element name="ridgeHeight" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" type="gml:LengthType"/>
-  <element name="yearOfRefurbishment" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" type="gYear"/>
-  <element name="usageZones" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" type="energy:UsageZonePropertyType"/>
-  <element name="thermalZones" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" type="energy:ThermalZonePropertyType"/>
-  <element name="Boiler" substitutionGroup="energy:EnergyConversionSystem" type="energy:BoilerType"/>
-  <complexType name="BoilerType">
-    <complexContent>
-      <extension base="energy:EnergyConversionSystemType">
-        <sequence>
-          <element name="condensation" type="boolean"/>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="BoilerPropertyType">
-    <sequence minOccurs="0">
-      <element ref="energy:Boiler"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-  </complexType>
-  <element name="DistrictNetworkSubstation" substitutionGroup="energy:EnergyConversionSystem" type="energy:DistrictNetworkSubstationType"/>
-  <complexType name="DistrictNetworkSubstationType">
-    <complexContent>
-      <extension base="energy:EnergyConversionSystemType">
-        <sequence>
-          <element name="networkId" type="string"/>
-          <element name="networkNodeId" type="string"/>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="DistrictNetworkSubstationPropertyType">
-    <sequence minOccurs="0">
-      <element ref="energy:DistrictNetworkSubstation"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-  </complexType>
-  <element name="indoorShading" substitutionGroup="bldg:_GenericApplicationPropertyOfOpening" type="energy:ShadingTypePropertyType"/>
-  <element name="openableRatio" substitutionGroup="bldg:_GenericApplicationPropertyOfOpening">
-    <annotation>
-      <documentation>Fraction of the opening area which can be opened.</documentation>
-    </annotation>
-  </element>
-  <element name="outdoorShading" substitutionGroup="bldg:_GenericApplicationPropertyOfOpening" type="energy:ShadingTypePropertyType"/>
-  <element name="ScheduleLoD1" substitutionGroup="energy:_Schedule" type="energy:ScheduleLoD1Type"/>
-  <complexType name="ScheduleLoD1Type">
-    <complexContent>
-      <extension base="energy:_ScheduleType">
-        <sequence>
-          <element name="dailyUsageEndingTime" type="time"/>
-          <element name="dailyUsageStartingTime" type="time"/>
-          <element name="idleValue"/>
-          <element name="usageDaysPerYear" type="double"/>
-          <element name="usageValue"/>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="ScheduleLoD1PropertyType">
-    <sequence>
-      <element ref="energy:ScheduleLoD1"/>
-    </sequence>
-  </complexType>
-  <element name="UsageZone" substitutionGroup="core:_CityObject" type="energy:UsageZoneType">
-    <annotation>
-      <documentation>A usage zone is a zone of a building with homogeneous usage type.</documentation>
-    </annotation>
-  </element>
-  <complexType name="UsageZoneType">
-    <complexContent>
-      <extension base="core:AbstractCityObjectType">
-        <sequence>
-          <element minOccurs="0" name="coolingSchedule" type="energy:_SchedulePropertyType">
-            <annotation>
-              <documentation>Temperature schedule [°C] of the active cooling inside the usage zone.</documentation>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="heatingSchedule" type="energy:_SchedulePropertyType">
-            <annotation>
-              <documentation>Temperature schedule [°C] of the active heating inside the usage zone.</documentation>
-            </annotation>
-          </element>
-          <element name="usageZoneClass" type="gml:CodeType">
-            <annotation>
-              <documentation>Usage class of the zone.</documentation>
-            </annotation>
-          </element>
-          <element name="usedArea">
-            <annotation>
-              <documentation>Used floor area [m²].</documentation>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="usedFloorNumbers" type="integer">
-            <annotation>
-              <documentation>List of the number of floors part of the usage zone (0 = ground level).</documentation>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="ventilationSchedule" type="energy:_SchedulePropertyType">
-            <annotation>
-              <documentation>Air change rate [1/h] schedule of the ventilation system inside the usage zone.</documentation>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="contains" type="energy:BuildingUnitPropertyType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="occupiedBy" type="energy:OccupancyPropertyType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="has" type="energy:FacilitiesPropertyType"/>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="UsageZonePropertyType">
-    <sequence minOccurs="0">
-      <element ref="energy:UsageZone"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-  </complexType>
-  <simpleType name="SurfaceSideType">
-    <restriction base="string">
-      <enumeration value="Inside"/>
-      <enumeration value="Outside"/>
-    </restriction>
-  </simpleType>
-  <element name="MeasurementPoint" substitutionGroup="gml:_Object" type="energy:MeasurementPointType"/>
-  <complexType name="MeasurementPointType">
-    <sequence>
-      <element name="time"/>
-      <element name="value" type="double"/>
-    </sequence>
-  </complexType>
-  <complexType name="MeasurementPointPropertyType">
-    <sequence>
-      <element ref="energy:MeasurementPoint"/>
-    </sequence>
-  </complexType>
-  <element name="EnergyDistributionSystem" substitutionGroup="gml:_Feature" type="energy:EnergyDistributionSystemType">
-    <annotation>
-      <documentation>Energy distribution system is a system in charge of delivering the energy inside the building, from the place of energy production to the place of end-use. It consists then in the storage (including battery/tank and pipe volumes), the circulation pumps, the distribution pipes and the end use units (radiators, fan coils etc.).</documentation>
-    </annotation>
-  </element>
-  <complexType name="EnergyDistributionSystemType">
-    <complexContent>
-      <extension base="gml:AbstractFeatureType">
-        <sequence>
-          <element minOccurs="0" name="distributionPerimeter" type="gml:CodeType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="endUseUnit" type="energy:EndUseUnitPropertyType"/>
-          <element minOccurs="0" name="energySupply" type="energy:EnergySupplyPropertyType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="storageSystem" type="energy:_StorageSystemPropertyType"/>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="EnergyDistributionSystemPropertyType">
-    <sequence minOccurs="0">
-      <element ref="energy:EnergyDistributionSystem"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-  </complexType>
-  <element name="EndUseUnit" substitutionGroup="gml:_Feature" type="energy:EndUseUnitType">
-    <annotation>
-      <documentation>Final device(s) which deliver the required end-use to the end-user in his end-use place (e.g. radiators or convectors for heating etc.)</documentation>
-    </annotation>
-  </element>
-  <complexType name="EndUseUnitType">
-    <complexContent>
-      <extension base="gml:AbstractFeatureType">
-        <sequence>
-          <element minOccurs="0" name="installedNominalPower" type="energy:HeatExchangeTypePropertyType"/>
-          <element minOccurs="0" name="number" type="integer"/>
-          <element name="type" type="gml:CodeType"/>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="EndUseUnitPropertyType">
-    <sequence minOccurs="0">
-      <element ref="energy:EndUseUnit"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-  </complexType>
-  <element name="PhotovoltaicSystem" substitutionGroup="energy:EnergyConversionSystem" type="energy:PhotovoltaicSystemType"/>
-  <complexType name="PhotovoltaicSystemType">
-    <complexContent>
-      <extension base="energy:EnergyConversionSystemType">
-        <sequence>
-          <element minOccurs="0" name="cellMaterialType" type="string"/>
-          <element name="collectorSurface"/>
-          <element minOccurs="0" name="installedOn" type="bldg:BoundarySurfacePropertyType"/>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="PhotovoltaicSystemPropertyType">
-    <sequence minOccurs="0">
-      <element ref="energy:PhotovoltaicSystem"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-  </complexType>
-  <element name="OpaqueMaterial" substitutionGroup="energy:AbstractMaterial" type="energy:OpaqueMaterialType">
-    <annotation>
-      <documentation>Opaque material.</documentation>
-    </annotation>
-  </element>
-  <complexType name="OpaqueMaterialType">
-    <complexContent>
-      <extension base="energy:AbstractMaterialType">
-        <sequence>
-          <element minOccurs="0" name="conductivity">
-            <annotation>
-              <documentation>Conductivity of material</documentation>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="density">
-            <annotation>
-              <documentation>Density of material</documentation>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="permeance">
-            <annotation>
-              <documentation>The rate water vapor is allowed through a surface</documentation>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="porosity">
-            <annotation>
-              <documentation>The ratio of the total amount of void space in a material (due to poses, small channels, and so on) to the bulk volume occupied by the material.</documentation>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="specificHeat">
-            <annotation>
-              <documentation>Specific heat of material</documentation>
-            </annotation>
-          </element>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="OpaqueMaterialPropertyType">
-    <sequence minOccurs="0">
-      <element ref="energy:OpaqueMaterial"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-  </complexType>
-  <element name="ElectricalAppliances" substitutionGroup="energy:Facilities" type="energy:ElectricalAppliancesType">
-    <annotation>
-      <documentation>Electrical appliances inside the building unit or building zone.</documentation>
-    </annotation>
-  </element>
-  <complexType name="ElectricalAppliancesType">
-    <complexContent>
-      <extension base="energy:FacilitiesType">
-        <sequence>
-          <element minOccurs="0" name="electricalPower"/>
-          <element minOccurs="0" name="heatLosses" type="energy:HeatExchangeTypePropertyType"/>
-          <element name="name" type="string"/>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="ElectricalAppliancesPropertyType">
-    <sequence minOccurs="0">
-      <element ref="energy:ElectricalAppliances"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-  </complexType>
-  <element name="ScheduleLoD0" substitutionGroup="energy:_Schedule" type="energy:ScheduleLoD0Type"/>
-  <complexType name="ScheduleLoD0Type">
-    <complexContent>
-      <extension base="energy:_ScheduleType">
-        <sequence>
-          <element name="averageValue"/>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="ScheduleLoD0PropertyType">
-    <sequence>
-      <element ref="energy:ScheduleLoD0"/>
-    </sequence>
-  </complexType>
   <element name="RegularTimeSeries" substitutionGroup="energy:_TimeSeries" type="energy:RegularTimeSeriesType">
     <annotation>
       <documentation>regular time series contain values generated at regularly spaced interval of time</documentation>
@@ -839,35 +1199,6 @@
       <element ref="energy:RegularTimeSeries"/>
     </sequence>
   </complexType>
-  <element abstract="true" name="AbstractMaterial" substitutionGroup="core:_CityObject" type="energy:AbstractMaterialType">
-    <annotation>
-      <documentation>Abstract superclass for all Material classes. A Material is a homogeneous substance that can be used to form elements.</documentation>
-    </annotation>
-  </element>
-  <complexType abstract="true" name="AbstractMaterialType">
-    <complexContent>
-      <extension base="core:AbstractCityObjectType">
-        <sequence>
-          <element minOccurs="0" name="imageTexture" type="energy:ImageTexturePropertyType">
-            <annotation>
-              <documentation>Reference to a texture file</documentation>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="referenceURI" type="anyURI">
-            <annotation>
-              <documentation>Reference to internal or external information sources.</documentation>
-            </annotation>
-          </element>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="AbstractMaterialPropertyType">
-    <sequence minOccurs="0">
-      <element ref="energy:AbstractMaterial"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-  </complexType>
   <element name="MechanicalVentilation" substitutionGroup="energy:EnergyConversionSystem" type="energy:MechanicalVentilationType"/>
   <complexType name="MechanicalVentilationType">
     <complexContent>
@@ -885,374 +1216,40 @@
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
   </complexType>
-  <element name="EnergyCoverage" substitutionGroup="gml:_Feature" type="energy:EnergyCoverageType">
-    <annotation>
-      <documentation>Determine the level of energy coverage (may be time depending) by a given operation mode of an energy conversion system.</documentation>
-    </annotation>
-  </element>
-  <complexType name="EnergyCoverageType">
+  <element name="ThermalDistributionSystem" substitutionGroup="energy:EnergyDistributionSystem" type="energy:ThermalDistributionSystemType"/>
+  <complexType name="ThermalDistributionSystemType">
     <complexContent>
-      <extension base="gml:AbstractFeatureType">
+      <extension base="energy:EnergyDistributionSystemType">
         <sequence>
-          <element name="coverageRatio" type="energy:_TimeSeriesPropertyType"/>
-          <element minOccurs="0" name="coveredBy" type="energy:OperationModePropertyType"/>
+          <element minOccurs="0" name="isCirculation" type="boolean"/>
+          <element minOccurs="0" name="medium" type="gml:CodeType"/>
+          <element minOccurs="0" name="nominalFlow"/>
+          <element minOccurs="0" name="returnTemperature"/>
+          <element minOccurs="0" name="supplyTemperature"/>
+          <element minOccurs="0" name="thermalLossesFactor"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="EnergyCoveragePropertyType">
+  <complexType name="ThermalDistributionSystemPropertyType">
     <sequence minOccurs="0">
-      <element ref="energy:EnergyCoverage"/>
+      <element ref="energy:ThermalDistributionSystem"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
   </complexType>
-  <element name="DailySchedule" substitutionGroup="gml:_GML" type="energy:DailyScheduleType"/>
-  <complexType name="DailyScheduleType">
-    <complexContent>
-      <extension base="gml:AbstractGMLType">
-        <sequence>
-          <element name="dayType" type="gml:CodeType"/>
-          <element name="schedule" type="energy:_TimeSeriesPropertyType"/>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="DailySchedulePropertyType">
-    <sequence minOccurs="0">
-      <element ref="energy:DailySchedule"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-  </complexType>
-  <element name="ImageTexture" substitutionGroup="gml:_Feature" type="energy:ImageTextureType">
-    <annotation>
-      <documentation>This is an X3D element to map a texture to this material. From X3D specification: The ImageTexture node defines a texture map by specifying an image file and general parameters for mapping to geometry. Texture maps are defined in a 2D coordinate system (s, t) that ranges from [0.0, 1.0] in both directions. The bottom edge of the image corresponds to the S-axis of the texture map, and left edge of the image corresponds to the T-axis of the texture map. The lower-left pixel of the image corresponds to s=0, t=0, and the top-right pixel of the image corresponds to s=1, t=1. &lt;!--When fixed: add type="x3d:ImageTexture"--&gt;</documentation>
-    </annotation>
-  </element>
-  <complexType name="ImageTextureType">
-    <complexContent>
-      <extension base="gml:AbstractFeatureType">
-        <sequence>
-          <element name="url" type="anyURI">
-            <annotation>
-              <documentation>Specifies location of the image. From X3D specification: The texture is read from the URL specified by the url field. When the url field contains no values, texturing is disabled. Browsers shall support the JPEG and PNG image file formats. In addition, browsers may support other image formats (e.g. CGM) which can be rendered into a 2D image. Support for the GIF format is also recommended (including transparency).</documentation>
-            </annotation>
-          </element>
-          <element name="repeatS" type="boolean">
-            <annotation>
-              <documentation>From X3D specification: If repeatS is TRUE, the texture map is repeated outside the [0.0, 1.0] texture coordinate range in the S direction so that it fills the shape. If repeatS is FALSE, the texture coordinates are clamped in the S direction to lie within the [0.0, 1.0] range.</documentation>
-            </annotation>
-          </element>
-          <element name="repeatT" type="boolean">
-            <annotation>
-              <documentation>From X3D specification: If repeatT is TRUE, the texture map is repeated outside the [0.0, 1.0] texture coordinate range in the T direction so that it fills the shape. If repeatT is FALSE, the texture coordinates are clamped in the T direction to lie within the [0.0, 1.0] range.</documentation>
-            </annotation>
-          </element>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="ImageTexturePropertyType">
-    <sequence minOccurs="0">
-      <element ref="energy:ImageTexture"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-  </complexType>
-  <element name="SolarThermalSystem" substitutionGroup="energy:EnergyConversionSystem" type="energy:SolarThermalSystemType"/>
-  <complexType name="SolarThermalSystemType">
+  <element name="ElectricalResistance" substitutionGroup="energy:EnergyConversionSystem" type="energy:ElectricalResistanceType"/>
+  <complexType name="ElectricalResistanceType">
     <complexContent>
       <extension base="energy:EnergyConversionSystemType">
-        <sequence>
-          <element name="collectorSurface"/>
-          <element minOccurs="0" name="technologyType" type="string"/>
-          <element minOccurs="0" name="installedOn" type="bldg:BoundarySurfacePropertyType"/>
-        </sequence>
+        <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="SolarThermalSystemPropertyType">
+  <complexType name="ElectricalResistancePropertyType">
     <sequence minOccurs="0">
-      <element ref="energy:SolarThermalSystem"/>
+      <element ref="energy:ElectricalResistance"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
-  </complexType>
-  <element name="OperationMode" substitutionGroup="gml:_Feature" type="energy:OperationModeType">
-    <annotation>
-      <documentation>Operation mode details the operation of the energy conversion system for a specific end-use and operation time.</documentation>
-    </annotation>
-  </element>
-  <complexType name="OperationModeType">
-    <complexContent>
-      <extension base="gml:AbstractFeatureType">
-        <sequence>
-          <element minOccurs="0" name="controls" type="energy:ControlTypePropertyType"/>
-          <element name="endUse" type="gml:CodeType"/>
-          <element minOccurs="0" name="operationTime" type="energy:_SchedulePropertyType"/>
-          <element minOccurs="0" name="yearlyGlobalEfficiency"/>
-          <element minOccurs="0" name="belongs" type="energy:EnergyConversionSystemPropertyType"/>
-          <element maxOccurs="unbounded" name="produced" type="energy:EnergySupplyPropertyType"/>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="OperationModePropertyType">
-    <sequence minOccurs="0">
-      <element ref="energy:OperationMode"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-  </complexType>
-  <element name="BuildingUnit" substitutionGroup="core:_CityObject" type="energy:BuildingUnitType">
-    <annotation>
-      <documentation>A building unit is a part of usage zone, such as dwelling or workplace, which is related to a single occupant entity.</documentation>
-    </annotation>
-  </element>
-  <complexType name="BuildingUnitType">
-    <complexContent>
-      <extension base="core:AbstractCityObjectType">
-        <sequence>
-          <element minOccurs="0" name="numberOfRooms" type="integer"/>
-          <element minOccurs="0" name="ownerName" type="string"/>
-          <element minOccurs="0" name="ownershipType" type="gml:CodeType"/>
-          <element minOccurs="0" name="usedArea"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="occupiedBy" type="energy:OccupancyPropertyType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="has" type="energy:FacilitiesPropertyType"/>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="BuildingUnitPropertyType">
-    <sequence minOccurs="0">
-      <element ref="energy:BuildingUnit"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-  </complexType>
-  <element name="Household" substitutionGroup="gml:_Feature" type="energy:HouseholdType">
-    <annotation>
-      <documentation>Household is a group of persons living in the same dwelling, in the case where occupant type is residents.</documentation>
-    </annotation>
-  </element>
-  <complexType name="HouseholdType">
-    <complexContent>
-      <extension base="gml:AbstractFeatureType">
-        <sequence>
-          <element minOccurs="0" name="residenceType" type="gml:CodeType"/>
-          <element minOccurs="0" name="type" type="string"/>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="HouseholdPropertyType">
-    <sequence minOccurs="0">
-      <element ref="energy:Household"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-  </complexType>
-  <element name="DHWFacilities" substitutionGroup="energy:Facilities" type="energy:DHWFacilitiesType">
-    <annotation>
-      <documentation>Facilities for domestic hot water usage.</documentation>
-    </annotation>
-  </element>
-  <complexType name="DHWFacilitiesType">
-    <complexContent>
-      <extension base="energy:FacilitiesType">
-        <sequence>
-          <element minOccurs="0" name="numberOfBath" type="integer"/>
-          <element minOccurs="0" name="numberOfShower" type="integer"/>
-          <element minOccurs="0" name="numberOfWashBasin" type="integer"/>
-          <element minOccurs="0" name="waterStorageVolume"/>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="DHWFacilitiesPropertyType">
-    <sequence minOccurs="0">
-      <element ref="energy:DHWFacilities"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-  </complexType>
-  <element name="Facilities" substitutionGroup="gml:_Feature" type="energy:FacilitiesType">
-    <annotation>
-      <documentation>Facilities and Appliances inside the usage zone or building unit, which consumes and dissipate energy.</documentation>
-    </annotation>
-  </element>
-  <complexType name="FacilitiesType">
-    <complexContent>
-      <extension base="gml:AbstractFeatureType">
-        <sequence>
-          <element minOccurs="0" name="operationSchedules" type="energy:_SchedulePropertyType"/>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="FacilitiesPropertyType">
-    <sequence minOccurs="0">
-      <element ref="energy:Facilities"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-  </complexType>
-  <element name="LayerComponent" substitutionGroup="gml:_Object" type="energy:LayerComponentType">
-    <annotation>
-      <documentation>&lt;p&gt; &lt;img src="../png/LayerComponent-Illustration.png"&gt;&lt;/p&gt;</documentation>
-    </annotation>
-  </element>
-  <complexType name="LayerComponentType">
-    <sequence>
-      <element name="material" type="energy:AbstractMaterialPropertyType">
-        <annotation>
-          <documentation>Reference to the correspondinf Material</documentation>
-        </annotation>
-      </element>
-      <element default="100.0" minOccurs="0" name="areaFraction">
-        <annotation>
-          <documentation>Percentage (1 - 100%) of the layer area that the referenced Material is made from.</documentation>
-        </annotation>
-      </element>
-      <element minOccurs="0" name="thickness">
-        <annotation>
-          <documentation>Thickness of a layer component.</documentation>
-        </annotation>
-      </element>
-    </sequence>
-  </complexType>
-  <complexType name="LayerComponentPropertyType">
-    <sequence>
-      <element ref="energy:LayerComponent"/>
-    </sequence>
-  </complexType>
-  <element name="IrregularTimeSeries" substitutionGroup="energy:_TimeSeries" type="energy:IrregularTimeSeriesType">
-    <annotation>
-      <documentation>Irregular time series is the opposite of a regular time series. The data in the time series follows a temporal sequence, but the measurements might not happen at a regular time interval.
-http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosphere.streams.timeseries-toolkit.doc/doc/timeseries-regular.html</documentation>
-    </annotation>
-  </element>
-  <complexType name="IrregularTimeSeriesType">
-    <complexContent>
-      <extension base="energy:_TimeSeriesType">
-        <sequence>
-          <element maxOccurs="unbounded" minOccurs="0" name="contains" type="energy:MeasurementPointPropertyType"/>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="IrregularTimeSeriesPropertyType">
-    <sequence>
-      <element ref="energy:IrregularTimeSeries"/>
-    </sequence>
-  </complexType>
-  <element name="correspondsTo" substitutionGroup="bldg:_GenericApplicationPropertyOfBoundarySurface" type="energy:ThermalBoundarySurfacePropertyType"/>
-  <element name="solarThermalSystem" substitutionGroup="bldg:_GenericApplicationPropertyOfBoundarySurface" type="energy:SolarThermalSystemPropertyType"/>
-  <element name="photovoltaicSystem" substitutionGroup="bldg:_GenericApplicationPropertyOfBoundarySurface" type="energy:PhotovoltaicSystemPropertyType"/>
-  <element name="ControlType" substitutionGroup="gml:_Object" type="energy:ControlTypeType"/>
-  <complexType name="ControlTypeType">
-    <sequence>
-      <element name="controlledVariable" type="string"/>
-      <element name="setPoint" type="energy:_SchedulePropertyType"/>
-    </sequence>
-  </complexType>
-  <complexType name="ControlTypePropertyType">
-    <sequence>
-      <element ref="energy:ControlType"/>
-    </sequence>
-  </complexType>
-  <element name="HeatExchangeType" substitutionGroup="gml:_Object" type="energy:HeatExchangeTypeType">
-    <annotation>
-      <documentation>Contributions of the different types of heat or cool exchange (convective, radiant and latent)</documentation>
-    </annotation>
-  </element>
-  <complexType name="HeatExchangeTypeType">
-    <sequence>
-      <element minOccurs="0" name="convectiveFraction"/>
-      <element minOccurs="0" name="latentFraction"/>
-      <element minOccurs="0" name="radiantFraction"/>
-      <element name="totalValue"/>
-    </sequence>
-  </complexType>
-  <complexType name="HeatExchangeTypePropertyType">
-    <sequence>
-      <element ref="energy:HeatExchangeType"/>
-    </sequence>
-  </complexType>
-  <element name="ThermalStorageSystem" substitutionGroup="energy:_StorageSystem" type="energy:ThermalStorageSystemType"/>
-  <complexType name="ThermalStorageSystemType">
-    <complexContent>
-      <extension base="energy:_StorageSystemType">
-        <sequence>
-          <element minOccurs="0" name="averageTemperature"/>
-          <element minOccurs="0" name="medium" type="gml:CodeType"/>
-          <element minOccurs="0" name="thermalLossesFactor">
-            <annotation>
-              <documentation>U*A</documentation>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="volume"/>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="ThermalStorageSystemPropertyType">
-    <sequence minOccurs="0">
-      <element ref="energy:ThermalStorageSystem"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-  </complexType>
-  <element name="Emittance" substitutionGroup="gml:_Object" type="energy:EmittanceType">
-    <annotation>
-      <documentation>Percentaged infra-red emissivity</documentation>
-    </annotation>
-  </element>
-  <complexType name="EmittanceType">
-    <sequence>
-      <element name="percentage" type="double"/>
-      <element name="surface" type="energy:SurfaceSideType"/>
-      <element name="wavelengthRange" type="energy:WavelengthRangeTypeType"/>
-    </sequence>
-  </complexType>
-  <complexType name="EmittancePropertyType">
-    <sequence>
-      <element ref="energy:Emittance"/>
-    </sequence>
-  </complexType>
-  <element name="EnergyCarrier" substitutionGroup="gml:_Object" type="energy:EnergyCarrierType">
-    <annotation>
-      <documentation>Energy form containing the energy (e.g. fuel, renewable energy etc.)</documentation>
-    </annotation>
-  </element>
-  <complexType name="EnergyCarrierType">
-    <sequence>
-      <element name="co2EmissionFactor"/>
-      <element minOccurs="0" name="energyDensity"/>
-      <element name="primaryEnergyFactor"/>
-      <element name="type" type="gml:CodeType"/>
-    </sequence>
-  </complexType>
-  <complexType name="EnergyCarrierPropertyType">
-    <sequence>
-      <element ref="energy:EnergyCarrier"/>
-    </sequence>
-  </complexType>
-  <element name="TimeValuesProperties" substitutionGroup="gml:_Object" type="energy:TimeValuesPropertiesType">
-    <annotation>
-      <documentation>Information and properties of a given variable.</documentation>
-    </annotation>
-  </element>
-  <complexType name="TimeValuesPropertiesType">
-    <sequence>
-      <element minOccurs="0" name="acquisitionMethod" type="string"/>
-      <element minOccurs="0" name="interpolationType" type="gml:CodeType">
-        <annotation>
-          <documentation>InterpolcationType defined in WaterML:
-http://def.seegrid.csiro.au/sissvoc/ogc-def/resource?uri=http://www.opengis.net/def/waterml/2.0/interpolationType/</documentation>
-        </annotation>
-      </element>
-      <element name="qualityDescription" type="string"/>
-      <element name="source" type="string"/>
-      <element minOccurs="0" name="uom"/>
-      <element minOccurs="0" name="variableLabel" type="string"/>
-    </sequence>
-  </complexType>
-  <complexType name="TimeValuesPropertiesPropertyType">
-    <sequence>
-      <element ref="energy:TimeValuesProperties"/>
-    </sequence>
   </complexType>
   <element name="ThermalZone" substitutionGroup="core:_CityObject" type="energy:ThermalZoneType">
     <annotation>
@@ -1305,75 +1302,43 @@ It is a semantic object, which may be or not related to a geometric entity.</doc
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
   </complexType>
-  <element name="ScheduleLoD3" substitutionGroup="energy:_Schedule" type="energy:ScheduleLoD3Type"/>
-  <complexType name="ScheduleLoD3Type">
-    <complexContent>
-      <extension base="energy:_ScheduleType">
-        <sequence>
-          <element name="timeDependingValues" type="energy:_TimeSeriesPropertyType"/>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="ScheduleLoD3PropertyType">
-    <sequence>
-      <element ref="energy:ScheduleLoD3"/>
-    </sequence>
-  </complexType>
-  <element name="ShadingType" substitutionGroup="gml:_Object" type="energy:ShadingTypeType"/>
-  <complexType name="ShadingTypeType">
-    <sequence>
-      <element name="maximumCoverRatio">
-        <annotation>
-          <documentation>Maximum fraction of the related opening which can be covered with the shading device.</documentation>
-        </annotation>
-      </element>
-      <element name="name" type="string"/>
-      <element name="transmittance" type="energy:TransmittancePropertyType"/>
-    </sequence>
-  </complexType>
-  <complexType name="ShadingTypePropertyType">
-    <sequence>
-      <element ref="energy:ShadingType"/>
-    </sequence>
-  </complexType>
-  <element name="CombinedHeatPower" substitutionGroup="energy:EnergyConversionSystem" type="energy:CombinedHeatPowerType"/>
-  <complexType name="CombinedHeatPowerType">
+  <element name="HeatPump" substitutionGroup="energy:EnergyConversionSystem" type="energy:HeatPumpType"/>
+  <complexType name="HeatPumpType">
     <complexContent>
       <extension base="energy:EnergyConversionSystemType">
         <sequence>
-          <element name="technologyType" type="string"/>
+          <element minOccurs="0" name="carnotEfficiency" type="double"/>
+          <element name="heatSource" type="gml:CodeType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="CombinedHeatPowerPropertyType">
+  <complexType name="HeatPumpPropertyType">
     <sequence minOccurs="0">
-      <element ref="energy:CombinedHeatPower"/>
+      <element ref="energy:HeatPump"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
   </complexType>
-  <element name="Occupancy" substitutionGroup="gml:_Feature" type="energy:OccupancyType">
-    <annotation>
-      <documentation>Occupancy is an aggregated group of occupants of a usage zone or building unit, which can be residents, workers, visitors etc.</documentation>
-    </annotation>
-  </element>
-  <complexType name="OccupancyType">
+  <element name="ThermalStorageSystem" substitutionGroup="energy:_StorageSystem" type="energy:ThermalStorageSystemType"/>
+  <complexType name="ThermalStorageSystemType">
     <complexContent>
-      <extension base="gml:AbstractFeatureType">
+      <extension base="energy:_StorageSystemType">
         <sequence>
-          <element minOccurs="0" name="internGains" type="energy:HeatExchangeTypePropertyType"/>
-          <element minOccurs="0" name="numberOfOccupants" type="integer"/>
-          <element minOccurs="0" name="occupancyRate" type="energy:_SchedulePropertyType"/>
-          <element minOccurs="0" name="occupantType" type="gml:CodeType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="consiststOf" type="energy:HouseholdPropertyType"/>
+          <element minOccurs="0" name="averageTemperature"/>
+          <element minOccurs="0" name="medium" type="gml:CodeType"/>
+          <element minOccurs="0" name="thermalLossesFactor">
+            <annotation>
+              <documentation>U*A</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="volume"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="OccupancyPropertyType">
+  <complexType name="ThermalStorageSystemPropertyType">
     <sequence minOccurs="0">
-      <element ref="energy:Occupancy"/>
+      <element ref="energy:ThermalStorageSystem"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
   </complexType>
@@ -1390,69 +1355,118 @@ It is a semantic object, which may be or not related to a geometric entity.</doc
       <element ref="energy:ScheduleLoD2"/>
     </sequence>
   </complexType>
-  <element name="ThermalDistributionSystem" substitutionGroup="energy:EnergyDistributionSystem" type="energy:ThermalDistributionSystemType"/>
-  <complexType name="ThermalDistributionSystemType">
+  <element name="ScheduleLoD3" substitutionGroup="energy:_Schedule" type="energy:ScheduleLoD3Type"/>
+  <complexType name="ScheduleLoD3Type">
     <complexContent>
-      <extension base="energy:EnergyDistributionSystemType">
+      <extension base="energy:_ScheduleType">
         <sequence>
-          <element minOccurs="0" name="isCirculation" type="boolean"/>
-          <element minOccurs="0" name="medium" type="gml:CodeType"/>
-          <element minOccurs="0" name="nominalFlow"/>
-          <element minOccurs="0" name="returnTemperature"/>
-          <element minOccurs="0" name="supplyTemperature"/>
-          <element minOccurs="0" name="thermalLossesFactor"/>
+          <element name="timeDependingValues" type="energy:_TimeSeriesPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="ThermalDistributionSystemPropertyType">
+  <complexType name="ScheduleLoD3PropertyType">
+    <sequence>
+      <element ref="energy:ScheduleLoD3"/>
+    </sequence>
+  </complexType>
+  <element name="DailySchedule" substitutionGroup="gml:_GML" type="energy:DailyScheduleType"/>
+  <complexType name="DailyScheduleType">
+    <complexContent>
+      <extension base="gml:AbstractGMLType">
+        <sequence>
+          <element name="dayType" type="gml:CodeType"/>
+          <element name="schedule" type="energy:_TimeSeriesPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="DailySchedulePropertyType">
     <sequence minOccurs="0">
-      <element ref="energy:ThermalDistributionSystem"/>
+      <element ref="energy:DailySchedule"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
   </complexType>
-  <element name="ThermalBoundarySurface" substitutionGroup="core:_CityObject" type="energy:ThermalBoundarySurfaceType">
+  <element name="BuildingUnit" substitutionGroup="core:_CityObject" type="energy:BuildingUnitType">
     <annotation>
-      <documentation>Thermal boundary surfaces are quasi-coplanar surfaces bounding the thermal zone. They may be linked to the gml:BoundarySurface when possible, but not necessary (e.g. cellar ceiling or top storey ceiling in the case of LOD1-3)</documentation>
+      <documentation>A building unit is a part of usage zone, such as dwelling or workplace, which is related to a single occupant entity.</documentation>
     </annotation>
   </element>
-  <complexType name="ThermalBoundarySurfaceType">
+  <complexType name="BuildingUnitType">
     <complexContent>
       <extension base="core:AbstractCityObjectType">
         <sequence>
-          <element minOccurs="0" name="azimuth">
-            <annotation>
-              <documentation>Azimuth angle of the normal surface vector.
-By convention:
-- azimuth = 0 for north orientation.
-- Horizontal surface have a azimuth = 0.</documentation>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="inclination">
-            <annotation>
-              <documentation>Inclination angle of the normal surface vector.
-By convention, inclination = 0 for horizontal plane.</documentation>
-            </annotation>
-          </element>
-          <element name="type" type="energy:ThermalBoundarySurfaceTypeType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="partOf" type="energy:ThermalZonePropertyType"/>
-          <element maxOccurs="unbounded" name="composedOf">
-            <complexType>
-              <sequence minOccurs="0">
-                <element ref="energy:SurfaceComponent"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </complexType>
-          </element>
-          <element minOccurs="0" name="correspondsTo" type="bldg:BoundarySurfacePropertyType"/>
+          <element minOccurs="0" name="numberOfRooms" type="integer"/>
+          <element minOccurs="0" name="ownerName" type="string"/>
+          <element minOccurs="0" name="ownershipType" type="gml:CodeType"/>
+          <element minOccurs="0" name="usedArea"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="occupiedBy" type="energy:OccupancyPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="has" type="energy:FacilitiesPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="ThermalBoundarySurfacePropertyType">
+  <complexType name="BuildingUnitPropertyType">
     <sequence minOccurs="0">
-      <element ref="energy:ThermalBoundarySurface"/>
+      <element ref="energy:BuildingUnit"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
   </complexType>
+  <element name="ScheduleLoD1" substitutionGroup="energy:_Schedule" type="energy:ScheduleLoD1Type"/>
+  <complexType name="ScheduleLoD1Type">
+    <complexContent>
+      <extension base="energy:_ScheduleType">
+        <sequence>
+          <element name="dailyUsageEndingTime" type="time"/>
+          <element name="dailyUsageStartingTime" type="time"/>
+          <element name="idleValue"/>
+          <element name="usageDaysPerYear" type="double"/>
+          <element name="usageValue"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="ScheduleLoD1PropertyType">
+    <sequence>
+      <element ref="energy:ScheduleLoD1"/>
+    </sequence>
+  </complexType>
+  <element abstract="true" name="_TimeSeries" substitutionGroup="gml:_Object" type="energy:_TimeSeriesType">
+    <annotation>
+      <documentation>Consistent series of time-depending values.</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="_TimeSeriesType">
+    <sequence>
+      <element name="id" type="string"/>
+      <element name="temporalExtent"/>
+      <element minOccurs="0" name="variableProperties" type="energy:TimeValuesPropertiesPropertyType"/>
+    </sequence>
+  </complexType>
+  <complexType name="_TimeSeriesPropertyType">
+    <sequence>
+      <element ref="energy:_TimeSeries"/>
+    </sequence>
+  </complexType>
+  <simpleType name="ThermalBoundarySurfaceTypeType">
+    <restriction base="string">
+      <enumeration value="OuterWall"/>
+      <enumeration value="SharedWall"/>
+      <enumeration value="FlatRoof"/>
+      <enumeration value="PitchedRoof"/>
+      <enumeration value="CellarCeiling"/>
+      <enumeration value="BasementFloor"/>
+      <enumeration value="TopCeiling">
+        <annotation>
+          <documentation>Ceiling of the highest storey of the zone.</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="SurfaceSideType">
+    <restriction base="string">
+      <enumeration value="Inside"/>
+      <enumeration value="Outside"/>
+    </restriction>
+  </simpleType>
 </schema>
