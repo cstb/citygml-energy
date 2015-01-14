@@ -26,6 +26,7 @@
         * Move attribute collectorSurface from SolarThermalSystem / PhotovoltaicSystem to _SolarEnergySystem
         * Add attributes panelInclination and panelAzimuth to _SolarEnergySystem
         * Fix case of attribute productAndInstallationDocument in EnergyConversionSystem class
+        * Add 'constructionOrientation' name to association between '<<ADEElement>> _CityObject' and 'ConstructionOrientation'
         * Manual edit of generated XSD schema:
             - The line
                 <element maxOccurs="unbounded" minOccurs="0" name="construction" type="energy:ConstructionPropertyType"/>

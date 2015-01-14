@@ -217,7 +217,6 @@
               <documentation>Percentaged transmittance of shading surface</documentation>
             </annotation>
           </element>
-		  <element maxOccurs="unbounded" minOccurs="0" name="construction" type="energy:ConstructionPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -721,7 +720,6 @@ http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosp
           <element name="endUse" type="gml:CodeType"/>
           <element minOccurs="0" name="energyAmount" type="energy:_TimeSeriesPropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="energyDistribution" type="energy:EnergyDistributionSystemPropertyType"/>
-		  <element maxOccurs="unbounded" minOccurs="0" name="energyDemands" type="energy:EnergyDemandPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -978,6 +976,9 @@ http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosp
       <enumeration value="Total"/>
     </restriction>
   </simpleType>
+  <element substitutionGroup="core:_GenericApplicationPropertyOfCityObject" name="construction" type="energy:ConstructionPropertyType"/>
+  <element substitutionGroup="core:_GenericApplicationPropertyOfCityObject" name="energyDemands" type="energy:EnergyDemandPropertyType"/>
+  <element substitutionGroup="core:_GenericApplicationPropertyOfCityObject" name="constructionOrientation" type="energy:ConstructionOrientationPropertyType"/>
   <element name="Emittance" substitutionGroup="gml:_Object" type="energy:EmittanceType">
     <annotation>
       <documentation>Percentaged infra-red emissivity</documentation>
