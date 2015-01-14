@@ -1,32 +1,13 @@
-**************************
-*** CityGML Energy ADE ***
-**************************
-
-*** Description ***
-
-*** Authors ***
-    * Occupancy module
-        * TODO
-    * Core module
-        * TODO
-    * System module
-        * TODO
-    * Material module
-        * TODO
-    * Enterprise Architect UML model
-        * Romain Nouvel
-        * Marcel Bruse
-        * Olivier Tournaire
-    * UML model to XSD schema conversion
-        * Olivier Tournaire
 
 *** Changelog ***
+
     * v0.4.2 - 2015/01/14
         * Add an abstract class _SolarEnergySystem and derive from it SolarThermalSystem and PhotovoltaicSystem
         * Move attribute collectorSurface from SolarThermalSystem / PhotovoltaicSystem to _SolarEnergySystem
         * Add attributes panelInclination and panelAzimuth to _SolarEnergySystem
         * Fix case of attribute productAndInstallationDocument in EnergyConversionSystem class
         * Add 'constructionOrientation' name to association between '<<ADEElement>> _CityObject' and 'ConstructionOrientation'
+        * Set stereotype of 'DailySchedule' to 'dataType'
         * Manual edit of generated XSD schema:
             - The line
                 <element maxOccurs="unbounded" minOccurs="0" name="construction" type="energy:ConstructionPropertyType"/>
@@ -36,10 +17,12 @@
                 <element minOccurs="0" name="installedOn" type="energy:_BoundarySurfacePropertyType"/>
             has to be replaced with
                 <element minOccurs="0" name="installedOn" type="bldg:BoundarySurfacePropertyType"/>
+
     * v0.4.1 - 2015/01/12
         * [BUGFIX] It was not possible to define thermal boundary surfaces for thermal zones. Solution: Moved role "boundedBy" from entity "ThermalZone" to "ThermalBoundarySurface".
         * [BUGFIX] It was not possible to define a construction for boundary surfaces. Added role "construction" to association between <<ADEElement>>_CityObject and Construction.
         * Moved associations between SolarThermalSystem and PhotovoltaicSystem from Building::_BoundarySurface to <<ADEElement>>_BoundarySurface.
+
     * v0.4.0 - 2015/01/07
         * [BUGFIX] Change 'Coverage' to 'EnergyCoverage' to avoid clashing with 'gml:Coverage'
         * [BUGFIX] Fix xsdEncodingRule tagged values for elements (iso19136_2007_ShapeChange_1.0_Extensions):
