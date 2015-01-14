@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="windows-1252"?>
-<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2015-01-14 09:13:26">
+<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2015-01-14 09:15:43">
 	<XMI.header>
 		<XMI.documentation>
 			<XMI.exporter>Enterprise Architect</XMI.exporter>
@@ -192,7 +192,7 @@
 								</UML:Collaboration>
 								<UML:Package name="GML" xmi.id="EAPK_4DEF732E_52BD_411e_AA72_367A84DC58AC" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
 									<UML:ModelElement.stereotype>
-										<UML:Stereotype xmi.idref="EAID_CBD25800_ADA2_49c3_9B19_FFC2390AD11B"/>
+										<UML:Stereotype xmi.idref="EAID_E30F3067_ECDC_4e7b_B53B_944C3D65A3A4"/>
 									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="parent" value="EAPK_96733C01_3259_430f_8BCA_CF43A34AF7EA"/>
@@ -5655,7 +5655,7 @@
 						</UML:Package>
 						<UML:Package name="Energy-ADE" xmi.id="EAPK_A74CE7E8_412F_4656_877F_E486E31317EB" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
 							<UML:ModelElement.stereotype>
-								<UML:Stereotype xmi.idref="EAID_CBD25800_ADA2_49c3_9B19_FFC2390AD11B"/>
+								<UML:Stereotype xmi.idref="EAID_E30F3067_ECDC_4e7b_B53B_944C3D65A3A4"/>
 							</UML:ModelElement.stereotype>
 							<UML:ModelElement.taggedValue>
 								<UML:TaggedValue tag="parent" value="EAPK_4A041A64_7A21_4e1b_B174_0C77B1687FA7"/>
@@ -11592,14 +11592,14 @@
 										<UML:TaggedValue tag="ea_eleType" value="element"/>
 										<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 										<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={75C1FBEA-55E5-40f8-B3D8-732F2B182FE9}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=featureType;GUID={EBF69563-9637-4938-B5C3-F8F9261C57ED};FQName=UML Profile for ADE generation::featureType;@ENDSTEREO;$DES;$CLT={7F310708-8D61-424e-9793-36CB7EB86BB8}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-										<UML:TaggedValue tag="modeldocument" xmlns:dt="urn:schemas-microsoft-com:datatypes" dt:dt="bin.base64">UEsDBBQAAAAIALZJLkY72DYlPwEAADICAAAHABEAc3RyLmRhdFVUDQAHNzO2VDcztlQ3M7ZU
+										<UML:TaggedValue tag="modeldocument" xmlns:dt="urn:schemas-microsoft-com:datatypes" dt:dt="bin.base64">UEsDBBQAAAAIAPhJLkY72DYlPwEAADICAAAHABEAc3RyLmRhdFVUDQAHwDO2VMAztlTAM7ZU
 bVGxTsQwDN2R+IfMTEnpAdJNSIgRsbBlcVsnLZdLiuNSTqf7d5xrORhYkudn59l+OVpiZyzE
 PNgOXYDojb69s45j826n1hTW6euro3UpMjdBgFbW5XnIWT3SAGF7OpV8m0IiKVBbS9hVm431
 hBgLaMKEci8ZvfD6zGq1PT/OfAiYe0Qu+iJf1eol0b6oi3Q26gkdTIHVKxB4grFXzzLQ2vtG
 hD/LcG9xF9Mcz7QdYUSaTVXVesG92TwI3gP5YB70guiC2NRrtjmjHqFDOtxXMlBKvMKYPKUZ
 Jk5u4GIPQ7OU0D738kIqHAJPhNxTYg5orEOuLWDsouhkC+JvpNDa0TfUUWm0wtJIRs/YcqHm
 /BXXBXxf8O8CJbrs8DfgElw2+Qn+XyY3uxE8inpsxc5yd9gW7wIMcT3XD7EfQVz9BlBLAQIX
-CxQAAAAIALZJLkY72DYlPwEAADICAAAHAAkAAAAAAAAAAAAAgAAAAABzdHIuZGF0VVQFAAc3
+CxQAAAAIAPhJLkY72DYlPwEAADICAAAHAAkAAAAAAAAAAAAAgAAAAABzdHIuZGF0VVQFAAfA
 M7ZUUEsFBgAAAAABAAEAPgAAAHUBAAAAAA==</UML:TaggedValue>
 									</UML:ModelElement.taggedValue>
 									<UML:Classifier.feature>
@@ -15788,7 +15788,7 @@ M7ZUUEsFBgAAAAABAAEAPgAAAHUBAAAAAA==</UML:TaggedValue>
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={F1CE77D9-8DB9-4a7c-B8C0-47A049A41154}$XID;$NAM=CustomProperties$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={716EB2DF-9645-4086-A4B5-9A6CCEB7833E}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="productAndinstallationDocument" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="productAndInstallationDocument" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -17926,7 +17926,7 @@ M7ZUUEsFBgAAAAABAAEAPgAAAHUBAAAAAA==</UML:TaggedValue>
 						</UML:Package>
 						<UML:Package name="extensible Address language" xmi.id="EAPK_223D5E60_A398_456e_97F9_DF235D4FE336" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
 							<UML:ModelElement.stereotype>
-								<UML:Stereotype xmi.idref="EAID_CBD25800_ADA2_49c3_9B19_FFC2390AD11B"/>
+								<UML:Stereotype xmi.idref="EAID_E30F3067_ECDC_4e7b_B53B_944C3D65A3A4"/>
 							</UML:ModelElement.stereotype>
 							<UML:ModelElement.taggedValue>
 								<UML:TaggedValue tag="parent" value="EAPK_4A041A64_7A21_4e1b_B174_0C77B1687FA7"/>
@@ -18464,7 +18464,7 @@ M7ZUUEsFBgAAAAABAAEAPgAAAHUBAAAAAA==</UML:TaggedValue>
 								</UML:Collaboration>
 								<UML:Package name="Appearance" xmi.id="EAPK_73B090E7_D0C4_4a9d_81F1_711F7EC708A3" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
 									<UML:ModelElement.stereotype>
-										<UML:Stereotype xmi.idref="EAID_8E161B33_904F_41e5_AE19_4FC5FD4BE813"/>
+										<UML:Stereotype xmi.idref="EAID_732564A0_4687_40ed_B303_E349ED276EF4"/>
 									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="parent" value="EAPK_FD418FD7_E28F_4764_9414_0E9F66BA0E9D"/>
@@ -19991,7 +19991,7 @@ M7ZUUEsFBgAAAAABAAEAPgAAAHUBAAAAAA==</UML:TaggedValue>
 								</UML:Package>
 								<UML:Package name="Bridge" xmi.id="EAPK_4002DD6B_A5ED_4c74_B81E_A3BF05EF40E6" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
 									<UML:ModelElement.stereotype>
-										<UML:Stereotype xmi.idref="EAID_8E161B33_904F_41e5_AE19_4FC5FD4BE813"/>
+										<UML:Stereotype xmi.idref="EAID_732564A0_4687_40ed_B303_E349ED276EF4"/>
 									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="parent" value="EAPK_FD418FD7_E28F_4764_9414_0E9F66BA0E9D"/>
@@ -20758,7 +20758,7 @@ M7ZUUEsFBgAAAAABAAEAPgAAAHUBAAAAAA==</UML:TaggedValue>
 								</UML:Package>
 								<UML:Package name="Building" xmi.id="EAPK_7B82C33D_67C9_4c77_A369_E80F6539845F" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
 									<UML:ModelElement.stereotype>
-										<UML:Stereotype xmi.idref="EAID_CBD25800_ADA2_49c3_9B19_FFC2390AD11B"/>
+										<UML:Stereotype xmi.idref="EAID_E30F3067_ECDC_4e7b_B53B_944C3D65A3A4"/>
 									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="parent" value="EAPK_FD418FD7_E28F_4764_9414_0E9F66BA0E9D"/>
@@ -23503,7 +23503,7 @@ M7ZUUEsFBgAAAAABAAEAPgAAAHUBAAAAAA==</UML:TaggedValue>
 								</UML:Package>
 								<UML:Package name="CityFurniture" xmi.id="EAPK_F172F318_0A41_4ac4_8E90_2E3705A4342B" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
 									<UML:ModelElement.stereotype>
-										<UML:Stereotype xmi.idref="EAID_CBD25800_ADA2_49c3_9B19_FFC2390AD11B"/>
+										<UML:Stereotype xmi.idref="EAID_E30F3067_ECDC_4e7b_B53B_944C3D65A3A4"/>
 									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="parent" value="EAPK_FD418FD7_E28F_4764_9414_0E9F66BA0E9D"/>
@@ -23927,7 +23927,7 @@ M7ZUUEsFBgAAAAABAAEAPgAAAHUBAAAAAA==</UML:TaggedValue>
 								</UML:Package>
 								<UML:Package name="CityGML Core" xmi.id="EAPK_1EA77CD6_FBC7_492e_B86E_709096554D8B" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
 									<UML:ModelElement.stereotype>
-										<UML:Stereotype xmi.idref="EAID_CBD25800_ADA2_49c3_9B19_FFC2390AD11B"/>
+										<UML:Stereotype xmi.idref="EAID_E30F3067_ECDC_4e7b_B53B_944C3D65A3A4"/>
 									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="parent" value="EAPK_FD418FD7_E28F_4764_9414_0E9F66BA0E9D"/>
@@ -26068,7 +26068,7 @@ M7ZUUEsFBgAAAAABAAEAPgAAAHUBAAAAAA==</UML:TaggedValue>
 								</UML:Package>
 								<UML:Package name="CityObjectGroup" xmi.id="EAPK_CF267346_D225_44c2_97E5_2DE543B1017E" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
 									<UML:ModelElement.stereotype>
-										<UML:Stereotype xmi.idref="EAID_8E161B33_904F_41e5_AE19_4FC5FD4BE813"/>
+										<UML:Stereotype xmi.idref="EAID_732564A0_4687_40ed_B303_E349ED276EF4"/>
 									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="parent" value="EAPK_FD418FD7_E28F_4764_9414_0E9F66BA0E9D"/>
@@ -26234,7 +26234,7 @@ M7ZUUEsFBgAAAAABAAEAPgAAAHUBAAAAAA==</UML:TaggedValue>
 								</UML:Package>
 								<UML:Package name="Generics" xmi.id="EAPK_7172BB1C_97AB_48f4_9088_584C3AF6608D" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
 									<UML:ModelElement.stereotype>
-										<UML:Stereotype xmi.idref="EAID_8E161B33_904F_41e5_AE19_4FC5FD4BE813"/>
+										<UML:Stereotype xmi.idref="EAID_732564A0_4687_40ed_B303_E349ED276EF4"/>
 									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="parent" value="EAPK_FD418FD7_E28F_4764_9414_0E9F66BA0E9D"/>
@@ -26876,7 +26876,7 @@ M7ZUUEsFBgAAAAABAAEAPgAAAHUBAAAAAA==</UML:TaggedValue>
 								</UML:Package>
 								<UML:Package name="LandUse" xmi.id="EAPK_2C524955_A653_41ba_98C9_071BCA227265" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
 									<UML:ModelElement.stereotype>
-										<UML:Stereotype xmi.idref="EAID_CBD25800_ADA2_49c3_9B19_FFC2390AD11B"/>
+										<UML:Stereotype xmi.idref="EAID_E30F3067_ECDC_4e7b_B53B_944C3D65A3A4"/>
 									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="parent" value="EAPK_FD418FD7_E28F_4764_9414_0E9F66BA0E9D"/>
@@ -27075,7 +27075,7 @@ M7ZUUEsFBgAAAAABAAEAPgAAAHUBAAAAAA==</UML:TaggedValue>
 								</UML:Package>
 								<UML:Package name="Relief" xmi.id="EAPK_930CB535_80F5_400d_A8AE_8145430F6346" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
 									<UML:ModelElement.stereotype>
-										<UML:Stereotype xmi.idref="EAID_8E161B33_904F_41e5_AE19_4FC5FD4BE813"/>
+										<UML:Stereotype xmi.idref="EAID_732564A0_4687_40ed_B303_E349ED276EF4"/>
 									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="parent" value="EAPK_FD418FD7_E28F_4764_9414_0E9F66BA0E9D"/>
@@ -27505,7 +27505,7 @@ M7ZUUEsFBgAAAAABAAEAPgAAAHUBAAAAAA==</UML:TaggedValue>
 								</UML:Package>
 								<UML:Package name="TexturedSurface [deprecated]" xmi.id="EAPK_5B08CC03_798C_4542_8195_31FAE8E6A324" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
 									<UML:ModelElement.stereotype>
-										<UML:Stereotype xmi.idref="EAID_8E161B33_904F_41e5_AE19_4FC5FD4BE813"/>
+										<UML:Stereotype xmi.idref="EAID_732564A0_4687_40ed_B303_E349ED276EF4"/>
 									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="parent" value="EAPK_FD418FD7_E28F_4764_9414_0E9F66BA0E9D"/>
@@ -27551,7 +27551,7 @@ M7ZUUEsFBgAAAAABAAEAPgAAAHUBAAAAAA==</UML:TaggedValue>
 								</UML:Package>
 								<UML:Package name="Transportation" xmi.id="EAPK_DA416AFA_09C2_4ffc_AD5A_E0018CA9D4CD" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
 									<UML:ModelElement.stereotype>
-										<UML:Stereotype xmi.idref="EAID_CBD25800_ADA2_49c3_9B19_FFC2390AD11B"/>
+										<UML:Stereotype xmi.idref="EAID_E30F3067_ECDC_4e7b_B53B_944C3D65A3A4"/>
 									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="parent" value="EAPK_FD418FD7_E28F_4764_9414_0E9F66BA0E9D"/>
@@ -28790,7 +28790,7 @@ M7ZUUEsFBgAAAAABAAEAPgAAAHUBAAAAAA==</UML:TaggedValue>
 								</UML:Package>
 								<UML:Package name="Tunnel" xmi.id="EAPK_9D4CD163_2E34_4530_AA3D_293DADC61243" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
 									<UML:ModelElement.stereotype>
-										<UML:Stereotype xmi.idref="EAID_8E161B33_904F_41e5_AE19_4FC5FD4BE813"/>
+										<UML:Stereotype xmi.idref="EAID_732564A0_4687_40ed_B303_E349ED276EF4"/>
 									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="parent" value="EAPK_FD418FD7_E28F_4764_9414_0E9F66BA0E9D"/>
@@ -29125,7 +29125,7 @@ M7ZUUEsFBgAAAAABAAEAPgAAAHUBAAAAAA==</UML:TaggedValue>
 								</UML:Package>
 								<UML:Package name="Vegetation" xmi.id="EAPK_9BFD22E7_8038_4c8f_BC82_60921FE19209" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
 									<UML:ModelElement.stereotype>
-										<UML:Stereotype xmi.idref="EAID_CBD25800_ADA2_49c3_9B19_FFC2390AD11B"/>
+										<UML:Stereotype xmi.idref="EAID_E30F3067_ECDC_4e7b_B53B_944C3D65A3A4"/>
 									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="parent" value="EAPK_FD418FD7_E28F_4764_9414_0E9F66BA0E9D"/>
@@ -29839,7 +29839,7 @@ M7ZUUEsFBgAAAAABAAEAPgAAAHUBAAAAAA==</UML:TaggedValue>
 								</UML:Package>
 								<UML:Package name="WaterBody" xmi.id="EAPK_2B779AAD_F626_41bd_803B_86CFF0851E80" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
 									<UML:ModelElement.stereotype>
-										<UML:Stereotype xmi.idref="EAID_CBD25800_ADA2_49c3_9B19_FFC2390AD11B"/>
+										<UML:Stereotype xmi.idref="EAID_E30F3067_ECDC_4e7b_B53B_944C3D65A3A4"/>
 									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="parent" value="EAPK_FD418FD7_E28F_4764_9414_0E9F66BA0E9D"/>
@@ -30488,10 +30488,10 @@ M7ZUUEsFBgAAAAABAAEAPgAAAHUBAAAAAA==</UML:TaggedValue>
 						</UML:Package>
 					</UML:Namespace.ownedElement>
 				</UML:Package>
-				<UML:Stereotype xmi.id="EAID_CBD25800_ADA2_49c3_9B19_FFC2390AD11B" name="applicationSchema" isRoot="false" isLeaf="false" isAbstract="false">
+				<UML:Stereotype xmi.id="EAID_E30F3067_ECDC_4e7b_B53B_944C3D65A3A4" name="applicationSchema" isRoot="false" isLeaf="false" isAbstract="false">
 					<UML:Stereotype.baseClass>Package</UML:Stereotype.baseClass>
 				</UML:Stereotype>
-				<UML:Stereotype xmi.id="EAID_8E161B33_904F_41e5_AE19_4FC5FD4BE813" name="ApplicationSchema" isRoot="false" isLeaf="false" isAbstract="false">
+				<UML:Stereotype xmi.id="EAID_732564A0_4687_40ed_B303_E349ED276EF4" name="ApplicationSchema" isRoot="false" isLeaf="false" isAbstract="false">
 					<UML:Stereotype.baseClass>Package</UML:Stereotype.baseClass>
 				</UML:Stereotype>
 				<UML:DataType xmi.id="eaxmiid8" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>

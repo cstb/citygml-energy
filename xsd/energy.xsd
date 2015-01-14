@@ -882,7 +882,7 @@ http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosp
             </annotation>
           </element>
           <element minOccurs="0" name="number" type="integer"/>
-          <element minOccurs="0" name="productAndinstallationDocument" type="core:ExternalReferenceType"/>
+          <element minOccurs="0" name="productAndInstallationDocument" type="core:ExternalReferenceType"/>
           <element minOccurs="0" name="yearOfManufacture" type="gYear"/>
           <element minOccurs="0" name="installedIn" type="bldg:AbstractBuildingType"/>
           <element maxOccurs="unbounded" name="consumes" type="energy:EnergySourcePropertyType"/>
