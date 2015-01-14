@@ -11,14 +11,33 @@
         * Moved target of association 'installedIn' from 'core:_AbstractBuilding' to 'energy:_AbstractBuilding'
         * Set a bidirectionnal association between 'EnergyConversionSystem' and 'energy:_AbstractBuilding'
         * Manual edit of generated XSD schema:
-            - The line
-                <element maxOccurs="unbounded" minOccurs="0" name="construction" type="energy:ConstructionPropertyType"/>
-              has to be cut / paste in
-                  <complexType name="ConstructionType">
+            - The lines
+  				<element maxOccurs="unbounded" minOccurs="0" name="construction" type="energy:ConstructionPropertyType"/>
+  				<element maxOccurs="unbounded" minOccurs="0" name="energyDemands" type="energy:EnergyDemandPropertyType"/>
+  				<element maxOccurs="unbounded" minOccurs="0" name="constructionOrientation" type="energy:ConstructionOrientationPropertyType"/>
+  			has to be replaced with
+  				<element substitutionGroup="core:_GenericApplicationPropertyOfCityObject" name="construction" type="energy:ConstructionPropertyType"/>
+  				<element substitutionGroup="core:_GenericApplicationPropertyOfCityObject" name="energyDemands" type="energy:EnergyDemandPropertyType"/>
+  				<element substitutionGroup="core:_GenericApplicationPropertyOfCityObject" name="constructionOrientation" type="energy:ConstructionOrientationPropertyType"/>
+  			and cut / paste at the end of the schema
+            - In 'ThermalBoundarySurfaceType', the line
+                <element minOccurs="0" name="correspondsTo" type="energy:_BoundarySurfacePropertyType"/>
+            has to be replaced with
+                <element minOccurs="0" name="installedOn" type="bldg:BoundarySurfacePropertyType"/>
             - In '_SolarEnergySystemType', the line
                 <element minOccurs="0" name="installedOn" type="energy:_BoundarySurfacePropertyType"/>
             has to be replaced with
                 <element minOccurs="0" name="installedOn" type="bldg:BoundarySurfacePropertyType"/>
+            - In 'SurfaceComponentType', the line
+                <element minOccurs="0" name="relates" type="energy:_OpeningPropertyType"/>
+            has to be replaced with
+                <element minOccurs="0" name="relates" type="bldg:OpeningPropertyType"/>
+            - In 'EnergyConversionSystemType', the lines
+                <element minOccurs="0" name="installedIn" type="bldg:_AbstractBuildingPropertyType"/>
+                <element minOccurs="0" name="productAndinstallationDocument" type="core:ExternalReferencePropertyType"/>
+            has to be replaced with (resp.)
+                <element minOccurs="0" name="installedIn" type="bldg:AbstractBuildingType"/>
+                <element minOccurs="0" name="productAndinstallationDocument" type="core:ExternalReferenceType"/>
 
     * v0.4.1 - 2015/01/12
         * [BUGFIX] It was not possible to define thermal boundary surfaces for thermal zones. Solution: Moved role "boundedBy" from entity "ThermalZone" to "ThermalBoundarySurface".

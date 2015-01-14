@@ -976,9 +976,6 @@ http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosp
       <enumeration value="Total"/>
     </restriction>
   </simpleType>
-  <element substitutionGroup="core:_GenericApplicationPropertyOfCityObject" name="construction" type="energy:ConstructionPropertyType"/>
-  <element substitutionGroup="core:_GenericApplicationPropertyOfCityObject" name="energyDemands" type="energy:EnergyDemandPropertyType"/>
-  <element substitutionGroup="core:_GenericApplicationPropertyOfCityObject" name="constructionOrientation" type="energy:ConstructionOrientationPropertyType"/>
   <element name="Emittance" substitutionGroup="gml:_Object" type="energy:EmittanceType">
     <annotation>
       <documentation>Percentaged infra-red emissivity</documentation>
@@ -1371,22 +1368,17 @@ It is a semantic object, which may be or not related to a geometric entity.</doc
       <element ref="energy:ScheduleLoD3"/>
     </sequence>
   </complexType>
-  <element name="DailySchedule" substitutionGroup="gml:_GML" type="energy:DailyScheduleType"/>
+  <element name="DailySchedule" substitutionGroup="gml:_Object" type="energy:DailyScheduleType"/>
   <complexType name="DailyScheduleType">
-    <complexContent>
-      <extension base="gml:AbstractGMLType">
-        <sequence>
-          <element name="dayType" type="gml:CodeType"/>
-          <element name="schedule" type="energy:_TimeSeriesPropertyType"/>
-        </sequence>
-      </extension>
-    </complexContent>
+    <sequence>
+      <element name="dayType" type="gml:CodeType"/>
+      <element name="schedule" type="energy:_TimeSeriesPropertyType"/>
+    </sequence>
   </complexType>
   <complexType name="DailySchedulePropertyType">
-    <sequence minOccurs="0">
+    <sequence>
       <element ref="energy:DailySchedule"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
   </complexType>
   <element name="BuildingUnit" substitutionGroup="core:_CityObject" type="energy:BuildingUnitType">
     <annotation>
@@ -1470,4 +1462,7 @@ It is a semantic object, which may be or not related to a geometric entity.</doc
       <enumeration value="Outside"/>
     </restriction>
   </simpleType>
+  	<element substitutionGroup="core:_GenericApplicationPropertyOfCityObject" name="construction" type="energy:ConstructionPropertyType"/>
+  	<element substitutionGroup="core:_GenericApplicationPropertyOfCityObject" name="energyDemands" type="energy:EnergyDemandPropertyType"/>
+  	<element substitutionGroup="core:_GenericApplicationPropertyOfCityObject" name="constructionOrientation" type="energy:ConstructionOrientationPropertyType"/>
 </schema>
