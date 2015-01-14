@@ -9,6 +9,7 @@
         * Add 'constructionOrientation' name to association between '<<ADEElement>> _CityObject' and 'ConstructionOrientation'
         * Set stereotype of 'DailySchedule' to 'dataType'
         * Moved target of association 'installedIn' from 'core:_AbstractBuilding' to 'energy:_AbstractBuilding'
+        * Set a bidirectionnal association between 'EnergyConversionSystem' and 'energy:_AbstractBuilding'
         * Manual edit of generated XSD schema:
             - The line
                 <element maxOccurs="unbounded" minOccurs="0" name="construction" type="energy:ConstructionPropertyType"/>
