@@ -1,0 +1,115 @@
+**************************
+*** CityGML Energy ADE ***
+**************************
+
+*** Description ***
+
+*** Authors ***
+    * Occupancy module
+        * TODO
+    * Core module
+        * TODO
+    * System module
+        * TODO
+    * Material module
+        * TODO
+    * Enterprise Architect UML model
+        * Romain Nouvel
+        * Marcel Bruse
+        * Olivier Tournaire
+    * UML model to XSD schema conversion
+        * Olivier Tournaire
+
+*** Changelog ***
+    * v0.4.2 - 2015/01/14
+        * Add an abstract class _SolarEnergySystem and derive from it SolarThermalSystem and PhotovoltaicSystem
+        * Move attribute collectorSurface from SolarThermalSystem / PhotovoltaicSystem to _SolarEnergySystem
+        * Add attributes panelInclination and panelAzimuth to _SolarEnergySystem
+        * Fix case of attribute productAndInstallationDocument in EnergyConversionSystem class
+        * Manual edit of generated XSD schema:
+            - The line
+                <element maxOccurs="unbounded" minOccurs="0" name="construction" type="energy:ConstructionPropertyType"/>
+              has to be cut / paste in
+                  <complexType name="ConstructionType">
+            - In '_SolarEnergySystemType', the line
+                <element minOccurs="0" name="installedOn" type="energy:_BoundarySurfacePropertyType"/>
+            has to be replaced with
+                <element minOccurs="0" name="installedOn" type="bldg:BoundarySurfacePropertyType"/>
+    * v0.4.1 - 2015/01/12
+        * [BUGFIX] It was not possible to define thermal boundary surfaces for thermal zones. Solution: Moved role "boundedBy" from entity "ThermalZone" to "ThermalBoundarySurface".
+        * [BUGFIX] It was not possible to define a construction for boundary surfaces. Added role "construction" to association between <<ADEElement>>_CityObject and Construction.
+        * Moved associations between SolarThermalSystem and PhotovoltaicSystem from Building::_BoundarySurface to <<ADEElement>>_BoundarySurface.
+    * v0.4.0 - 2015/01/07
+        * [BUGFIX] Change 'Coverage' to 'EnergyCoverage' to avoid clashing with 'gml:Coverage'
+        * [BUGFIX] Fix xsdEncodingRule tagged values for elements (iso19136_2007_ShapeChange_1.0_Extensions):
+            - ConstructionOrientation
+            - Construction
+            - Layer
+            - LayerComponent
+            - AbstractMaterial
+            - ImageTexture
+            - Gas
+            - OpaqueMaterial
+            - Glazing
+        * [BUGFIX] Fix definitions in GML schema:
+            - LengthType
+            - MeasureType
+            - ScaleType
+            - VolumeType
+            - AngleType
+            - AreaType
+            - UomIdentifier
+        * [BUGFIX] Rename relations to avoid clashing
+            - _AbstractBuliding --> UsageZone: FROM contains to usageZones
+            - _AbstractBuliding --> ThermalZone: FROM contains to thermalZones
+            - EnergyDistributionSystem --> _StorageSystem: FROM has to storageSystem
+            - EnergyDistributionSystem --> EndUseUnit: FROM has to endUseUnit
+        * Manual edit of generated XSD schema:
+            - The line
+                <element maxOccurs="unbounded" minOccurs="0" name="energyDemands" type="energy:EnergyDemandPropertyType"/>
+              has to be cut / paste in
+                  <complexType name="EnergyDemandType">
+              EnergyDemandType thus becomes
+                <complexContent>
+                  <extension base="gml:AbstractFeatureType">
+                    <sequence>
+                      <element name="endUse" type="gml:CodeType"/>
+                      <element minOccurs="0" name="energyAmount" type="energy:_TimeSeriesPropertyType"/>
+                      <element maxOccurs="unbounded" minOccurs="0" name="energyDistribution" type="energy:EnergyDistributionSystemPropertyType"/>
+                      <element maxOccurs="unbounded" minOccurs="0" name="energyDemands" type="energy:EnergyDemandPropertyType"/>
+                    </sequence>
+                  </extension>
+                </complexContent>
+              </complexType>
+            - In 'ThermalBoundarySurfaceType', the line
+                <element minOccurs="0" name="correspondsTo" type="energy:_BoundarySurfacePropertyType"/>
+            has to be replaced with
+                <element minOccurs="0" name="correspondsTo" type="bldg:BoundarySurfacePropertyType"/>
+            - In 'SurfaceComponentType', the line
+                <element minOccurs="0" name="relates" type="energy:_OpeningPropertyType"/>
+            has to be replaced with
+                <element minOccurs="0" name="relates" type="bldg:OpeningPropertyType"/>
+            - In 'EnergyConversionSystemType', the lines
+                <element minOccurs="0" name="installedIn" type="bldg:_AbstractBuildingPropertyType"/>
+                <element minOccurs="0" name="productAndinstallationDocument" type="core:ExternalReferencePropertyType"/>
+            has to be replaced with (resp.)
+                <element minOccurs="0" name="installedIn" type="bldg:AbstractBuildingType"/>
+                <element minOccurs="0" name="productAndinstallationDocument" type="core:ExternalReferenceType"/>
+          * Add attributes 'isSunExposed' and 'isGroundCoupled' to 'SurfaceComponent'
+
+    * v0.3 - 2014/12/22
+        * Removed all types for code lists in UML diagram
+        * Applied camel case formatting to all enumeration values
+        * Change XSD schema name from 'energy-ade.xsd' to 'energy.xsd'
+        * Change target namespace from 'xmlns:energy-ade' to 'xmlns:energy' and 'http://www.citygml.org/ade/energy' to 'http://www.sig3d.org/citygml/2.0/energy/1.0'
+        * Change code lists folder from 'Energy-ADE-codelists' to 'Energy-codelists'
+        * Add model HTML export
+        * Add validation.log file for v0.2
+
+    * v0.2 - 2014/12/19
+        * Change some enumerations to CodeLists
+        * CodeLists files generation
+        * [BUGFIX] Restore TODO
+
+    * v0.1 - 2014/12/08
+        * First implementation
