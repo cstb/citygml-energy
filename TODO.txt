@@ -1,0 +1,19 @@
+*** CityGML Energy ADE TODO list ***
+
+    * >> Add 'constructionOrientation' name to association between '<<ADEElement>> _CityObject' and 'ConstructionOrientation'
+
+        I'm not able to create a construction or constructionOrientation underneath a roof surface (I suppose it doesn't work for any BoundarySurface). Please check if it works for buildings and buildings parts, too.
+
+    * >> - Set a bidirectionnal association between 'EnergyConversionSystem' and 'energy:_AbstractBuilding'
+
+        Doesn't work for me. I can create EnergyConversionSystems underneath <cityobjectmember>, but not underneath a building. Is there still one of the two role labels missing in the diagram?
+
+    * 1) I don't know if you solved it, but I'm still unable to create references via xlinks.
+
+    * 2) I cannot create ThermalBoundarySurfaces underneath ThermalZones. The "boundedBy" role is missing in ThermalZoneType.
+
+    * 3) The target namespace of the XSD is at "http://www.sig3d.org/citygml/2.0/energy/1.0" and version is at version="0.3".
+
+    * The featureType Glazing (which may have several glazes and gas gapes) is actually not a "Material" but a "LayerComponent". Then, it should not inherit from AbstractMaterial but from LayerComponent. Following that, the "OpaqueMaterial" object should be renamed as "SolidMaterial" (with the same parameters, at less for the first release).
+
+
