@@ -21,6 +21,8 @@
 
     * 3) The target namespace of the XSD is at "http://www.sig3d.org/citygml/2.0/energy/1.0" and version is at version="0.3".
 
+        --> Fixed. Current version is 0.4.3
+
     * The featureType Glazing (which may have several glazes and gas gapes) is actually not a "Material" but a "LayerComponent". Then, it should not inherit from AbstractMaterial but from LayerComponent. Following that, the "OpaqueMaterial" object should be renamed as "SolidMaterial" (with the same parameters, at less for the first release).
 
 
