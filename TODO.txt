@@ -8,6 +8,8 @@
 
         Doesn't work for me. I can create EnergyConversionSystems underneath <cityobjectmember>, but not underneath a building. Is there still one of the two role labels missing in the diagram?
 
+        --> Fixed by adding a 'has' role
+
     * 1) I don't know if you solved it, but I'm still unable to create references via xlinks.
 
     * 2) I cannot create ThermalBoundarySurfaces underneath ThermalZones. The "boundedBy" role is missing in ThermalZoneType.

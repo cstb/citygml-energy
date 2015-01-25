@@ -1,6 +1,9 @@
 
 *** Changelog ***
 
+	* v0.4.3 - 2015/01/26
+		* Add a 'has' role to the relation between 'EnergyConversionSystems' and '<<ADEElement>> _AbstractBuilding'
+
     * v0.4.2 - 2015/01/14
         * Add an abstract class _SolarEnergySystem and derive from it SolarThermalSystem and PhotovoltaicSystem
         * Move attribute collectorSurface from SolarThermalSystem / PhotovoltaicSystem to _SolarEnergySystem
