@@ -4,6 +4,8 @@
 
         I'm not able to create a construction or constructionOrientation underneath a roof surface (I suppose it doesn't work for any BoundarySurface). Please check if it works for buildings and buildings parts, too.
 
+        --> Can be fixed by adding a role to relations? If yes, Which relations?
+
     * >> - Set a bidirectionnal association between 'EnergyConversionSystem' and 'energy:_AbstractBuilding'
 
         Doesn't work for me. I can create EnergyConversionSystems underneath <cityobjectmember>, but not underneath a building. Is there still one of the two role labels missing in the diagram?
@@ -13,6 +15,9 @@
     * 1) I don't know if you solved it, but I'm still unable to create references via xlinks.
 
     * 2) I cannot create ThermalBoundarySurfaces underneath ThermalZones. The "boundedBy" role is missing in ThermalZoneType.
+
+        --> Seems the role is not generated while converting from EAP to XSD. Do not understand why as other roles seems to be well generated.
+            Can be fixed by manually adding the role (not an ideal solution ...)
 
     * 3) The target namespace of the XSD is at "http://www.sig3d.org/citygml/2.0/energy/1.0" and version is at version="0.3".
 
