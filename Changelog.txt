@@ -6,6 +6,9 @@
 		* Change version to 0.4.3
 		* 'Glazing' inherits from 'LayerComponent' and not from 'AbstractMaterial'
 		* Change 'LayerComponent' stereotype from 'dataType' to 'featureType'
+        * Manual edit of generated XSD schema:
+            - Same as v0.4.2
+            - 
 
     * v0.4.2 - 2015/01/14
         * Add an abstract class _SolarEnergySystem and derive from it SolarThermalSystem and PhotovoltaicSystem
@@ -29,7 +32,7 @@
             - In 'ThermalBoundarySurfaceType', the line
                 <element minOccurs="0" name="correspondsTo" type="energy:_BoundarySurfacePropertyType"/>
             has to be replaced with
-                <element minOccurs="0" name="installedOn" type="bldg:BoundarySurfacePropertyType"/>
+                <element minOccurs="0" name="correspondsTo" type="bldg:BoundarySurfacePropertyType"/>
             - In '_SolarEnergySystemType', the line
                 <element minOccurs="0" name="installedOn" type="energy:_BoundarySurfacePropertyType"/>
             has to be replaced with
