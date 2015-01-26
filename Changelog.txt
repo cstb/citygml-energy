@@ -8,7 +8,8 @@
 		* Change 'LayerComponent' stereotype from 'dataType' to 'featureType'
         * Manual edit of generated XSD schema:
             - Same as v0.4.2
-            - 
+            - Add at the end of the 'ThermalZoneType' the line
+            	<element name="boundedBy" type="energy:ThermalBoundarySurfacePropertyType" minOccurs="0" maxOccurs="unbounded"/>
 
     * v0.4.2 - 2015/01/14
         * Add an abstract class _SolarEnergySystem and derive from it SolarThermalSystem and PhotovoltaicSystem
