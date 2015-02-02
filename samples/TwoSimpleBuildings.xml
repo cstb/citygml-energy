@@ -4,11 +4,11 @@
 	xmlns:gml="http://www.opengis.net/gml"
 	xmlns:xlink="http://www.w3.org/1999/xlink"
 	xmlns:bldg="http://www.opengis.net/citygml/building/2.0"
-	xmlns:energy="http://www.sig3d.org/citygml/2.0/energy/1.0"
+	xmlns:energy="http://www.sig3d.org/citygml/2.0/energy/0.4.3"
 	xmlns:xAL="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"
-	xsi:schemaLocation="http://www.opengis.net/citygml/2.0 ./schemas/CityGML/2.0.0/cityGMLBase.xsd http://www.opengis.net/citygml/building/2.0 ./schemas/CityGML/2.0.0/building.xsd http://www.sig3d.org/citygml/2.0/energy/1.0 energy.xsd">
+	xsi:schemaLocation="http://www.opengis.net/citygml/2.0 ./schemas/CityGML/2.0.0/cityGMLBase.xsd http://www.opengis.net/citygml/building/2.0 ./schemas/CityGML/2.0.0/building.xsd http://www.sig3d.org/citygml/2.0/energy/0.4.3 energy.xsd">
 
-	<!-- dwagner, 15.06.2012 Simple building with saddle roof Local coordinates. Enriched with energy related sample data by Marcel Bruse, 12.01.2015. -->
+	<!-- dwagner, 15.06.2012 Simple building with saddle roof Local coordinates. Enriched with basic energy related sample data by Marcel Bruse, 12.01.2015. -->
 
 	<cityObjectMember>
 		<bldg:Building gml:id="Test-001-Solid-SimpleBldg">
@@ -219,7 +219,6 @@
 			</bldg:boundedBy>
 		</bldg:Building>
 </cityObjectMember>
-
 <cityObjectMember>
 		<bldg:Building gml:id="Test-002-Solid-SimpleBldg">
 			<bldg:function>3010</bldg:function>
@@ -357,42 +356,91 @@
 			</bldg:lod2Solid>
 			<bldg:boundedBy>
 				<bldg:RoofSurface>
+					<energy:construction>
+						<energy:Construction gml:id="ID_1122">
+							<energy:layer>
+								<energy:Layer>
+									<energy:layerComponent>
+										<energy:Glazing>
+											<energy:material>
+												<energy:SolidMaterial>
+													<energy:conductivity>0.1</energy:conductivity>
+													<energy:density>0.5</energy:density>
+													<energy:permeance>0.9</energy:permeance>
+													<energy:porosity>0.1</energy:porosity>
+													<energy:specificHeat>0.9</energy:specificHeat>
+												</energy:SolidMaterial>
+											</energy:material>
+										</energy:Glazing>
+									</energy:layerComponent>
+								</energy:Layer>
+							</energy:layer>
+							<energy:layer>
+								<energy:Layer>
+									<energy:layerComponent>
+										<energy:LayerComponent>
+											<energy:material>
+												<energy:Gas>
+													<energy:thickness>15</energy:thickness>
+												</energy:Gas>
+											</energy:material>
+										</energy:LayerComponent>
+									</energy:layerComponent>
+								</energy:Layer>
+							</energy:layer>
+							<energy:uValue>3</energy:uValue>
+							<energy:absorptance>
+								<energy:Absorptance>
+									<energy:percentage>12</energy:percentage>
+									<energy:surface>Inside</energy:surface>
+									<energy:wavelengthRange>IR</energy:wavelengthRange>
+								</energy:Absorptance>
+							</energy:absorptance>
+							<energy:reflectance>
+								<energy:Reflectance>
+									<energy:percentage>30</energy:percentage>
+									<energy:wavelengthRange>Solar</energy:wavelengthRange>
+									<energy:surface>Outside</energy:surface>
+								</energy:Reflectance>
+							</energy:reflectance>
+							<energy:transmittance>
+								<energy:Transmittance>
+									<energy:percentage>20</energy:percentage>
+									<energy:wavelengthRange>Total</energy:wavelengthRange>
+								</energy:Transmittance>
+							</energy:transmittance>
+						</energy:Construction>
+					</energy:construction>
+					<energy:constructionOrientation>
+						<energy:ConstructionOrientation>
+							<energy:baseConstruction xlink:href="#ID_1122">
+							</energy:baseConstruction>
+							<energy:orientation>true</energy:orientation>
+						</energy:ConstructionOrientation>
+					</energy:constructionOrientation>
 					<bldg:lod2MultiSurface>
 						<gml:MultiSurface>
 							<gml:surfaceMember xlink:href="#b2_p_r_1">
 							</gml:surfaceMember>
 						</gml:MultiSurface>
 					</bldg:lod2MultiSurface>
-					
-					<energy:correspondsTo>
-						<energy:ThermalBoundarySurface>
-							<energy:type>PitchedRoof</energy:type>
-							<energy:composedOf>
-								<energy:SurfaceComponent>
-									<energy:area></energy:area>
-									<energy:isSunExposed>true</energy:isSunExposed>
-									<energy:isGroundCoupled>false</energy:isGroundCoupled>
-									<energy:relates>
-										<bldg:Window>
-											<energy:indoorShading>
-												<energy:ShadingType>
-													<energy:maximumCoverRatio>0.5</energy:maximumCoverRatio>
-													<energy:name>energy_1</energy:name>
-													<energy:transmittance>
-														<energy:Transmittance>
-															<energy:percentage>15</energy:percentage>
-															<energy:wavelengthRange>Solar</energy:wavelengthRange>
-														</energy:Transmittance>
-													</energy:transmittance>
-												</energy:ShadingType>
-											</energy:indoorShading>
-										</bldg:Window>
-									</energy:relates>
-								</energy:SurfaceComponent>
-							</energy:composedOf>
-						</energy:ThermalBoundarySurface>
-					</energy:correspondsTo>
-					
+					<energy:equippedWith>
+						<energy:PhotovoltaicSystem>
+							<energy:consumes></energy:consumes>
+							<energy:collectorSurface></energy:collectorSurface>
+							<energy:panelInclination></energy:panelInclination>
+							<energy:panelAzimuth></energy:panelAzimuth>
+						</energy:PhotovoltaicSystem>
+					</energy:equippedWith>
+					<energy:equippedWith>
+						<energy:SolarThermalSystem>
+							<energy:consumes></energy:consumes>
+							<energy:collectorSurface></energy:collectorSurface>
+							<energy:panelInclination></energy:panelInclination>
+							<energy:panelAzimuth></energy:panelAzimuth>
+						</energy:SolarThermalSystem>
+					</energy:equippedWith>
+					<energy:correspondsTo xlink:href="#3342" />
 				</bldg:RoofSurface>
 			</bldg:boundedBy>
 			<bldg:boundedBy>
@@ -457,12 +505,39 @@
 					</bldg:lod2MultiSurface>
 				</bldg:GroundSurface>
 			</bldg:boundedBy>
-
 			<energy:yearOfRefurbishment>1981</energy:yearOfRefurbishment>
 			<energy:thermalZones>
 				<energy:ThermalZone>
 					<energy:cooledFloorArea>12.5</energy:cooledFloorArea>
 					<energy:heatedFloorArea>60.0</energy:heatedFloorArea>
+					<energy:boundedBy>
+						<energy:ThermalBoundarySurface gml:id="ID_3342">
+							<energy:type>PitchedRoof</energy:type>
+							<energy:composedOf>
+								<energy:SurfaceComponent>
+									<energy:area></energy:area>
+									<energy:isSunExposed>true</energy:isSunExposed>
+									<energy:isGroundCoupled>false</energy:isGroundCoupled>
+									<energy:relates>
+										<bldg:Window>
+											<energy:indoorShading>
+												<energy:ShadingType>
+													<energy:maximumCoverRatio>0.5</energy:maximumCoverRatio>
+													<energy:name>energy_1</energy:name>
+													<energy:transmittance>
+														<energy:Transmittance>
+															<energy:percentage>15</energy:percentage>
+															<energy:wavelengthRange>Solar</energy:wavelengthRange>
+														</energy:Transmittance>
+													</energy:transmittance>
+												</energy:ShadingType>
+											</energy:indoorShading>
+										</bldg:Window>
+									</energy:relates>
+								</energy:SurfaceComponent>
+							</energy:composedOf>
+						</energy:ThermalBoundarySurface>
+					</energy:boundedBy>
 				</energy:ThermalZone>
 			</energy:thermalZones>
 			<energy:usageZones>
@@ -494,7 +569,6 @@
 					</energy:occupiedBy>
 				</energy:UsageZone>
 			</energy:usageZones>
-			
 		</bldg:Building>
 	</cityObjectMember>
 </CityModel>
