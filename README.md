@@ -18,7 +18,7 @@ It has been developed since May 2014 by an international consortium of urban ene
 * Sinergis
 * M.O.S.S Computer Grafik Systeme
 
-![University of Applied Sciences Stuttgart logo](../doc/hft.jpg)
+![University of Applied Sciences Stuttgart logo](./doc/hft.jpg)
 
 Authors
 -------
