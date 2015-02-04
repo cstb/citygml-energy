@@ -1,15 +1,16 @@
 
 *** Changelog ***
 
-	* v0.4.3 - 2015/01/26
+	* v0.4.3 - 2015/02/04
 		* Add a 'has' role to the relation between 'EnergyConversionSystems' and '<<ADEElement>> _AbstractBuilding'
 		* Change version to 0.4.3
 		* 'Glazing' inherits from 'LayerComponent' and not from 'AbstractMaterial'
 		* Change 'LayerComponent' stereotype from 'dataType' to 'featureType'
+        * Fix 'boundedBy' association cardinality in 'ThermalSoneType'
+        * Add roles to the association between 'ScheduleLoD2Type' and 'DailySchedule' ('scheduleLoD2' and 'dailySchedule')
+        * Add a 'distributionSystem' role to the association from 'StorageSystem' to 'EnergyDistributionSystem'
         * Manual edit of generated XSD schema:
             - Same as v0.4.2
-            - Add at the end of the 'ThermalZoneType' the line
-            	<element name="boundedBy" type="energy:ThermalBoundarySurfacePropertyType" minOccurs="0" maxOccurs="unbounded"/>
 
     * v0.4.2 - 2015/01/14
         * Add an abstract class _SolarEnergySystem and derive from it SolarThermalSystem and PhotovoltaicSystem

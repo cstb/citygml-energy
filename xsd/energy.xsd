@@ -201,7 +201,9 @@
 	<complexType name="_StorageSystemType" abstract="true">
 		<complexContent>
 			<extension base="gml:AbstractFeatureType">
-				<sequence/>
+				<sequence>
+          			<element maxOccurs="unbounded" name="energyDistribution" type="energy:EnergyDistributionSystemPropertyType"/>
+          		</sequence>
 			</extension>
 		</complexContent>
 	</complexType>
@@ -1302,7 +1304,7 @@ It is a semantic object, which may be or not related to a geometric entity.</doc
 						</annotation>
 					</element>
 					<element name="relates" type="energy:UsageZonePropertyType" minOccurs="0" maxOccurs="unbounded"/>
-					<element name="boundedBy" type="energy:ThermalBoundarySurfacePropertyType" minOccurs="0" maxOccurs="unbounded"/>
+          			<element maxOccurs="unbounded" name="boundedBy" type="energy:ThermalBoundarySurfacePropertyType"/>
 				</sequence>
 			</extension>
 		</complexContent>
@@ -1390,6 +1392,7 @@ It is a semantic object, which may be or not related to a geometric entity.</doc
 		<sequence>
 			<element name="dayType" type="gml:CodeType"/>
 			<element name="schedule" type="energy:_TimeSeriesPropertyType"/>
+      		<element name="scheduleLoD2" type="energy:ScheduleLoD2PropertyType"/>
 		</sequence>
 	</complexType>
 	<complexType name="DailySchedulePropertyType">
@@ -1426,7 +1429,9 @@ It is a semantic object, which may be or not related to a geometric entity.</doc
 	<complexType name="ScheduleLoD2Type">
 		<complexContent>
 			<extension base="energy:_ScheduleType">
-				<sequence/>
+		        <sequence>
+		          <element maxOccurs="unbounded" name="dailySchedule" type="energy:DailySchedulePropertyType"/>
+		        </sequence>
 			</extension>
 		</complexContent>
 	</complexType>
