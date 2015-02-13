@@ -6,6 +6,7 @@ Abstract
 The Application Domain Extension (ADE) Energy defines a standardized data model based on CityGML format for urban energy analyses, aiming to be a reference exchange data format between different urban modelling tools and expert databases.
 
 It has been developed since May 2014 by an international consortium of urban energy simulation developers and users:
+* Special Interest Group 3D (SIG3D)
 * University of Applied Sciences Stuttgart
 * Technische Universität München
 * Karlsruhe Institute für Technologie
