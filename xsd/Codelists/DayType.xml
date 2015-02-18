@@ -6,7 +6,7 @@
     <Definition gml:id="_1258_2905">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/DayType">CustomDay1</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">CustomDay1</name>
       <name>CustomDay1</name>
     </Definition>
   </dictionaryEntry>
@@ -14,7 +14,7 @@
     <Definition gml:id="_1258_2906">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/DayType">CustomDay2</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">CustomDay2</name>
       <name>CustomDay2</name>
     </Definition>
   </dictionaryEntry>
@@ -22,7 +22,7 @@
     <Definition gml:id="_1258_2500">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/DayType">Holiday</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">Holiday</name>
       <name>Holiday</name>
     </Definition>
   </dictionaryEntry>
@@ -30,7 +30,7 @@
     <Definition gml:id="_1258_2899">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/DayType">Monday</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">Monday</name>
       <name>Monday</name>
     </Definition>
   </dictionaryEntry>
@@ -38,7 +38,7 @@
     <Definition gml:id="_1258_2907">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/DayType">OtherDay</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">OtherDay</name>
       <name>OtherDay</name>
     </Definition>
   </dictionaryEntry>
@@ -46,7 +46,7 @@
     <Definition gml:id="_1258_2773">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/DayType">Saturday</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">Saturday</name>
       <name>Saturday</name>
     </Definition>
   </dictionaryEntry>
@@ -54,7 +54,7 @@
     <Definition gml:id="_1258_2903">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/DayType">SummerDesignDay</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">SummerDesignDay</name>
       <name>SummerDesignDay</name>
     </Definition>
   </dictionaryEntry>
@@ -62,7 +62,7 @@
     <Definition gml:id="_1258_2772">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/DayType">Sunday</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">Sunday</name>
       <name>Sunday</name>
     </Definition>
   </dictionaryEntry>
@@ -70,7 +70,7 @@
     <Definition gml:id="_1258_2902">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/DayType">Thursday</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">Thursday</name>
       <name>Thursday</name>
     </Definition>
   </dictionaryEntry>
@@ -78,7 +78,7 @@
     <Definition gml:id="_1258_2900">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/DayType">Tuesday</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">Tuesday</name>
       <name>Tuesday</name>
     </Definition>
   </dictionaryEntry>
@@ -86,7 +86,7 @@
     <Definition gml:id="_1258_2901">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/DayType">Wednesday</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">Wednesday</name>
       <name>Wednesday</name>
     </Definition>
   </dictionaryEntry>
@@ -94,7 +94,7 @@
     <Definition gml:id="_1258_2499">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/DayType">WeekDay</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">WeekDay</name>
       <name>WeekDay</name>
     </Definition>
   </dictionaryEntry>
@@ -102,7 +102,7 @@
     <Definition gml:id="_1258_2498">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/DayType">WeekEnd</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">WeekEnd</name>
       <name>WeekEnd</name>
     </Definition>
   </dictionaryEntry>
@@ -110,7 +110,7 @@
     <Definition gml:id="_1258_2904">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/DayType">WinterDesignDay</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">WinterDesignDay</name>
       <name>WinterDesignDay</name>
     </Definition>
   </dictionaryEntry>

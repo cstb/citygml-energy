@@ -6,7 +6,7 @@
     <Definition gml:id="_1264_2812">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/HeatSourceType">AmbientAir</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/HeatSourceType">AmbientAir</name>
       <name>AmbientAir</name>
     </Definition>
   </dictionaryEntry>
@@ -14,7 +14,7 @@
     <Definition gml:id="_1264_2813">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/HeatSourceType">Aquifer</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/HeatSourceType">Aquifer</name>
       <name>Aquifer</name>
     </Definition>
   </dictionaryEntry>
@@ -22,7 +22,7 @@
     <Definition gml:id="_1264_2814">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/HeatSourceType">ExhaustAir</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/HeatSourceType">ExhaustAir</name>
       <name>ExhaustAir</name>
     </Definition>
   </dictionaryEntry>
@@ -30,7 +30,7 @@
     <Definition gml:id="_1264_2810">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/HeatSourceType">HorizontalGroundCollector</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/HeatSourceType">HorizontalGroundCollector</name>
       <name>HorizontalGroundCollector</name>
     </Definition>
   </dictionaryEntry>
@@ -38,7 +38,7 @@
     <Definition gml:id="_1264_2811">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/HeatSourceType">VerticalGroundCollector</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/HeatSourceType">VerticalGroundCollector</name>
       <name>VerticalGroundCollector</name>
     </Definition>
   </dictionaryEntry>

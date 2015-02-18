@@ -6,7 +6,7 @@
     <Definition gml:id="_1265_2744">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/MediumType">Air</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/MediumType">Air</name>
       <name>Air</name>
     </Definition>
   </dictionaryEntry>
@@ -14,7 +14,7 @@
     <Definition gml:id="_1265_2746">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/MediumType">Steam</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/MediumType">Steam</name>
       <name>Steam</name>
     </Definition>
   </dictionaryEntry>
@@ -22,7 +22,7 @@
     <Definition gml:id="_1265_2745">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/MediumType">Water</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/MediumType">Water</name>
       <name>Water</name>
     </Definition>
   </dictionaryEntry>

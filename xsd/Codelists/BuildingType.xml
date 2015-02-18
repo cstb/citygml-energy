@@ -6,7 +6,7 @@
     <Definition gml:id="_1257_2924">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/BuildingType">ApartmentBlock</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/BuildingType">ApartmentBlock</name>
       <name>ApartmentBlock</name>
     </Definition>
   </dictionaryEntry>
@@ -14,7 +14,7 @@
     <Definition gml:id="_1257_2923">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/BuildingType">MultiFamilyHouse</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/BuildingType">MultiFamilyHouse</name>
       <name>MultiFamilyHouse</name>
     </Definition>
   </dictionaryEntry>
@@ -22,7 +22,7 @@
     <Definition gml:id="_1257_2922">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/BuildingType">RowHouse</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/BuildingType">RowHouse</name>
       <name>RowHouse</name>
     </Definition>
   </dictionaryEntry>
@@ -30,7 +30,7 @@
     <Definition gml:id="_1257_2918">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/BuildingType">SingleFamilyHouse</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/BuildingType">SingleFamilyHouse</name>
       <name>SingleFamilyHouse</name>
     </Definition>
   </dictionaryEntry>

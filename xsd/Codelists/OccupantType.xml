@@ -6,7 +6,7 @@
     <Definition gml:id="_1254_2477">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/OccupantType">OthersOrCombination</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/OccupantType">OthersOrCombination</name>
       <name>OthersOrCombination</name>
     </Definition>
   </dictionaryEntry>
@@ -14,7 +14,7 @@
     <Definition gml:id="_1254_2476">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/OccupantType">Patients</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/OccupantType">Patients</name>
       <name>Patients</name>
     </Definition>
   </dictionaryEntry>
@@ -22,7 +22,7 @@
     <Definition gml:id="_1254_2472">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/OccupantType">Residents</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/OccupantType">Residents</name>
       <name>Residents</name>
     </Definition>
   </dictionaryEntry>
@@ -30,7 +30,7 @@
     <Definition gml:id="_1254_2475">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/OccupantType">Students</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/OccupantType">Students</name>
       <name>Students</name>
     </Definition>
   </dictionaryEntry>
@@ -38,7 +38,7 @@
     <Definition gml:id="_1254_2474">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/OccupantType">Visitors</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/OccupantType">Visitors</name>
       <name>Visitors</name>
     </Definition>
   </dictionaryEntry>
@@ -46,7 +46,7 @@
     <Definition gml:id="_1254_2473">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/OccupantType">Workers</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/OccupantType">Workers</name>
       <name>Workers</name>
     </Definition>
   </dictionaryEntry>

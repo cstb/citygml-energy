@@ -6,7 +6,7 @@
     <Definition gml:id="_1261_2691">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/EndUseType">Cooking</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/EndUseType">Cooking</name>
       <name>Cooking</name>
     </Definition>
   </dictionaryEntry>
@@ -14,7 +14,7 @@
     <Definition gml:id="_1261_2690">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/EndUseType">DomesticHotWater</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/EndUseType">DomesticHotWater</name>
       <name>DomesticHotWater</name>
     </Definition>
   </dictionaryEntry>
@@ -22,7 +22,7 @@
     <Definition gml:id="_1261_2692">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/EndUseType">ElectricalAppliances</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/EndUseType">ElectricalAppliances</name>
       <name>ElectricalAppliances</name>
     </Definition>
   </dictionaryEntry>
@@ -30,7 +30,7 @@
     <Definition gml:id="_1261_2686">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/EndUseType">Lighting</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/EndUseType">Lighting</name>
       <name>Lighting</name>
     </Definition>
   </dictionaryEntry>
@@ -38,7 +38,7 @@
     <Definition gml:id="_1261_2693">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/EndUseType">OtherOrCombination</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/EndUseType">OtherOrCombination</name>
       <name>OtherOrCombination</name>
     </Definition>
   </dictionaryEntry>
@@ -46,7 +46,7 @@
     <Definition gml:id="_1261_2688">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/EndUseType">SpaceCooling</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/EndUseType">SpaceCooling</name>
       <name>SpaceCooling</name>
     </Definition>
   </dictionaryEntry>
@@ -54,7 +54,7 @@
     <Definition gml:id="_1261_2687">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/EndUseType">SpaceHeating</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/EndUseType">SpaceHeating</name>
       <name>SpaceHeating</name>
     </Definition>
   </dictionaryEntry>
@@ -62,7 +62,7 @@
     <Definition gml:id="_1261_2689">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/EndUseType">Ventilation</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/EndUseType">Ventilation</name>
       <name>Ventilation</name>
     </Definition>
   </dictionaryEntry>

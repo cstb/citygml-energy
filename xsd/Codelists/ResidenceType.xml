@@ -6,7 +6,7 @@
     <Definition gml:id="_1253_2927">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/ResidenceType">MainResidence</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/ResidenceType">MainResidence</name>
       <name>MainResidence</name>
     </Definition>
   </dictionaryEntry>
@@ -14,7 +14,7 @@
     <Definition gml:id="_1253_2928">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/ResidenceType">SecondaryResidence</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/ResidenceType">SecondaryResidence</name>
       <name>SecondaryResidence</name>
     </Definition>
   </dictionaryEntry>
@@ -22,7 +22,7 @@
     <Definition gml:id="_1253_2929">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/ResidenceType">Vacant</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/ResidenceType">Vacant</name>
       <name>Vacant</name>
     </Definition>
   </dictionaryEntry>

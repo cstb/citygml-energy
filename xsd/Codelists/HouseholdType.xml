@@ -6,7 +6,7 @@
     <Definition gml:id="_1256_2891">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/HouseholdType">LoneAdult</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/HouseholdType">LoneAdult</name>
       <name>LoneAdult</name>
     </Definition>
   </dictionaryEntry>
@@ -14,7 +14,7 @@
     <Definition gml:id="_1256_2895">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/HouseholdType">MultiFamily</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/HouseholdType">MultiFamily</name>
       <name>MultiFamily</name>
     </Definition>
   </dictionaryEntry>
@@ -22,7 +22,7 @@
     <Definition gml:id="_1256_2896">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/HouseholdType">OneFamily</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/HouseholdType">OneFamily</name>
       <name>OneFamily</name>
     </Definition>
   </dictionaryEntry>
@@ -30,7 +30,7 @@
     <Definition gml:id="_1256_2894">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/HouseholdType">PensionerCouple</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/HouseholdType">PensionerCouple</name>
       <name>PensionerCouple</name>
     </Definition>
   </dictionaryEntry>
@@ -38,7 +38,7 @@
     <Definition gml:id="_1256_2898">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/HouseholdType">UnrelatedAdults</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/HouseholdType">UnrelatedAdults</name>
       <name>UnrelatedAdults</name>
     </Definition>
   </dictionaryEntry>
@@ -46,7 +46,7 @@
     <Definition gml:id="_1256_2893">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/HouseholdType">Vacant</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/HouseholdType">Vacant</name>
       <name>Vacant</name>
     </Definition>
   </dictionaryEntry>
@@ -54,7 +54,7 @@
     <Definition gml:id="_1256_2892">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/HouseholdType">WorkerCouple</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/HouseholdType">WorkerCouple</name>
       <name>WorkerCouple</name>
     </Definition>
   </dictionaryEntry>

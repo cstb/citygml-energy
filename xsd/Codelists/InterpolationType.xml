@@ -6,7 +6,7 @@
     <Definition gml:id="_1259_2857">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/InterpolationType">AverageInPrecedingInterval</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/InterpolationType">AverageInPrecedingInterval</name>
       <name>AverageInPrecedingInterval</name>
     </Definition>
   </dictionaryEntry>
@@ -14,7 +14,7 @@
     <Definition gml:id="_1259_2871">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/InterpolationType">AverageInSucceedingInterval</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/InterpolationType">AverageInSucceedingInterval</name>
       <name>AverageInSucceedingInterval</name>
     </Definition>
   </dictionaryEntry>
@@ -22,7 +22,7 @@
     <Definition gml:id="_1259_2860">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/InterpolationType">ConstantInPrecedingInterval</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/InterpolationType">ConstantInPrecedingInterval</name>
       <name>ConstantInPrecedingInterval</name>
     </Definition>
   </dictionaryEntry>
@@ -30,7 +30,7 @@
     <Definition gml:id="_1259_2859">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/InterpolationType">ConstantInSucceedingInterval</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/InterpolationType">ConstantInSucceedingInterval</name>
       <name>ConstantInSucceedingInterval</name>
     </Definition>
   </dictionaryEntry>
@@ -38,7 +38,7 @@
     <Definition gml:id="_1259_2869">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/InterpolationType">Continuous</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/InterpolationType">Continuous</name>
       <name>Continuous</name>
     </Definition>
   </dictionaryEntry>
@@ -46,7 +46,7 @@
     <Definition gml:id="_1259_2868">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/InterpolationType">Discontinuous</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/InterpolationType">Discontinuous</name>
       <name>Discontinuous</name>
     </Definition>
   </dictionaryEntry>
@@ -54,7 +54,7 @@
     <Definition gml:id="_1259_2863">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/InterpolationType">InstantaneousTotal</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/InterpolationType">InstantaneousTotal</name>
       <name>InstantaneousTotal</name>
     </Definition>
   </dictionaryEntry>
@@ -62,7 +62,7 @@
     <Definition gml:id="_1259_2864">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/InterpolationType">MaximumInPrecedingInterval</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/InterpolationType">MaximumInPrecedingInterval</name>
       <name>MaximumInPrecedingInterval</name>
     </Definition>
   </dictionaryEntry>
@@ -70,7 +70,7 @@
     <Definition gml:id="_1259_2866">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/InterpolationType">MaximumInSucceedingInterval</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/InterpolationType">MaximumInSucceedingInterval</name>
       <name>MaximumInSucceedingInterval</name>
     </Definition>
   </dictionaryEntry>
@@ -78,7 +78,7 @@
     <Definition gml:id="_1259_2865">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/InterpolationType">MinimumInPrecedingInterval</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/InterpolationType">MinimumInPrecedingInterval</name>
       <name>MinimumInPrecedingInterval</name>
     </Definition>
   </dictionaryEntry>
@@ -86,7 +86,7 @@
     <Definition gml:id="_1259_2867">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/InterpolationType">MinimumInSucceedingInterval</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/InterpolationType">MinimumInSucceedingInterval</name>
       <name>MinimumInSucceedingInterval</name>
     </Definition>
   </dictionaryEntry>
@@ -94,7 +94,7 @@
     <Definition gml:id="_1259_2861">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/InterpolationType">PrecedingTotal</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/InterpolationType">PrecedingTotal</name>
       <name>PrecedingTotal</name>
     </Definition>
   </dictionaryEntry>
@@ -102,7 +102,7 @@
     <Definition gml:id="_1259_2862">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/InterpolationType">SucceedingTotal</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/InterpolationType">SucceedingTotal</name>
       <name>SucceedingTotal</name>
     </Definition>
   </dictionaryEntry>

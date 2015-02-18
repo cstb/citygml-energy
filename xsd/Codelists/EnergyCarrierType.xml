@@ -6,7 +6,7 @@
     <Definition gml:id="_1260_2685">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/EnergyCarrierType">ChilledAir</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/EnergyCarrierType">ChilledAir</name>
       <name>ChilledAir</name>
     </Definition>
   </dictionaryEntry>
@@ -14,7 +14,7 @@
     <Definition gml:id="_1260_2678">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/EnergyCarrierType">ChilledWater</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/EnergyCarrierType">ChilledWater</name>
       <name>ChilledWater</name>
     </Definition>
   </dictionaryEntry>
@@ -22,7 +22,7 @@
     <Definition gml:id="_1260_2680">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/EnergyCarrierType">Coal</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/EnergyCarrierType">Coal</name>
       <name>Coal</name>
     </Definition>
   </dictionaryEntry>
@@ -30,7 +30,7 @@
     <Definition gml:id="_1260_2675">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/EnergyCarrierType">Electricity</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/EnergyCarrierType">Electricity</name>
       <name>Electricity</name>
     </Definition>
   </dictionaryEntry>
@@ -38,7 +38,7 @@
     <Definition gml:id="_1260_2676">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/EnergyCarrierType">FuelOil</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/EnergyCarrierType">FuelOil</name>
       <name>FuelOil</name>
     </Definition>
   </dictionaryEntry>
@@ -46,14 +46,14 @@
     <Definition gml:id="_1260_2684">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/EnergyCarrierType">HotAir</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/EnergyCarrierType">HotAir</name>
       <name>HotAir</name>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
     <Definition gml:id="_1260_2677">
       <description>can be from district network /solar systems...</description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/EnergyCarrierType">HotWater</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/EnergyCarrierType">HotWater</name>
       <name>HotWater</name>
     </Definition>
   </dictionaryEntry>
@@ -61,7 +61,7 @@
     <Definition gml:id="_1260_2674">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/EnergyCarrierType">NaturalGas</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/EnergyCarrierType">NaturalGas</name>
       <name>NaturalGas</name>
     </Definition>
   </dictionaryEntry>
@@ -69,7 +69,7 @@
     <Definition gml:id="_1260_2679">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/EnergyCarrierType">Propane</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/EnergyCarrierType">Propane</name>
       <name>Propane</name>
     </Definition>
   </dictionaryEntry>
@@ -77,7 +77,7 @@
     <Definition gml:id="_1260_2683">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/EnergyCarrierType">Steam</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/EnergyCarrierType">Steam</name>
       <name>Steam</name>
     </Definition>
   </dictionaryEntry>
@@ -85,7 +85,7 @@
     <Definition gml:id="_1260_2681">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/EnergyCarrierType">WoodChips</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/EnergyCarrierType">WoodChips</name>
       <name>WoodChips</name>
     </Definition>
   </dictionaryEntry>
@@ -93,7 +93,7 @@
     <Definition gml:id="_1260_2682">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/EnergyCarrierType">WoodPellets</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/EnergyCarrierType">WoodPellets</name>
       <name>WoodPellets</name>
     </Definition>
   </dictionaryEntry>

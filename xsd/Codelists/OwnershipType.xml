@@ -6,7 +6,7 @@
     <Definition gml:id="_1255_2470">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/OwnershipType">Corporation</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/OwnershipType">Corporation</name>
       <name>Corporation</name>
     </Definition>
   </dictionaryEntry>
@@ -14,7 +14,7 @@
     <Definition gml:id="_1255_2466">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/OwnershipType">Government</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/OwnershipType">Government</name>
       <name>Government</name>
     </Definition>
   </dictionaryEntry>
@@ -22,7 +22,7 @@
     <Definition gml:id="_1255_2468">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/OwnershipType">NonOccupantPrivateOwner</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/OwnershipType">NonOccupantPrivateOwner</name>
       <name>NonOccupantPrivateOwner</name>
     </Definition>
   </dictionaryEntry>
@@ -30,7 +30,7 @@
     <Definition gml:id="_1255_2471">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/OwnershipType">NonProfitOrganisation</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/OwnershipType">NonProfitOrganisation</name>
       <name>NonProfitOrganisation</name>
     </Definition>
   </dictionaryEntry>
@@ -38,7 +38,7 @@
     <Definition gml:id="_1255_2467">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/OwnershipType">OccupantPrivateOwner</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/OwnershipType">OccupantPrivateOwner</name>
       <name>OccupantPrivateOwner</name>
     </Definition>
   </dictionaryEntry>
@@ -46,7 +46,7 @@
     <Definition gml:id="_1255_2469">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/OwnershipType">OtherOrCombination</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/OwnershipType">OtherOrCombination</name>
       <name>OtherOrCombination</name>
     </Definition>
   </dictionaryEntry>
@@ -54,7 +54,7 @@
     <Definition gml:id="_1255_2465">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/1.0/OwnershipType">PropertyManagementCompany</name>
+      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/OwnershipType">PropertyManagementCompany</name>
       <name>PropertyManagementCompany</name>
     </Definition>
   </dictionaryEntry>
