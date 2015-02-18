@@ -1,3 +1,7 @@
 Energy-ADE.EAP
 Energy-ADE.eap
 Energy-ADE.ldb
+*.jar
+Energy-ADE_log.xml
+generate_Energy_ADE.bat
+shapechange
