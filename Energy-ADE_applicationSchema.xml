@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="windows-1252"?>
-<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2015-02-27 14:17:42">
+<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2015-02-27 14:33:33">
 	<XMI.header>
 		<XMI.documentation>
 			<XMI.exporter>Enterprise Architect</XMI.exporter>
@@ -12,7 +12,7 @@
 				<UML:Class name="EARootClass" xmi.id="EAID_11111111_5487_4080_A7F4_41526CB0AA00" isRoot="true" isLeaf="false" isAbstract="false"/>
 				<UML:Package name="Energy-ADE" xmi.id="EAPK_A74CE7E8_412F_4656_877F_E486E31317EB" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
 					<UML:ModelElement.stereotype>
-						<UML:Stereotype xmi.idref="EAID_A5347A82_D6D6_485a_A3FD_D1258CDBD517"/>
+						<UML:Stereotype xmi.idref="EAID_62A67379_C8AA_4b8c_B08D_69CC7B214F3D"/>
 					</UML:ModelElement.stereotype>
 					<UML:ModelElement.taggedValue>
 						<UML:TaggedValue tag="parent" value="EAPK_E42B8EDA_979E_498e_8BA3_ECC1C55B29B3"/>
@@ -4580,7 +4580,7 @@
 								<UML:TaggedValue tag="version" value="1.0"/>
 								<UML:TaggedValue tag="package" value="EAPK_A74CE7E8_412F_4656_877F_E486E31317EB"/>
 								<UML:TaggedValue tag="date_created" value="2014-12-02 15:08:35"/>
-								<UML:TaggedValue tag="date_modified" value="2015-02-27 12:24:03"/>
+								<UML:TaggedValue tag="date_modified" value="2015-02-27 14:31:17"/>
 								<UML:TaggedValue tag="gentype" value="Java"/>
 								<UML:TaggedValue tag="tagged" value="0"/>
 								<UML:TaggedValue tag="package_name" value="Energy-ADE"/>
@@ -5017,7 +5017,7 @@
 								<UML:TaggedValue tag="ea_eleType" value="element"/>
 								<UML:TaggedValue tag="$ea_attsclassified" value="{5B6C437B-D274-41e9-B828-BF107288A407},{E57F5849-5648-4aee-B515-BE6FEB3171D5},{2E5C2747-D274-4a21-888A-BA998DDE8D50},{D8785DA6-F2ED-48f1-BCCB-29F786924AC4}"/>
 								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
-								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={3DCB32FB-9619-46f9-B824-D6ABB8A02F7B}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Enumeration;GUID={4C2907CF-6A95-46cc-8F90-B60F6638A6F4};FQName=CityGML UML Profile::Enumeration;@ENDSTEREO;$DES;$CLT={676367BC-A1A5-4daf-9747-A1CCF23279FF}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={4A3DC9A8-32B0-437f-ADE6-40B71DDA79A8}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Enumeration;GUID={4C2907CF-6A95-46cc-8F90-B60F6638A6F4};FQName=CityGML UML Profile::Enumeration;@ENDSTEREO;$DES;$CLT={676367BC-A1A5-4daf-9747-A1CCF23279FF}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 							</UML:ModelElement.taggedValue>
 							<UML:Classifier.feature>
 								<UML:Attribute name="Solar" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
@@ -6118,15 +6118,15 @@
 								<UML:TaggedValue tag="ea_eleType" value="element"/>
 								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={75C1FBEA-55E5-40f8-B3D8-732F2B182FE9}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=featureType;GUID={EBF69563-9637-4938-B5C3-F8F9261C57ED};FQName=UML Profile for ADE generation::featureType;@ENDSTEREO;$DES;$CLT={7F310708-8D61-424e-9793-36CB7EB86BB8}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-								<UML:TaggedValue tag="modeldocument" xmlns:dt="urn:schemas-microsoft-com:datatypes" dt:dt="bin.base64">UEsDBBQAAAAIADRyW0acVe/sRQEAAEYCAAAHABEAc3RyLmRhdFVUDQAHhnzwVIZ88FSGfPBU
+								<UML:TaggedValue tag="modeldocument" xmlns:dt="urn:schemas-microsoft-com:datatypes" dt:dt="bin.base64">UEsDBBQAAAAIACJ0W0acVe/sRQEAAEYCAAAHABEAc3RyLmRhdFVUDQAHPYDwVD2A8FQ9gPBU
 bVHBTsMwDL1P2j/kzKkpHUzaCQlxRFy45eK2TlqWJcVxKdO0f8dZy0CIS/L87DzbLydDbLWB
 kHrTovUQnC5u74zlUL+ZsdGZtcV6dTI2BubaCyiUsWnqU1IP1IPfnc8530QfSQrUzhC25WZj
 HCGGDGo/otxzppj54sIWand5nPjoMXWInPVFvqzUc6RDVhfppNUjWhg9qxcgcARDp55koKX3
 jQh/5OFewz7EKVxoM8CANOmyrIoZd3qzFXwAcl5vixnRFbGulmx9QR1Ci3S8L2WgGHmBITqK
 E4wcbc/ZHoZ6LqFD6uSFVFgEHgm5o8jsURuLXBnA0AbRSQbE30C+MYOrqaXcaIG5kYyesOFM
 TekzLAu4LuOfBXJ03eF3wDm4bvId/L9MqvcDOBT10Iid+W6xyd556MNyLh9i3v0fYgBar8Tp
-L1BLAQIXCxQAAAAIADRyW0acVe/sRQEAAEYCAAAHAAkAAAAAAAAAAAAAgAAAAABzdHIuZGF0
-VVQFAAeGfPBUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
+L1BLAQIXCxQAAAAIACJ0W0acVe/sRQEAAEYCAAAHAAkAAAAAAAAAAAAAgAAAAABzdHIuZGF0
+VVQFAAc9gPBUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 							</UML:ModelElement.taggedValue>
 							<UML:Classifier.feature>
 								<UML:Attribute name="endUse" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
@@ -7938,7 +7938,7 @@ VVQFAAeGfPBUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 								<UML:TaggedValue tag="ea_eleType" value="element"/>
 								<UML:TaggedValue tag="$ea_attsclassified" value="{347E79EE-9BB3-444c-BF06-BDF2AA1769E3}"/>
 								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
-								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={A93528DF-8ABB-4ef8-9B52-FA5059AE74F3}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Enumeration;GUID={4C2907CF-6A95-46cc-8F90-B60F6638A6F4};FQName=CityGML UML Profile::Enumeration;@ENDSTEREO;$DES;$CLT={A28BA0DA-D5A9-4dda-8993-657042CDC88E}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={4B8691BE-BA02-46b6-8FAC-24EBCD5A6965}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Enumeration;GUID={4C2907CF-6A95-46cc-8F90-B60F6638A6F4};FQName=CityGML UML Profile::Enumeration;@ENDSTEREO;$DES;$CLT={A28BA0DA-D5A9-4dda-8993-657042CDC88E}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 							</UML:ModelElement.taggedValue>
 							<UML:Classifier.feature>
 								<UML:Attribute name="OuterWall" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
@@ -11716,7 +11716,7 @@ VVQFAAeGfPBUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 								<UML:TaggedValue tag="ea_eleType" value="element"/>
 								<UML:TaggedValue tag="$ea_attsclassified" value="{2571222E-7D04-436f-9B0B-FA6CB13CEFFC},{100D81C7-36A6-4368-B27F-2D146D400339}"/>
 								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
-								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={CDFD0182-121F-4193-8927-FC28B2FE4999}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Enumeration;GUID={4C2907CF-6A95-46cc-8F90-B60F6638A6F4};FQName=CityGML UML Profile::Enumeration;@ENDSTEREO;$DES;$CLT={EC7C44C1-B67E-4a53-975A-1408DE071572}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={3303A67E-1D98-4848-B2FC-5740A525CB77}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Enumeration;GUID={4C2907CF-6A95-46cc-8F90-B60F6638A6F4};FQName=CityGML UML Profile::Enumeration;@ENDSTEREO;$DES;$CLT={EC7C44C1-B67E-4a53-975A-1408DE071572}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 							</UML:ModelElement.taggedValue>
 							<UML:Classifier.feature>
 								<UML:Attribute name="Conditioned" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
@@ -11834,7 +11834,7 @@ VVQFAAeGfPBUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 								<UML:TaggedValue tag="ea_eleType" value="element"/>
 								<UML:TaggedValue tag="$ea_attsclassified" value="{267FF591-EF84-4a7f-8C72-2B66C26EABE5},{5CD98EB6-9E6A-44c4-BF86-0A64951A02BD},{E751DA87-E2DE-4d96-973C-35001579EE4C}"/>
 								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
-								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={617DEB6B-E6DF-4ea7-B115-1C68079E626E}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Enumeration;GUID={4C2907CF-6A95-46cc-8F90-B60F6638A6F4};FQName=CityGML UML Profile::Enumeration;@ENDSTEREO;$DES;$CLT={ED4BEFEF-7537-4fdd-ABD6-1D4D7E43F98D}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={99B70CC3-5981-4592-A5D4-072BA931CC7F}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Enumeration;GUID={4C2907CF-6A95-46cc-8F90-B60F6638A6F4};FQName=CityGML UML Profile::Enumeration;@ENDSTEREO;$DES;$CLT={ED4BEFEF-7537-4fdd-ABD6-1D4D7E43F98D}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 							</UML:ModelElement.taggedValue>
 							<UML:Classifier.feature>
 								<UML:Attribute name="Inside" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
@@ -12761,7 +12761,7 @@ VVQFAAeGfPBUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 						</UML:Dependency>
 					</UML:Namespace.ownedElement>
 				</UML:Package>
-				<UML:Stereotype xmi.id="EAID_A5347A82_D6D6_485a_A3FD_D1258CDBD517" name="applicationSchema" isRoot="false" isLeaf="false" isAbstract="false">
+				<UML:Stereotype xmi.id="EAID_62A67379_C8AA_4b8c_B08D_69CC7B214F3D" name="applicationSchema" isRoot="false" isLeaf="false" isAbstract="false">
 					<UML:Stereotype.baseClass>Package</UML:Stereotype.baseClass>
 				</UML:Stereotype>
 				<UML:DataType xmi.id="eaxmiid6" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
@@ -12863,7 +12863,7 @@ VVQFAAeGfPBUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 		<UML:TaggedValue tag="isCollection" xmi.id="EAID_26B33348_C87A_85c8_989A_A8FFAE604F0B" value="false#NOTES#Values: true | false&#xA;Default: false&#xA;Description: Identifies the feature type as a feature collection.&#xA;" modelElement="EAID_602842E1_7964_4087_B878_FBFA6DCB3755"/>
 		<UML:TaggedValue tag="noPropertyType" xmi.id="EAID_F9638764_A4F6_1ea4_9D81_C9247FCF5612" value="false#NOTES#Values: false&#xA;Default: false&#xA;Description: Surpress creation of a standard property type that supports inline or by-reference encoding (applies to ISO 19136:2007 encoding rule). Always set to false in INSPIRE.&#xA;" modelElement="EAID_602842E1_7964_4087_B878_FBFA6DCB3755"/>
 		<UML:TaggedValue tag="xsdEncodingRule" xmi.id="EAID_BCD3CBEE_A3C0_99a3_9B1C_836481B914C9" value="iso19136_2007_ShapeChange_1.0_Extensions#NOTES#Values: iso19136_2007 | iso19139_2007 | iso19136_2007_INSPIRE_Extensions | iso19136_2007_ShapeChange_1.0_Extensions&#xA;Default: iso19136_2007_ShapeChange_1.0_Extensions&#xA;Description: XML Schema encoding rule to apply&#xA;" modelElement="EAID_602842E1_7964_4087_B878_FBFA6DCB3755"/>
-		<UML:TaggedValue tag="csdEncodingRule" xmi.id="EAID_5A758D00_DD89_4ea8_A298_C9AB1BDF0F46" value="citygml-ade" modelElement="EAID_6111B6A7_17C7_4370_B79B_C2AA1D829C7E"/>
+		<UML:TaggedValue tag="xsdEncodingRule" xmi.id="EAID_31CFF1EB_2B9E_4f56_BA45_C7F0C3657CA8" value="citygml-ade" modelElement="EAID_6111B6A7_17C7_4370_B79B_C2AA1D829C7E"/>
 		<UML:TaggedValue tag="byValuePropertyType" xmi.id="EAID_ED33D65F_2711_0b27_BB44_A7DA91107E93" value="false#NOTES#Values: false&#xA;Default: false&#xA;Description: Create a property type that requires that the instance is encoded inline (applies to ISO 19136:2007 encoding rule). Always set to false in INSPIRE.&#xA;" modelElement="EAID_61E1D5AB_B012_4533_A0BE_56F80FE3BA76"/>
 		<UML:TaggedValue tag="gmlMixin" xmi.id="EAID_D8E5B7C5_87F7_8b87_8C13_91CF8162D2D9" value="false#NOTES#Values: true | false&#xA;Default: false&#xA;Description: Identifies the feature type as a mixin type that will not be encoded as a separate element/type in the GML encoding.&#xA;" modelElement="EAID_61E1D5AB_B012_4533_A0BE_56F80FE3BA76"/>
 		<UML:TaggedValue tag="inspireConcept" xmi.id="EAID_4B797726_34D8_6a34_B014_55497327FFC0" value="FIXME#NOTES#Default: FIXME&#xA;Description: URN reference to the feature concept in the INSPIRE Feature Concept Dictionary Register&#xA;" modelElement="EAID_61E1D5AB_B012_4533_A0BE_56F80FE3BA76"/>
