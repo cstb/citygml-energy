@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="windows-1252"?>
-<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2015-02-27 14:50:40">
+<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2015-02-27 14:53:13">
 	<XMI.header>
 		<XMI.documentation>
 			<XMI.exporter>Enterprise Architect</XMI.exporter>
@@ -12,7 +12,7 @@
 				<UML:Class name="EARootClass" xmi.id="EAID_11111111_5487_4080_A7F4_41526CB0AA00" isRoot="true" isLeaf="false" isAbstract="false"/>
 				<UML:Package name="Energy-ADE" xmi.id="EAPK_A74CE7E8_412F_4656_877F_E486E31317EB" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
 					<UML:ModelElement.stereotype>
-						<UML:Stereotype xmi.idref="EAID_40FA1888_A3FF_40a8_9516_DF175A7469E6"/>
+						<UML:Stereotype xmi.idref="EAID_74C2445B_0EA4_44d4_9089_D92E812C1D6E"/>
 					</UML:ModelElement.stereotype>
 					<UML:ModelElement.taggedValue>
 						<UML:TaggedValue tag="parent" value="EAPK_E42B8EDA_979E_498e_8BA3_ECC1C55B29B3"/>
@@ -5017,7 +5017,7 @@
 								<UML:TaggedValue tag="ea_eleType" value="element"/>
 								<UML:TaggedValue tag="$ea_attsclassified" value="{2E5C2747-D274-4a21-888A-BA998DDE8D50},{5B6C437B-D274-41e9-B828-BF107288A407},{D8785DA6-F2ED-48f1-BCCB-29F786924AC4},{E57F5849-5648-4aee-B515-BE6FEB3171D5}"/>
 								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
-								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={849E348C-F6D9-45b2-B3C8-0747B483D028}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Enumeration;GUID={4C2907CF-6A95-46cc-8F90-B60F6638A6F4};FQName=CityGML UML Profile::Enumeration;@ENDSTEREO;$DES;$CLT={676367BC-A1A5-4daf-9747-A1CCF23279FF}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={6CC7DB3B-26B3-4b28-BB50-8B0333E5208D}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Enumeration;GUID={4C2907CF-6A95-46cc-8F90-B60F6638A6F4};FQName=CityGML UML Profile::Enumeration;@ENDSTEREO;$DES;$CLT={676367BC-A1A5-4daf-9747-A1CCF23279FF}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 							</UML:ModelElement.taggedValue>
 							<UML:Classifier.feature>
 								<UML:Attribute name="Solar" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
@@ -6118,15 +6118,15 @@
 								<UML:TaggedValue tag="ea_eleType" value="element"/>
 								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={75C1FBEA-55E5-40f8-B3D8-732F2B182FE9}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=featureType;GUID={EBF69563-9637-4938-B5C3-F8F9261C57ED};FQName=UML Profile for ADE generation::featureType;@ENDSTEREO;$DES;$CLT={7F310708-8D61-424e-9793-36CB7EB86BB8}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-								<UML:TaggedValue tag="modeldocument" xmlns:dt="urn:schemas-microsoft-com:datatypes" dt:dt="bin.base64">UEsDBBQAAAAIAFB2W0acVe/sRQEAAEYCAAAHABEAc3RyLmRhdFVUDQAHQITwVECE8FRAhPBU
+								<UML:TaggedValue tag="modeldocument" xmlns:dt="urn:schemas-microsoft-com:datatypes" dt:dt="bin.base64">UEsDBBQAAAAIALp2W0acVe/sRQEAAEYCAAAHABEAc3RyLmRhdFVUDQAH2YTwVNmE8FTZhPBU
 bVHBTsMwDL1P2j/kzKkpHUzaCQlxRFy45eK2TlqWJcVxKdO0f8dZy0CIS/L87DzbLydDbLWB
 kHrTovUQnC5u74zlUL+ZsdGZtcV6dTI2BubaCyiUsWnqU1IP1IPfnc8530QfSQrUzhC25WZj
 HCGGDGo/otxzppj54sIWand5nPjoMXWInPVFvqzUc6RDVhfppNUjWhg9qxcgcARDp55koKX3
 jQh/5OFewz7EKVxoM8CANOmyrIoZd3qzFXwAcl5vixnRFbGulmx9QR1Ci3S8L2WgGHmBITqK
 E4wcbc/ZHoZ6LqFD6uSFVFgEHgm5o8jsURuLXBnA0AbRSQbE30C+MYOrqaXcaIG5kYyesOFM
 TekzLAu4LuOfBXJ03eF3wDm4bvId/L9MqvcDOBT10Iid+W6xyd556MNyLh9i3v0fYgBar8Tp
-L1BLAQIXCxQAAAAIAFB2W0acVe/sRQEAAEYCAAAHAAkAAAAAAAAAAAAAgAAAAABzdHIuZGF0
-VVQFAAdAhPBUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
+L1BLAQIXCxQAAAAIALp2W0acVe/sRQEAAEYCAAAHAAkAAAAAAAAAAAAAgAAAAABzdHIuZGF0
+VVQFAAfZhPBUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 							</UML:ModelElement.taggedValue>
 							<UML:Classifier.feature>
 								<UML:Attribute name="endUse" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
@@ -7938,7 +7938,7 @@ VVQFAAdAhPBUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 								<UML:TaggedValue tag="ea_eleType" value="element"/>
 								<UML:TaggedValue tag="$ea_attsclassified" value="{347E79EE-9BB3-444c-BF06-BDF2AA1769E3}"/>
 								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
-								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={05E4EC71-6462-4d58-86B3-64D3DA53FEAA}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Enumeration;GUID={4C2907CF-6A95-46cc-8F90-B60F6638A6F4};FQName=CityGML UML Profile::Enumeration;@ENDSTEREO;$DES;$CLT={A28BA0DA-D5A9-4dda-8993-657042CDC88E}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={04795CD5-D114-479f-88B6-8E62008B3056}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Enumeration;GUID={4C2907CF-6A95-46cc-8F90-B60F6638A6F4};FQName=CityGML UML Profile::Enumeration;@ENDSTEREO;$DES;$CLT={A28BA0DA-D5A9-4dda-8993-657042CDC88E}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 							</UML:ModelElement.taggedValue>
 							<UML:Classifier.feature>
 								<UML:Attribute name="OuterWall" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
@@ -11716,7 +11716,7 @@ VVQFAAdAhPBUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 								<UML:TaggedValue tag="ea_eleType" value="element"/>
 								<UML:TaggedValue tag="$ea_attsclassified" value="{100D81C7-36A6-4368-B27F-2D146D400339},{2571222E-7D04-436f-9B0B-FA6CB13CEFFC}"/>
 								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
-								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={FA6D5323-C50C-45f6-B786-627308312EBD}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Enumeration;GUID={4C2907CF-6A95-46cc-8F90-B60F6638A6F4};FQName=CityGML UML Profile::Enumeration;@ENDSTEREO;$DES;$CLT={EC7C44C1-B67E-4a53-975A-1408DE071572}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={73C104B9-6FDD-4c81-BCA9-61A2BEF70BB0}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Enumeration;GUID={4C2907CF-6A95-46cc-8F90-B60F6638A6F4};FQName=CityGML UML Profile::Enumeration;@ENDSTEREO;$DES;$CLT={EC7C44C1-B67E-4a53-975A-1408DE071572}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 							</UML:ModelElement.taggedValue>
 							<UML:Classifier.feature>
 								<UML:Attribute name="Conditioned" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
@@ -11834,7 +11834,7 @@ VVQFAAdAhPBUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 								<UML:TaggedValue tag="ea_eleType" value="element"/>
 								<UML:TaggedValue tag="$ea_attsclassified" value="{5CD98EB6-9E6A-44c4-BF86-0A64951A02BD},{E751DA87-E2DE-4d96-973C-35001579EE4C},{267FF591-EF84-4a7f-8C72-2B66C26EABE5}"/>
 								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
-								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={98A6C085-DC6B-4f97-9450-8773A0FD86F5}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Enumeration;GUID={4C2907CF-6A95-46cc-8F90-B60F6638A6F4};FQName=CityGML UML Profile::Enumeration;@ENDSTEREO;$DES;$CLT={ED4BEFEF-7537-4fdd-ABD6-1D4D7E43F98D}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={8BC38CF8-760E-4e57-A813-A77593E01A57}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Enumeration;GUID={4C2907CF-6A95-46cc-8F90-B60F6638A6F4};FQName=CityGML UML Profile::Enumeration;@ENDSTEREO;$DES;$CLT={ED4BEFEF-7537-4fdd-ABD6-1D4D7E43F98D}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 							</UML:ModelElement.taggedValue>
 							<UML:Classifier.feature>
 								<UML:Attribute name="Inside" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
@@ -12426,10 +12426,10 @@ VVQFAAdAhPBUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid29"/>
+										<UML:Classifier xmi.idref="eaxmiid1"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="type" value="MeasureType"/>
+										<UML:TaggedValue tag="type" value="Measure"/>
 										<UML:TaggedValue tag="derived" value="0"/>
 										<UML:TaggedValue tag="containment" value="Not Specified"/>
 										<UML:TaggedValue tag="length" value="0"/>
@@ -12764,7 +12764,7 @@ VVQFAAdAhPBUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 						</UML:Dependency>
 					</UML:Namespace.ownedElement>
 				</UML:Package>
-				<UML:Stereotype xmi.id="EAID_40FA1888_A3FF_40a8_9516_DF175A7469E6" name="applicationSchema" isRoot="false" isLeaf="false" isAbstract="false">
+				<UML:Stereotype xmi.id="EAID_74C2445B_0EA4_44d4_9089_D92E812C1D6E" name="applicationSchema" isRoot="false" isLeaf="false" isAbstract="false">
 					<UML:Stereotype.baseClass>Package</UML:Stereotype.baseClass>
 				</UML:Stereotype>
 				<UML:DataType xmi.id="eaxmiid5" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
@@ -12787,7 +12787,6 @@ VVQFAAdAhPBUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 				<UML:DataType xmi.id="eaxmiid14" name="OccupantType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid19" name="EndUseType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid1" name="Measure" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
-				<UML:DataType xmi.id="eaxmiid29" name="MeasureType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid26" name="EnergyCarrierType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid17" name="InterpolationType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid18" name="URI" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
