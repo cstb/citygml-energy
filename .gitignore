@@ -1,3 +1,7 @@
 Energy-ADE.EAP
 Energy-ADE.eap
 Energy-ADE.ldb
+shapechange/*
+shapechange-2.0.0/*
+*.ldb
+Energy-ADE_iso-compliance.eap
