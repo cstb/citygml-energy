@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="windows-1252"?>
-<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2015-03-02 16:51:04">
+<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2015-03-02 22:17:13">
 	<XMI.header>
 		<XMI.documentation>
 			<XMI.exporter>Enterprise Architect</XMI.exporter>
@@ -12,7 +12,7 @@
 				<UML:Class name="EARootClass" xmi.id="EAID_11111111_5487_4080_A7F4_41526CB0AA00" isRoot="true" isLeaf="false" isAbstract="false"/>
 				<UML:Package name="Energy-ADE" xmi.id="EAPK_A74CE7E8_412F_4656_877F_E486E31317EB" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
 					<UML:ModelElement.stereotype>
-						<UML:Stereotype xmi.idref="EAID_EF584A7E_1610_4282_AC75_71A5E0030C40"/>
+						<UML:Stereotype xmi.idref="EAID_950497BA_E1A4_4479_B40E_FA55F8E77975"/>
 					</UML:ModelElement.stereotype>
 					<UML:ModelElement.taggedValue>
 						<UML:TaggedValue tag="parent" value="EAPK_E42B8EDA_979E_498e_8BA3_ECC1C55B29B3"/>
@@ -1698,7 +1698,7 @@
 								<UML:TaggedValue tag="lineStyle" value="0"/>
 								<UML:TaggedValue tag="ea_localid" value="1832"/>
 								<UML:TaggedValue tag="ea_sourceName" value="UsageZone"/>
-								<UML:TaggedValue tag="ea_targetName" value="AbstractCityObject"/>
+								<UML:TaggedValue tag="ea_targetName" value="_CityObject"/>
 								<UML:TaggedValue tag="ea_sourceType" value="Class"/>
 								<UML:TaggedValue tag="ea_targetType" value="Class"/>
 								<UML:TaggedValue tag="ea_sourceID" value="249"/>
@@ -2713,7 +2713,7 @@
 								<UML:TaggedValue tag="lineStyle" value="0"/>
 								<UML:TaggedValue tag="ea_localid" value="1859"/>
 								<UML:TaggedValue tag="ea_sourceName" value="ThermalZone"/>
-								<UML:TaggedValue tag="ea_targetName" value="AbstractCityObject"/>
+								<UML:TaggedValue tag="ea_targetName" value="_CityObject"/>
 								<UML:TaggedValue tag="ea_sourceType" value="Class"/>
 								<UML:TaggedValue tag="ea_targetType" value="Class"/>
 								<UML:TaggedValue tag="ea_sourceID" value="254"/>
@@ -3665,7 +3665,7 @@
 								<UML:TaggedValue tag="lineStyle" value="0"/>
 								<UML:TaggedValue tag="ea_localid" value="1846"/>
 								<UML:TaggedValue tag="ea_sourceName" value="BuildingUnit"/>
-								<UML:TaggedValue tag="ea_targetName" value="AbstractCityObject"/>
+								<UML:TaggedValue tag="ea_targetName" value="_CityObject"/>
 								<UML:TaggedValue tag="ea_sourceType" value="Class"/>
 								<UML:TaggedValue tag="ea_targetType" value="Class"/>
 								<UML:TaggedValue tag="ea_sourceID" value="258"/>
@@ -4181,7 +4181,7 @@
 								<UML:TaggedValue tag="conditional" value="«ADE»"/>
 								<UML:TaggedValue tag="ea_localid" value="1895"/>
 								<UML:TaggedValue tag="ea_sourceName" value="_Opening"/>
-								<UML:TaggedValue tag="ea_targetName" value="AbstractOpening"/>
+								<UML:TaggedValue tag="ea_targetName" value="_Opening"/>
 								<UML:TaggedValue tag="ea_sourceType" value="Class"/>
 								<UML:TaggedValue tag="ea_targetType" value="Class"/>
 								<UML:TaggedValue tag="ea_sourceID" value="262"/>
@@ -4544,7 +4544,7 @@
 								<UML:TaggedValue tag="lineStyle" value="0"/>
 								<UML:TaggedValue tag="ea_localid" value="1836"/>
 								<UML:TaggedValue tag="ea_sourceName" value="ThermalBoundarySurface"/>
-								<UML:TaggedValue tag="ea_targetName" value="AbstractCityObject"/>
+								<UML:TaggedValue tag="ea_targetName" value="_CityObject"/>
 								<UML:TaggedValue tag="ea_sourceType" value="Class"/>
 								<UML:TaggedValue tag="ea_targetType" value="Class"/>
 								<UML:TaggedValue tag="ea_sourceID" value="264"/>
@@ -4614,7 +4614,7 @@
 								<UML:TaggedValue tag="conditional" value="«ADE»"/>
 								<UML:TaggedValue tag="ea_localid" value="1884"/>
 								<UML:TaggedValue tag="ea_sourceName" value="_BoundarySurface"/>
-								<UML:TaggedValue tag="ea_targetName" value="AbstractBoundarySurface"/>
+								<UML:TaggedValue tag="ea_targetName" value="_BoundarySurface"/>
 								<UML:TaggedValue tag="ea_sourceType" value="Class"/>
 								<UML:TaggedValue tag="ea_targetType" value="Class"/>
 								<UML:TaggedValue tag="ea_sourceID" value="265"/>
@@ -5562,7 +5562,7 @@
 								<UML:TaggedValue tag="conditional" value=" &#xA;«ADE»"/>
 								<UML:TaggedValue tag="ea_localid" value="1858"/>
 								<UML:TaggedValue tag="ea_sourceName" value="_CityObject"/>
-								<UML:TaggedValue tag="ea_targetName" value="AbstractCityObject"/>
+								<UML:TaggedValue tag="ea_targetName" value="_CityObject"/>
 								<UML:TaggedValue tag="ea_sourceType" value="Class"/>
 								<UML:TaggedValue tag="ea_targetType" value="Class"/>
 								<UML:TaggedValue tag="ea_sourceID" value="273"/>
@@ -5776,7 +5776,7 @@
 								<UML:TaggedValue tag="lineStyle" value="0"/>
 								<UML:TaggedValue tag="ea_localid" value="1847"/>
 								<UML:TaggedValue tag="ea_sourceName" value="AbstractMaterial"/>
-								<UML:TaggedValue tag="ea_targetName" value="AbstractCityObject"/>
+								<UML:TaggedValue tag="ea_targetName" value="_CityObject"/>
 								<UML:TaggedValue tag="ea_sourceType" value="Class"/>
 								<UML:TaggedValue tag="ea_targetType" value="Class"/>
 								<UML:TaggedValue tag="ea_sourceID" value="274"/>
@@ -6117,15 +6117,15 @@
 								<UML:TaggedValue tag="ea_eleType" value="element"/>
 								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={75C1FBEA-55E5-40f8-B3D8-732F2B182FE9}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=featureType;GUID={EBF69563-9637-4938-B5C3-F8F9261C57ED};FQName=UML Profile for ADE generation::featureType;@ENDSTEREO;$DES;$CLT={7F310708-8D61-424e-9793-36CB7EB86BB8}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-								<UML:TaggedValue tag="modeldocument" xmlns:dt="urn:schemas-microsoft-com:datatypes" dt:dt="bin.base64">UEsDBBQAAAAIAGiGYkacVe/sRQEAAEYCAAAHABEAc3RyLmRhdFVUDQAH+JT0VPiU9FT4lPRU
+								<UML:TaggedValue tag="modeldocument" xmlns:dt="urn:schemas-microsoft-com:datatypes" dt:dt="bin.base64">UEsDBBQAAAAIADqyYkacVe/sRQEAAEYCAAAHABEAc3RyLmRhdFVUDQAHaeH0VGnh9FRp4fRU
 bVHBTsMwDL1P2j/kzKkpHUzaCQlxRFy45eK2TlqWJcVxKdO0f8dZy0CIS/L87DzbLydDbLWB
 kHrTovUQnC5u74zlUL+ZsdGZtcV6dTI2BubaCyiUsWnqU1IP1IPfnc8530QfSQrUzhC25WZj
 HCGGDGo/otxzppj54sIWand5nPjoMXWInPVFvqzUc6RDVhfppNUjWhg9qxcgcARDp55koKX3
 jQh/5OFewz7EKVxoM8CANOmyrIoZd3qzFXwAcl5vixnRFbGulmx9QR1Ci3S8L2WgGHmBITqK
 E4wcbc/ZHoZ6LqFD6uSFVFgEHgm5o8jsURuLXBnA0AbRSQbE30C+MYOrqaXcaIG5kYyesOFM
 TekzLAu4LuOfBXJ03eF3wDm4bvId/L9MqvcDOBT10Iid+W6xyd556MNyLh9i3v0fYgBar8Tp
-L1BLAQIXCxQAAAAIAGiGYkacVe/sRQEAAEYCAAAHAAkAAAAAAAAAAAAAgAAAAABzdHIuZGF0
-VVQFAAf4lPRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
+L1BLAQIXCxQAAAAIADqyYkacVe/sRQEAAEYCAAAHAAkAAAAAAAAAAAAAgAAAAABzdHIuZGF0
+VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 							</UML:ModelElement.taggedValue>
 							<UML:Classifier.feature>
 								<UML:Attribute name="endUse" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
@@ -6621,7 +6621,7 @@ VVQFAAf4lPRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 								<UML:TaggedValue tag="conditional" value="«ADE»"/>
 								<UML:TaggedValue tag="ea_localid" value="1889"/>
 								<UML:TaggedValue tag="ea_sourceName" value="_AbstractBuilding"/>
-								<UML:TaggedValue tag="ea_targetName" value="AbstractBuilding"/>
+								<UML:TaggedValue tag="ea_targetName" value="_AbstractBuilding"/>
 								<UML:TaggedValue tag="ea_sourceType" value="Class"/>
 								<UML:TaggedValue tag="ea_targetType" value="Class"/>
 								<UML:TaggedValue tag="ea_sourceID" value="277"/>
@@ -8706,7 +8706,7 @@ VVQFAAf4lPRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 								<UML:TaggedValue tag="lineStyle" value="0"/>
 								<UML:TaggedValue tag="ea_localid" value="1837"/>
 								<UML:TaggedValue tag="ea_sourceName" value="ConstructionOrientation"/>
-								<UML:TaggedValue tag="ea_targetName" value="AbstractCityObject"/>
+								<UML:TaggedValue tag="ea_targetName" value="_CityObject"/>
 								<UML:TaggedValue tag="ea_sourceType" value="Class"/>
 								<UML:TaggedValue tag="ea_targetType" value="Class"/>
 								<UML:TaggedValue tag="ea_sourceID" value="291"/>
@@ -10892,7 +10892,7 @@ VVQFAAf4lPRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 								<UML:TaggedValue tag="lineStyle" value="0"/>
 								<UML:TaggedValue tag="ea_localid" value="1856"/>
 								<UML:TaggedValue tag="ea_sourceName" value="Construction"/>
-								<UML:TaggedValue tag="ea_targetName" value="AbstractCityObject"/>
+								<UML:TaggedValue tag="ea_targetName" value="_CityObject"/>
 								<UML:TaggedValue tag="ea_sourceType" value="Class"/>
 								<UML:TaggedValue tag="ea_targetType" value="Class"/>
 								<UML:TaggedValue tag="ea_sourceID" value="306"/>
@@ -12262,7 +12262,7 @@ VVQFAAf4lPRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 								<UML:TaggedValue tag="lineStyle" value="0"/>
 								<UML:TaggedValue tag="ea_localid" value="1838"/>
 								<UML:TaggedValue tag="ea_sourceName" value="SurfaceComponent"/>
-								<UML:TaggedValue tag="ea_targetName" value="AbstractCityObject"/>
+								<UML:TaggedValue tag="ea_targetName" value="_CityObject"/>
 								<UML:TaggedValue tag="ea_sourceType" value="Class"/>
 								<UML:TaggedValue tag="ea_targetType" value="Class"/>
 								<UML:TaggedValue tag="ea_sourceID" value="316"/>
@@ -12594,7 +12594,7 @@ VVQFAAf4lPRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 								<UML:TaggedValue tag="lineStyle" value="0"/>
 								<UML:TaggedValue tag="ea_localid" value="1839"/>
 								<UML:TaggedValue tag="ea_sourceName" value="Layer"/>
-								<UML:TaggedValue tag="ea_targetName" value="AbstractCityObject"/>
+								<UML:TaggedValue tag="ea_targetName" value="_CityObject"/>
 								<UML:TaggedValue tag="ea_sourceType" value="Class"/>
 								<UML:TaggedValue tag="ea_targetType" value="Class"/>
 								<UML:TaggedValue tag="ea_sourceID" value="319"/>
@@ -12734,7 +12734,7 @@ VVQFAAf4lPRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 						</UML:Dependency>
 					</UML:Namespace.ownedElement>
 				</UML:Package>
-				<UML:Stereotype xmi.id="EAID_EF584A7E_1610_4282_AC75_71A5E0030C40" name="ApplicationSchema" isRoot="false" isLeaf="false" isAbstract="false">
+				<UML:Stereotype xmi.id="EAID_950497BA_E1A4_4479_B40E_FA55F8E77975" name="ApplicationSchema" isRoot="false" isLeaf="false" isAbstract="false">
 					<UML:Stereotype.baseClass>Package</UML:Stereotype.baseClass>
 				</UML:Stereotype>
 				<UML:DataType xmi.id="eaxmiid5" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
@@ -13224,10 +13224,10 @@ VVQFAAf4lPRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 	<XMI.difference/>
 	<XMI.extensions xmi.extender="Enterprise Architect 2.5">
 		<EAModel.paramSub/>
-		<EAStub xmi.id="EAID_34C8E10E_D257_47aa_89F2_43F3C43E0037" name="AbstractCityObject" UMLType="Class"/>
-		<EAStub xmi.id="EAID_71852F21_0EBF_41ab_9CB4_17120AFAFCAF" name="AbstractOpening" UMLType="Class"/>
-		<EAStub xmi.id="EAID_A1EBFCBF_A59B_41c4_A1D8_054AB7131DC7" name="AbstractBoundarySurface" UMLType="Class"/>
-		<EAStub xmi.id="EAID_977DDC12_DD38_4c85_8D32_87E5F7A5B400" name="AbstractBuilding" UMLType="Class"/>
+		<EAStub xmi.id="EAID_34C8E10E_D257_47aa_89F2_43F3C43E0037" name="_CityObject" UMLType="Class"/>
+		<EAStub xmi.id="EAID_71852F21_0EBF_41ab_9CB4_17120AFAFCAF" name="_Opening" UMLType="Class"/>
+		<EAStub xmi.id="EAID_A1EBFCBF_A59B_41c4_A1D8_054AB7131DC7" name="_BoundarySurface" UMLType="Class"/>
+		<EAStub xmi.id="EAID_977DDC12_DD38_4c85_8D32_87E5F7A5B400" name="_AbstractBuilding" UMLType="Class"/>
 		<EAStub xmi.id="EAPK_7B82C33D_67C9_4c77_A369_E80F6539845F" name="Building" UMLType="Package"/>
 		<EAStub xmi.id="EAPK_1EA77CD6_FBC7_492e_B86E_709096554D8B" name="CityGML_Core" UMLType="Package"/>
 		<EAStub xmi.id="EAID_ACC5EDDE_5952_40f4_B674_F43C12722521" name="BuildingClass" UMLType="Class"/>
