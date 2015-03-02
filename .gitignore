@@ -6,3 +6,5 @@ Energy-ADE_log.xml
 generate_Energy_ADE.bat
 shapechange
 *.ldb
+Energy-ADE_iso-compliance.eap
+shapechange-2.0.0/*
