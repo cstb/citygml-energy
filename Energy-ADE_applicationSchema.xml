@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="windows-1252"?>
-<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2015-03-02 22:17:13">
+<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2015-03-02 22:54:48">
 	<XMI.header>
 		<XMI.documentation>
 			<XMI.exporter>Enterprise Architect</XMI.exporter>
@@ -12,7 +12,7 @@
 				<UML:Class name="EARootClass" xmi.id="EAID_11111111_5487_4080_A7F4_41526CB0AA00" isRoot="true" isLeaf="false" isAbstract="false"/>
 				<UML:Package name="Energy-ADE" xmi.id="EAPK_A74CE7E8_412F_4656_877F_E486E31317EB" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
 					<UML:ModelElement.stereotype>
-						<UML:Stereotype xmi.idref="EAID_950497BA_E1A4_4479_B40E_FA55F8E77975"/>
+						<UML:Stereotype xmi.idref="EAID_817A58EC_1112_4fca_B75F_93E0ECB1A857"/>
 					</UML:ModelElement.stereotype>
 					<UML:ModelElement.taggedValue>
 						<UML:TaggedValue tag="parent" value="EAPK_E42B8EDA_979E_498e_8BA3_ECC1C55B29B3"/>
@@ -569,10 +569,10 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid4"/>
+										<UML:Classifier xmi.idref="EAID_B85E7884_04F5_403f_A96A_FDE0C29C18F2"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="type" value="CharacterString"/>
+										<UML:TaggedValue tag="type" value="HouseholdType"/>
 										<UML:TaggedValue tag="derived" value="0"/>
 										<UML:TaggedValue tag="containment" value="Not Specified"/>
 										<UML:TaggedValue tag="length" value="0"/>
@@ -666,7 +666,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -690,7 +690,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -714,7 +714,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -738,7 +738,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -762,7 +762,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -815,7 +815,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -839,7 +839,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -863,7 +863,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -916,7 +916,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid4"/>
+										<UML:Classifier xmi.idref="eaxmiid5"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="type" value="CharacterString"/>
@@ -1746,7 +1746,7 @@
 								<UML:TaggedValue tag="tpos" value="0"/>
 								<UML:TaggedValue tag="ea_localid" value="250"/>
 								<UML:TaggedValue tag="ea_eleType" value="element"/>
-								<UML:TaggedValue tag="$ea_attsclassified" value="{69874296-9C03-4936-B395-39CE15D806A8},{27C3D9A4-96F2-44ad-90E2-E2CF9A5413D4},{32F4ABA4-AD8F-4703-AC0F-AE178A119672},{DA5F118B-F129-4ecc-A11F-8201D7362F98},{4358C57C-6593-4079-AC57-B63B7A015F3E},{3F46333F-6974-4a72-A3F1-03E3194EDA13}"/>
+								<UML:TaggedValue tag="$ea_attsclassified" value="{4358C57C-6593-4079-AC57-B63B7A015F3E},{69874296-9C03-4936-B395-39CE15D806A8},{3F46333F-6974-4a72-A3F1-03E3194EDA13},{32F4ABA4-AD8F-4703-AC0F-AE178A119672},{DA5F118B-F129-4ecc-A11F-8201D7362F98},{27C3D9A4-96F2-44ad-90E2-E2CF9A5413D4}"/>
 								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={9B7B118D-5FDB-44a4-A3CC-3C1499FB8E00}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=dataType;GUID={EDF4EE7B-B416-4f6c-85B4-3427C30086CF};FQName=UML Profile for ADE generation::dataType;@ENDSTEREO;$DES;$CLT={252EFCD6-320F-460d-91AA-BE2FF815384F}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 							</UML:ModelElement.taggedValue>
@@ -1756,7 +1756,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid4"/>
+										<UML:Classifier xmi.idref="eaxmiid5"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="type" value="CharacterString"/>
@@ -2851,7 +2851,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -2875,7 +2875,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -2899,7 +2899,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -2923,7 +2923,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -2947,7 +2947,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -2971,7 +2971,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -3145,7 +3145,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -3169,7 +3169,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -3193,7 +3193,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -3217,7 +3217,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -3241,7 +3241,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -3265,7 +3265,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -3289,7 +3289,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -3313,7 +3313,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -3337,7 +3337,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -3361,7 +3361,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -3385,7 +3385,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -3409,7 +3409,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -3433,7 +3433,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -3457,7 +3457,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -3537,7 +3537,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid4"/>
+										<UML:Classifier xmi.idref="eaxmiid5"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="type" value="CharacterString"/>
@@ -3788,7 +3788,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid4"/>
+										<UML:Classifier xmi.idref="eaxmiid5"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="type" value="CharacterString"/>
@@ -3926,7 +3926,7 @@
 								<UML:TaggedValue tag="tpos" value="0"/>
 								<UML:TaggedValue tag="ea_localid" value="261"/>
 								<UML:TaggedValue tag="ea_eleType" value="element"/>
-								<UML:TaggedValue tag="$ea_attsclassified" value="{8ABACC8C-FC77-404b-9029-C85E46A1A57D},{09FA73E4-F012-448d-B98C-6A3DFA8EBA4B},{CE852197-5DAF-418f-8845-B957FC46E2FD}"/>
+								<UML:TaggedValue tag="$ea_attsclassified" value="{8ABACC8C-FC77-404b-9029-C85E46A1A57D},{CE852197-5DAF-418f-8845-B957FC46E2FD},{09FA73E4-F012-448d-B98C-6A3DFA8EBA4B}"/>
 								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={209D8DBF-45CA-4d27-A85F-D43B9810DFE4}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=dataType;GUID={EDF4EE7B-B416-4f6c-85B4-3427C30086CF};FQName=NEN3610::dataType;@ENDSTEREO;$DES;$CLT={4EC8CD6B-FF46-433b-809F-A9566B605D3C}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 							</UML:ModelElement.taggedValue>
@@ -4831,7 +4831,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid4"/>
+										<UML:Classifier xmi.idref="eaxmiid5"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="type" value="CharacterString"/>
@@ -5014,7 +5014,7 @@
 								<UML:TaggedValue tag="tpos" value="0"/>
 								<UML:TaggedValue tag="ea_localid" value="269"/>
 								<UML:TaggedValue tag="ea_eleType" value="element"/>
-								<UML:TaggedValue tag="$ea_attsclassified" value="{D8785DA6-F2ED-48f1-BCCB-29F786924AC4},{2E5C2747-D274-4a21-888A-BA998DDE8D50},{E57F5849-5648-4aee-B515-BE6FEB3171D5},{5B6C437B-D274-41e9-B828-BF107288A407}"/>
+								<UML:TaggedValue tag="$ea_attsclassified" value="{E57F5849-5648-4aee-B515-BE6FEB3171D5},{D8785DA6-F2ED-48f1-BCCB-29F786924AC4},{2E5C2747-D274-4a21-888A-BA998DDE8D50},{5B6C437B-D274-41e9-B828-BF107288A407}"/>
 								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={5CBC1013-E846-45d7-88CD-62CEE4949566}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Enumeration;GUID={4C2907CF-6A95-46cc-8F90-B60F6638A6F4};FQName=CityGML UML Profile::Enumeration;@ENDSTEREO;$DES;$CLT={676367BC-A1A5-4daf-9747-A1CCF23279FF}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 							</UML:ModelElement.taggedValue>
@@ -5024,7 +5024,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.stereotype>
 										<UML:Stereotype name="enum"/>
@@ -5053,7 +5053,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.stereotype>
 										<UML:Stereotype name="enum"/>
@@ -5082,7 +5082,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.stereotype>
 										<UML:Stereotype name="enum"/>
@@ -5111,7 +5111,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.stereotype>
 										<UML:Stereotype name="enum"/>
@@ -5171,7 +5171,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid4"/>
+										<UML:Classifier xmi.idref="eaxmiid5"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="type" value="CharacterString"/>
@@ -5224,7 +5224,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid4"/>
+										<UML:Classifier xmi.idref="eaxmiid5"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="type" value="CharacterString"/>
@@ -5249,7 +5249,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid4"/>
+										<UML:Classifier xmi.idref="eaxmiid5"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="type" value="CharacterString"/>
@@ -5300,7 +5300,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid4"/>
+										<UML:Classifier xmi.idref="eaxmiid5"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="type" value="CharacterString"/>
@@ -5949,7 +5949,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -5973,7 +5973,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -5997,7 +5997,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -6021,7 +6021,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -6045,7 +6045,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -6069,7 +6069,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -6117,15 +6117,15 @@
 								<UML:TaggedValue tag="ea_eleType" value="element"/>
 								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={75C1FBEA-55E5-40f8-B3D8-732F2B182FE9}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=featureType;GUID={EBF69563-9637-4938-B5C3-F8F9261C57ED};FQName=UML Profile for ADE generation::featureType;@ENDSTEREO;$DES;$CLT={7F310708-8D61-424e-9793-36CB7EB86BB8}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-								<UML:TaggedValue tag="modeldocument" xmlns:dt="urn:schemas-microsoft-com:datatypes" dt:dt="bin.base64">UEsDBBQAAAAIADqyYkacVe/sRQEAAEYCAAAHABEAc3RyLmRhdFVUDQAHaeH0VGnh9FRp4fRU
+								<UML:TaggedValue tag="modeldocument" xmlns:dt="urn:schemas-microsoft-com:datatypes" dt:dt="bin.base64">UEsDBBQAAAAIAMK2YkacVe/sRQEAAEYCAAAHABEAc3RyLmRhdFVUDQAHOer0VDnq9FQ56vRU
 bVHBTsMwDL1P2j/kzKkpHUzaCQlxRFy45eK2TlqWJcVxKdO0f8dZy0CIS/L87DzbLydDbLWB
 kHrTovUQnC5u74zlUL+ZsdGZtcV6dTI2BubaCyiUsWnqU1IP1IPfnc8530QfSQrUzhC25WZj
 HCGGDGo/otxzppj54sIWand5nPjoMXWInPVFvqzUc6RDVhfppNUjWhg9qxcgcARDp55koKX3
 jQh/5OFewz7EKVxoM8CANOmyrIoZd3qzFXwAcl5vixnRFbGulmx9QR1Ci3S8L2WgGHmBITqK
 E4wcbc/ZHoZ6LqFD6uSFVFgEHgm5o8jsURuLXBnA0AbRSQbE30C+MYOrqaXcaIG5kYyesOFM
 TekzLAu4LuOfBXJ03eF3wDm4bvId/L9MqvcDOBT10Iid+W6xyd556MNyLh9i3v0fYgBar8Tp
-L1BLAQIXCxQAAAAIADqyYkacVe/sRQEAAEYCAAAHAAkAAAAAAAAAAAAAgAAAAABzdHIuZGF0
-VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
+L1BLAQIXCxQAAAAIAMK2YkacVe/sRQEAAEYCAAAHAAkAAAAAAAAAAAAAgAAAAABzdHIuZGF0
+VVQFAAc56vRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 							</UML:ModelElement.taggedValue>
 							<UML:Classifier.feature>
 								<UML:Attribute name="endUse" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
@@ -6344,7 +6344,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid4"/>
+										<UML:Classifier xmi.idref="eaxmiid5"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="type" value="CharacterString"/>
@@ -6527,7 +6527,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid4"/>
+										<UML:Classifier xmi.idref="eaxmiid5"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="description" value="to defined better...."/>
@@ -6854,7 +6854,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid4"/>
+										<UML:Classifier xmi.idref="eaxmiid5"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="type" value="CharacterString"/>
@@ -6946,7 +6946,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -6970,7 +6970,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -6994,7 +6994,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -7018,7 +7018,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -7398,7 +7398,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 								<UML:TaggedValue tag="tpos" value="0"/>
 								<UML:TaggedValue tag="ea_localid" value="283"/>
 								<UML:TaggedValue tag="ea_eleType" value="element"/>
-								<UML:TaggedValue tag="$ea_attsclassified" value="{816A48C6-BB8E-45fb-BA63-B043AF63D0CB},{3E34A752-6264-40fc-ABB5-A59DC18D7D20},{96E5E1DF-0048-463a-AEE3-8E11FE66CD96},{65AC2E49-3E12-4919-A607-ADB28B9D2C79}"/>
+								<UML:TaggedValue tag="$ea_attsclassified" value="{3E34A752-6264-40fc-ABB5-A59DC18D7D20},{65AC2E49-3E12-4919-A607-ADB28B9D2C79},{96E5E1DF-0048-463a-AEE3-8E11FE66CD96},{816A48C6-BB8E-45fb-BA63-B043AF63D0CB}"/>
 								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={8C06E3DA-E0CB-43fa-903B-579EA7F0DE0C}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=dataType;GUID={EDF4EE7B-B416-4f6c-85B4-3427C30086CF};FQName=NEN3610::dataType;@ENDSTEREO;$DES;$CLT={93352845-C12C-4db7-842D-8C55FD4353C9}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 							</UML:ModelElement.taggedValue>
@@ -7918,7 +7918,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.stereotype>
 										<UML:Stereotype name="enum"/>
@@ -7947,7 +7947,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.stereotype>
 										<UML:Stereotype name="enum"/>
@@ -7976,7 +7976,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.stereotype>
 										<UML:Stereotype name="enum"/>
@@ -8005,7 +8005,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.stereotype>
 										<UML:Stereotype name="enum"/>
@@ -8034,7 +8034,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.stereotype>
 										<UML:Stereotype name="enum"/>
@@ -8063,7 +8063,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.stereotype>
 										<UML:Stereotype name="enum"/>
@@ -8092,7 +8092,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.stereotype>
 										<UML:Stereotype name="enum"/>
@@ -8286,7 +8286,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -8310,7 +8310,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -8334,7 +8334,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -8358,7 +8358,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -8382,7 +8382,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -8406,7 +8406,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -8430,7 +8430,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -8454,7 +8454,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -8478,7 +8478,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -8502,7 +8502,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -8526,7 +8526,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -8550,7 +8550,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -8574,7 +8574,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -8940,7 +8940,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -8964,7 +8964,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -8988,7 +8988,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -9012,7 +9012,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -9036,7 +9036,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -9060,7 +9060,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -9084,7 +9084,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="description" value="can be from district network /solar systems..."/>
@@ -9109,7 +9109,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -9133,7 +9133,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -9157,7 +9157,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -9181,7 +9181,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -9205,7 +9205,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -9258,7 +9258,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid4"/>
+										<UML:Classifier xmi.idref="eaxmiid5"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="type" value="CharacterString"/>
@@ -9489,6 +9489,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 								<UML:TaggedValue tag="tpos" value="0"/>
 								<UML:TaggedValue tag="ea_localid" value="296"/>
 								<UML:TaggedValue tag="ea_eleType" value="element"/>
+								<UML:TaggedValue tag="$ea_attsclassified" value="{FC78D017-6A60-403a-A9F6-A8B631885D76}"/>
 								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={242E9707-A730-4a9f-888A-3306A3620B4F}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=codeList;GUID={A23D52A3-2C14-45a3-A72C-49F21A52252A};FQName=UML Profile for ADE generation::codeList;@ENDSTEREO;$DES;$CLT={B85E7884-04F5-403f-A96A-FDE0C29C18F2}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 							</UML:ModelElement.taggedValue>
@@ -9498,7 +9499,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -9522,7 +9523,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -9546,7 +9547,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -9570,7 +9571,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -9594,7 +9595,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -9618,7 +9619,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -9642,7 +9643,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid4"/>
+										<UML:Classifier xmi.idref="eaxmiid5"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="type" value="CharacterString"/>
@@ -9749,7 +9750,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid4"/>
+										<UML:Classifier xmi.idref="eaxmiid5"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="type" value="CharacterString"/>
@@ -9794,7 +9795,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 								<UML:TaggedValue tag="tpos" value="0"/>
 								<UML:TaggedValue tag="ea_localid" value="298"/>
 								<UML:TaggedValue tag="ea_eleType" value="element"/>
-								<UML:TaggedValue tag="$ea_attsclassified" value="{0701403A-0F8E-4ee3-ADB0-BE5A1C1086FE},{010FAFD9-C2CF-422a-82B0-F9100CB976DC},{BFBF7863-9A5D-4d99-97BF-93CB2ECEF69F},{7669745B-2A6C-4bf5-B6FD-1317796DEC98},{FC8E457A-39B8-4bb6-AF56-6016080DC771},{31E58D50-0662-4f66-B3F8-0267399340C0},{84E57779-AE5B-476d-9A25-174021D3FC35}"/>
+								<UML:TaggedValue tag="$ea_attsclassified" value="{7669745B-2A6C-4bf5-B6FD-1317796DEC98},{FC8E457A-39B8-4bb6-AF56-6016080DC771},{010FAFD9-C2CF-422a-82B0-F9100CB976DC},{0701403A-0F8E-4ee3-ADB0-BE5A1C1086FE},{31E58D50-0662-4f66-B3F8-0267399340C0},{84E57779-AE5B-476d-9A25-174021D3FC35},{BFBF7863-9A5D-4d99-97BF-93CB2ECEF69F}"/>
 								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={2C6C414E-B4D2-4f7a-BFEF-C874BEBEA129}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=dataType;GUID={AF87BBB4-0ABD-486b-A51F-A0E0E8645223};FQName=UML Profile for ADE generation::dataType;@ENDSTEREO;$DES;$CLT={BD7AD80F-CC1C-490c-B553-DCE641563FED}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 							</UML:ModelElement.taggedValue>
@@ -10062,7 +10063,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -10086,7 +10087,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -10110,7 +10111,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -10163,7 +10164,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid4"/>
+										<UML:Classifier xmi.idref="eaxmiid5"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="type" value="CharacterString"/>
@@ -10188,7 +10189,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid4"/>
+										<UML:Classifier xmi.idref="eaxmiid5"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="type" value="CharacterString"/>
@@ -10361,7 +10362,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid4"/>
+										<UML:Classifier xmi.idref="eaxmiid5"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="description" value="COP, EER, W/(m3/h) etc."/>
@@ -10414,7 +10415,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid4"/>
+										<UML:Classifier xmi.idref="eaxmiid5"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="type" value="CharacterString"/>
@@ -10616,7 +10617,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -10640,7 +10641,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -10664,7 +10665,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -10688,7 +10689,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -10712,7 +10713,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -11067,7 +11068,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -11091,7 +11092,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -11115,7 +11116,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -11139,7 +11140,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -11163,7 +11164,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -11187,7 +11188,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -11211,7 +11212,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -11685,7 +11686,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 								<UML:TaggedValue tag="tpos" value="0"/>
 								<UML:TaggedValue tag="ea_localid" value="312"/>
 								<UML:TaggedValue tag="ea_eleType" value="element"/>
-								<UML:TaggedValue tag="$ea_attsclassified" value="{2571222E-7D04-436f-9B0B-FA6CB13CEFFC},{100D81C7-36A6-4368-B27F-2D146D400339}"/>
+								<UML:TaggedValue tag="$ea_attsclassified" value="{100D81C7-36A6-4368-B27F-2D146D400339},{2571222E-7D04-436f-9B0B-FA6CB13CEFFC}"/>
 								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={BD97B488-7570-4e93-84E2-4FB7DB1B443B}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Enumeration;GUID={4C2907CF-6A95-46cc-8F90-B60F6638A6F4};FQName=CityGML UML Profile::Enumeration;@ENDSTEREO;$DES;$CLT={EC7C44C1-B67E-4a53-975A-1408DE071572}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 							</UML:ModelElement.taggedValue>
@@ -11695,7 +11696,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.stereotype>
 										<UML:Stereotype name="enum"/>
@@ -11724,7 +11725,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.stereotype>
 										<UML:Stereotype name="enum"/>
@@ -11753,7 +11754,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.stereotype>
 										<UML:Stereotype name="enum"/>
@@ -11802,7 +11803,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 								<UML:TaggedValue tag="tpos" value="0"/>
 								<UML:TaggedValue tag="ea_localid" value="313"/>
 								<UML:TaggedValue tag="ea_eleType" value="element"/>
-								<UML:TaggedValue tag="$ea_attsclassified" value="{E751DA87-E2DE-4d96-973C-35001579EE4C},{5CD98EB6-9E6A-44c4-BF86-0A64951A02BD},{267FF591-EF84-4a7f-8C72-2B66C26EABE5}"/>
+								<UML:TaggedValue tag="$ea_attsclassified" value="{267FF591-EF84-4a7f-8C72-2B66C26EABE5},{5CD98EB6-9E6A-44c4-BF86-0A64951A02BD},{E751DA87-E2DE-4d96-973C-35001579EE4C}"/>
 								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={AD22F552-95A7-4d92-A8E3-E6674DB58AD0}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Enumeration;GUID={4C2907CF-6A95-46cc-8F90-B60F6638A6F4};FQName=CityGML UML Profile::Enumeration;@ENDSTEREO;$DES;$CLT={ED4BEFEF-7537-4fdd-ABD6-1D4D7E43F98D}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 							</UML:ModelElement.taggedValue>
@@ -11812,7 +11813,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.stereotype>
 										<UML:Stereotype name="enum"/>
@@ -11841,7 +11842,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.stereotype>
 										<UML:Stereotype name="enum"/>
@@ -11899,7 +11900,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid4"/>
+										<UML:Classifier xmi.idref="eaxmiid5"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="type" value="CharacterString"/>
@@ -11954,7 +11955,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -11978,7 +11979,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -12002,7 +12003,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -12026,7 +12027,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -12050,7 +12051,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -12074,7 +12075,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -12098,7 +12099,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -12122,7 +12123,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="derived" value="0"/>
@@ -12734,10 +12735,10 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 						</UML:Dependency>
 					</UML:Namespace.ownedElement>
 				</UML:Package>
-				<UML:Stereotype xmi.id="EAID_950497BA_E1A4_4479_B40E_FA55F8E77975" name="ApplicationSchema" isRoot="false" isLeaf="false" isAbstract="false">
+				<UML:Stereotype xmi.id="EAID_817A58EC_1112_4fca_B75F_93E0ECB1A857" name="ApplicationSchema" isRoot="false" isLeaf="false" isAbstract="false">
 					<UML:Stereotype.baseClass>Package</UML:Stereotype.baseClass>
 				</UML:Stereotype>
-				<UML:DataType xmi.id="eaxmiid5" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<UML:DataType xmi.id="eaxmiid4" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid3" name="ResidenceType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid20" name="BuildingType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid7" name="DistributionType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
@@ -12748,7 +12749,7 @@ VVQFAAdp4fRUUEsFBgAAAAABAAEAPgAAAHsBAAAAAA==</UML:TaggedValue>
 				<UML:DataType xmi.id="eaxmiid15" name="HeatSourceType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid0" name="Scale" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid23" name="Year" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
-				<UML:DataType xmi.id="eaxmiid4" name="CharacterString" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<UML:DataType xmi.id="eaxmiid5" name="CharacterString" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid26" name="TM_IntervalLength" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid8" name="Area" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid12" name="OwnershipType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
