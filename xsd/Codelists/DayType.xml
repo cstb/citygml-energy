@@ -1,117 +1,103 @@
-<?xml-stylesheet type='text/xsl' href='./CodelistDictionary-v31.xsl'?><Dictionary xmlns="http://www.opengis.net/gml" xmlns:gml="http://www.opengis.net/gml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="DayType" xsi:schemaLocation="http://www.opengis.net/gml ../../3.1.1/base/gml.xsd">
+<?xml-stylesheet type='text/xsl' href='./CodelistDictionary-v32.xsl'?><Dictionary xmlns="http://www.opengis.net/gml" xmlns:gml="http://www.opengis.net/gml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="DayType" xsi:schemaLocation="http://www.opengis.net/gml null">
   <description>
   </description>
-  <name>DayType</name>
+  <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3">DayType</identifier>
   <dictionaryEntry>
-    <Definition gml:id="_1258_2905">
+    <Definition gml:id="_257_482">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">CustomDay1</name>
-      <name>CustomDay1</name>
+      <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">CustomDay1</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_1258_2906">
+    <Definition gml:id="_257_483">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">CustomDay2</name>
-      <name>CustomDay2</name>
+      <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">CustomDay2</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_1258_2500">
+    <Definition gml:id="_257_484">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">Holiday</name>
-      <name>Holiday</name>
+      <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">Holiday</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_1258_2899">
+    <Definition gml:id="_257_485">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">Monday</name>
-      <name>Monday</name>
+      <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">Monday</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_1258_2907">
+    <Definition gml:id="_257_486">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">OtherDay</name>
-      <name>OtherDay</name>
+      <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">OtherDay</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_1258_2773">
+    <Definition gml:id="_257_487">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">Saturday</name>
-      <name>Saturday</name>
+      <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">Saturday</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_1258_2903">
+    <Definition gml:id="_257_488">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">SummerDesignDay</name>
-      <name>SummerDesignDay</name>
+      <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">SummerDesignDay</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_1258_2772">
+    <Definition gml:id="_257_489">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">Sunday</name>
-      <name>Sunday</name>
+      <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">Sunday</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_1258_2902">
+    <Definition gml:id="_257_490">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">Thursday</name>
-      <name>Thursday</name>
+      <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">Thursday</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_1258_2900">
+    <Definition gml:id="_257_491">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">Tuesday</name>
-      <name>Tuesday</name>
+      <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">Tuesday</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_1258_2901">
+    <Definition gml:id="_257_492">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">Wednesday</name>
-      <name>Wednesday</name>
+      <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">Wednesday</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_1258_2499">
+    <Definition gml:id="_257_493">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">WeekDay</name>
-      <name>WeekDay</name>
+      <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">WeekDay</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_1258_2498">
+    <Definition gml:id="_257_494">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">WeekEnd</name>
-      <name>WeekEnd</name>
+      <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">WeekEnd</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_1258_2904">
+    <Definition gml:id="_257_495">
       <description>
       </description>
-      <name codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">WinterDesignDay</name>
-      <name>WinterDesignDay</name>
+      <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/DayType">WinterDesignDay</identifier>
     </Definition>
   </dictionaryEntry>
 </Dictionary>
