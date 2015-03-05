@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CityModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://www.opengis.net/citygml/2.0"
-	xmlns:gml="http://www.opengis.net/gml"
-	xmlns:xlink="http://www.w3.org/1999/xlink"
-	xmlns:bldg="http://www.opengis.net/citygml/building/2.0"
-	xmlns:energy="http://www.sig3d.org/citygml/2.0/energy/0.4.3"
-	xmlns:xAL="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"
-	xsi:schemaLocation="http://www.opengis.net/citygml/2.0 ./schemas/CityGML/2.0.0/cityGMLBase.xsd http://www.opengis.net/citygml/building/2.0 ./schemas/CityGML/2.0.0/building.xsd http://www.sig3d.org/citygml/2.0/energy/0.4.3 energy.xsd">
+ xmlns="http://www.opengis.net/citygml/2.0" xmlns:xAL="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"
+ xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml"
+ xmlns:energy="http://www.sig3d.org/citygml/2.0/energy/0.4.3"
+ xmlns:bldg="http://www.opengis.net/citygml/building/2.0">
 
 	<!-- dwagner, 15.06.2012 Simple building with saddle roof Local coordinates. Enriched with basic energy related sample data by Marcel Bruse, 12.01.2015. -->
 
@@ -361,17 +358,17 @@
 							<energy:layer>
 								<energy:Layer>
 									<energy:layerComponent>
-										<energy:Glazing>
+										<energy:LayerComponent>
 											<energy:material>
-												<energy:SolidMaterial>
-													<energy:conductivity>0.1</energy:conductivity>
-													<energy:density>0.5</energy:density>
-													<energy:permeance>0.9</energy:permeance>
-													<energy:porosity>0.1</energy:porosity>
-													<energy:specificHeat>0.9</energy:specificHeat>
-												</energy:SolidMaterial>
+												<energy:OpaqueMaterial>
+													<energy:conductivity uom="">0.1</energy:conductivity>
+													<energy:density uom="">0.5</energy:density>
+													<energy:permeance uom="">0.9</energy:permeance>
+													<energy:porosity uom="">0.1</energy:porosity>
+													<energy:specificHeat uom="">0.9</energy:specificHeat>
+												</energy:OpaqueMaterial>
 											</energy:material>
-										</energy:Glazing>
+										</energy:LayerComponent>										
 									</energy:layerComponent>
 								</energy:Layer>
 							</energy:layer>
@@ -381,14 +378,14 @@
 										<energy:LayerComponent>
 											<energy:material>
 												<energy:Gas>
-													<energy:thickness>15</energy:thickness>
+													<energy:thickness uom="">15</energy:thickness>
 												</energy:Gas>
 											</energy:material>
 										</energy:LayerComponent>
 									</energy:layerComponent>
 								</energy:Layer>
 							</energy:layer>
-							<energy:uValue>3</energy:uValue>
+							<energy:uValue uom="">3</energy:uValue>
 							<energy:absorptance>
 								<energy:Absorptance>
 									<energy:percentage>12</energy:percentage>
@@ -427,17 +424,17 @@
 					<energy:equippedWith>
 						<energy:PhotovoltaicSystem>
 							<energy:consumes></energy:consumes>
-							<energy:collectorSurface></energy:collectorSurface>
-							<energy:panelInclination></energy:panelInclination>
-							<energy:panelAzimuth></energy:panelAzimuth>
+							<energy:collectorSurface uom="">0.</energy:collectorSurface>
+							<energy:panelAzimuth uom="">0.</energy:panelAzimuth>
+							<energy:panelInclination uom="">0.</energy:panelInclination>
 						</energy:PhotovoltaicSystem>
 					</energy:equippedWith>
 					<energy:equippedWith>
 						<energy:SolarThermalSystem>
 							<energy:consumes></energy:consumes>
-							<energy:collectorSurface></energy:collectorSurface>
-							<energy:panelInclination></energy:panelInclination>
-							<energy:panelAzimuth></energy:panelAzimuth>
+							<energy:collectorSurface uom="">0.</energy:collectorSurface>
+							<energy:panelAzimuth uom="">0.</energy:panelAzimuth>
+							<energy:panelInclination uom="">0.</energy:panelInclination>
 						</energy:SolarThermalSystem>
 					</energy:equippedWith>
 					<energy:correspondsTo xlink:href="#3342" />
@@ -508,21 +505,21 @@
 			<energy:yearOfRefurbishment>1981</energy:yearOfRefurbishment>
 			<energy:thermalZones>
 				<energy:ThermalZone>
-					<energy:cooledFloorArea>12.5</energy:cooledFloorArea>
-					<energy:heatedFloorArea>60.0</energy:heatedFloorArea>
+					<energy:cooledFloorArea uom="">12.5</energy:cooledFloorArea>
+					<energy:heatedFloorArea uom="">60.0</energy:heatedFloorArea>
 					<energy:boundedBy>
 						<energy:ThermalBoundarySurface gml:id="ID_3342">
 							<energy:type>PitchedRoof</energy:type>
 							<energy:composedOf>
 								<energy:SurfaceComponent>
-									<energy:area></energy:area>
-									<energy:isSunExposed>true</energy:isSunExposed>
+									<energy:area uom="">0.</energy:area>
 									<energy:isGroundCoupled>false</energy:isGroundCoupled>
+									<energy:isSunExposed>true</energy:isSunExposed>
 									<energy:relates>
 										<bldg:Window>
 											<energy:indoorShading>
 												<energy:ShadingType>
-													<energy:maximumCoverRatio>0.5</energy:maximumCoverRatio>
+													<energy:maximumCoverRatio uom="">0.5</energy:maximumCoverRatio>
 													<energy:name>energy_1</energy:name>
 													<energy:transmittance>
 														<energy:Transmittance>
@@ -543,19 +540,19 @@
 			<energy:usageZones>
 				<energy:UsageZone>
 					<energy:usageZoneClass>residence_1</energy:usageZoneClass>
-					<energy:usedArea>60.0</energy:usedArea>
+					<energy:usedArea uom="">60.0</energy:usedArea>
 					<energy:usedFloorNumbers>2</energy:usedFloorNumbers>
 					<energy:contains>
 						<energy:BuildingUnit>
 							<energy:numberOfRooms>6</energy:numberOfRooms>
 							<energy:ownerName>Max Power</energy:ownerName>
 							<energy:ownershipType>OccupantPrivateOwner</energy:ownershipType>
-							<energy:usedArea>60.0</energy:usedArea>
+							<energy:usedArea uom="">60.0</energy:usedArea>
 							<energy:has>
 								<energy:Facilities gml:id="facility1">
 									<energy:operationSchedules>
 										<energy:ScheduleLoD0>
-											<energy:averageValue>10</energy:averageValue>
+											<energy:averageValue uom="">10</energy:averageValue>
 										</energy:ScheduleLoD0>
 									</energy:operationSchedules>
 								</energy:Facilities>
