@@ -3,28 +3,28 @@
   </description>
   <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3">BuildingType</identifier>
   <dictionaryEntry>
-    <Definition gml:id="_280_563">
+    <Definition gml:id="_3256_6624">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/BuildingType">ApartmentBlock</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_280_564">
+    <Definition gml:id="_3256_6625">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/BuildingType">MultiFamilyHouse</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_280_565">
+    <Definition gml:id="_3256_6626">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/BuildingType">RowHouse</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_280_566">
+    <Definition gml:id="_3256_6627">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/BuildingType">SingleFamilyHouse</identifier>

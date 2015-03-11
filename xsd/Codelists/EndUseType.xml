@@ -3,56 +3,56 @@
   </description>
   <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3">EndUseType</identifier>
   <dictionaryEntry>
-    <Definition gml:id="_315_693">
+    <Definition gml:id="_3291_6754">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/EndUseType">Cooking</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_315_694">
+    <Definition gml:id="_3291_6755">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/EndUseType">DomesticHotWater</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_315_695">
+    <Definition gml:id="_3291_6756">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/EndUseType">ElectricalAppliances</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_315_696">
+    <Definition gml:id="_3291_6757">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/EndUseType">Lighting</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_315_697">
+    <Definition gml:id="_3291_6758">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/EndUseType">OtherOrCombination</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_315_698">
+    <Definition gml:id="_3291_6759">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/EndUseType">SpaceCooling</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_315_699">
+    <Definition gml:id="_3291_6760">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/EndUseType">SpaceHeating</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_315_700">
+    <Definition gml:id="_3291_6761">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/EndUseType">Ventilation</identifier>

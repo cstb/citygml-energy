@@ -3,49 +3,49 @@
   </description>
   <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3">HouseholdType</identifier>
   <dictionaryEntry>
-    <Definition gml:id="_296_627">
+    <Definition gml:id="_3272_6688">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/HouseholdType">LoneAdult</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_296_628">
+    <Definition gml:id="_3272_6689">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/HouseholdType">MultiFamily</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_296_629">
+    <Definition gml:id="_3272_6690">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/HouseholdType">OneFamily</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_296_630">
+    <Definition gml:id="_3272_6691">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/HouseholdType">PensionerCouple</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_296_631">
+    <Definition gml:id="_3272_6692">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/HouseholdType">UnrelatedAdults</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_296_632">
+    <Definition gml:id="_3272_6693">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/HouseholdType">Vacant</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_296_633">
+    <Definition gml:id="_3272_6694">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/HouseholdType">WorkerCouple</identifier>

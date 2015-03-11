@@ -3,91 +3,91 @@
   </description>
   <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3">InterpolationType</identifier>
   <dictionaryEntry>
-    <Definition gml:id="_290_594">
+    <Definition gml:id="_3266_6655">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/InterpolationType">AverageInPrecedingInterval</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_290_595">
+    <Definition gml:id="_3266_6656">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/InterpolationType">AverageInSucceedingInterval</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_290_596">
+    <Definition gml:id="_3266_6657">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/InterpolationType">ConstantInPrecedingInterval</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_290_597">
+    <Definition gml:id="_3266_6658">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/InterpolationType">ConstantInSucceedingInterval</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_290_598">
+    <Definition gml:id="_3266_6659">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/InterpolationType">Continuous</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_290_599">
+    <Definition gml:id="_3266_6660">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/InterpolationType">Discontinuous</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_290_600">
+    <Definition gml:id="_3266_6661">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/InterpolationType">InstantaneousTotal</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_290_601">
+    <Definition gml:id="_3266_6662">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/InterpolationType">MaximumInPrecedingInterval</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_290_602">
+    <Definition gml:id="_3266_6663">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/InterpolationType">MaximumInSucceedingInterval</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_290_603">
+    <Definition gml:id="_3266_6664">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/InterpolationType">MinimumInPrecedingInterval</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_290_604">
+    <Definition gml:id="_3266_6665">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/InterpolationType">MinimumInSucceedingInterval</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_290_605">
+    <Definition gml:id="_3266_6666">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/InterpolationType">PrecedingTotal</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_290_606">
+    <Definition gml:id="_3266_6667">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/InterpolationType">SucceedingTotal</identifier>

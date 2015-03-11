@@ -3,49 +3,49 @@
   </description>
   <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3">OwnershipType</identifier>
   <dictionaryEntry>
-    <Definition gml:id="_308_667">
+    <Definition gml:id="_3284_6728">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/OwnershipType">Corporation</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_308_668">
+    <Definition gml:id="_3284_6729">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/OwnershipType">Government</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_308_669">
+    <Definition gml:id="_3284_6730">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/OwnershipType">NonOccupantPrivateOwner</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_308_670">
+    <Definition gml:id="_3284_6731">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/OwnershipType">NonProfitOrganisation</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_308_671">
+    <Definition gml:id="_3284_6732">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/OwnershipType">OccupantPrivateOwner</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_308_672">
+    <Definition gml:id="_3284_6733">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/OwnershipType">OtherOrCombination</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_308_673">
+    <Definition gml:id="_3284_6734">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/OwnershipType">PropertyManagementCompany</identifier>

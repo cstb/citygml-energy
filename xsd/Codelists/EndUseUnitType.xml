@@ -3,35 +3,35 @@
   </description>
   <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3">EndUseUnitType</identifier>
   <dictionaryEntry>
-    <Definition gml:id="_305_656">
+    <Definition gml:id="_3281_6717">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/EndUseUnitType">Convector</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_305_657">
+    <Definition gml:id="_3281_6718">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/EndUseUnitType">FanCoil</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_305_658">
+    <Definition gml:id="_3281_6719">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/EndUseUnitType">RadiantCeiling</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_305_659">
+    <Definition gml:id="_3281_6720">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/EndUseUnitType">RadiantFloor</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_305_660">
+    <Definition gml:id="_3281_6721">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/EndUseUnitType">Radiator</identifier>

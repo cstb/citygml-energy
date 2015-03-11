@@ -3,35 +3,35 @@
   </description>
   <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3">HeatSourceType</identifier>
   <dictionaryEntry>
-    <Definition gml:id="_245_436">
+    <Definition gml:id="_3221_6497">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/HeatSourceType">AmbientAir</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_245_437">
+    <Definition gml:id="_3221_6498">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/HeatSourceType">Aquifer</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_245_438">
+    <Definition gml:id="_3221_6499">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/HeatSourceType">ExhaustAir</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_245_439">
+    <Definition gml:id="_3221_6500">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/HeatSourceType">HorizontalGroundCollector</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_245_440">
+    <Definition gml:id="_3221_6501">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/HeatSourceType">VerticalGroundCollector</identifier>

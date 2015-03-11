@@ -3,21 +3,21 @@
   </description>
   <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3">ResidenceType</identifier>
   <dictionaryEntry>
-    <Definition gml:id="_246_441">
+    <Definition gml:id="_3222_6502">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/ResidenceType">MainResidence</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_246_442">
+    <Definition gml:id="_3222_6503">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/ResidenceType">SecondaryResidence</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_246_443">
+    <Definition gml:id="_3222_6504">
       <description>
       </description>
       <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/ResidenceType">Vacant</identifier>
