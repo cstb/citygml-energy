@@ -1,8 +1,6 @@
-CityGML Energy ADE
-==================
+# CityGML Energy ADE
 
-Abstract
---------
+## Abstract
 The Application Domain Extension (ADE) Energy defines a standardized data model based on CityGML format for urban energy analyses, aiming to be a reference exchange data format between different urban modelling tools and expert databases.
 
 It has been developed since May 2014 by an international consortium of urban energy simulation developers and users:
@@ -24,8 +22,7 @@ It has been developed since May 2014 by an international consortium of urban ene
 ![Ecole Polytechnique Fédérale de Lausanne logo](./doc/epfl.png)  ![Centre Scientifique et Technique du Batiment logo](./doc/cstb.png)  ![Electricité de France logo](./doc/edf.jpg)
 ![Sinergis logo](./doc/sinergis.png)  ![M.O.S.S Computer Grafik Systeme logo](./doc/moss.jpg)
 
-Authors
--------
+## Authors
 * Occupancy module
 	* Jean-Marie Bahu (EIFER)
 	* Esteban Munoz (Hafen City University)
@@ -67,3 +64,16 @@ Authors
 	* Olivier Tournaire
 * Sample file
 	* Marcel Bruse
+
+## UML diagrams
+The CityGML Energy ADE currently (v0.5.0) is implemented in a single XSD schema. The following diagrams give an overview of each modules.
+### Occupancy module
+![Occupancy module](./doc/UML_diagrams/Occupancy.png)
+### Building physics module (core)
+![Building physics module (core)](./doc/UML_diagrams/BuildingPhysics.png)
+### Time series and schedule module (core)
+![Time series and schedule module (core)](./doc/UML_diagrams/TimeSeriesAndSchedule.png)
+### Energy system module
+![Energy system module](./doc/UML_diagrams/EnergySystem.png)
+### Material module
+![Material module](./doc/UML_diagrams/Material.png)
