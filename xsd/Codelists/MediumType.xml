@@ -1,26 +1,26 @@
 <?xml-stylesheet type='text/xsl' href='./CodelistDictionary-v32.xsl'?><Dictionary xmlns="http://www.opengis.net/gml" xmlns:gml="http://www.opengis.net/gml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="MediumType" xsi:schemaLocation="http://www.opengis.net/gml null">
   <description>
   </description>
-  <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3">MediumType</identifier>
+  <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.5.0">MediumType</identifier>
   <dictionaryEntry>
-    <Definition gml:id="_3277_6703">
+    <Definition gml:id="_301_642">
       <description>
       </description>
-      <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/MediumType">Air</identifier>
+      <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.5.0/MediumType">Air</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_3277_6704">
+    <Definition gml:id="_301_643">
       <description>
       </description>
-      <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/MediumType">Steam</identifier>
+      <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.5.0/MediumType">Steam</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_3277_6705">
+    <Definition gml:id="_301_644">
       <description>
       </description>
-      <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/MediumType">Water</identifier>
+      <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.5.0/MediumType">Water</identifier>
     </Definition>
   </dictionaryEntry>
 </Dictionary>

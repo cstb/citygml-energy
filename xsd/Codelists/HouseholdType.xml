@@ -1,54 +1,54 @@
 <?xml-stylesheet type='text/xsl' href='./CodelistDictionary-v32.xsl'?><Dictionary xmlns="http://www.opengis.net/gml" xmlns:gml="http://www.opengis.net/gml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="HouseholdType" xsi:schemaLocation="http://www.opengis.net/gml null">
   <description>
   </description>
-  <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3">HouseholdType</identifier>
+  <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.5.0">HouseholdType</identifier>
   <dictionaryEntry>
-    <Definition gml:id="_3272_6688">
+    <Definition gml:id="_296_627">
       <description>
       </description>
-      <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/HouseholdType">LoneAdult</identifier>
+      <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.5.0/HouseholdType">LoneAdult</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_3272_6689">
+    <Definition gml:id="_296_628">
       <description>
       </description>
-      <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/HouseholdType">MultiFamily</identifier>
+      <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.5.0/HouseholdType">MultiFamily</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_3272_6690">
+    <Definition gml:id="_296_629">
       <description>
       </description>
-      <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/HouseholdType">OneFamily</identifier>
+      <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.5.0/HouseholdType">OneFamily</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_3272_6691">
+    <Definition gml:id="_296_630">
       <description>
       </description>
-      <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/HouseholdType">PensionerCouple</identifier>
+      <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.5.0/HouseholdType">PensionerCouple</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_3272_6692">
+    <Definition gml:id="_296_631">
       <description>
       </description>
-      <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/HouseholdType">UnrelatedAdults</identifier>
+      <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.5.0/HouseholdType">UnrelatedAdults</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_3272_6693">
+    <Definition gml:id="_296_632">
       <description>
       </description>
-      <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/HouseholdType">Vacant</identifier>
+      <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.5.0/HouseholdType">Vacant</identifier>
     </Definition>
   </dictionaryEntry>
   <dictionaryEntry>
-    <Definition gml:id="_3272_6694">
+    <Definition gml:id="_296_633">
       <description>
       </description>
-      <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.4.3/HouseholdType">WorkerCouple</identifier>
+      <identifier codeSpace="http://www.sig3d.org/citygml/2.0/energy/0.5.0/HouseholdType">WorkerCouple</identifier>
     </Definition>
   </dictionaryEntry>
 </Dictionary>
