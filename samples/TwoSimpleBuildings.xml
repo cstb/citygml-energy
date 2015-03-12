@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CityModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://www.sig3d.org/citygml/2.0/energy/0.4.3 ../xsd/energy.xsd"
+ xsi:schemaLocation="http://www.sig3d.org/citygml/2.0/energy/0.5.0 ../xsd/energy.xsd"
  xmlns="http://www.opengis.net/citygml/2.0" xmlns:xAL="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"
  xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml"
  xmlns:bldg="http://www.opengis.net/citygml/building/2.0"
- xmlns:energy="http://www.sig3d.org/citygml/2.0/energy/0.4.3">
+ xmlns:energy="http://www.sig3d.org/citygml/2.0/energy/0.5.0">
 
 	<!-- dwagner, 15.06.2012 Simple building with saddle roof Local coordinates. Enriched with basic energy related sample data by Marcel Bruse, 12.01.2015. -->
 
