@@ -62,9 +62,9 @@ It has been developed since May 2014 by an international consortium of urban ene
 	* Olivier Tournaire (CSTB)
 	* Joachim Benner (KIT)
 * UML model to XSD schema conversion
-	* Olivier Tournaire
+	* Olivier Tournaire (CSTB)
 * Sample file
-	* Marcel Bruse
+	* Marcel Bruse (HFT Stuttgart)
 
 ## UML diagrams
 The CityGML Energy ADE currently (v0.5.0) is implemented in a single XSD schema. The following diagrams give an overview of each modules.
