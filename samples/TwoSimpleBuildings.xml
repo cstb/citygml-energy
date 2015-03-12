@@ -356,6 +356,27 @@
 				<bldg:RoofSurface>
 					<energy:construction>
 						<energy:Construction gml:id="ID_1122">
+							<energy:absorptance>
+								<energy:Absorptance>
+									<energy:percentage>12</energy:percentage>
+									<energy:surface>Inside</energy:surface>
+									<energy:wavelengthRange>IR</energy:wavelengthRange>
+								</energy:Absorptance>
+							</energy:absorptance>
+							<energy:reflectance>
+								<energy:Reflectance>
+									<energy:percentage>30</energy:percentage>
+									<energy:surface>Outside</energy:surface>
+									<energy:wavelengthRange>Solar</energy:wavelengthRange>
+								</energy:Reflectance>
+							</energy:reflectance>
+							<energy:transmittance>
+								<energy:Transmittance>
+									<energy:percentage>20</energy:percentage>
+									<energy:wavelengthRange>Total</energy:wavelengthRange>
+								</energy:Transmittance>
+							</energy:transmittance>
+							<energy:uValue uom="">3</energy:uValue>
 							<energy:layer>
 								<energy:Layer>
 									<energy:layerComponent>
@@ -386,34 +407,12 @@
 									</energy:layerComponent>
 								</energy:Layer>
 							</energy:layer>
-							<energy:uValue uom="">3</energy:uValue>
-							<energy:absorptance>
-								<energy:Absorptance>
-									<energy:percentage>12</energy:percentage>
-									<energy:surface>Inside</energy:surface>
-									<energy:wavelengthRange>IR</energy:wavelengthRange>
-								</energy:Absorptance>
-							</energy:absorptance>
-							<energy:reflectance>
-								<energy:Reflectance>
-									<energy:percentage>30</energy:percentage>
-									<energy:wavelengthRange>Solar</energy:wavelengthRange>
-									<energy:surface>Outside</energy:surface>
-								</energy:Reflectance>
-							</energy:reflectance>
-							<energy:transmittance>
-								<energy:Transmittance>
-									<energy:percentage>20</energy:percentage>
-									<energy:wavelengthRange>Total</energy:wavelengthRange>
-								</energy:Transmittance>
-							</energy:transmittance>
 						</energy:Construction>
 					</energy:construction>
 					<energy:constructionOrientation>
 						<energy:ConstructionOrientation>
-							<energy:baseConstruction xlink:href="#ID_1122">
-							</energy:baseConstruction>
 							<energy:orientation>true</energy:orientation>
+							<energy:baseConstruction xlink:href="#ID_1122"/>							
 						</energy:ConstructionOrientation>
 					</energy:constructionOrientation>
 					<bldg:lod2MultiSurface>

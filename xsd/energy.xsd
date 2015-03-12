@@ -37,14 +37,14 @@
     <complexContent>
       <extension base="core:AbstractCityObjectType">
         <sequence>
-          <element minOccurs="0" name="imageTexture" type="energy:ImageTexturePropertyType">
-            <annotation>
-              <documentation>Reference to a texture file</documentation>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="referenceURI" type="anyURI">
             <annotation>
               <documentation>Reference to internal or external information sources.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="imageTexture" type="energy:ImageTexturePropertyType">
+            <annotation>
+              <documentation>Reference to a texture file</documentation>
             </annotation>
           </element>
         </sequence>
@@ -131,16 +131,6 @@
     <complexContent>
       <extension base="core:AbstractCityObjectType">
         <sequence>
-          <element maxOccurs="unbounded" minOccurs="0" name="layer" type="energy:LayerPropertyType">
-            <annotation>
-              <documentation>Reference to layers that comprise this construction. Multiple LayerId's order is important and specifies the layering of the layer's referenced materials. The first Surface/AdjacentSpaceId entered will determine how the referenced construction layers are ordered with the first construction layer being in contact with the outside or 2nd Surface/AdjacentSpaceId listed and the last layer in contact with the first Surface/AdjacentSpaceId listed</documentation>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="uValue" type="gml:MeasureType">
-            <annotation>
-              <documentation>U-Value - Overall conductance</documentation>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="absorptance" type="energy:AbsorptancePropertyType">
             <annotation>
               <documentation>Energy absorptance</documentation>
@@ -154,6 +144,16 @@
           <element maxOccurs="unbounded" minOccurs="0" name="transmittance" type="energy:TransmittancePropertyType">
             <annotation>
               <documentation>Percentaged transmittance of shading surface</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="uValue" type="gml:MeasureType">
+            <annotation>
+              <documentation>U-Value - Overall conductance</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="layer" type="energy:LayerPropertyType">
+            <annotation>
+              <documentation>Reference to layers that comprise this construction. Multiple LayerId's order is important and specifies the layering of the layer's referenced materials. The first Surface/AdjacentSpaceId entered will determine how the referenced construction layers are ordered with the first construction layer being in contact with the outside or 2nd Surface/AdjacentSpaceId listed and the last layer in contact with the first Surface/AdjacentSpaceId listed</documentation>
             </annotation>
           </element>
         </sequence>
@@ -175,14 +175,14 @@
     <complexContent>
       <extension base="core:AbstractCityObjectType">
         <sequence>
-          <element name="baseConstruction" type="energy:ConstructionPropertyType">
-            <annotation>
-              <documentation>Reference to the Construction being used.</documentation>
-            </annotation>
-          </element>
           <element name="orientation" type="boolean">
             <annotation>
               <documentation>If &lt;i&gt;orientation == true&lt;/i&gt; the layers are used in the specified order (see  Construction), otherwise in reverse order.</documentation>
+            </annotation>
+          </element>
+          <element name="baseConstruction" type="energy:ConstructionPropertyType">
+            <annotation>
+              <documentation>Reference to the Construction being used.</documentation>
             </annotation>
           </element>
         </sequence>
@@ -376,9 +376,9 @@
           <element minOccurs="0" name="number" type="integer"/>
           <element minOccurs="0" name="productAndInstallationDocument" type="core:ExternalReferenceType"/>
           <element minOccurs="0" name="yearOfManufacture" type="gYear"/>
-          <element minOccurs="0" name="installedIn" type="gml:ReferenceType"/>
-          <element maxOccurs="unbounded" name="consumes" type="energy:EnergySourcePropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="has" type="energy:OperationModePropertyType"/>
+          <element maxOccurs="unbounded" name="consumes" type="energy:EnergySourcePropertyType"/>
+          <element minOccurs="0" name="installedIn" type="gml:ReferenceType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -489,8 +489,8 @@
           <element minOccurs="0" name="endUse" type="gml:CodeType"/>
           <element minOccurs="0" name="energyAmount" type="energy:_TimeSeriesPropertyType"/>
           <element minOccurs="0" name="medium" type="gml:CodeType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="coverage" type="energy:EnergyCoveragePropertyType"/>
           <element maxOccurs="unbounded" name="producedBy" type="energy:OperationModePropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="coverage" type="energy:EnergyCoveragePropertyType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -575,6 +575,11 @@
               <documentation>Heminpherical transmittance</documentation>
             </annotation>
           </element>
+          <element minOccurs="0" name="normalIncidenceEmittance" type="energy:EmittancePropertyType">
+            <annotation>
+              <documentation>Emittance in surface normal direction</documentation>
+            </annotation>
+          </element>
           <element minOccurs="0" name="normalIncidenceReflectance" type="energy:ReflectancePropertyType">
             <annotation>
               <documentation>Reflectance in surface normal direction</documentation>
@@ -583,11 +588,6 @@
           <element minOccurs="0" name="normalIncidenceTransmittance" type="energy:TransmittancePropertyType">
             <annotation>
               <documentation>Transmittance in surface normal direction</documentation>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="normalIncidenceEmittance" type="energy:EmittancePropertyType">
-            <annotation>
-              <documentation>Emittance in surface normal direction</documentation>
             </annotation>
           </element>
           <element minOccurs="0" name="numberOfPanes" type="integer">
@@ -744,11 +744,6 @@ http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosp
     <complexContent>
       <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element name="material" type="energy:AbstractMaterialPropertyType">
-            <annotation>
-              <documentation>Reference to the correspondinf Material</documentation>
-            </annotation>
-          </element>
           <element default="100.0" minOccurs="0" name="areaFraction" type="gml:ScaleType">
             <annotation>
               <documentation>Percentage (1 - 100%) of the layer area that the referenced Material is made from.</documentation>
@@ -757,6 +752,11 @@ http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosp
           <element minOccurs="0" name="thickness" type="gml:LengthType">
             <annotation>
               <documentation>Thickness of a layer component.</documentation>
+            </annotation>
+          </element>
+          <element name="material" type="energy:AbstractMaterialPropertyType">
+            <annotation>
+              <documentation>Reference to the correspondinf Material</documentation>
             </annotation>
           </element>
         </sequence>
@@ -879,8 +879,8 @@ http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosp
           <element name="endUse" type="gml:CodeType"/>
           <element minOccurs="0" name="operationTime" type="energy:_SchedulePropertyType"/>
           <element minOccurs="0" name="yearlyGlobalEfficiency" type="gml:MeasureType"/>
-          <element maxOccurs="unbounded" name="produced" type="energy:EnergySupplyPropertyType"/>
           <element minOccurs="0" name="belongs" type="energy:EnergyConversionSystemPropertyType"/>
+          <element maxOccurs="unbounded" name="produced" type="energy:EnergySupplyPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -953,12 +953,12 @@ http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosp
           <documentation>Percentage of energy reflectance</documentation>
         </annotation>
       </element>
+      <element name="surface" type="energy:SurfaceSideType"/>
       <element name="wavelengthRange" type="energy:WavelengthRangeTypeType">
         <annotation>
           <documentation>Wavelength range</documentation>
         </annotation>
       </element>
-      <element name="surface" type="energy:SurfaceSideType"/>
     </sequence>
   </complexType>
   <complexType name="ReflectancePropertyType">
@@ -1099,8 +1099,8 @@ http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosp
           </element>
           <element name="isGroundCoupled" type="boolean"/>
           <element name="isSunExposed" type="boolean"/>
-          <element minOccurs="0" name="adjacentTo" type="energy:ThermalZonePropertyType"/>
           <element minOccurs="0" name="relates" type="gml:ReferenceType"/>
+          <element minOccurs="0" name="adjacentTo" type="energy:ThermalZonePropertyType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -1140,10 +1140,10 @@ By convention:
 By convention, inclination = 0 for horizontal plane.</documentation>
             </annotation>
           </element>
-          <element name="type" type="energy:ThermalBoundarySurfaceTypeType"/>
+          <element name="type" type="energy:ThermalBoundarySurfaceTypeTypeType"/>
+          <element maxOccurs="unbounded" name="composedOf" type="energy:SurfaceComponentPropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="partOf" type="energy:ThermalZonePropertyType"/>
           <element minOccurs="0" name="correspondsTo" type="gml:ReferenceType"/>
-          <element maxOccurs="unbounded" name="composedOf" type="energy:SurfaceComponentPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -1154,7 +1154,7 @@ By convention, inclination = 0 for horizontal plane.</documentation>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
   </complexType>
-  <simpleType name="ThermalBoundarySurfaceTypeType">
+  <simpleType name="ThermalBoundarySurfaceTypeTypeType">
     <restriction base="string">
       <enumeration value="OuterWall"/>
       <enumeration value="SharedWall"/>
@@ -1389,14 +1389,14 @@ http://def.seegrid.csiro.au/sissvoc/ogc-def/resource?uri=http://www.opengis.net/
   </element>
   <element name="ridgeHeight" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" type="gml:LengthType"/>
   <element name="yearOfRefurbishment" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" type="gYear"/>
+  <element name="has" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" type="energy:EnergyConversionSystemPropertyType"/>
   <element name="thermalZones" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" type="energy:ThermalZonePropertyType"/>
   <element name="usageZones" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" type="energy:UsageZonePropertyType"/>
-  <element name="has" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" type="energy:EnergyConversionSystemPropertyType"/>
   <element name="equippedWith" substitutionGroup="bldg:_GenericApplicationPropertyOfBoundarySurface" type="energy:_SolarEnergySystemPropertyType"/>
   <element name="correspondsTo" substitutionGroup="bldg:_GenericApplicationPropertyOfBoundarySurface" type="energy:ThermalBoundarySurfacePropertyType"/>
-  <element name="energyDemands" substitutionGroup="core:_GenericApplicationPropertyOfCityObject" type="energy:EnergyDemandPropertyType"/>
   <element name="construction" substitutionGroup="core:_GenericApplicationPropertyOfCityObject" type="energy:ConstructionPropertyType"/>
   <element name="constructionOrientation" substitutionGroup="core:_GenericApplicationPropertyOfCityObject" type="energy:ConstructionOrientationPropertyType"/>
+  <element name="energyDemands" substitutionGroup="core:_GenericApplicationPropertyOfCityObject" type="energy:EnergyDemandPropertyType"/>
   <element name="indoorShading" substitutionGroup="bldg:_GenericApplicationPropertyOfOpening" type="energy:ShadingTypePropertyType"/>
   <element name="openableRatio" substitutionGroup="bldg:_GenericApplicationPropertyOfOpening" type="gml:ScaleType">
     <annotation>
