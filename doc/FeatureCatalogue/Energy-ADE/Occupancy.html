@@ -1,0 +1,415 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en">
+   <!--Created by ShapeChange on 2015-03-12T20:06:47.34+01:00-->
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title> (CityGML Energy ADE application schema)</title>
+      <link rel="stylesheet" type="text/css" href="../stylesheet.css" title="Style"><script language="javascript" type="text/javascript">function toggle(elementToShowHideById, elementToSwitchTextIn) {
+                            var ele = document.getElementById(elementToShowHideById);
+                            var text = document.getElementById(elementToSwitchTextIn);
+                            if(ele.style.display == "block") {
+                                ele.style.display = "none";
+                                text.innerHTML = "See listed values";
+                            }
+                            else {
+                                ele.style.display = "block";
+                                text.innerHTML = "Hide listed values";
+                            }
+                       }</script><noscript>
+         <div>JavaScript is disabled on your browser.</div>
+      </noscript>
+   </head>
+   <body>
+      <h1 id="top">Feature type: Occupancy</h1>
+      <table>
+         <tr>
+            <td>
+               <table>
+                  <tr>
+                     <td>
+                        <p>
+                           <h2>Package:</h2>
+                        </p>
+                        <p class="indent"><a href="../Energy-ADE/package-summary.html">Energy-ADE</a></p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>
+                           <h2>Definition:</h2>
+                        </p>
+                        <p class="indent">Occupancy is an aggregated group of occupants of a usage zone or building unit, which
+                           can be residents, workers, visitors etc.
+                        </p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>
+                           <h2>Type:</h2>
+                        </p>
+                        <p class="indent">Feature type</p>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <div>
+                  <p>
+                     <h2>Overview of characteristics:</h2>
+                  </p>
+               </div><br><div class="indent">
+                  <table class="colored">
+                     <caption>Attributes and association roles</caption>
+                     <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Multiplicity</th>
+                     </tr>
+                     <tr class="odd">
+                        <td><a href="../Energy-ADE/Occupancy.html#_AS658">consiststOf</a></td>
+                        <td><a href="../Energy-ADE/Household.html">Household</a></td>
+                        <td>0..*</td>
+                     </tr>
+                     <tr class="even">
+                        <td><a href="../Energy-ADE/Occupancy.html#_A263_509">internGains</a></td>
+                        <td><a href="../Energy-ADE/HeatExchangeType.html">HeatExchangeType</a></td>
+                        <td>0..1</td>
+                     </tr>
+                     <tr class="odd">
+                        <td><a href="../Energy-ADE/Occupancy.html#_A263_510">numberOfOccupants</a></td>
+                        <td>Integer</td>
+                        <td>0..1</td>
+                     </tr>
+                     <tr class="even">
+                        <td><a href="../Energy-ADE/Occupancy.html#_A263_511">occupancyRate</a></td>
+                        <td><a href="../Energy-ADE/_Schedule.html">_Schedule</a></td>
+                        <td>0..1</td>
+                     </tr>
+                     <tr class="odd">
+                        <td><a href="../Energy-ADE/Occupancy.html#_A263_512">occupantType</a></td>
+                        <td>OccupantType</td>
+                        <td>0..1</td>
+                     </tr>
+                  </table>
+               </div>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p>
+                  <h2><a name="_AS658">Association role:
+                        </a></h2>
+               </p>
+               <p class="small"><a href="#top">back to top</a></p>
+               <table>
+                  <tr>
+                     <td>
+                        <p class="indent title">Name:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>consiststOf</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Voidable:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>false</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Multiplicity:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>0..*</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Value type:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p><a href="../Energy-ADE/Household.html">Household</a> (feature type)
+                        </p>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p>
+                  <h2><a name="_A263_509">Attribute:               
+                        </a></h2>
+               </p>
+               <p class="small"><a href="#top">back to top</a></p>
+               <table>
+                  <tr>
+                     <td>
+                        <p class="indent title">Name:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>internGains</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Voidable:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>false</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Multiplicity:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>0..1</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Value type:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p><a href="../Energy-ADE/HeatExchangeType.html">HeatExchangeType</a> (data type)
+                        </p>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p>
+                  <h2><a name="_A263_510">Attribute:               
+                        </a></h2>
+               </p>
+               <p class="small"><a href="#top">back to top</a></p>
+               <table>
+                  <tr>
+                     <td>
+                        <p class="indent title">Name:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>numberOfOccupants</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Voidable:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>false</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Multiplicity:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>0..1</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Value type:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>Integer</p>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p>
+                  <h2><a name="_A263_511">Attribute:               
+                        </a></h2>
+               </p>
+               <p class="small"><a href="#top">back to top</a></p>
+               <table>
+                  <tr>
+                     <td>
+                        <p class="indent title">Name:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>occupancyRate</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Voidable:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>false</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Multiplicity:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>0..1</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Value type:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p><a href="../Energy-ADE/_Schedule.html">_Schedule</a> (data type)
+                        </p>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p>
+                  <h2><a name="_A263_512">Attribute:               
+                        </a></h2>
+               </p>
+               <p class="small"><a href="#top">back to top</a></p>
+               <table>
+                  <tr>
+                     <td>
+                        <p class="indent title">Name:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>occupantType</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Voidable:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>false</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Multiplicity:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>0..1</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Value type:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>OccupantType (code list)</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Values:
+                           
+                        </p>
+                     </td>
+                     <td border="0"><a id="_A263_512_listedValueLink" href="javascript:toggle('_A263_512_listedValueContent','_A263_512_listedValueLink');">See listed values</a><div id="_A263_512_listedValueContent" style="display: none">
+                           <table class="colored">
+                              <tr>
+                                 <th>Value Name</th>
+                                 <th>Documentation</th>
+                              </tr>
+                              <tr class="odd">
+                                 <td>
+                                    <p>OthersOrCombination</p>
+                                 </td>
+                                 <td></td>
+                              </tr>
+                              <tr class="even">
+                                 <td>
+                                    <p>Patients</p>
+                                 </td>
+                                 <td></td>
+                              </tr>
+                              <tr class="odd">
+                                 <td>
+                                    <p>Residents</p>
+                                 </td>
+                                 <td></td>
+                              </tr>
+                              <tr class="even">
+                                 <td>
+                                    <p>Students</p>
+                                 </td>
+                                 <td></td>
+                              </tr>
+                              <tr class="odd">
+                                 <td>
+                                    <p>Visitors</p>
+                                 </td>
+                                 <td></td>
+                              </tr>
+                              <tr class="even">
+                                 <td>
+                                    <p>Workers</p>
+                                 </td>
+                                 <td></td>
+                              </tr>
+                           </table>
+                        </div>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+      </table>
+      <div class="clearing"></div>
+      <div id="footer"></div>
+   </body>
+</html>

@@ -1,0 +1,500 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en">
+   <!--Created by ShapeChange on 2015-03-12T20:06:47.34+01:00-->
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title> (CityGML Energy ADE application schema)</title>
+      <link rel="stylesheet" type="text/css" href="../stylesheet.css" title="Style"><script language="javascript" type="text/javascript">function toggle(elementToShowHideById, elementToSwitchTextIn) {
+                            var ele = document.getElementById(elementToShowHideById);
+                            var text = document.getElementById(elementToSwitchTextIn);
+                            if(ele.style.display == "block") {
+                                ele.style.display = "none";
+                                text.innerHTML = "See listed values";
+                            }
+                            else {
+                                ele.style.display = "block";
+                                text.innerHTML = "Hide listed values";
+                            }
+                       }</script><noscript>
+         <div>JavaScript is disabled on your browser.</div>
+      </noscript>
+   </head>
+   <body>
+      <h1 id="top">Feature type: ThermalBoundarySurface</h1>
+      <table>
+         <tr>
+            <td>
+               <table>
+                  <tr>
+                     <td>
+                        <p>
+                           <h2>Package:</h2>
+                        </p>
+                        <p class="indent"><a href="../Energy-ADE/package-summary.html">Energy-ADE</a></p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>
+                           <h2>Definition:</h2>
+                        </p>
+                        <p class="indent">Thermal boundary surfaces are quasi-coplanar surfaces bounding the thermal zone. They
+                           may be linked to the gml:BoundarySurface when possible, but not necessary (e.g. cellar
+                           ceiling or top storey ceiling in the case of LOD1-3)
+                        </p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>
+                           <h2>Subtype of:</h2>
+                        </p>
+                        <p class="indent">_CityObject</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>
+                           <h2>Type:</h2>
+                        </p>
+                        <p class="indent">Feature type</p>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <div>
+                  <p>
+                     <h2>Overview of characteristics:</h2>
+                  </p>
+               </div><br><div class="indent">
+                  <table class="colored">
+                     <caption>Attributes and association roles</caption>
+                     <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Multiplicity</th>
+                     </tr>
+                     <tr class="odd">
+                        <td><a href="../Energy-ADE/ThermalBoundarySurface.html#_A264_513">azimuth</a></td>
+                        <td>Angle</td>
+                        <td>0..1</td>
+                     </tr>
+                     <tr class="even">
+                        <td><a href="../Energy-ADE/ThermalBoundarySurface.html#_AT631">composedOf</a></td>
+                        <td></td>
+                        <td>1..*</td>
+                     </tr>
+                     <tr class="odd">
+                        <td><a href="../Energy-ADE/ThermalBoundarySurface.html#_AT773">correspondsTo</a></td>
+                        <td>_BoundarySurface</td>
+                        <td>0..1</td>
+                     </tr>
+                     <tr class="even">
+                        <td><a href="../Energy-ADE/ThermalBoundarySurface.html#_A264_514">inclination</a></td>
+                        <td>Angle</td>
+                        <td>0..1</td>
+                     </tr>
+                     <tr class="odd">
+                        <td><a href="../Energy-ADE/ThermalBoundarySurface.html#_AT637">partOf</a></td>
+                        <td><a href="../Energy-ADE/ThermalZone.html">ThermalZone</a></td>
+                        <td>0..*</td>
+                     </tr>
+                     <tr class="even">
+                        <td><a href="../Energy-ADE/ThermalBoundarySurface.html#_A264_515">type</a></td>
+                        <td>ThermalBoundarySurfaceTypeType</td>
+                        <td>1</td>
+                     </tr>
+                  </table>
+               </div>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p>
+                  <h2><a name="_A264_513">Attribute:               
+                        </a></h2>
+               </p>
+               <p class="small"><a href="#top">back to top</a></p>
+               <table>
+                  <tr>
+                     <td>
+                        <p class="indent title">Name:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>azimuth</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Definition:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>Azimuth angle of the normal surface vector.</p>
+                        <p>By convention:</p>
+                        <p>- azimuth = 0 for north orientation.</p>
+                        <p>- Horizontal surface have a azimuth = 0.</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Voidable:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>false</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Multiplicity:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>0..1</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Value type:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>Angle</p>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p>
+                  <h2><a name="_AT631">Association role:
+                        </a></h2>
+               </p>
+               <p class="small"><a href="#top">back to top</a></p>
+               <table>
+                  <tr>
+                     <td>
+                        <p class="indent title">Name:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>composedOf</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Voidable:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>false</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Multiplicity:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>1..*</p>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p>
+                  <h2><a name="_AT773">Association role:
+                        </a></h2>
+               </p>
+               <p class="small"><a href="#top">back to top</a></p>
+               <table>
+                  <tr>
+                     <td>
+                        <p class="indent title">Name:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>correspondsTo</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Voidable:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>false</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Multiplicity:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>0..1</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Value type:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>_BoundarySurface (feature type)</p>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p>
+                  <h2><a name="_A264_514">Attribute:               
+                        </a></h2>
+               </p>
+               <p class="small"><a href="#top">back to top</a></p>
+               <table>
+                  <tr>
+                     <td>
+                        <p class="indent title">Name:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>inclination</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Definition:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>Inclination angle of the normal surface vector.</p>
+                        <p>By convention, inclination = 0 for horizontal plane.</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Voidable:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>false</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Multiplicity:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>0..1</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Value type:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>Angle</p>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p>
+                  <h2><a name="_AT637">Association role:
+                        </a></h2>
+               </p>
+               <p class="small"><a href="#top">back to top</a></p>
+               <table>
+                  <tr>
+                     <td>
+                        <p class="indent title">Name:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>partOf</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Voidable:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>false</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Multiplicity:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>0..*</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Value type:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p><a href="../Energy-ADE/ThermalZone.html">ThermalZone</a> (feature type)
+                        </p>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p>
+                  <h2><a name="_A264_515">Attribute:               
+                        </a></h2>
+               </p>
+               <p class="small"><a href="#top">back to top</a></p>
+               <table>
+                  <tr>
+                     <td>
+                        <p class="indent title">Name:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>type</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Voidable:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>false</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Multiplicity:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>1</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Value type:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>ThermalBoundarySurfaceTypeType (enumeration)</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Values:
+                           
+                        </p>
+                     </td>
+                     <td border="0"><a id="_A264_515_listedValueLink" href="javascript:toggle('_A264_515_listedValueContent','_A264_515_listedValueLink');">See listed values</a><div id="_A264_515_listedValueContent" style="display: none">
+                           <table class="colored">
+                              <tr>
+                                 <th>Value Name</th>
+                                 <th>Documentation</th>
+                              </tr>
+                              <tr class="odd">
+                                 <td>
+                                    <p>OuterWall</p>
+                                 </td>
+                                 <td></td>
+                              </tr>
+                              <tr class="even">
+                                 <td>
+                                    <p>SharedWall</p>
+                                 </td>
+                                 <td></td>
+                              </tr>
+                              <tr class="odd">
+                                 <td>
+                                    <p>FlatRoof</p>
+                                 </td>
+                                 <td></td>
+                              </tr>
+                              <tr class="even">
+                                 <td>
+                                    <p>PitchedRoof</p>
+                                 </td>
+                                 <td></td>
+                              </tr>
+                              <tr class="odd">
+                                 <td>
+                                    <p>CellarCeiling</p>
+                                 </td>
+                                 <td></td>
+                              </tr>
+                              <tr class="even">
+                                 <td>
+                                    <p>BasementFloor</p>
+                                 </td>
+                                 <td></td>
+                              </tr>
+                              <tr class="odd">
+                                 <td>
+                                    <p>TopCeiling</p>
+                                 </td>
+                                 <td>
+                                    <p>Ceiling of the highest storey of the zone.</p>
+                                 </td>
+                              </tr>
+                           </table>
+                        </div>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+      </table>
+      <div class="clearing"></div>
+      <div id="footer"></div>
+   </body>
+</html>

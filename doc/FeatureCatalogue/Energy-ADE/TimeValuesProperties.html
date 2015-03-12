@@ -1,0 +1,519 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en">
+   <!--Created by ShapeChange on 2015-03-12T20:06:47.34+01:00-->
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title> (CityGML Energy ADE application schema)</title>
+      <link rel="stylesheet" type="text/css" href="../stylesheet.css" title="Style"><script language="javascript" type="text/javascript">function toggle(elementToShowHideById, elementToSwitchTextIn) {
+                            var ele = document.getElementById(elementToShowHideById);
+                            var text = document.getElementById(elementToSwitchTextIn);
+                            if(ele.style.display == "block") {
+                                ele.style.display = "none";
+                                text.innerHTML = "See listed values";
+                            }
+                            else {
+                                ele.style.display = "block";
+                                text.innerHTML = "Hide listed values";
+                            }
+                       }</script><noscript>
+         <div>JavaScript is disabled on your browser.</div>
+      </noscript>
+   </head>
+   <body>
+      <h1 id="top">Data type: TimeValuesProperties</h1>
+      <table>
+         <tr>
+            <td>
+               <table>
+                  <tr>
+                     <td>
+                        <p>
+                           <h2>Package:</h2>
+                        </p>
+                        <p class="indent"><a href="../Energy-ADE/package-summary.html">Energy-ADE</a></p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>
+                           <h2>Definition:</h2>
+                        </p>
+                        <p class="indent">Information and properties of a given variable.</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>
+                           <h2>Type:</h2>
+                        </p>
+                        <p class="indent">Data type</p>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <div>
+                  <p>
+                     <h2>Overview of characteristics:</h2>
+                  </p>
+               </div><br><div class="indent">
+                  <table class="colored">
+                     <caption>Attributes and association roles</caption>
+                     <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Multiplicity</th>
+                     </tr>
+                     <tr class="odd">
+                        <td><a href="../Energy-ADE/TimeValuesProperties.html#_A270_527">acquisitionMethod</a></td>
+                        <td>CharacterString</td>
+                        <td>0..1</td>
+                     </tr>
+                     <tr class="even">
+                        <td><a href="../Energy-ADE/TimeValuesProperties.html#_A270_528">interpolationType</a></td>
+                        <td>InterpolationType</td>
+                        <td>0..1</td>
+                     </tr>
+                     <tr class="odd">
+                        <td><a href="../Energy-ADE/TimeValuesProperties.html#_A270_529">qualityDescription</a></td>
+                        <td>CharacterString</td>
+                        <td>1</td>
+                     </tr>
+                     <tr class="even">
+                        <td><a href="../Energy-ADE/TimeValuesProperties.html#_A270_530">source</a></td>
+                        <td>CharacterString</td>
+                        <td>1</td>
+                     </tr>
+                     <tr class="odd">
+                        <td><a href="../Energy-ADE/TimeValuesProperties.html#_A270_531">uom</a></td>
+                        <td>UnitOfMeasure</td>
+                        <td>0..1</td>
+                     </tr>
+                     <tr class="even">
+                        <td><a href="../Energy-ADE/TimeValuesProperties.html#_A270_532">variableLabel</a></td>
+                        <td>CharacterString</td>
+                        <td>0..1</td>
+                     </tr>
+                  </table>
+               </div>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p>
+                  <h2><a name="_A270_527">Attribute:               
+                        </a></h2>
+               </p>
+               <p class="small"><a href="#top">back to top</a></p>
+               <table>
+                  <tr>
+                     <td>
+                        <p class="indent title">Name:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>acquisitionMethod</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Voidable:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>false</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Multiplicity:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>0..1</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Value type:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>CharacterString</p>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p>
+                  <h2><a name="_A270_528">Attribute:               
+                        </a></h2>
+               </p>
+               <p class="small"><a href="#top">back to top</a></p>
+               <table>
+                  <tr>
+                     <td>
+                        <p class="indent title">Name:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>interpolationType</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Definition:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>InterpolcationType defined in WaterML:</p>
+                        <p>http://def.seegrid.csiro.au/sissvoc/ogc-def/resource?uri=http://www.opengis.net/def/waterml/2.0/interpolationType/</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Voidable:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>false</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Multiplicity:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>0..1</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Value type:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>InterpolationType (code list)</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Values:
+                           
+                        </p>
+                     </td>
+                     <td border="0"><a id="_A270_528_listedValueLink" href="javascript:toggle('_A270_528_listedValueContent','_A270_528_listedValueLink');">See listed values</a><div id="_A270_528_listedValueContent" style="display: none">
+                           <table class="colored">
+                              <tr>
+                                 <th>Value Name</th>
+                                 <th>Documentation</th>
+                              </tr>
+                              <tr class="odd">
+                                 <td>
+                                    <p>AverageInPrecedingInterval</p>
+                                 </td>
+                                 <td></td>
+                              </tr>
+                              <tr class="even">
+                                 <td>
+                                    <p>AverageInSucceedingInterval</p>
+                                 </td>
+                                 <td></td>
+                              </tr>
+                              <tr class="odd">
+                                 <td>
+                                    <p>ConstantInPrecedingInterval</p>
+                                 </td>
+                                 <td></td>
+                              </tr>
+                              <tr class="even">
+                                 <td>
+                                    <p>ConstantInSucceedingInterval</p>
+                                 </td>
+                                 <td></td>
+                              </tr>
+                              <tr class="odd">
+                                 <td>
+                                    <p>Continuous</p>
+                                 </td>
+                                 <td></td>
+                              </tr>
+                              <tr class="even">
+                                 <td>
+                                    <p>Discontinuous</p>
+                                 </td>
+                                 <td></td>
+                              </tr>
+                              <tr class="odd">
+                                 <td>
+                                    <p>InstantaneousTotal</p>
+                                 </td>
+                                 <td></td>
+                              </tr>
+                              <tr class="even">
+                                 <td>
+                                    <p>MaximumInPrecedingInterval</p>
+                                 </td>
+                                 <td></td>
+                              </tr>
+                              <tr class="odd">
+                                 <td>
+                                    <p>MaximumInSucceedingInterval</p>
+                                 </td>
+                                 <td></td>
+                              </tr>
+                              <tr class="even">
+                                 <td>
+                                    <p>MinimumInPrecedingInterval</p>
+                                 </td>
+                                 <td></td>
+                              </tr>
+                              <tr class="odd">
+                                 <td>
+                                    <p>MinimumInSucceedingInterval</p>
+                                 </td>
+                                 <td></td>
+                              </tr>
+                              <tr class="even">
+                                 <td>
+                                    <p>PrecedingTotal</p>
+                                 </td>
+                                 <td></td>
+                              </tr>
+                              <tr class="odd">
+                                 <td>
+                                    <p>SucceedingTotal</p>
+                                 </td>
+                                 <td></td>
+                              </tr>
+                           </table>
+                        </div>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p>
+                  <h2><a name="_A270_529">Attribute:               
+                        </a></h2>
+               </p>
+               <p class="small"><a href="#top">back to top</a></p>
+               <table>
+                  <tr>
+                     <td>
+                        <p class="indent title">Name:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>qualityDescription</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Voidable:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>false</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Multiplicity:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>1</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Value type:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>CharacterString</p>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p>
+                  <h2><a name="_A270_530">Attribute:               
+                        </a></h2>
+               </p>
+               <p class="small"><a href="#top">back to top</a></p>
+               <table>
+                  <tr>
+                     <td>
+                        <p class="indent title">Name:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>source</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Voidable:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>false</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Multiplicity:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>1</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Value type:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>CharacterString</p>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p>
+                  <h2><a name="_A270_531">Attribute:               
+                        </a></h2>
+               </p>
+               <p class="small"><a href="#top">back to top</a></p>
+               <table>
+                  <tr>
+                     <td>
+                        <p class="indent title">Name:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>uom</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Voidable:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>false</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Multiplicity:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>0..1</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Value type:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>UnitOfMeasure</p>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p>
+                  <h2><a name="_A270_532">Attribute:               
+                        </a></h2>
+               </p>
+               <p class="small"><a href="#top">back to top</a></p>
+               <table>
+                  <tr>
+                     <td>
+                        <p class="indent title">Name:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>variableLabel</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Voidable:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>false</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Multiplicity:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>0..1</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Value type:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>CharacterString</p>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+      </table>
+      <div class="clearing"></div>
+      <div id="footer"></div>
+   </body>
+</html>

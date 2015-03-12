@@ -1,0 +1,466 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en">
+   <!--Created by ShapeChange on 2015-03-12T20:06:47.34+01:00-->
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title> (CityGML Energy ADE application schema)</title>
+      <link rel="stylesheet" type="text/css" href="../stylesheet.css" title="Style">
+   </head>
+   <body>
+      <div id="header"></div>
+      <div id="main">
+         <p>
+            <h1>Application schema: Energy-ADE</h1>
+         </p>
+         <tr>
+            <p>
+               <h2>Relevant types:</h2>
+            </p>
+            <table class="colored">
+               <tr>
+                  <th>Name</th>
+                  <th>Type</th>
+                  <th>Definition</th>
+                  <th>Description</th>
+               </tr>
+               <tr class="odd">
+                  <td><a href="../Energy-ADE/AbstractMaterial.html"><i>AbstractMaterial</i></a></td>
+                  <td>Feature Type</td>
+                  <td>Abstract superclass for all Material classes. A Material is a homogeneous substance
+                     that can be used to form elements.
+                  </td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="even">
+                  <td><a href="../Energy-ADE/Boiler.html">Boiler</a></td>
+                  <td>Feature Type</td>
+                  <td align="center">-</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="odd">
+                  <td><a href="../Energy-ADE/BuildingUnit.html">BuildingUnit</a></td>
+                  <td>Feature Type</td>
+                  <td>A building unit is a part of usage zone, such as dwelling or workplace, which is related
+                     to a single occupant entity.
+                  </td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="even">
+                  <td><a href="../Energy-ADE/CombinedHeatPower.html">CombinedHeatPower</a></td>
+                  <td>Feature Type</td>
+                  <td align="center">-</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="odd">
+                  <td><a href="../Energy-ADE/Construction.html">Construction</a></td>
+                  <td>Feature Type</td>
+                  <td>A Construction is a combination of layers, such as a wall or a roof. &lt;p&gt; &lt;img src="../png/Construction-Layer-Illustration.png"&gt;&lt;/p&gt;</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="even">
+                  <td><a href="../Energy-ADE/ConstructionOrientation.html">ConstructionOrientation</a></td>
+                  <td>Feature Type</td>
+                  <td>Determines the usage of Construction in terms of the Layer order.</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="odd">
+                  <td><a href="../Energy-ADE/DHWFacilities.html">DHWFacilities</a></td>
+                  <td>Feature Type</td>
+                  <td>Facilities for domestic hot water usage.</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="even">
+                  <td><a href="../Energy-ADE/DistrictNetworkSubstation.html">DistrictNetworkSubstation</a></td>
+                  <td>Feature Type</td>
+                  <td align="center">-</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="odd">
+                  <td><a href="../Energy-ADE/ElectricalAppliances.html">ElectricalAppliances</a></td>
+                  <td>Feature Type</td>
+                  <td>Electrical appliances inside the building unit or building zone.</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="even">
+                  <td><a href="../Energy-ADE/ElectricalResistance.html">ElectricalResistance</a></td>
+                  <td>Feature Type</td>
+                  <td align="center">-</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="odd">
+                  <td><a href="../Energy-ADE/EndUseUnit.html">EndUseUnit</a></td>
+                  <td>Feature Type</td>
+                  <td>Final device(s) which deliver the required end-use to the end-user in his end-use
+                     place (e.g. radiators or convectors for heating etc.)
+                  </td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="even">
+                  <td><a href="../Energy-ADE/EnergyConversionSystem.html">EnergyConversionSystem</a></td>
+                  <td>Feature Type</td>
+                  <td>Energy conversion system is a system producing the energy necessary to satisfy the
+                     end-use (or to feed the networks) from an energy source.
+                  </td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="odd">
+                  <td><a href="../Energy-ADE/EnergyCoverage.html">EnergyCoverage</a></td>
+                  <td>Feature Type</td>
+                  <td>Determine the level of energy coverage (may be time depending) by a given operation
+                     mode of an energy conversion system.
+                  </td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="even">
+                  <td><a href="../Energy-ADE/EnergyDemand.html">EnergyDemand</a></td>
+                  <td>Feature Type</td>
+                  <td>Energy demand is the useful energy required to satisfy a specific end-use, such as
+                     heating, cooling, domestic hot water etc.
+                  </td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="odd">
+                  <td><a href="../Energy-ADE/EnergyDistributionSystem.html">EnergyDistributionSystem</a></td>
+                  <td>Feature Type</td>
+                  <td>Energy distribution system is a system in charge of delivering the energy inside the
+                     building, from the place of energy production to the place of end-use. It consists
+                     then in the storage (including battery/tank and pipe volumes), the circulation pumps,
+                     the distribution pipes and the end use units (radiators, fan coils etc.).
+                  </td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="even">
+                  <td><a href="../Energy-ADE/EnergySource.html">EnergySource</a></td>
+                  <td>Feature Type</td>
+                  <td>Energy Source is the final energy consumed by the energy conversion system.</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="odd">
+                  <td><a href="../Energy-ADE/EnergySupply.html">EnergySupply</a></td>
+                  <td>Feature Type</td>
+                  <td>Energy supply is the part of the energy produced by the energy conversion systems
+                     which is used to satisfy the end-use demand of a city object.
+                  </td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="even">
+                  <td><a href="../Energy-ADE/Facilities.html">Facilities</a></td>
+                  <td>Feature Type</td>
+                  <td>Facilities and Appliances inside the usage zone or building unit, which consumes and
+                     dissipate energy.
+                  </td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="odd">
+                  <td><a href="../Energy-ADE/Gas.html">Gas</a></td>
+                  <td>Feature Type</td>
+                  <td>Gaseous material</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="even">
+                  <td><a href="../Energy-ADE/Glazing.html">Glazing</a></td>
+                  <td>Feature Type</td>
+                  <td>Transparent material</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="odd">
+                  <td><a href="../Energy-ADE/HeatPump.html">HeatPump</a></td>
+                  <td>Feature Type</td>
+                  <td align="center">-</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="even">
+                  <td><a href="../Energy-ADE/Household.html">Household</a></td>
+                  <td>Feature Type</td>
+                  <td>Household is a group of persons living in the same dwelling, in the case where occupant
+                     type is residents.
+                  </td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="odd">
+                  <td><a href="../Energy-ADE/ImageTexture.html">ImageTexture</a></td>
+                  <td>Feature Type</td>
+                  <td>This is an X3D element to map a texture to this material. From X3D specification:
+                     The ImageTexture node defines a texture map by specifying an image file and general
+                     parameters for mapping to geometry. Texture maps are defined in a 2D coordinate system
+                     (s, t) that ranges from [0.0, 1.0] in both directions. The bottom edge of the image
+                     corresponds to the S-axis of the texture map, and left edge of the image corresponds
+                     to the T-axis of the texture map. The lower-left pixel of the image corresponds to
+                     s=0, t=0, and the top-right pixel of the image corresponds to s=1, t=1. &lt;!--When fixed:
+                     add type="x3d:ImageTexture"--&gt;
+                  </td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="even">
+                  <td><a href="../Energy-ADE/Layer.html">Layer</a></td>
+                  <td>Feature Type</td>
+                  <td>A Layer is a combination of one of more materials, references via a LayerComponent.</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="odd">
+                  <td><a href="../Energy-ADE/LayerComponent.html">LayerComponent</a></td>
+                  <td>Feature Type</td>
+                  <td>&lt;p&gt; &lt;img src="../png/LayerComponent-Illustration.png"&gt;&lt;/p&gt;</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="even">
+                  <td><a href="../Energy-ADE/MechanicalVentilation.html">MechanicalVentilation</a></td>
+                  <td>Feature Type</td>
+                  <td align="center">-</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="odd">
+                  <td><a href="../Energy-ADE/Occupancy.html">Occupancy</a></td>
+                  <td>Feature Type</td>
+                  <td>Occupancy is an aggregated group of occupants of a usage zone or building unit, which
+                     can be residents, workers, visitors etc.
+                  </td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="even">
+                  <td><a href="../Energy-ADE/OpaqueMaterial.html">OpaqueMaterial</a></td>
+                  <td>Feature Type</td>
+                  <td>Opaque material.</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="odd">
+                  <td><a href="../Energy-ADE/OperationMode.html">OperationMode</a></td>
+                  <td>Feature Type</td>
+                  <td>Operation mode details the operation of the energy conversion system for a specific
+                     end-use and operation time.
+                  </td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="even">
+                  <td><a href="../Energy-ADE/PhotovoltaicSystem.html">PhotovoltaicSystem</a></td>
+                  <td>Feature Type</td>
+                  <td align="center">-</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="odd">
+                  <td><a href="../Energy-ADE/PowerDistributionSystem.html">PowerDistributionSystem</a></td>
+                  <td>Feature Type</td>
+                  <td align="center">-</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="even">
+                  <td><a href="../Energy-ADE/PowerStorageSystem.html">PowerStorageSystem</a></td>
+                  <td>Feature Type</td>
+                  <td align="center">-</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="odd">
+                  <td><a href="../Energy-ADE/SolarThermalSystem.html">SolarThermalSystem</a></td>
+                  <td>Feature Type</td>
+                  <td align="center">-</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="even">
+                  <td><a href="../Energy-ADE/SurfaceComponent.html">SurfaceComponent</a></td>
+                  <td>Feature Type</td>
+                  <td>Part of the thermal boundary surface corresponding to an homogeneous construction
+                     component (e.g. windows, wall, insulated part of a wall etc.)
+                  </td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="odd">
+                  <td><a href="../Energy-ADE/ThermalBoundarySurface.html">ThermalBoundarySurface</a></td>
+                  <td>Feature Type</td>
+                  <td>Thermal boundary surfaces are quasi-coplanar surfaces bounding the thermal zone. They
+                     may be linked to the gml:BoundarySurface when possible, but not necessary (e.g. cellar
+                     ceiling or top storey ceiling in the case of LOD1-3)
+                  </td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="even">
+                  <td><a href="../Energy-ADE/ThermalDistributionSystem.html">ThermalDistributionSystem</a></td>
+                  <td>Feature Type</td>
+                  <td align="center">-</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="odd">
+                  <td><a href="../Energy-ADE/ThermalStorageSystem.html">ThermalStorageSystem</a></td>
+                  <td>Feature Type</td>
+                  <td align="center">-</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="even">
+                  <td><a href="../Energy-ADE/ThermalZone.html">ThermalZone</a></td>
+                  <td>Feature Type</td>
+                  <td>A thermal zone is a zone of a building which serves as unit for the building heating
+                     and cooling simulation. For the simulation, a thermal zone is considered as isothermal.
+                     It is a semantic object, which may be or not related to a geometric entity.
+                  </td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="odd">
+                  <td><a href="../Energy-ADE/UsageZone.html">UsageZone</a></td>
+                  <td>Feature Type</td>
+                  <td>A usage zone is a zone of a building with homogeneous usage type.</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="even">
+                  <td><a href="../Energy-ADE/_AbstractBuilding.html"><i>_AbstractBuilding</i></a></td>
+                  <td>Feature Type</td>
+                  <td>Application Domain Extension Energy of CityGML object AbstractBuilding</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="odd">
+                  <td><a href="../Energy-ADE/_BoundarySurface.html"><i>_BoundarySurface</i></a></td>
+                  <td>Feature Type</td>
+                  <td>Application Domain Extension Energy of CityGML object BoundarySurface</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="even">
+                  <td><a href="../Energy-ADE/_CityObject.html">_CityObject</a></td>
+                  <td>Feature Type</td>
+                  <td>The base class of all thematic classes within CityGML&amp;rsquo;s data model.</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="odd">
+                  <td><a href="../Energy-ADE/_Opening.html"><i>_Opening</i></a></td>
+                  <td>Feature Type</td>
+                  <td>Application Domain Extension Energy of CityGML object Opening</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="even">
+                  <td><a href="../Energy-ADE/_SolarEnergySystem.html"><i>_SolarEnergySystem</i></a></td>
+                  <td>Feature Type</td>
+                  <td align="center">-</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="odd">
+                  <td><a href="../Energy-ADE/_StorageSystem.html"><i>_StorageSystem</i></a></td>
+                  <td>Feature Type</td>
+                  <td>System storing energy. A same storage may store the energy of different end-users
+                     and different end-use.
+                  </td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="even">
+                  <td><a href="../Energy-ADE/Absorptance.html">Absorptance</a></td>
+                  <td>Data Type</td>
+                  <td>Percentaged  energy absorptance in different wavelength ranges</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="odd">
+                  <td><a href="../Energy-ADE/ControlType.html">ControlType</a></td>
+                  <td>Data Type</td>
+                  <td align="center">-</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="even">
+                  <td><a href="../Energy-ADE/DailySchedule.html">DailySchedule</a></td>
+                  <td>Data Type</td>
+                  <td align="center">-</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="odd">
+                  <td><a href="../Energy-ADE/Emittance.html">Emittance</a></td>
+                  <td>Data Type</td>
+                  <td>Percentaged infra-red emissivity</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="even">
+                  <td><a href="../Energy-ADE/EnergyCarrier.html">EnergyCarrier</a></td>
+                  <td>Data Type</td>
+                  <td>Energy form containing the energy (e.g. fuel, renewable energy etc.)</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="odd">
+                  <td><a href="../Energy-ADE/HeatExchangeType.html">HeatExchangeType</a></td>
+                  <td>Data Type</td>
+                  <td>Contributions of the different types of heat or cool exchange (convective, radiant
+                     and latent)
+                  </td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="even">
+                  <td><a href="../Energy-ADE/IrregularTimeSeries.html">IrregularTimeSeries</a></td>
+                  <td>Data Type</td>
+                  <td>Irregular time series is the opposite of a regular time series. The data in the time
+                     series follows a temporal sequence, but the measurements might not happen at a regular
+                     time interval. http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosphere.streams.timeseries-toolkit.doc/doc/timeseries-regular.html
+                  </td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="odd">
+                  <td><a href="../Energy-ADE/MeasurementPoint.html">MeasurementPoint</a></td>
+                  <td>Data Type</td>
+                  <td align="center">-</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="even">
+                  <td><a href="../Energy-ADE/Reflectance.html">Reflectance</a></td>
+                  <td>Data Type</td>
+                  <td>Percentaged  energy reflectance in different wavelength ranges</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="odd">
+                  <td><a href="../Energy-ADE/RegularTimeSeries.html">RegularTimeSeries</a></td>
+                  <td>Data Type</td>
+                  <td>regular time series contain values generated at regularly spaced interval of time</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="even">
+                  <td><a href="../Energy-ADE/ScheduleLoD0.html">ScheduleLoD0</a></td>
+                  <td>Data Type</td>
+                  <td align="center">-</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="odd">
+                  <td><a href="../Energy-ADE/ScheduleLoD1.html">ScheduleLoD1</a></td>
+                  <td>Data Type</td>
+                  <td align="center">-</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="even">
+                  <td><a href="../Energy-ADE/ScheduleLoD2.html">ScheduleLoD2</a></td>
+                  <td>Data Type</td>
+                  <td align="center">-</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="odd">
+                  <td><a href="../Energy-ADE/ScheduleLoD3.html">ScheduleLoD3</a></td>
+                  <td>Data Type</td>
+                  <td align="center">-</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="even">
+                  <td><a href="../Energy-ADE/ShadingType.html">ShadingType</a></td>
+                  <td>Data Type</td>
+                  <td align="center">-</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="odd">
+                  <td><a href="../Energy-ADE/TimeValuesProperties.html">TimeValuesProperties</a></td>
+                  <td>Data Type</td>
+                  <td>Information and properties of a given variable.</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="even">
+                  <td><a href="../Energy-ADE/Transmittance.html">Transmittance</a></td>
+                  <td>Data Type</td>
+                  <td>Percentaged  energy transmittance in different wavelength ranges</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="odd">
+                  <td><a href="../Energy-ADE/_Schedule.html"><i>_Schedule</i></a></td>
+                  <td>Data Type</td>
+                  <td align="center">-</td>
+                  <td align="center">-</td>
+               </tr>
+               <tr class="even">
+                  <td><a href="../Energy-ADE/_TimeSeries.html"><i>_TimeSeries</i></a></td>
+                  <td>Data Type</td>
+                  <td>Consistent series of time-depending values.</td>
+                  <td align="center">-</td>
+               </tr>
+            </table>
+         </tr>
+      </div>
+      <div></div>
+      <div id="footer"></div>
+   </body>
+</html>

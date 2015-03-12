@@ -1,0 +1,656 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en">
+   <!--Created by ShapeChange on 2015-03-12T20:06:47.34+01:00-->
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title> (CityGML Energy ADE application schema)</title>
+      <link rel="stylesheet" type="text/css" href="../stylesheet.css" title="Style"><script language="javascript" type="text/javascript">function toggle(elementToShowHideById, elementToSwitchTextIn) {
+                            var ele = document.getElementById(elementToShowHideById);
+                            var text = document.getElementById(elementToSwitchTextIn);
+                            if(ele.style.display == "block") {
+                                ele.style.display = "none";
+                                text.innerHTML = "See listed values";
+                            }
+                            else {
+                                ele.style.display = "block";
+                                text.innerHTML = "Hide listed values";
+                            }
+                       }</script><noscript>
+         <div>JavaScript is disabled on your browser.</div>
+      </noscript>
+   </head>
+   <body>
+      <h1 id="top">Feature type: UsageZone</h1>
+      <table>
+         <tr>
+            <td>
+               <table>
+                  <tr>
+                     <td>
+                        <p>
+                           <h2>Package:</h2>
+                        </p>
+                        <p class="indent"><a href="../Energy-ADE/package-summary.html">Energy-ADE</a></p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>
+                           <h2>Definition:</h2>
+                        </p>
+                        <p class="indent">A usage zone is a zone of a building with homogeneous usage type.</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>
+                           <h2>Subtype of:</h2>
+                        </p>
+                        <p class="indent">_CityObject</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>
+                           <h2>Type:</h2>
+                        </p>
+                        <p class="indent">Feature type</p>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <div>
+                  <p>
+                     <h2>Overview of characteristics:</h2>
+                  </p>
+               </div><br><div class="indent">
+                  <table class="colored">
+                     <caption>Attributes and association roles</caption>
+                     <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Multiplicity</th>
+                     </tr>
+                     <tr class="odd">
+                        <td><a href="../Energy-ADE/UsageZone.html#_AS646">contains</a></td>
+                        <td><a href="../Energy-ADE/BuildingUnit.html">BuildingUnit</a></td>
+                        <td>0..*</td>
+                     </tr>
+                     <tr class="even">
+                        <td><a href="../Energy-ADE/UsageZone.html#_A249_447">coolingSchedule</a></td>
+                        <td><a href="../Energy-ADE/_Schedule.html">_Schedule</a></td>
+                        <td>0..1</td>
+                     </tr>
+                     <tr class="odd">
+                        <td><a href="../Energy-ADE/UsageZone.html#_AS650">has</a></td>
+                        <td><a href="../Energy-ADE/Facilities.html">Facilities</a></td>
+                        <td>0..*</td>
+                     </tr>
+                     <tr class="even">
+                        <td><a href="../Energy-ADE/UsageZone.html#_A249_448">heatingSchedule</a></td>
+                        <td><a href="../Energy-ADE/_Schedule.html">_Schedule</a></td>
+                        <td>0..1</td>
+                     </tr>
+                     <tr class="odd">
+                        <td><a href="../Energy-ADE/UsageZone.html#_AT649">occupiedBy</a></td>
+                        <td><a href="../Energy-ADE/Occupancy.html">Occupancy</a></td>
+                        <td>0..*</td>
+                     </tr>
+                     <tr class="even">
+                        <td><a href="../Energy-ADE/UsageZone.html#_A249_449">usageZoneClass</a></td>
+                        <td>BuildingClass</td>
+                        <td>1</td>
+                     </tr>
+                     <tr class="odd">
+                        <td><a href="../Energy-ADE/UsageZone.html#_A249_450">usedArea</a></td>
+                        <td>Area</td>
+                        <td>1</td>
+                     </tr>
+                     <tr class="even">
+                        <td><a href="../Energy-ADE/UsageZone.html#_A249_451">usedFloorNumbers</a></td>
+                        <td>Integer</td>
+                        <td>0..*</td>
+                     </tr>
+                     <tr class="odd">
+                        <td><a href="../Energy-ADE/UsageZone.html#_A249_452">ventilationSchedule</a></td>
+                        <td><a href="../Energy-ADE/_Schedule.html">_Schedule</a></td>
+                        <td>0..1</td>
+                     </tr>
+                  </table>
+               </div>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p>
+                  <h2><a name="_AS646">Association role:
+                        </a></h2>
+               </p>
+               <p class="small"><a href="#top">back to top</a></p>
+               <table>
+                  <tr>
+                     <td>
+                        <p class="indent title">Name:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>contains</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Voidable:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>false</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Multiplicity:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>0..*</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Value type:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p><a href="../Energy-ADE/BuildingUnit.html">BuildingUnit</a> (feature type)
+                        </p>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p>
+                  <h2><a name="_A249_447">Attribute:               
+                        </a></h2>
+               </p>
+               <p class="small"><a href="#top">back to top</a></p>
+               <table>
+                  <tr>
+                     <td>
+                        <p class="indent title">Name:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>coolingSchedule</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Definition:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>Temperature schedule [°C] of the active cooling inside the usage zone.</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Voidable:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>false</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Multiplicity:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>0..1</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Value type:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p><a href="../Energy-ADE/_Schedule.html">_Schedule</a> (data type)
+                        </p>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p>
+                  <h2><a name="_AS650">Association role:
+                        </a></h2>
+               </p>
+               <p class="small"><a href="#top">back to top</a></p>
+               <table>
+                  <tr>
+                     <td>
+                        <p class="indent title">Name:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>has</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Voidable:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>false</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Multiplicity:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>0..*</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Value type:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p><a href="../Energy-ADE/Facilities.html">Facilities</a> (feature type)
+                        </p>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p>
+                  <h2><a name="_A249_448">Attribute:               
+                        </a></h2>
+               </p>
+               <p class="small"><a href="#top">back to top</a></p>
+               <table>
+                  <tr>
+                     <td>
+                        <p class="indent title">Name:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>heatingSchedule</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Definition:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>Temperature schedule [°C] of the active heating inside the usage zone.</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Voidable:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>false</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Multiplicity:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>0..1</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Value type:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p><a href="../Energy-ADE/_Schedule.html">_Schedule</a> (data type)
+                        </p>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p>
+                  <h2><a name="_AT649">Association role:
+                        </a></h2>
+               </p>
+               <p class="small"><a href="#top">back to top</a></p>
+               <table>
+                  <tr>
+                     <td>
+                        <p class="indent title">Name:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>occupiedBy</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Voidable:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>false</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Multiplicity:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>0..*</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Value type:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p><a href="../Energy-ADE/Occupancy.html">Occupancy</a> (feature type)
+                        </p>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p>
+                  <h2><a name="_A249_449">Attribute:               
+                        </a></h2>
+               </p>
+               <p class="small"><a href="#top">back to top</a></p>
+               <table>
+                  <tr>
+                     <td>
+                        <p class="indent title">Name:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>usageZoneClass</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Definition:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>Usage class of the zone.</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Voidable:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>false</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Multiplicity:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>1</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Value type:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>BuildingClass (code list)</p>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p>
+                  <h2><a name="_A249_450">Attribute:               
+                        </a></h2>
+               </p>
+               <p class="small"><a href="#top">back to top</a></p>
+               <table>
+                  <tr>
+                     <td>
+                        <p class="indent title">Name:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>usedArea</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Definition:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>Used floor area [m²].</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Voidable:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>false</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Multiplicity:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>1</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Value type:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>Area</p>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p>
+                  <h2><a name="_A249_451">Attribute:               
+                        </a></h2>
+               </p>
+               <p class="small"><a href="#top">back to top</a></p>
+               <table>
+                  <tr>
+                     <td>
+                        <p class="indent title">Name:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>usedFloorNumbers</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Definition:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>List of the number of floors part of the usage zone (0 = ground level).</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Voidable:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>false</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Multiplicity:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>0..*</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Value type:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>Integer</p>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p>
+                  <h2><a name="_A249_452">Attribute:               
+                        </a></h2>
+               </p>
+               <p class="small"><a href="#top">back to top</a></p>
+               <table>
+                  <tr>
+                     <td>
+                        <p class="indent title">Name:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>ventilationSchedule</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Definition:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>Air change rate [1/h] schedule of the ventilation system inside the usage zone.</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Voidable:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>false</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Multiplicity:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>0..1</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Value type:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p><a href="../Energy-ADE/_Schedule.html">_Schedule</a> (data type)
+                        </p>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+      </table>
+      <div class="clearing"></div>
+      <div id="footer"></div>
+   </body>
+</html>

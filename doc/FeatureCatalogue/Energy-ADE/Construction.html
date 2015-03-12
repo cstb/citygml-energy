@@ -1,0 +1,426 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en">
+   <!--Created by ShapeChange on 2015-03-12T20:06:47.34+01:00-->
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title> (CityGML Energy ADE application schema)</title>
+      <link rel="stylesheet" type="text/css" href="../stylesheet.css" title="Style"><script language="javascript" type="text/javascript">function toggle(elementToShowHideById, elementToSwitchTextIn) {
+                            var ele = document.getElementById(elementToShowHideById);
+                            var text = document.getElementById(elementToSwitchTextIn);
+                            if(ele.style.display == "block") {
+                                ele.style.display = "none";
+                                text.innerHTML = "See listed values";
+                            }
+                            else {
+                                ele.style.display = "block";
+                                text.innerHTML = "Hide listed values";
+                            }
+                       }</script><noscript>
+         <div>JavaScript is disabled on your browser.</div>
+      </noscript>
+   </head>
+   <body>
+      <h1 id="top">Feature type: Construction</h1>
+      <table>
+         <tr>
+            <td>
+               <table>
+                  <tr>
+                     <td>
+                        <p>
+                           <h2>Package:</h2>
+                        </p>
+                        <p class="indent"><a href="../Energy-ADE/package-summary.html">Energy-ADE</a></p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>
+                           <h2>Definition:</h2>
+                        </p>
+                        <p class="indent">A Construction is a combination of layers, such as a wall or a roof.</p>
+                        <p class="indent"><p> <img src="../png/Construction-Layer-Illustration.png"></p></p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>
+                           <h2>Subtype of:</h2>
+                        </p>
+                        <p class="indent">_CityObject</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>
+                           <h2>Type:</h2>
+                        </p>
+                        <p class="indent">Feature type</p>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <div>
+                  <p>
+                     <h2>Overview of characteristics:</h2>
+                  </p>
+               </div><br><div class="indent">
+                  <table class="colored">
+                     <caption>Attributes and association roles</caption>
+                     <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Multiplicity</th>
+                     </tr>
+                     <tr class="odd">
+                        <td><a href="../Energy-ADE/Construction.html#_A306_661">absorptance</a></td>
+                        <td><a href="../Energy-ADE/Absorptance.html">Absorptance</a></td>
+                        <td>0..*</td>
+                     </tr>
+                     <tr class="even">
+                        <td><a href="../Energy-ADE/Construction.html#_AT604">layer</a></td>
+                        <td><a href="../Energy-ADE/Layer.html">Layer</a></td>
+                        <td>0..*</td>
+                     </tr>
+                     <tr class="odd">
+                        <td><a href="../Energy-ADE/Construction.html#_A306_662">reflectance</a></td>
+                        <td><a href="../Energy-ADE/Reflectance.html">Reflectance</a></td>
+                        <td>0..*</td>
+                     </tr>
+                     <tr class="even">
+                        <td><a href="../Energy-ADE/Construction.html#_A306_663">transmittance</a></td>
+                        <td><a href="../Energy-ADE/Transmittance.html">Transmittance</a></td>
+                        <td>0..*</td>
+                     </tr>
+                     <tr class="odd">
+                        <td><a href="../Energy-ADE/Construction.html#_A306_664">uValue</a></td>
+                        <td>Measure</td>
+                        <td>0..1</td>
+                     </tr>
+                  </table>
+               </div>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p>
+                  <h2><a name="_A306_661">Attribute:               
+                        </a></h2>
+               </p>
+               <p class="small"><a href="#top">back to top</a></p>
+               <table>
+                  <tr>
+                     <td>
+                        <p class="indent title">Name:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>absorptance</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Definition:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>Energy absorptance</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Voidable:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>false</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Multiplicity:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>0..*</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Value type:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p><a href="../Energy-ADE/Absorptance.html">Absorptance</a> (data type)
+                        </p>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p>
+                  <h2><a name="_AT604">Association role:
+                        </a></h2>
+               </p>
+               <p class="small"><a href="#top">back to top</a></p>
+               <table>
+                  <tr>
+                     <td>
+                        <p class="indent title">Name:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>layer</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Definition:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>Reference to layers that comprise this construction. Multiple LayerId's order is important
+                           and specifies the layering of the layer's referenced materials. The first Surface/AdjacentSpaceId
+                           entered will determine how the referenced construction layers are ordered with the
+                           first construction layer being in contact with the outside or 2nd Surface/AdjacentSpaceId
+                           listed and the last layer in contact with the first Surface/AdjacentSpaceId listed
+                        </p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Voidable:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>false</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Multiplicity:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>0..*</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Value type:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p><a href="../Energy-ADE/Layer.html">Layer</a> (feature type)
+                        </p>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p>
+                  <h2><a name="_A306_662">Attribute:               
+                        </a></h2>
+               </p>
+               <p class="small"><a href="#top">back to top</a></p>
+               <table>
+                  <tr>
+                     <td>
+                        <p class="indent title">Name:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>reflectance</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Definition:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>Percentage energy reflectance</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Voidable:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>false</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Multiplicity:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>0..*</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Value type:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p><a href="../Energy-ADE/Reflectance.html">Reflectance</a> (data type)
+                        </p>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p>
+                  <h2><a name="_A306_663">Attribute:               
+                        </a></h2>
+               </p>
+               <p class="small"><a href="#top">back to top</a></p>
+               <table>
+                  <tr>
+                     <td>
+                        <p class="indent title">Name:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>transmittance</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Definition:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>Percentaged transmittance of shading surface</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Voidable:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>false</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Multiplicity:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>0..*</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Value type:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p><a href="../Energy-ADE/Transmittance.html">Transmittance</a> (data type)
+                        </p>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p>
+                  <h2><a name="_A306_664">Attribute:               
+                        </a></h2>
+               </p>
+               <p class="small"><a href="#top">back to top</a></p>
+               <table>
+                  <tr>
+                     <td>
+                        <p class="indent title">Name:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>uValue</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Definition:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>U-Value - Overall conductance</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Voidable:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>false</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Multiplicity:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>0..1</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p class="indent title">Value type:
+                           
+                        </p>
+                     </td>
+                     <td>
+                        <p>Measure</p>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+      </table>
+      <div class="clearing"></div>
+      <div id="footer"></div>
+   </body>
+</html>
