@@ -57,9 +57,10 @@ It has been developed since May 2014 by an international consortium of urban ene
 	* Karl-Heinz Häfele (KIT)
 	* Joachim Benner (KIT)
 * Enterprise Architect UML model
-	* Romain Nouvel
-	* Marcel Bruse
-	* Olivier Tournaire
+	* Romain Nouvel (HFT Stuttgart)
+	* Marcel Bruse (HFT Stuttgart)
+	* Olivier Tournaire (CSTB)
+	* Joachim Benner (KIT)
 * UML model to XSD schema conversion
 	* Olivier Tournaire
 * Sample file
