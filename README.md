@@ -27,13 +27,38 @@ It has been developed since May 2014 by an international consortium of urban ene
 Authors
 -------
 * Occupancy module
-	* TODO
+	* Jean-Marie Bahu (EIFER)
+	* Esteban Munoz (Hafen City University)
+	* Romain Nouvel (HFT Stuttgart)
+	* Piergiorgio Cipriano (Sinergis)
+	* Luca Giovannini (Sinergis)
 * Core module
-	* TODO
-* System module
-	* TODO
+	* Karl-Heinz Häfele (KIT)
+	* Joachim Benner (KIT)
+	* Marcel Bruse(HFT Stuttgart)
+	* Volker Coors (HFT Stuttgart)
+	* Robert Kaden (TUM)
+	* Moritz Lauster (RWTH Aachen)
+	* Henryk Wolisz (RWTH Aachen)
+	* Sawsan Mohamed (Universität Stuttgart)
+	* Romain Nouvel (HFT Stuttgart)
+	* Piergiorgio Cipriano (Sinergis)
+	* Luca Giovannini (Sinergis)
+	* Jean-Marie Bahu (EIFER Karlsruhe)
+	* Maryam Zirak (HFT Stuttgart)
+* Energy Systems module
+	* Moritz Lauster (RWTH Aachen)
+	* Peter Remmen (RWTH Aachen)
+	* Jean-Marie Bahu (EIFER)
+	* Eric Duminil (HFT Stuttgart)
+	* Dirk Monien (HFT Stuttgart)
+	* Diane Perez (EPFL)
+	* Romain Nouvel (HFT Stuttgart)
+	* Piergiorgio Cipriano (Sinergis)
+	* Luca Giovannini (Sinergis) 
 * Material module
-	* TODO
+	* Karl-Heinz Häfele (KIT)
+	* Joachim Benner (KIT)
 * Enterprise Architect UML model
 	* Romain Nouvel
 	* Marcel Bruse
