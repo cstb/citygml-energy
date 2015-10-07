@@ -68,6 +68,9 @@ It has been developed since May 2014 by an international consortium of urban ene
 * Sample file
 	* Marcel Bruse (HFT Stuttgart)
 
+## Guidelines
+A documents which describes the guidelines can be downloaded from [this link](./Guidelines_EnergyADE0.6_20150812.docx).
+
 ## UML diagrams
 The CityGML Energy ADE currently (v0.5.0) is implemented in a single XSD schema. The following diagrams give an overview of each modules.
 ### Occupancy module
