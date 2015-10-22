@@ -8,3 +8,7 @@ Energy-ADE_iso-compliance.eap
 
 Energy-ADE_iso-compliance.eap
 shapechange-2.0.0/*
+
+# eclipse settings
+.settings/
+.project
