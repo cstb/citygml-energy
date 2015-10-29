@@ -68,8 +68,8 @@ ADE Energy Core
 
 The Core of the ADE Energy contains the thermal building objects required for
 the building energy modelling. These thermal building objects are linked to the
-CityGML building objects through its `\_AbstractBuilding`, `\_BoundarySurface`
-and `\_Opening` classes.
+CityGML building objects through its `_AbstractBuilding`, `_BoundarySurface`
+and `_Opening` classes.
 
 
 Overview
@@ -93,7 +93,7 @@ simulation. For the simulation, a thermal zone is considered as isothermal. It
 is a semantic object, which may be or not related to a geometric entity
 (Building, BuildingPart, Room etc.).
 
-This class inherits from `\_CityObject`, and may therefore be associated to 1
+This class inherits from `_CityObject`, and may therefore be associated to 1
 or more EnergyDemand objects (see module Energy systems).
 
 For the requirement of the building heating/cooling simulation, the ThermalZone
@@ -103,7 +103,7 @@ must be related to one or more UsageZone.
 
 Zone of a building with homogeneous usage type.
 
-This class inherits from `\_CityObject`, and may therefore be associated to 1
+This class inherits from `_CityObject`, and may therefore be associated to 1
 or more EnergyDemand objects. This class is defined minimally by a usage zone
 class and a used area.
 
@@ -112,11 +112,11 @@ For further details, see module Occupancy.
 **ThermalBoundarySurface**
 
 Quasi-coplanar surface bounding the thermal zone. It may be linked to the
-`gml:BoundarySurface` (through the `ADE:\_BoundarySurface`) when possible, but
+`gml:BoundarySurface` (through the `ADE:_BoundarySurface`) when possible, but
 not necessary (e.g. cellar ceiling or top storey ceiling in the case of
 LOD1-3).
 
-This class inherits from `\_CityObject`, and may therefore be associated to a
+This class inherits from `_CityObject`, and may therefore be associated to a
 Construction Object (see module Construction and Material).
 
 **SurfaceComponent**
@@ -124,17 +124,17 @@ Construction Object (see module Construction and Material).
 Part of the thermal boundary surface corresponding to a homogeneous
 construction component (e.g. windows, wall, insulated part of a wall etc.).
 
-This class inherits from `\_CityObject`, and may therefore be associated to a
+This class inherits from `_CityObject`, and may therefore be associated to a
 Construction Object (see module Construction and Material).
 
 **\_AbstractBuilding**
 
-Extension of CityGML object `\_AbstractBuilding` in Application Domain
+Extension of CityGML object `_AbstractBuilding` in Application Domain
 Extension Energy.
 
 **\_BoundarySurface**
 
-Extension of CityGML object `\_BoundarySurface` in Application Domain Extension
+Extension of CityGML object `_BoundarySurface` in Application Domain Extension
 Energy.
 
 Even empty, this subtype is necessary for the connection of the ADE Energy to
@@ -143,7 +143,7 @@ added.
 
 **\_Opening**
 
-Extension of CityGML object `\_Opening` in Application Domain Extension Energy.
+Extension of CityGML object `_Opening` in Application Domain Extension Energy.
 Openings may have an indoor and an outdoor shading system. They are further
 defined by an openable ratio.
 
@@ -230,7 +230,7 @@ The Construction and Material is a module of the ADE Energy, which may be
 extended for multi-field analysis (statics, acoustics etc.). It contains the
 physical characterization of the boundary surfaces, surface components and even
 whole building (and potentially all the objects which inherits of
-`\_CityObject`).
+`_CityObject`).
 
 Construction and layers
 -----------------------
@@ -242,9 +242,9 @@ wall, roof, openings), it may be specified as an ordered combination of layers.
 
 The object Construction may be associated to the (thermal) boundary surfaces,
 surface components, buildings (and potentially all the objects which inherits
-of `\_CityObject`).
+of `_CityObject`).
 
-It inherits itself from `\_CityObject`.
+It inherits itself from `_CityObject`.
 
 **ConstructionOrientation**
 
@@ -256,7 +256,7 @@ buildings, will be orientated in two different directions for instance.
 
 Combination of one of more materials, referenced via a layer component.
 
-It inherits from `\_CityObject`.
+It inherits from `_CityObject`.
 
 **LayerComponent**
 
@@ -346,13 +346,13 @@ Usage zone and Building Unit
 
 Zone of a building with homogeneous usage type. This usage type is defined by a
 *usageZoneClass* (corresponding to the CityGML Code list of the
-`\_AbstractBuilding` attribute class).
+`_AbstractBuilding` attribute class).
 
 This zone is operated with a single heating and cooling set-point temperature
 schedule (*heatingSchedule* respectively *coolingSchedule*) and single air
 ventilation schedule.
 
-It inherits from `\_CityObject`.
+It inherits from `_CityObject`.
 
 **BuildingUnit**
 
@@ -360,7 +360,7 @@ Part of usage zone which is related to a single occupant entity, such as
 dwelling or workplace. Owner information data (as owner name and ownership
 type) are specified in this class.
 
-It inherits from `\_CityObject`.
+It inherits from `_CityObject`.
 
 Occupants
 ---------
@@ -406,7 +406,7 @@ Energy Amounts and Forms
 Useful energy required to satisfy a specific end use, such as heating, cooling,
 domestic hot water etc… These end uses are listed in **EndUseType**.
 
-Every `\_CityObject` may have one or more `EnergyDemand`.
+Every `_CityObject` may have one or more `EnergyDemand`.
 
 **EnergySupply**
 
