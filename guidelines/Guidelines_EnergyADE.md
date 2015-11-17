@@ -31,7 +31,6 @@ Overview
 
 ![Class diagram of ADE Energy Core - Schedules](fig/class_schedules.png)
 
-\newpage
 
 Building, zones and boundaries
 ------------------------------
