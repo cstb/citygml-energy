@@ -1,25 +1,17 @@
 Overview of the Application Domain Extension Energy
 ===================================================
 
-Following the philosophy of CityGML, this ADE Energy aims to be flexible, in
-terms of compatibility with different data qualities, levels of details, and
-urban energy models complexities (from monthly energy balance of ISO 13790, to
-sub-hourly dynamic simulation of softwares like CitySim or EnergyPlus). It
-takes into consideration the INSPIRE Directive of the European Parliament, as
-well as the recent US Building Energy Data Exchange Specification (BEDES).
+The CityGML Energy ADE aims at extending the CityGML standard with energy-related entities necessary to lead energy analyses at urban scale.
 
-Its structure is thought of as modular; some of its modules can be potentially
-used and extended for other applications (e.g. module Occupancy for
-socio-economics, module Materials for acoustics or statics, module Metadata and
-Scenarios for every urban analysis).
+Following the philosophy of CityGML, this ADE Energy aims to be flexible, in terms of compatibility with different data qualities, levels of details, and urban energy models complexities (from monthly energy balance of ISO 13790, to sub-hourly dynamic simulation of softwares like CitySim or EnergyPlus). It takes into consideration the INSPIRE Directive of the European Parliament, as well as the recent US Building Energy Data Exchange Specification (BEDES).
+
+Its structure is thought of as modular; some of its modules can be potentially used and extended for other applications (e.g. module Occupancy for socio-economics, module Materials for acoustics or statics, module Metadata and Scenarios for every urban analysis).
+
 
 ADE Energy Core
 ===============
 
-The Core of the ADE Energy contains the thermal building objects required for
-the building energy modelling. These thermal building objects are linked to the
-CityGML building objects through its `_AbstractBuilding`, `_BoundarySurface`
-and `_Opening` classes.
+The Core of the ADE Energy contains the thermal building objects required for the building energy modelling (e.g. 'ThermalZone', 'ThermalBoundary', 'ThermalComponent'). These thermal building objects are linked to the CityGML building objects through its `_AbstractBuilding`, `_BoundarySurface` and `_Opening` classes.
 
 
 Overview
@@ -37,149 +29,124 @@ Building, zones and boundaries
 
 **ThermalZone**
 
-Zone of a building which serves as unit for the building heating/ cooling
-simulation. For the simulation, a thermal zone is considered as isothermal. It
-is a semantic object, which may be or not related to a geometric entity
-(Building, BuildingPart, Room etc.).
+Zone of a building which serves as space unit for building heating/cooling simulations, a thermal zone is considered as isothermal. It
+is a semantic object, with an optional geometry, which may be or not related to a geometric entity (Building, BuildingPart, Room etc.).
 
-This class inherits from `_CityObject`, and may therefore be associated to 1
-or more EnergyDemand objects (see module Energy systems).
+This class inherits from `_CityObject`, and may therefore be associated to 1 or more 'EnergyDemand' objects (see module Energy systems).
 
-For the requirement of the building heating/cooling simulation, the ThermalZone
-must be related to one or more UsageZone.
+For the requirement of the building heating/cooling simulations, the 'ThermalZone' must be related to one or more 'UsageZone'.
 
 **UsageZone**
 
-Zone of a building with homogeneous usage type.
+Zone of a building with homogeneous usage type. It is a semantic object, with an optional geometry, which may be or not related to a geometric entity (Building, BuildingPart, Room etc.).
 
-This class inherits from `_CityObject`, and may therefore be associated to 1
-or more EnergyDemand objects. This class is defined minimally by a usage zone
-class and a used area.
+This class inherits from `_CityObject`, and may therefore be associated to 1 or more 'EnergyDemand' objects. This class is defined minimally by a usage zone class and a floor area.
 
 For further details, see module Occupancy.
 
-**ThermalBoundarySurface**
+**ThermalBoundary**
 
-Quasi-coplanar surface bounding the thermal zone. It may be linked to the
-`gml:BoundarySurface` (through the `ADE:_BoundarySurface`) when possible, but
-not necessary (e.g. cellar ceiling or top storey ceiling in the case of
-LOD1-3).
+Quasi-coplanar surface delimiting thermal zones. It represent the physical relationship between two thermal zones or a thermal zone and the building environment.
 
-This class inherits from `_CityObject`, and may therefore be associated to a
-Construction Object (see module Construction and Material).
+It is a semantic object, with an optional geometry. It may be linked to the `gml:BoundarySurface` (through the `ADE:_BoundarySurface`) when possible, but not necessary (e.g. cellar ceiling or top storey ceiling in the case of LOD1-3).
 
-**SurfaceComponent**
+**ThermalComponent**
 
-Part of the thermal boundary surface corresponding to a homogeneous
-construction component (e.g. windows, wall, insulated part of a wall etc.).
+Part of the thermal boundary corresponding to a homogeneous construction component (e.g. windows, wall, insulated part of a wall etc.).
 
-This class inherits from `_CityObject`, and may therefore be associated to a
-Construction Object (see module Construction and Material).
+This class inherits from `_CityObject`, and is generally associated to a Construction Object (see module Construction and Material).
 
 **\_AbstractBuilding**
 
-Extension of CityGML object `_AbstractBuilding` in Application Domain
-Extension Energy.
+Extension of CityGML object `_AbstractBuilding` in Application Domain Extension Energy.
 
 **\_BoundarySurface**
 
-Extension of CityGML object `_BoundarySurface` in Application Domain Extension
-Energy.
+Extension of CityGML object `_BoundarySurface` in Application Domain Extension Energy.
 
-Even empty, this subtype is necessary for the connection of the ADE Energy to
-the CityGML, since a bi-directional associations to the existing definitions is
-added.
+Even empty, this subtype is necessary for the connection of the ADE Energy to the CityGML, since a bi-directional associations to the existing definitions is added.
 
 **\_Opening**
 
-Extension of CityGML object `_Opening` in Application Domain Extension Energy.
-Openings may have an indoor and an outdoor shading system. They are further
-defined by an openable ratio.
+Extension of CityGML object `_Opening` in Application Domain Extension Energy. Openings may have an indoor and an outdoor shading system. They are further defined by an openable ratio.
+
 
 Time Series
 -----------
 
-Time Series are used in the Energy ADE for energy amount or schedule modelling
-for instance. Given that the class Time Series is not specific to the Energy
-ADE, it should be integrated in the CityGML Core at middle-term.
+Time series are homogeneous list of time-depending values. They are used in the Energy ADE to store energy amount or schedule for instance. As non-domain specific feature, they is planned to be integrated in the CityGML 3.0.
 
-Time series are homogeneous list of time-depending values.
-
-These values are defined for a specific *temporalExtent* (= start, end and
-duration time). They have common properties specified in the type
+These values are defined for a specific *temporalExtent* (= start, end and duration time). They have common properties specified in the type
 
 **TimeValuesProperties**.
 
-These properties are the variable label, the variable unit of measure (*uom*),
-the interpolation type (based on the [WaterML
-ADE](http://def.seegrid.csiro.au/sissvoc/ogc-def/resource?uri=http://www.opengis.net/def/waterml/2.0/interpolationType/))
-and some data acquisition information like the data source, the acquisition
-method and the quality description.
+These properties are the variable label, the variable unit of measure (*uom*), the interpolation type (based on the [WaterML ADE](http://def.seegrid.csiro.au/sissvoc/ogc-def/resource?uri=http://www.opengis.net/def/waterml/2.0/interpolationType/))
+and some data acquisition information like the data source, the acquisition method and the quality description.
 
 Time Series can be either regular or irregular.
 
-**RegularTimeSeries** contain *values* generated at regularly spaced interval
-of time (*timeInterval*). They are relevant for instance to store automatically
-acquired data.
+**RegularTimeSeries** contain *values* generated at regularly spaced interval of time (*timeInterval*). They are relevant for instance to store automatically acquired data or hourly/daily/monthly simulation results.
 
-In **IrregularTimeSeries**, the data in the time series follows also a temporal
-sequence, but the measurement points might not happen at a regular time
-interval[^1]. Therefore, each value must be associated with a data or time.
+In **IrregularTimeSeries**, the data in the time series follows also a temporal sequence, but the measurement points might not happen at a regular time interval[^1]. Therefore, each value must be associated with a data or time.
 
 Schedules
 ---------
 
-The type Schedule is used in the ADE Energy for different kinds of schedules
-and variables, including heating/cooling schedules (set-point temperatures),
-ventilation schedules (mechanical air change rate) and occupancy rate.
+The type Schedule is used in the Energy ADE for different kinds of schedules and variables, including heating/cooling schedules (set-point temperatures), ventilation schedules (mechanical air change rate) and occupancy rate.
 
-Schedules may be modelled with 4 Levels of Details (,LoD) depending on the
-available information and the application.
+Schedules may be modelled with 4 "semantic levels of details" depending on the available information and the application.
 
-**Schedule LoD 0**
+**ConstantValueSchedule**
 
-Constant value, generally corresponding to the average parameter value.
+Most basic level of detail, it corresponds to a constant value, generally corresponding to the average parameter value.
 
 ```xml
-<energy:operationSchedules>
-    <energy:ScheduleLoD0>
-        <energy:averageValue uom="">10</energy:averageValue>
-    </energy:ScheduleLoD0>
-</energy:operationSchedules>
+<!--Example of the cooling schedule of a residential building:-->
+<energy:coolingSchedule>
+    <energy:ConstantValueSchedule*>
+        <energy:averageValue uom="°C">26</energy:averageValue>
+    </energy:ConstantValueSchedule*>
+</energy:coolingSchedule>
 ```
 
-**Schedule LoD 1**
+**DualValueSchedule**
 
-Two-state schedule, specified by a usage value defined for usage times, and an
-idle value outside this temporal boundaries. Information about the approximate
-number of usage days per year and usage hours per usage days are also defined
-(if these days are precisely known, then the schedules LoD2 or LoD3 may be used
-instead).
+Two-state schedule, specified by a usage value defined for usage times, and an idle value outside this temporal boundaries. Information about the approximate number of usage days per year and usage hours per usage days are also defined (if these days are precisely known, then the schedules LoD2 or LoD3 may be used instead).
 
 This Schedule LoD 1 complies in particular with the data requirements of the
 Codes and Norms describing the monthly energy balance (DIN 18599-2, ISO 13790).
 
-**Schedule LoD 2**
+```xml
+<!--Example of the heating schedule of a residential building:-->
+<energy:heatingSchedules>
+    <energy:DualValueSchedule>
+        <energy:usageValue uom="°C">20</energy:usageValue>
+        <energy:idleValue uom="°C">16</energy:idleValue>
+        <energy:usageHoursPerDay uom="">17</energy:usageHoursPerDay>
+        <energy:usageDaysPerYear uom="">365</energy:usageDaysPerYeary>
+    </energy:DualValueSchedule>
+</energy:heatingSchedules>
+```
 
-Detailed schedule composed of daily schedules associated to recurrent day types
-(weekday, weekend etc.).
+**DailyPatternSchedule**
+
+Detailed schedule composed of daily schedules associated to recurrent day types (weekday, weekend etc.).
 
 These daily schedules are Time Series as described above.
 
-**Schedule LoD 3**
+**TimeSeriesSchedule**
 
-Detailed schedule corresponding to a Time series as described above.
+Most detailed schedule corresponding to a Time series as described above.
+
 
 Construction and Material Module
 ================================
 
 ![Class diagram of Construction Module](fig/class_construction.png)
 
-The Construction and Material is a module of the ADE Energy, which may be
-extended for multi-field analysis (statics, acoustics etc.). It contains the
-physical characterization of the boundary surfaces, surface components and even
-whole building (and potentially all the objects which inherits of
-`_CityObject`).
+The Construction and Material is a module of the ADE Energy, which contains the physical characterization of the boundary surfaces, surface components and even whole building (and potentially all the objects which inherits of `_CityObject`).
+
+It may be extended for multi-field analysis (statics, acoustics etc.).
 
 Construction and layers
 -----------------------
