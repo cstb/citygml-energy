@@ -1,5 +1,5 @@
-Guidelines of the CityGML Energy ADE <br/> version 0.6
-===================================================
+CityGML Application Domain Extension Energy - version 0.6 <br/>Draft Guidelines 
+===============================================================================
 
 
 Overview of the Application Domain Extension Energy
@@ -336,4 +336,4 @@ It details the operation of the energy conversion system for a specific end-use 
 For instance, a reversible heat pump may have 3 operation modes: heating production in winter, cooling production in summer, and hot water production during the whole year.
 
 
-[^1]: [IBM knowledge Center](../customXml/item1.xml)
+[^1]: [IBM knowledge Center](http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosphere.streams.timeseries-toolkit.doc/doc/timeseries-regular.html)
