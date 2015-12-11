@@ -18,7 +18,7 @@ Building Physics Module
 This central module of the Energy ADE contains the thermal building objects required for the building energy modelling (e.g. `ThermalZone`, `ThermalBoundary`, `ThermalComponent`). These thermal building objects are linked to the CityGML building objects through its `_AbstractBuilding`, `_BoundarySurface` and `_Opening` classes.
 
 
-<h3>Building, zones and boundaries
+<h3>Building, zones and boundaries</h3>
 
 ![Class diagram of Building Physics Module](fig/class_geometry.png)
 
@@ -74,7 +74,7 @@ Extension of CityGML object `_Opening` in Application Domain Extension Energy. O
 Temporal Data Module
 --------------------
 
-<h3>Time Series
+<h3>Time Series</h3>
 
 ![Class diagram of ADE Energy Core - Time Series](fig/class_time.png)
 
@@ -95,7 +95,7 @@ Time Series can be either regular or irregular.
 In **IrregularTimeSeries**, the data in the time series follows also a temporal sequence, but the measurement points might not happen at a regular time interval[^1]. Therefore, each value must be associated with a data or time.
 
 
-<h3>Schedules
+<h3>Schedules</h3>
 
 ![Class diagram of ADE Energy Core - Schedules](fig/class_schedules.png)
 
@@ -156,7 +156,7 @@ The Construction and Material is a module of the ADE Energy, which contains the 
 
 It may be extended for multi-field analysis (statics, acoustics etc.).
 
-<h3>Construction and layers
+<h3>Construction and layers</h3>
 
 **Construction**
 
@@ -201,7 +201,7 @@ Class of the materials which have a mass and a heat capacity.
 Class of the material whose mass and heat capacity are neglectable in comparison with `SolidMaterial`.
 
 
-<h3>Optical properties
+<h3>Optical properties</h3>
 
 **Transmittance**
 
@@ -238,7 +238,7 @@ Occupancy Module
 
 The Occupancy Module is a module of the ADE Energy, which may be extended for multi-field analysis (socio-economics, demographics etc.).  It contains the characterization of the building usage, it is related to the rest of the ADE Energy and CityGML model through the unique class `UsageZone`.
 
-<h3>Usage zone and Building Unit
+<h3>Usage zone and Building Unit</h3>
 
 **UsageZone**
 
@@ -255,7 +255,7 @@ Part of usage zone which is related to a single occupant entity, such as dwellin
 
 It inherits from `_CityObject`.
 
-<h3>Occupants
+<h3>Occupants</h3>
 
 **Occupants**
 
@@ -267,7 +267,7 @@ Group of persons living in the same dwelling, in the case where occupants are re
 
 There are defined by a type (e.g. one family, worker couple etc…) and a residence type (main/secondary residence or vacant).
 
-<h3>Facilities
+<h3>Facilities</h3>
 
 **Facilities**
 
@@ -282,7 +282,7 @@ Energy System Module
 
 The Energy System Module is a module of the ADE Energy, which contains the information concerning the energy forms (energy demand, supply, sources) and the energy systems (conversion, distribution and storage systems).
 
-<h3>Energy Amounts and Forms
+<h3>Energy Amounts and Forms</h3>
 
 **EnergyDemand**
 
@@ -296,10 +296,14 @@ Every `_CityObject` (typically `ADE:_AbstractBuilding`, `ThermalZone`, `UsageZon
 
 Final energy consumed (and sometimes produced) by the energy conversion system.
 
-Its energy characteristics (primary energy and CO2 emission factors, energy density, energy carrier type) are specified in the Energy Carrier object.
+Its energy characteristics are specified in the Energy Carrier object.
 
+**EnergyCarrier**
 
-<h3>Energy Distribution
+(primary energy and CO2 emission factors, energy density, energy carrier type) 
+ 
+
+<h3>Energy Distribution</h3>
 
 **EnergyDistributionSystem**
 
@@ -310,7 +314,7 @@ System in charge of delivering the energy inside the building, from the place of
 System storing energy. A same storage may store the energy of different end-users and different end uses. Power and Thermal storage systems are differentiated.
 
 
-<h3>Energy Conversion
+<h3>Energy Conversion</h3>
 
 **EnergyConversionSystem**
 
