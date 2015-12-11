@@ -186,7 +186,7 @@ It inherits from `_CityObject`.
 Homogeneous part of a layer, covering a given fraction (`areaFraction`) of the
 layer.
 
-<h3>Materials
+<h3>Materials</h3>
 
 **AbstractMaterial**
 
@@ -242,11 +242,13 @@ The Occupancy Module is a module of the ADE Energy, which may be extended for mu
 
 **UsageZone**
 
-Zone of a building with homogeneous usage type. It is a semantic object, with an optional geometry, which may be or not related to a geometric entity (Building, BuildingPart, Room etc.).
+Zone of a building with homogeneous usage type. It is a semantic object, with an optional geometry (`volumeGeometry`), which may be or not related to a geometric entity (Building, BuildingPart, Room etc.).
 
 Its usage type is defined by a `usageZoneClass` (corresponding to the CityGML Code list of the `_AbstractBuilding` attribute class). This zone is operated with a single heating and cooling set-point temperature schedule (`heatingSchedule` respectively `coolingSchedule`) and single air ventilation schedule.
 
 This class inherits from `_CityObject`, and may therefore be associated to 1 or more 'EnergyDemand' objects. This class is defined minimally by a usage zone class and a floor area.
+
+Its `internalGains` attribute correspond to the sum of the energy dissipated from the occupants and the facilities inside the zone.
 
 
 **BuildingUnit**
@@ -269,11 +271,13 @@ There are defined by a type (e.g. one family, worker couple etc…) and a reside
 
 <h3>Facilities</h3>
 
-**Facilities**
+Facilities and Appliances inside the usage zone or building unit, which consume and dissipate energy. They are distinguished between domestic hot water (`DHWFacilities`), specific electrical appliances (`ElectricalAppliances`) and lighting facilities (`LightingFacilities`).
 
-Facilities and Appliances inside the usage zone or building unit, which consume and dissipate energy. They are distinguished between domestic hot water (`DHWFacilities`), specific electrical appliances (`ElectricalFacilities`) and lighting facilities (`LightingFacilities`).
+**DHWFacilities**
 
+**ElectricalAppliances**
 
+**LightingFacilities**
 
 Energy System Module
 --------------------
