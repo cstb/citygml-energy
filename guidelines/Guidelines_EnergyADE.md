@@ -46,9 +46,12 @@ For further details, see module Occupancy.
 
 **ThermalBoundary**
 
-Quasi-coplanar surface delimiting thermal zones. It represent the physical relationship between two thermal zones or a thermal zone and the building environment.
+Quasi-coplanar surface delimiting thermal zones. It represents the physical relationship between two thermal zones (defining the thermal zones adjacency) or a thermal zone and the building surrounding.
 
-It is a semantic object, with an optional geometry. It may be linked to the `gml:BoundarySurface` (through the `ADE:_BoundarySurface`) when possible, but not necessary (e.g. cellar ceiling or top storey ceiling in the case of LOD1-3).
+It is a semantic object, with an optional geometry. It may be linked to the `gml:BoundarySurface` (through the `ADE:_BoundarySurface`) when possible, but not necessary (e.g. cellar ceiling or top storey ceiling in the case of CityGML LoD1 to LoD3).
+
+While separating two thermal zones, its optional geometry corresponds to the middle of the internal/share wall.
+While separating a thermal zone from the building surrounding, its optional geometry corresponds to the external surface of the outer wall/roof/basement floor.
 
 **ThermalComponent**
 
