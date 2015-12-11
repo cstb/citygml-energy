@@ -1,4 +1,4 @@
-CityGML Application Domain Extension Energy - version 0.6 <br/>Draft Guidelines 
+CityGML Application Domain Extension Energy<br/>Draft Guidelines - Version 0.6 
 ===============================================================================
 
 
