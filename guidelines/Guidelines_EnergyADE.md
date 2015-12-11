@@ -15,7 +15,7 @@ Its structure is thought of as modular; some of its modules can be potentially u
 Building Physics Module
 -----------------------
 
-This central module of the Energy ADE contains the thermal building objects required for the building energy modelling (e.g. 'ThermalZone', 'ThermalBoundary', 'ThermalComponent'). These thermal building objects are linked to the CityGML building objects through its `_AbstractBuilding`, `_BoundarySurface` and `_Opening` classes.
+This central module of the Energy ADE contains the thermal building objects required for the building energy modelling (e.g. `ThermalZone`, `ThermalBoundary`, `ThermalComponent`). These thermal building objects are linked to the CityGML building objects through its `_AbstractBuilding`, `_BoundarySurface` and `_Opening` classes.
 
 
 <h3>Building, zones and boundaries
@@ -26,10 +26,10 @@ This central module of the Energy ADE contains the thermal building objects requ
 **ThermalZone**
 
 Zone of a building which serves as space unit for building heating/cooling simulations, a thermal zone is considered as isothermal. It
-is a semantic object, with an optional geometry, which may be or not related to a geometric entity (Building, BuildingPart, Room etc.).
+is a semantic object, with an optional geometry, which may be or not related to a geometric entity (`gml:Building`, `gml:BuildingPart`, `gml:Room` etc.).
 
-This class inherits from `_CityObject`, and may therefore be associated to 1 or more 'EnergyDemand' objects (see module Energy systems).
-For the requirement of the building heating/cooling simulations, the 'ThermalZone' must be related to one or more 'UsageZone' (see Occupancy Module).
+This class inherits from `_CityObject`, and may therefore be associated to 1 or more `EnergyDemand` objects (see module Energy systems).
+For the requirement of the building heating/cooling simulations, the 'ThermalZone' must be related to one or more `UsageZone` (see Occupancy Module).
 
 
 **ThermalBoundary**
@@ -91,7 +91,7 @@ and some data acquisition information like the data source, the acquisition meth
 
 Time Series can be either regular or irregular.
 
-**RegularTimeSeries** contain *values* generated at regularly spaced interval of time (*timeInterval*), over a given *temporalExtent* (= start, end and duration time). They are relevant for instance to store automatically acquired data or hourly/daily/monthly simulation results.
+**RegularTimeSeries** contain `values` generated at regularly spaced interval of time (`timeInterval`), over a given `temporalExtent` (= start, end and duration time). They are relevant for instance to store automatically acquired data or hourly/daily/monthly simulation results.
 
 In **IrregularTimeSeries**, the data in the time series follows also a temporal sequence, but the measurement points might not happen at a regular time interval[^1]. Therefore, each value must be associated with a data or time.
 
@@ -121,8 +121,7 @@ Most basic level of detail, it corresponds to a constant value, generally corres
 
 Two-state schedule, specified by a usage value defined for usage times, and an idle value outside this temporal boundaries. Information about the approximate number of usage days per year and usage hours per usage days are also defined (if these days are precisely known, then the schedules LoD2 or LoD3 may be used instead).
 
-This Schedule LoD 1 complies in particular with the data requirements of the
-Codes and Norms describing the monthly energy balance (DIN 18599-2, ISO 13790).
+This Schedule LoD 1 complies in particular with the data requirements of the Codes and Norms describing the monthly energy balance (DIN 18599-2, ISO 13790).
 
 ```xml
 <!--Example of the heating schedule of a residential building:-->
@@ -185,7 +184,7 @@ It inherits from `_CityObject`.
 
 **LayerComponent**
 
-Homogeneous part of a layer, covering a given fraction (*areaFraction*) of the
+Homogeneous part of a layer, covering a given fraction (`areaFraction`) of the
 layer.
 
 <h3>Materials
@@ -200,7 +199,7 @@ Class of the materials which have a mass and a heat capacity.
 
 **Gas**
 
-Class of the material whose mass and heat capacity are neglectable in comparison with 'SolidMaterial'
+Class of the material whose mass and heat capacity are neglectable in comparison with `SolidMaterial`.
 
 
 <h3>Optical properties
@@ -209,8 +208,8 @@ Class of the material whose mass and heat capacity are neglectable in comparison
 
 Fraction of incident radiation passes through a specific object.
 
-It is specified for a given wavelength range type ('wavelengthRange') (solar, infrared, visible or total).
-In particular, the total transmittance of a window correspond to its **g-value** (also called Solar Heat Gain Coefficient).
+It is specified for a given wavelength range type (`wavelengthRange`) .
+In particular, the total transmittance of a window correspond to its *g-value* (also called Solar Heat Gain Coefficient).
 
 The transmittance percentage should be included between 0% (opaque object) and 100% (transparent object).
 
@@ -219,7 +218,7 @@ The transmittance percentage should be included between 0% (opaque object) and 1
 
 Fraction of incident radiation which is reflected by an object.
 
-It is specified for a given surface (SurfaceSide), for a given wavelength range type.
+It is specified for a given surface (`SurfaceSide`), for a given wavelength range type.
 The sum of the transmittance, reflectance and the absorptance of a surface/object is always 1.
 
 **Emissivity**
@@ -229,18 +228,16 @@ Ratio of the infrared (also called long-wave) radiation emitted by a specific su
 It is specified for a given surface (SurfaceSide).
 According with the Kirchoff and Lambert law, for a diffuse grey body, the aborptance and the emittance are equals for a given wavelength range.
 
+**WavelengthRangeType**
 
-
+solar, infrared, visible or total
 
 Occupancy Module
 ----------------
 
 ![Class diagram of Occupancy Module](fig/class_occupancy.png)
 
-The Occupancy Module is a module of the ADE Energy, which may be extended for
-multi-field analysis (socio-economics, demographics etc.).  It contains the
-characterization of the building usage, it is related to the rest of the ADE
-Energy and CityGML model through the unique class `UsageZone`.
+The Occupancy Module is a module of the ADE Energy, which may be extended for multi-field analysis (socio-economics, demographics etc.).  It contains the characterization of the building usage, it is related to the rest of the ADE Energy and CityGML model through the unique class `UsageZone`.
 
 <h3>Usage zone and Building Unit
 
@@ -248,16 +245,14 @@ Energy and CityGML model through the unique class `UsageZone`.
 
 Zone of a building with homogeneous usage type. It is a semantic object, with an optional geometry, which may be or not related to a geometric entity (Building, BuildingPart, Room etc.).
 
-Its usage type is defined by a *usageZoneClass* (corresponding to the CityGML Code list of the `_AbstractBuilding` attribute class). This zone is operated with a single heating and cooling set-point temperature schedule (*heatingSchedule* respectively *coolingSchedule*) and single air ventilation schedule.
+Its usage type is defined by a `usageZoneClass` (corresponding to the CityGML Code list of the `_AbstractBuilding` attribute class). This zone is operated with a single heating and cooling set-point temperature schedule (`heatingSchedule` respectively `coolingSchedule`) and single air ventilation schedule.
 
 This class inherits from `_CityObject`, and may therefore be associated to 1 or more 'EnergyDemand' objects. This class is defined minimally by a usage zone class and a floor area.
 
 
 **BuildingUnit**
 
-Part of usage zone which is related to a single occupant entity, such as
-dwelling or workplace. Owner information data (as owner name and ownership
-type) are specified in this class.
+Part of usage zone which is related to a single occupant entity, such as dwelling or workplace. Owner information data (as owner name and ownership type) are specified in this class.
 
 It inherits from `_CityObject`.
 
@@ -265,24 +260,19 @@ It inherits from `_CityObject`.
 
 **Occupants**
 
-Homogeneous group of occupants of a usage zone or building unit, defined with
-an occupant type (e.g. residents, workers, visitors etc.).
+Homogeneous group of occupants of a usage zone or building unit, defined with an occupant type (e.g. residents, workers, visitors etc.).
 
 **Household**
 
-Group of persons living in the same dwelling, in the case where occupants are
-residents.
+Group of persons living in the same dwelling, in the case where occupants are residents.
 
-There are defined by a type (e.g. one family, worker couple etc…) and a
-residence type (main/secondary residence or vacant).
+There are defined by a type (e.g. one family, worker couple etc…) and a residence type (main/secondary residence or vacant).
 
 <h3>Facilities
 
 **Facilities**
 
-Facilities and Appliances inside the usage zone or building unit, which consume
-and dissipate energy. They are distinguished between domestic hot water
-(*DHWFacilities*), specific electrical appliances (**ElectricalFacilities**) and lighting facilities (**LightingFacilities**).
+Facilities and Appliances inside the usage zone or building unit, which consume and dissipate energy. They are distinguished between domestic hot water (`DHWFacilities`), specific electrical appliances (`ElectricalFacilities`) and lighting facilities (`LightingFacilities`).
 
 
 
@@ -291,18 +281,16 @@ Energy System Module
 
 ![Class diagram of Energy System Module](fig/class_EnergySystem.png)
 
-The Energy System Module is a module of the ADE Energy, which contains the
-information concerning the energy forms (energy demand, supply, sources) and
-the energy systems (conversion, distribution and storage systems).
+The Energy System Module is a module of the ADE Energy, which contains the information concerning the energy forms (energy demand, supply, sources) and the energy systems (conversion, distribution and storage systems).
 
 <h3>Energy Amounts and Forms
 
 **EnergyDemand**
 
 Useful energy required to satisfy a specific end use, such as heating, cooling, domestic hot water etc.
-Beside its 'EndUseType', this object is characterized its 'energyAmount' (time-depending energy demand value) and its maximum yearly load ('maximumLoad') used for the sizing of the energy systems.
+Beside its `EndUseType`, this object is characterized its `energyAmount` (time-depending energy demand value) and its maximum yearly load (`maximumLoad`) used for the sizing of the energy systems.
 
-Every `_CityObject` (typically 'ADE:_AbstractBuilding', 'ThermalZone', 'UsageZone' and 'BuildingUnit') may have one or more `EnergyDemand`.
+Every `_CityObject` (typically `ADE:_AbstractBuilding`, `ThermalZone`, `UsageZone` and `BuildingUnit`) may have one or more `EnergyDemand`.
 
 
 **EnergySource**
@@ -316,13 +304,11 @@ Its energy characteristics (primary energy and CO2 emission factors, energy dens
 
 **EnergyDistributionSystem**
 
-System in charge of delivering the energy inside the building, from the place of energy production to the place of end-use. Power and Thermal distribution
-systems are differentiated.
+System in charge of delivering the energy inside the building, from the place of energy production to the place of end-use. Power and Thermal distribution systems are differentiated.
 
 **StorageSystem**
 
-System storing energy. A same storage may store the energy of different end-users and different end uses. Power and Thermal storage systems are
-differentiated.
+System storing energy. A same storage may store the energy of different end-users and different end uses. Power and Thermal storage systems are differentiated.
 
 
 <h3>Energy Conversion
@@ -331,14 +317,11 @@ differentiated.
 
 System converting an energy source into the energy necessary to satisfy the end-use (or to feed the networks).
 
-Energy conversion systems have common parameters: nominal installed power, nominal efficiency (in reference to an efficiency indicator), year of
-manufacture, name of the model. They may be one or more (in this case, the nominal installed power corresponds to the totality). Some product and
-installation documents may be referenced.
+Energy conversion systems have common parameters: nominal installed power, nominal efficiency (in reference to an efficiency indicator), year of manufacture, name of the model. They may be one or more (in this case, the nominal installed power corresponds to the totality). Some product and installation documents may be referenced.
 
 Specific energy conversion systems may have in addition specific parameters:
 
-A same system may have several operation modes (e.g. heat pump covering heating
-and domestic hot water demands).
+A same system may have several operation modes (e.g. heat pump covering heating and domestic hot water demands).
 
 **SystemOperation**
 
