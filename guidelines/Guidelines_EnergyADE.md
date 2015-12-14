@@ -49,7 +49,7 @@ While separating a thermal zone from the building surrounding, its optional geom
 
 Part of the thermal boundary corresponding to a homogeneous construction component (e.g. windows, wall, insulated part of a wall etc.).
 
-This class inherits from `_CityObject`, and is generally associated to a Construction Object (see module Construction and Material).
+This class inherits from `_CityObject`, which allows him to be associated to a Construction Object (see module Construction and Material).
 
 
 **\_AbstractBuilding**
@@ -160,14 +160,11 @@ It may be extended for multi-field analysis (statics, acoustics etc.).
 
 **Construction**
 
-Physical characterisation of building envelop or intern room partition (e.g.
-wall, roof, openings), it may be specified as an ordered combination of layers.
+Physical characterisation of building envelop or intern room partition (e.g. wall, roof, openings), it may be specified as an ordered combination of layers.
 
-The object Construction may be associated to the (thermal) boundary surfaces,
-surface components, buildings (and potentially all the objects which inherits
-of `_CityObject`).
+In the Energy ADE, the object Construction aims to be linked to the `_ThermalComponents`, in order to defined the physical parameters of a walls, roofs of windows, for a space heating/cooling calculation. However, it may possibly be linked to any `_CityObject` for other purposes, in particular to `gml:_BoundarySurface`, `gml:_Opening` or even `_AbstractBuilding`.
 
-It inherits itself from `_CityObject`.
+[XML code example]
 
 **ConstructionOrientation**
 
@@ -183,8 +180,7 @@ It inherits from `_CityObject`.
 
 **LayerComponent**
 
-Homogeneous part of a layer, covering a given fraction (`areaFraction`) of the
-layer.
+Homogeneous part of a layer, covering a given fraction (`areaFraction`) of the layer.
 
 <h3>Materials</h3>
 
