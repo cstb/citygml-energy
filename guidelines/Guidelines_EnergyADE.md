@@ -280,7 +280,7 @@ Energy System Module
 
 ![Class diagram of Energy System Module](fig/class_EnergySystem.png)
 
-The Energy System Module is a module of the ADE Energy, which contains the information concerning the energy forms (energy demand, supply, sources) and the energy systems (conversion, distribution and storage systems).
+The Energy System Module is a module of the ADE Energy, which contains the information concerning the energy forms (energy demand, supply, sources) and the energy systems (conversion, distribution and storage systems). It is arranged around one central `EnergyDemand` object.
 
 <h3>Energy Amounts and Forms</h3>
 
@@ -291,6 +291,9 @@ Beside its `EndUseType`, this object is characterized its `energyAmount` (time-d
 
 Every `_CityObject` (typically `ADE:_AbstractBuilding`, `ThermalZone`, `UsageZone` and `BuildingUnit`) may have one or more `EnergyDemand`.
 
+**EndUseType**
+
+List of possible end uses as cooking, space heating and ventilation.
 
 **EnergySource**
 
@@ -300,27 +303,55 @@ Its energy characteristics are specified in the Energy Carrier object.
 
 **EnergyCarrier**
 
-(primary energy and CO2 emission factors, energy density, energy carrier type) 
- 
+Primary energy and CO2 emission factors, energy density and energy carrier type characterize this data type for energy carriers.
+
+**EnergyCarrierType**
+
+List of energy carriers as coal, chilled water or electricity.
 
 <h3>Energy Distribution</h3>
 
 **EnergyDistributionSystem**
 
-System in charge of delivering the energy inside the building, from the place of energy production to the place of end-use. Power and Thermal distribution systems are differentiated.
+System in charge of delivering the energy inside the building, from the place of energy production to the place of end-use. Power and Thermal distribution systems are differentiated. They all share a distribution perimeter that is described by the distribution type.
+
+**Distribution Type**
+
+A list of possible distribution perimeters, e.g. Building, Dwelling, Room.
+
+**ThermalDistributionSystem**
+
+Type for thermal distribution systems with attributes for circulation (circulating system or not), the used medium, nominal flow, return and supply temperatures and thermal losses factor.
+
+**PowerDistributionSystem**
+
+Type for electrical distribution systems, described by current and voltage.
+
+**MediumType**
+
+This list is a collection of medium types as air and water.
+
+<h3>Energy Storage</h3>
 
 **StorageSystem**
 
 System storing energy. A same storage may store the energy of different end-users and different end uses. Power and Thermal storage systems are differentiated.
 
+**ThermalStorageSystem**
+
+Thermal storages with a medium, preparation temperature, thermal losses factor and a volume.
+
+**PowerStorageSystem**
+
+Electrical storages with an electrical capacity and a string to describe the battery technology.
 
 <h3>Energy Conversion</h3>
 
 **EnergyConversionSystem**
 
-System converting an energy source into the energy necessary to satisfy the end-use (or to feed the networks).
+System converting an energy source into the energy necessary to satisfy the `EnergyDemand` (or to feed the networks).
 
-Energy conversion systems have common parameters: nominal installed power, nominal efficiency (in reference to an efficiency indicator), year of manufacture, name of the model. They may be one or more (in this case, the nominal installed power corresponds to the totality). Some product and installation documents may be referenced.
+Energy conversion systems have common parameters: efficiency indicator, nominal installed power, nominal efficiency (in reference to an efficiency indicator), year of manufacture, name of the model, a serial number, a reference to product or installation documents and optionally refurbishment measures. They may be one or more (in this case, the nominal installed power corresponds to the totality).
 
 Specific energy conversion systems may have in addition specific parameters:
 
@@ -329,7 +360,46 @@ A same system may have several operation modes (e.g. heat pump covering heating 
 **SystemOperation**
 
 It details the operation of the energy conversion system for a specific end-use and operation time.
-For instance, a reversible heat pump may have 3 operation modes: heating production in winter, cooling production in summer, and hot water production during the whole year.
+For instance, a reversible heat pump may have 3 operation modes: heating production in winter, cooling production in summer, and hot water production during the whole year. Attributes are end use type, a schedule for operation time and yearly global efficiency.
 
+**DistrictNetworkSubstation**
+
+Subtype of `EnergyConversionSystem` for heating or cooling networks substations. Adds attributes for network ID and network node ID.
+
+**HeatPump**
+
+Subtype of `EnergyConversionSystem` for heat pumps to add carnot efficiency and heat source. Heat source is described using a `HeatSourceType`.
+
+**HeatSourceType**
+
+List of heat source types for heat pumps, e.g. ambient air, aquifer and exhaust air.
+
+**ElectricalResistance**
+
+Subtype of `EnergyConversionSystem` for electrical resistances. Comes without additional attributes.
+
+**MechanicalVentilation**
+
+Subtype of `EnergyConversionSystem` for ventilation systems with attributes heat recovery (with or without) and recuperation factor.
+
+**CombinedHeatPower**
+
+Subtype of `EnergyConversionSystem` for CHP systems. Utilizes a string describing the technology type.
+
+**Boiler**
+
+Subtype of `EnergyConversionSystem` for boiler. Defines if it is a condensation boiler or not.
+
+**SolarEnergySystem**
+
+Subclass of `EnergyConversionSystem` for solar energy systems. Has attributes for collector surface, azimuth and inclination. Differentiates into solar thermal and photovoltaic systems.
+
+**SolarThermalSystem**
+
+Subtype of `SolarEnergySystem` for thermal systems. Uses a string to describe the technology type.
+
+**PhotovoltaicSystem**
+
+Subtype of `SolarEnergySystem` for photovoltaic systems. Defines the material type of photovoltaic cells with a string.
 
 [^1]: [IBM knowledge Center](http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosphere.streams.timeseries-toolkit.doc/doc/timeseries-regular.html)
