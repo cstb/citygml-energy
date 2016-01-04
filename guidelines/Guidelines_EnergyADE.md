@@ -242,7 +242,7 @@ Zone of a building with homogeneous usage type. It is a semantic object, with an
 
 Its usage type is defined by a `usageZoneClass` (corresponding to the CityGML Code list of the `_AbstractBuilding` attribute class). This zone is operated with a single heating and cooling set-point temperature schedule (`heatingSchedule` respectively `coolingSchedule`) and single air ventilation schedule.
 
-This class inherits from `_CityObject`, and may therefore be associated to 1 or more 'EnergyDemand' objects. This class is defined minimally by a usage zone class and a floor area.
+This class inherits from `_CityObject`, and may therefore be associated to 1 or more 'EnergyDemand' objects. This class is defined minimally by a usage zone class and a floor area. The building storeys occupied by this UsageZone may be also indicated (`usedFloorNumbers`), 0 corresponding to the ground floor.
 
 Its `internalGains` attribute correspond to the sum of the energy dissipated from the occupants and the facilities inside the zone.
 
@@ -267,7 +267,8 @@ There are defined by a type (e.g. one family, worker couple etc…) and a reside
 
 <h3>Facilities</h3>
 
-Facilities and Appliances inside the usage zone or building unit, which consume and dissipate energy. They are distinguished between domestic hot water (`DHWFacilities`), specific electrical appliances (`ElectricalAppliances`) and lighting facilities (`LightingFacilities`).
+Facilities and Appliances inside the usage zone or building unit, which consume and dissipate energy, without having for first purpose to regulate the zone thermal comfort. They are distinguished between domestic hot water (`DHWFacilities`), specific electrical appliances (`ElectricalAppliances`) and lighting facilities (`LightingFacilities`).
+HVAC systems do not belong to these categories, they are part of the Energy System Module.  
 
 **DHWFacilities**
 
@@ -290,7 +291,6 @@ Useful energy required to satisfy a specific end use, such as heating, cooling, 
 Beside its `EndUseType`, this object is characterized its `energyAmount` (time-depending energy demand value) and its maximum yearly load (`maximumLoad`) used for the sizing of the energy systems.
 
 Every `_CityObject` (typically `ADE:_AbstractBuilding`, `ThermalZone`, `UsageZone` and `BuildingUnit`) may have one or more `EnergyDemand`.
-
 
 **EnergySource**
 
