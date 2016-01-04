@@ -118,9 +118,9 @@ Most basic level of detail, it corresponds to a constant value, generally corres
 
 **DualValueSchedule**
 
-Two-state schedule, specified by a usage value defined for usage times, and an idle value outside this temporal boundaries. Information about the approximate number of usage days per year and usage hours per usage days are also defined (if these days are precisely known, then the schedules LoD2 or LoD3 may be used instead).
+Two-state schedule, specified by a usage value defined for usage times, and an idle value outside this temporal boundaries. Information about the approximate number of usage days per year and usage hours per usage days are also defined.
 
-This Schedule LoD 1 complies in particular with the data requirements of the Codes and Norms describing the monthly energy balance (DIN 18599-2, ISO 13790).
+This schedule complies in particular with the data requirements of the codes and norms describing the monthly energy balance (DIN 18599-2, ISO 13790).
 
 ```xml
 <!--Example of the heating schedule of a residential building:-->
@@ -137,7 +137,6 @@ This Schedule LoD 1 complies in particular with the data requirements of the Cod
 **DailyPatternSchedule**
 
 Detailed schedule composed of daily schedules associated to recurrent day types (weekday, weekend etc.).
-
 These daily schedules are Time Series as described above.
 
 **TimeSeriesSchedule**
