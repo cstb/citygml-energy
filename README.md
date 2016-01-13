@@ -20,6 +20,7 @@ It has been developed since May 2014 by an international consortium of urban ene
 * Electricité de France
 * Sinergis
 * M.O.S.S Computer Grafik Systeme
+* Austrian Institute of Technology
 
 ![Special Interest Group 3D](./doc/201309_SIG3D_Logo.png) ![University of Applied Sciences Stuttgart logo](./doc/hft.jpg)  ![Technische Universität München logo](./doc/tum.png)  ![Karlsruhe Institute für Technologie logo](./doc/kit.jpg)
 ![RWTH Aachen University / E.ON Energy Research Center logo](./doc/rwth_eon.jpg)  ![HafenCityUniversität Hamburg logo](./doc/hcu.png)  ![European Institute for Energy Research logo](./doc/eifer.png)
