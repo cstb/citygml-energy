@@ -1,0 +1,261 @@
+<html xmlns:doc="http://www.kit.edu/FeatureCatalogue/1.0" xmlns="http://www.kit.edu/FeatureCatalogue/1.0">
+   <head>
+      <title>Feature type</title><style type="text/css">
+                        
+tr {
+     vertical-align: middle;
+     margin-bottom: 0px;
+}
+
+table {
+
+}
+td {
+    vertical-align: middle;
+    margin-bottom: 0px;
+    margin-top: 0px;
+ }
+  h1 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 24px;
+ }
+h2 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        margin-bottom: 0px;
+ }
+ 
+h3 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        margin-bottom: 0px;
+ }
+
+ h4 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 10px;
+ }
+
+ p {
+     font-family: Arial, Helvetica, sans-serif;
+     font-size: 15px;
+     margin-bottom: 0px;
+     margin-top: 0px;
+  }
+
+.grau { background-color:#CCCCCC; }
+.einzug10 {  margin-left: 10px;
+}      
+      
+    </style></head>
+   <body><a name=""></a><h1>energy:Occupants</h1>
+      <h2>Type</h2>
+      <p class="einzug10">Feature Type</p>
+      <h2>Definition</h2>
+      <p class="einzug10">Occupants is an aggregated group of occupants of a usage zone or building unit, which can be residents, workers, visitors
+         etc. 
+      </p>
+      <h2>Belongs to module</h2>
+      <p class="einzug10"><a href="Package_energy_Energy-ADE.html">energy:Energy-ADE</a></p>
+      <h2>Attributes and associations</h2>
+      <table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#9DE5F7">
+               <p><strong><em>Name</em></strong></p>
+            </td>
+            <td bgcolor="#9DE5F7">
+               <p><strong><em>Type</em></strong></p>
+            </td>
+         </tr>
+         <tr><a name="energy_Occupants_heatDissipation_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_Occupants_heatDissipation">energy:heatDissipation</a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>HeatExchangeType</p>
+            </td>
+         </tr>
+         <tr><a name="energy_Occupants_numberOfOccupants_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_Occupants_numberOfOccupants">energy:numberOfOccupants</a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>Integer</p>
+            </td>
+         </tr>
+         <tr><a name="energy_Occupants_occupancyRate_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_Occupants_occupancyRate">energy:occupancyRate</a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>_Schedule</p>
+            </td>
+         </tr>
+         <tr><a name="energy_Occupants_occupantType_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_Occupants_occupantType">energy:occupantType</a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>OccupantType</p>
+            </td>
+         </tr>
+         <tr><a name="energy_Occupants_consiststOf_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_Occupants_consiststOf">energy:consiststOf</a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>Household</p>
+            </td>
+         </tr>
+      </table><br></br><a name="energy_Occupants_heatDissipation"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:heatDissipation</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_Occupants_heatDissipation_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10"></p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..1</p>
+      <h3>Data type</h3><a href="energy_HeatExchangeType.html">
+         <p class="einzug10">HeatExchangeType</p></a><br></br><a name="energy_Occupants_numberOfOccupants"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:numberOfOccupants</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_Occupants_numberOfOccupants_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10">Number of occupants of the considered zone/building unit.</p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..1</p>
+      <h3>Data type</h3>
+      <p class="einzug10">Integer</p><br></br><a name="energy_Occupants_occupancyRate"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:occupancyRate</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_Occupants_occupancyRate_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10">Schedule of room/zone occupancy (0 while empty, 1 while occupied with the specified full number of occupant, between 0 and
+         1 during partial occupancy).
+      </p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..1</p>
+      <h3>Data type</h3><a href="energy__Schedule.html">
+         <p class="einzug10">_Schedule</p></a><br></br><a name="energy_Occupants_occupantType"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:occupantType</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_Occupants_occupantType_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10">Type of occupants of a premises.</p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..1</p>
+      <h3>Data type</h3>
+      <p class="einzug10">OccupantType (CodeList)</p><br></br><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="70" height="20" bgcolor="#9DE5F7">
+               <p><strong><em>Code</em></strong></p>
+            </td>
+            <td colspan="2" width="700" bgcolor="#9DE5F7">
+               <p><strong><em>Text</em></strong></p>
+            </td>
+         </tr>
+         <tr>
+            <td width="70" bgcolor="#EEEEEE">
+               <p>OthersOrCombination</p>
+            </td>
+            <td width="300" bgcolor="#EEEEEE">
+               <p>OthersOrCombination</p>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <h4></h4>
+            </td>
+         </tr>
+         <tr>
+            <td width="70" bgcolor="#EEEEEE">
+               <p>Patients</p>
+            </td>
+            <td width="300" bgcolor="#EEEEEE">
+               <p>Patients</p>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <h4></h4>
+            </td>
+         </tr>
+         <tr>
+            <td width="70" bgcolor="#EEEEEE">
+               <p>Residents</p>
+            </td>
+            <td width="300" bgcolor="#EEEEEE">
+               <p>Residents</p>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <h4></h4>
+            </td>
+         </tr>
+         <tr>
+            <td width="70" bgcolor="#EEEEEE">
+               <p>Students</p>
+            </td>
+            <td width="300" bgcolor="#EEEEEE">
+               <p>Students</p>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <h4></h4>
+            </td>
+         </tr>
+         <tr>
+            <td width="70" bgcolor="#EEEEEE">
+               <p>Visitors</p>
+            </td>
+            <td width="300" bgcolor="#EEEEEE">
+               <p>Visitors</p>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <h4></h4>
+            </td>
+         </tr>
+         <tr>
+            <td width="70" bgcolor="#EEEEEE">
+               <p>Workers</p>
+            </td>
+            <td width="300" bgcolor="#EEEEEE">
+               <p>Workers</p>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <h4></h4>
+            </td>
+         </tr>
+      </table><br></br><a name="energy_Occupants_consiststOf"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:consiststOf</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_Occupants_consiststOf_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10"></p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..*</p>
+      <h3>Data type</h3><a href="energy_Household.html">
+         <p class="einzug10">Household</p></a></body>
+</html>

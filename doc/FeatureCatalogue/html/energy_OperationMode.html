@@ -1,0 +1,301 @@
+<html xmlns:doc="http://www.kit.edu/FeatureCatalogue/1.0" xmlns="http://www.kit.edu/FeatureCatalogue/1.0">
+   <head>
+      <title>Feature type</title><style type="text/css">
+                        
+tr {
+     vertical-align: middle;
+     margin-bottom: 0px;
+}
+
+table {
+
+}
+td {
+    vertical-align: middle;
+    margin-bottom: 0px;
+    margin-top: 0px;
+ }
+  h1 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 24px;
+ }
+h2 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        margin-bottom: 0px;
+ }
+ 
+h3 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        margin-bottom: 0px;
+ }
+
+ h4 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 10px;
+ }
+
+ p {
+     font-family: Arial, Helvetica, sans-serif;
+     font-size: 15px;
+     margin-bottom: 0px;
+     margin-top: 0px;
+  }
+
+.grau { background-color:#CCCCCC; }
+.einzug10 {  margin-left: 10px;
+}      
+      
+    </style></head>
+   <body><a name=""></a><h1>energy:OperationMode</h1>
+      <h2>Type</h2>
+      <p class="einzug10">Feature Type</p>
+      <h2>Definition</h2>
+      <p class="einzug10">Operation mode details the operation of the energy conversion system for a specific end-use and operation time.</p>
+      <h2>Belongs to module</h2>
+      <p class="einzug10"><a href="Package_energy_Energy-ADE.html">energy:Energy-ADE</a></p>
+      <h2>Attributes and associations</h2>
+      <table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#9DE5F7">
+               <p><strong><em>Name</em></strong></p>
+            </td>
+            <td bgcolor="#9DE5F7">
+               <p><strong><em>Type</em></strong></p>
+            </td>
+         </tr>
+         <tr><a name="energy_OperationMode_controls_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_OperationMode_controls">energy:controls</a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>ControlType</p>
+            </td>
+         </tr>
+         <tr><a name="energy_OperationMode_endUse_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_OperationMode_endUse">energy:endUse</a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>EndUseType</p>
+            </td>
+         </tr>
+         <tr><a name="energy_OperationMode_operationTime_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_OperationMode_operationTime">energy:operationTime</a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>_Schedule</p>
+            </td>
+         </tr>
+         <tr><a name="energy_OperationMode_yearlyGlobalEfficiency_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_OperationMode_yearlyGlobalEfficiency">energy:yearlyGlobalEfficiency</a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>Measure</p>
+            </td>
+         </tr>
+         <tr><a name="energy_OperationMode_belongs_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_OperationMode_belongs">energy:belongs</a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>EnergyConversionSystem</p>
+            </td>
+         </tr>
+         <tr><a name="energy_OperationMode_produced_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_OperationMode_produced">energy:produced</a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>EnergySupply</p>
+            </td>
+         </tr>
+      </table><br></br><a name="energy_OperationMode_controls"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:controls</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_OperationMode_controls_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10"></p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..1</p>
+      <h3>Data type</h3><a href="energy_ControlType.html">
+         <p class="einzug10">ControlType</p></a><br></br><a name="energy_OperationMode_endUse"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:endUse</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_OperationMode_endUse_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10"></p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">1</p>
+      <h3>Data type</h3>
+      <p class="einzug10">EndUseType (CodeList)</p><br></br><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="70" height="20" bgcolor="#9DE5F7">
+               <p><strong><em>Code</em></strong></p>
+            </td>
+            <td colspan="2" width="700" bgcolor="#9DE5F7">
+               <p><strong><em>Text</em></strong></p>
+            </td>
+         </tr>
+         <tr>
+            <td width="70" bgcolor="#EEEEEE">
+               <p>Cooking</p>
+            </td>
+            <td width="300" bgcolor="#EEEEEE">
+               <p>Cooking</p>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <h4></h4>
+            </td>
+         </tr>
+         <tr>
+            <td width="70" bgcolor="#EEEEEE">
+               <p>DomesticHotWater</p>
+            </td>
+            <td width="300" bgcolor="#EEEEEE">
+               <p>DomesticHotWater</p>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <h4></h4>
+            </td>
+         </tr>
+         <tr>
+            <td width="70" bgcolor="#EEEEEE">
+               <p>ElectricalAppliances</p>
+            </td>
+            <td width="300" bgcolor="#EEEEEE">
+               <p>ElectricalAppliances</p>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <h4></h4>
+            </td>
+         </tr>
+         <tr>
+            <td width="70" bgcolor="#EEEEEE">
+               <p>Lighting</p>
+            </td>
+            <td width="300" bgcolor="#EEEEEE">
+               <p>Lighting</p>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <h4></h4>
+            </td>
+         </tr>
+         <tr>
+            <td width="70" bgcolor="#EEEEEE">
+               <p>OtherOrCombination</p>
+            </td>
+            <td width="300" bgcolor="#EEEEEE">
+               <p>OtherOrCombination</p>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <h4></h4>
+            </td>
+         </tr>
+         <tr>
+            <td width="70" bgcolor="#EEEEEE">
+               <p>SpaceCooling</p>
+            </td>
+            <td width="300" bgcolor="#EEEEEE">
+               <p>SpaceCooling</p>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <h4></h4>
+            </td>
+         </tr>
+         <tr>
+            <td width="70" bgcolor="#EEEEEE">
+               <p>SpaceHeating</p>
+            </td>
+            <td width="300" bgcolor="#EEEEEE">
+               <p>SpaceHeating</p>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <h4></h4>
+            </td>
+         </tr>
+         <tr>
+            <td width="70" bgcolor="#EEEEEE">
+               <p>Ventilation</p>
+            </td>
+            <td width="300" bgcolor="#EEEEEE">
+               <p>Ventilation</p>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <h4></h4>
+            </td>
+         </tr>
+      </table><br></br><a name="energy_OperationMode_operationTime"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:operationTime</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_OperationMode_operationTime_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10"></p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..1</p>
+      <h3>Data type</h3><a href="energy__Schedule.html">
+         <p class="einzug10">_Schedule</p></a><br></br><a name="energy_OperationMode_yearlyGlobalEfficiency"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:yearlyGlobalEfficiency</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_OperationMode_yearlyGlobalEfficiency_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10"></p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..1</p>
+      <h3>Data type</h3>
+      <p class="einzug10">Measure</p><br></br><a name="energy_OperationMode_belongs"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:belongs</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_OperationMode_belongs_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10"></p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..1</p>
+      <h3>Data type</h3><a href="energy_EnergyConversionSystem.html">
+         <p class="einzug10">EnergyConversionSystem</p></a><br></br><a name="energy_OperationMode_produced"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:produced</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_OperationMode_produced_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10"></p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">1..*</p>
+      <h3>Data type</h3><a href="energy_EnergySupply.html">
+         <p class="einzug10">EnergySupply</p></a></body>
+</html>
