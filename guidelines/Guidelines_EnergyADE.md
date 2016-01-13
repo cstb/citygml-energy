@@ -28,7 +28,7 @@ This central module of the Energy ADE contains the thermal building objects requ
 Zone of a building which serves as space unit for building heating/cooling simulations, a thermal zone is considered as isothermal. It is a semantic object, with an optional geometry, which may be or not related to a geometric entity (`gml:Building`, `gml:BuildingPart`, `gml:Room` etc.).
 
 This class inherits from `_CityObject`, and may therefore be associated to 1 or more `EnergyDemand` objects (see module Energy systems).
-For the requirement of the building heating/cooling simulations, the 'ThermalZone' must be related to one or more `UsageZone` (see Occupancy Module).
+For the requirement of the building heating/cooling simulations, the `ThermalZone` must be related to one or more `UsageZone` (see Occupancy Module).
 
 
 **ThermalBoundary**
@@ -68,7 +68,21 @@ Even empty, this subtype is necessary for the connection of the ADE Energy to th
 
 Extension of CityGML object `_Opening` in Application Domain Extension Energy. Openings may have an indoor and an outdoor shading system. They are further defined by an openable ratio.
 
+<h3>Solar irradiances and Daylighting</h3>
 
+To realize solar and daylight potential studies, the Energy ADE enables to store the incident global solar irradiances, respectively the daylight illuminances available on each outside boundary surface of the buildings.
+
+Both `globalSolarIrradiance` and `daylightIlluminance` are attributes of the object `_BoundarySurface`, of type `_TimeSeries` (see details in Temporal Data Module).
+
+**globalSolarIrradiance**
+
+It is the sum of the direct, diffuse and reflected irradiance incident on a outside boundary surface. Its unit of measure is the Watt per sqm (W/m²).
+These values are typically used as source terms for the thermal calculations within the buildings (more precisely the '_ThermalZone'), but also for the calculation of the energy producted by the solar systems (photovoltaic and solar thermal panels).
+
+**daylightIlluminance**
+
+It is the sum of the direct, diffuse and reflected solar illuminance incident on a outside boundary surface. Its unit of measure is the Lux (lx).
+These values are typically used for outside and inside daylighting study, as well as the calculation of the energy consumptions of lighting systems required to reach the room illuminance threshold when the daylight illuminance is not enough.
 
 
 Temporal Data Module
