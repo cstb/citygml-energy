@@ -69,7 +69,7 @@ It has been developed since May 2014 by an international consortium of urban ene
 	* Marcel Bruse (HFT Stuttgart)
 
 ## Guidelines
-A document which describes the guidelines can be downloaded from [this link](https://github.com/cstb/citygml-energy/raw/master/guidelines/Guidelines_EnergyADE.pdf). The guidelines can also be read [online](https://github.com/cstb/citygml-energy/blob/master/guidelines/Guidelines_EnergyADE.md).
+A document which describes the guidelines can be downloaded from [this link](./guidelines/Guidelines_EnergyADE.pdf). The guidelines can also be read [online](./guidelines/Guidelines_EnergyADE.md).
 
 ## UML diagrams
 The CityGML Energy ADE currently (v0.5.0) is implemented in a single XSD schema. The following diagrams give an overview of each modules.
