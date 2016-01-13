@@ -22,7 +22,7 @@ It has been developed since May 2014 by an international consortium of urban ene
 ![Special Interest Group 3D](./doc/201309_SIG3D_Logo.png) ![University of Applied Sciences Stuttgart logo](./doc/hft.jpg)  ![Technische Universität München logo](./doc/tum.png)  ![Karlsruhe Institute für Technologie logo](./doc/kit.jpg)
 ![RWTH Aachen University / E.ON Energy Research Center logo](./doc/rwth_eon.jpg)  ![HafenCityUniversität Hamburg logo](./doc/hcu.png)  ![European Institute for Energy Research logo](./doc/eifer.png)
 ![Ecole Polytechnique Fédérale de Lausanne logo](./doc/epfl.png)  ![Centre Scientifique et Technique du Batiment logo](./doc/cstb.png)  ![Electricité de France logo](./doc/edf.jpg)
-![Sinergis logo](./doc/sinergis.png)  ![M.O.S.S Computer Grafik Systeme logo](./doc/moss.jpg)
+![Sinergis logo](./doc/sinergis.png)  ![M.O.S.S Computer Grafik Systeme logo](./doc/moss.jpg)  ![Austrian Institute of Technology](./doc/ait.jpg)
 
 ## Authors
 * Occupancy module
