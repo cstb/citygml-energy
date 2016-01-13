@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!--Erzeugt mit KIT (www.kit.edu) UmlToXmlTransformation-Software, Erstellungsdatum: 12.01.2016 10:00:56-->
+<Dictionary xmlns="http://www.opengis.net/gml/3.1.1" xmlns:gml="http://www.opengis.net/gml/3.1.1" gml:id="energy_ResidenceType">
+  <description>Designation related to the amount of time a household lives at a residence.</description>
+  <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:ResidenceType</identifier>
+  <name>energy:ResidenceType</name>
+  <dictionaryEntry>
+    <Definition gml:id="S_MainResidence">
+      <description>MainResidence</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:ResidenceType:MainResidence</identifier>
+      <name>MainResidence</name>
+    </Definition>
+  </dictionaryEntry>
+  <dictionaryEntry>
+    <Definition gml:id="S_SecondaryResidence">
+      <description>SecondaryResidence</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:ResidenceType:SecondaryResidence</identifier>
+      <name>SecondaryResidence</name>
+    </Definition>
+  </dictionaryEntry>
+  <dictionaryEntry>
+    <Definition gml:id="S_Vacant">
+      <description>Vacant</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:ResidenceType:Vacant</identifier>
+      <name>Vacant</name>
+    </Definition>
+  </dictionaryEntry>
+</Dictionary>
