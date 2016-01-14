@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CityModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.opengis.net/citygml/2.0 ../Schema/EnergyADE_0_6_0_local.xsd"
+ xmlns="http://www.opengis.net/citygml/2.0" xmlns:xAL="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"
+ xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml"
+ xmlns:bldg="http://www.opengis.net/citygml/building/2.0"
+ xmlns:energy="http://www.sig3d.org/citygml/2.0/energy/0.6.0">
+
+	<!-- dwagner, 15.06.2012 Simple building with saddle roof Local coordinates. Enriched with basic energy related sample data by Marcel Bruse, 12.01.2015. -->
+
+	<cityObjectMember>
+		<bldg:Building gml:id="Test-001-Solid-SimpleBldg">
+			<gml:metaDataProperty>
+				<fileIdentifier>aaa</fileIdentifier>
+			</gml:metaDataProperty>
+			<bldg:function>1121</bldg:function>
+			<bldg:yearOfConstruction>1978</bldg:yearOfConstruction>
+			<bldg:lod2Solid>
+				<gml:Solid>
+					<gml:exterior>
+						<gml:CompositeSurface>
+							<!-- WallSurface -->
+							<gml:surfaceMember>
+								<gml:Polygon gml:id="p_w_1">
+									<gml:exterior>
+										<gml:LinearRing>
+											<gml:posList>
+												0.00 0.00 0.00
+												2.00 0.00 0.00
+												2.00 0.00 3.00
+												1.00 0.00 3.50
+												0.00 0.00 3.00
+												0.00 0.00 0.00
+											</gml:posList>
+										</gml:LinearRing>
+									</gml:exterior>
+								</gml:Polygon>
+							</gml:surfaceMember>
+							<gml:surfaceMember>
+								<gml:Polygon gml:id="p_w_2">
+									<gml:exterior>
+										<gml:LinearRing>
+											<gml:posList>
+												2.00 0.00 0.00
+												2.00 2.00 0.00
+												2.00 2.00 3.00
+												2.00 0.00 3.00
+												2.00 0.00 0.00
+											</gml:posList>
+										</gml:LinearRing>
+									</gml:exterior>
+								</gml:Polygon>
+							</gml:surfaceMember>
+							<gml:surfaceMember>
+								<gml:Polygon gml:id="p_w_3">
+									<gml:exterior>
+										<gml:LinearRing>
+											<gml:posList>
+												2.00 2.00 0.00
+												0.00 2.00 0.00
+												0.00 2.00 3.00
+												1.00 2.00 3.50
+												2.00 2.00 3.00
+												2.00 2.00 0.00
+											</gml:posList>
+										</gml:LinearRing>
+									</gml:exterior>
+								</gml:Polygon>
+							</gml:surfaceMember>
+							<gml:surfaceMember>
+								<gml:Polygon gml:id="p_w_4">
+									<gml:exterior>
+										<gml:LinearRing>
+											<gml:posList>
+												0.00 2.00 0.00
+												0.00 0.00 0.00
+												0.00 0.00 3.00
+												0.00 2.00 0.00
+											</gml:posList>
+										</gml:LinearRing>
+									</gml:exterior>
+								</gml:Polygon>
+							</gml:surfaceMember>
+							<gml:surfaceMember>
+								<gml:Polygon gml:id="p_w_5">
+									<gml:exterior>
+										<gml:LinearRing>
+											<gml:posList>
+												0.00 2.00 0.00
+												0.00 0.00 3.00
+												0.00 2.00 3.00
+												0.00 2.00 0.00
+											</gml:posList>
+										</gml:LinearRing>
+									</gml:exterior>
+								</gml:Polygon>
+							</gml:surfaceMember>
+							<!-- GroundSurface -->
+							<gml:surfaceMember>
+								<gml:Polygon gml:id="p_g_1">
+									<gml:exterior>
+										<gml:LinearRing>
+											<gml:posList>
+												0.00 0.00 0.00
+												0.00 2.00 0.00
+												2.00 2.00 0.00
+												2.00 0.00 0.00
+												0.00 0.00 0.00
+											</gml:posList>
+										</gml:LinearRing>
+									</gml:exterior>
+								</gml:Polygon>
+							</gml:surfaceMember>
+							<!-- RoofSurface -->
+							<gml:surfaceMember>
+								<gml:Polygon gml:id="p_r_1">
+									<gml:exterior>
+										<gml:LinearRing>
+											<gml:posList>
+												0.00 0.00 3.00
+												1.00 0.00 3.50
+												1.00 2.00 3.50
+												0.00 2.00 3.00
+												0.00 0.00 3.00
+											</gml:posList>
+										</gml:LinearRing>
+									</gml:exterior>
+								</gml:Polygon>
+							</gml:surfaceMember>
+							<gml:surfaceMember>
+								<gml:Polygon gml:id="p_r_2">
+									<gml:exterior>
+										<gml:LinearRing>
+											<gml:posList>
+												2.00 0.00 3.00
+												2.00 2.00 3.00
+												1.00 2.00 3.50
+												1.00 0.00 3.50
+												2.00 0.00 3.00
+											</gml:posList>
+										</gml:LinearRing>
+									</gml:exterior>
+								</gml:Polygon>
+							</gml:surfaceMember>
+						</gml:CompositeSurface>
+					</gml:exterior>
+				</gml:Solid>
+			</bldg:lod2Solid>
+			<bldg:boundedBy>
+				<bldg:RoofSurface>
+					<bldg:lod2MultiSurface>
+						<gml:MultiSurface>
+							<gml:surfaceMember xlink:href="#p_r_1">
+							</gml:surfaceMember>
+						</gml:MultiSurface>
+					</bldg:lod2MultiSurface>
+				</bldg:RoofSurface>
+			</bldg:boundedBy>
+			<bldg:boundedBy>
+				<bldg:RoofSurface>
+					<bldg:lod2MultiSurface>
+						<gml:MultiSurface>
+							<gml:surfaceMember xlink:href="#p_r_2">
+							</gml:surfaceMember>
+						</gml:MultiSurface>
+					</bldg:lod2MultiSurface>
+				</bldg:RoofSurface>
+			</bldg:boundedBy>
+			<bldg:boundedBy>
+				<bldg:WallSurface>
+					<bldg:lod2MultiSurface>
+						<gml:MultiSurface>
+							<gml:surfaceMember xlink:href="#p_w_1">
+							</gml:surfaceMember>
+						</gml:MultiSurface>
+					</bldg:lod2MultiSurface>
+				</bldg:WallSurface>
+			</bldg:boundedBy>
+			<bldg:boundedBy>
+				<bldg:WallSurface>
+					<bldg:lod2MultiSurface>
+						<gml:MultiSurface>
+							<gml:surfaceMember xlink:href="#p_w_2">
+							</gml:surfaceMember>
+						</gml:MultiSurface>
+					</bldg:lod2MultiSurface>
+				</bldg:WallSurface>
+			</bldg:boundedBy>
+			<bldg:boundedBy>
+				<bldg:WallSurface>
+					<bldg:lod2MultiSurface>
+						<gml:MultiSurface>
+							<gml:surfaceMember xlink:href="#p_w_3">
+							</gml:surfaceMember>
+						</gml:MultiSurface>
+					</bldg:lod2MultiSurface>
+				</bldg:WallSurface>
+			</bldg:boundedBy>
+			<bldg:boundedBy>
+				<bldg:WallSurface>
+					<bldg:lod2MultiSurface>
+						<gml:MultiSurface>
+							<gml:surfaceMember xlink:href="#p_w_4">
+							</gml:surfaceMember>
+							<gml:surfaceMember xlink:href="#p_w_5">
+							</gml:surfaceMember>
+						</gml:MultiSurface>
+					</bldg:lod2MultiSurface>
+				</bldg:WallSurface>
+			</bldg:boundedBy>
+			<bldg:boundedBy>
+				<bldg:GroundSurface>
+					<bldg:lod2MultiSurface>
+						<gml:MultiSurface>
+							<gml:surfaceMember xlink:href="#p_g_1">
+							</gml:surfaceMember>
+						</gml:MultiSurface>
+					</bldg:lod2MultiSurface>
+				</bldg:GroundSurface>
+			</bldg:boundedBy>
+		</bldg:Building>
+</cityObjectMember>
+<cityObjectMember>
+		<bldg:Building gml:id="Test-002-Solid-SimpleBldg">
+			<bldg:function>3010</bldg:function>
+			<bldg:yearOfConstruction>1948</bldg:yearOfConstruction>
+			<bldg:lod2Solid>
+				<gml:Solid>
+					<gml:exterior>
+						<gml:CompositeSurface>
+							<!-- WallSurface -->
+							<gml:surfaceMember>
+								<gml:Polygon gml:id="b2_p_w_1">
+									<gml:exterior>
+										<gml:LinearRing>
+											<gml:posList>
+												2.00 0.00 0.00
+												4.00 0.00 0.00
+												4.00 0.00 3.00
+												3.00 0.00 3.50
+												2.00 0.00 3.00
+												2.00 0.00 0.00
+											</gml:posList>
+										</gml:LinearRing>
+									</gml:exterior>
+								</gml:Polygon>
+							</gml:surfaceMember>
+							<gml:surfaceMember>
+								<gml:Polygon gml:id="b2_p_w_2">
+									<gml:exterior>
+										<gml:LinearRing>
+											<gml:posList>
+												4.00 0.00 0.00
+												4.00 2.00 0.00
+												4.00 2.00 3.00
+												4.00 0.00 3.00
+												4.00 0.00 0.00
+											</gml:posList>
+										</gml:LinearRing>
+									</gml:exterior>
+								</gml:Polygon>
+							</gml:surfaceMember>
+							<gml:surfaceMember>
+								<gml:Polygon gml:id="b2_p_w_3">
+									<gml:exterior>
+										<gml:LinearRing>
+											<gml:posList>
+												4.00 2.00 0.00
+												2.00 2.00 0.00
+												2.00 2.00 3.00
+												3.00 2.00 3.50
+												4.00 2.00 3.00
+												4.00 2.00 0.00
+											</gml:posList>
+										</gml:LinearRing>
+									</gml:exterior>
+								</gml:Polygon>
+							</gml:surfaceMember>
+							<gml:surfaceMember>
+								<gml:Polygon gml:id="b2_p_w_4">
+									<gml:exterior>
+										<gml:LinearRing>
+											<gml:posList>
+												2.00 2.00 0.00
+												2.00 0.00 0.00
+												2.00 0.00 3.00
+												2.00 2.00 0.00
+											</gml:posList>
+										</gml:LinearRing>
+									</gml:exterior>
+								</gml:Polygon>
+							</gml:surfaceMember>
+							<gml:surfaceMember>
+								<gml:Polygon gml:id="b2_p_w_5">
+									<gml:exterior>
+										<gml:LinearRing>
+											<gml:posList>
+												2.00 2.00 0.00
+												2.00 0.00 3.00
+												2.00 2.00 3.00
+												2.00 2.00 0.00
+											</gml:posList>
+										</gml:LinearRing>
+									</gml:exterior>
+								</gml:Polygon>
+							</gml:surfaceMember>
+							<!-- GroundSurface -->
+							<gml:surfaceMember>
+								<gml:Polygon gml:id="b2_p_g_1">
+									<gml:exterior>
+										<gml:LinearRing>
+											<gml:posList>
+												2.00 0.00 0.00
+												2.00 2.00 0.00
+												4.00 2.00 0.00
+												4.00 0.00 0.00
+												2.00 0.00 0.00
+											</gml:posList>
+										</gml:LinearRing>
+									</gml:exterior>
+								</gml:Polygon>
+							</gml:surfaceMember>
+							<!-- RoofSurface -->
+							<gml:surfaceMember>
+								<gml:Polygon gml:id="b2_p_r_1">
+									<gml:exterior>
+										<gml:LinearRing>
+											<gml:posList>
+												2.00 0.00 3.00
+												3.00 0.00 3.50
+												3.00 2.00 3.50
+												2.00 2.00 3.00
+												2.00 0.00 3.00
+											</gml:posList>
+										</gml:LinearRing>
+									</gml:exterior>
+								</gml:Polygon>
+							</gml:surfaceMember>
+							<gml:surfaceMember>
+								<gml:Polygon gml:id="b2_p_r_2">
+									<gml:exterior>
+										<gml:LinearRing>
+											<gml:posList>
+												4.00 0.00 3.00
+												4.00 2.00 3.00
+												3.00 2.00 3.50
+												3.00 0.00 3.50
+												4.00 0.00 3.00
+											</gml:posList>
+										</gml:LinearRing>
+									</gml:exterior>
+								</gml:Polygon>
+							</gml:surfaceMember>
+						</gml:CompositeSurface>
+					</gml:exterior>
+				</gml:Solid>
+			</bldg:lod2Solid>
+			<bldg:boundedBy>
+				<bldg:RoofSurface>
+					<energy:construction>
+						<energy:Construction gml:id="ID_1122">
+							<energy:uValue uom="wm-2k-1">3</energy:uValue>
+							<energy:opticalProperties>
+								<energy:OpticalProperties>
+									<energy:reflectance>
+										<energy:Reflectance>
+											<energy:fraction uom="scale">0.30</energy:fraction>
+											<energy:surface>Outside</energy:surface>
+											<energy:wavelengthRange>Solar</energy:wavelengthRange>
+										</energy:Reflectance>
+									</energy:reflectance>
+									
+									<energy:transmittance>
+										<energy:Transmittance>
+											<energy:fraction uom="scale">0.20</energy:fraction>
+											<energy:wavelengthRange>Total</energy:wavelengthRange>
+										</energy:Transmittance>
+									</energy:transmittance>
+								</energy:OpticalProperties>
+							</energy:opticalProperties>																		
+						
+							<energy:layer>
+								<energy:Layer>
+									<energy:layerComponent>
+										<energy:LayerComponent>
+											<energy:thickness uom="m">0.3</energy:thickness>
+											<energy:material>
+												<energy:SolidMaterial>
+													<energy:conductivity uom="wm-1k-1">0.1</energy:conductivity>
+													<energy:density uom="kgm-3">2000</energy:density>
+													<energy:permeance uom="ngs-1m-2p-1">0.9</energy:permeance>
+													<energy:porosity uom="scale">0.1</energy:porosity>
+													<energy:specificHeat uom="jk-1">0.9</energy:specificHeat>
+												</energy:SolidMaterial>
+											</energy:material>
+										</energy:LayerComponent>										
+									</energy:layerComponent>
+								</energy:Layer>
+							</energy:layer>
+							<energy:layer>
+								<energy:Layer>
+									<energy:layerComponent>
+										<energy:LayerComponent>
+											<energy:thickness uom="m">0.15</energy:thickness>
+											<energy:material>
+												<energy:Gas/>												
+											</energy:material>
+										</energy:LayerComponent>
+									</energy:layerComponent>
+								</energy:Layer>
+							</energy:layer>
+						</energy:Construction>
+					</energy:construction>
+					<energy:constructionOrientation>
+						<energy:ConstructionOrientation>
+							<energy:orientation>true</energy:orientation>
+							<energy:baseConstruction xlink:href="#ID_1122"/>							
+						</energy:ConstructionOrientation>
+					</energy:constructionOrientation>
+					<bldg:lod2MultiSurface>
+						<gml:MultiSurface>
+							<gml:surfaceMember xlink:href="#b2_p_r_1">
+							</gml:surfaceMember>
+						</gml:MultiSurface>
+					</bldg:lod2MultiSurface>
+					<energy:equippedWith>
+						<energy:PhotovoltaicSystem>
+							<energy:consumes></energy:consumes>
+							<energy:collectorSurface uom="m2">0.</energy:collectorSurface>
+							<energy:panelAzimuth uom="rad">0.</energy:panelAzimuth>
+							<energy:panelInclination uom="rad">0.</energy:panelInclination>
+						</energy:PhotovoltaicSystem>
+					</energy:equippedWith>
+					<energy:equippedWith>
+						<energy:SolarThermalSystem>
+							<energy:consumes></energy:consumes>
+							<energy:collectorSurface uom="m2">0.</energy:collectorSurface>
+							<energy:panelAzimuth uom="rad">0.</energy:panelAzimuth>
+							<energy:panelInclination uom="rad">0.</energy:panelInclination>
+						</energy:SolarThermalSystem>
+					</energy:equippedWith>
+					<energy:correspondsTo xlink:href="#3342" />
+				</bldg:RoofSurface>
+			</bldg:boundedBy>
+			<bldg:boundedBy>
+				<bldg:RoofSurface>
+					<bldg:lod2MultiSurface>
+						<gml:MultiSurface>
+							<gml:surfaceMember xlink:href="#b2_p_r_2">
+							</gml:surfaceMember>
+						</gml:MultiSurface>
+					</bldg:lod2MultiSurface>
+				</bldg:RoofSurface>
+			</bldg:boundedBy>
+			<bldg:boundedBy>
+				<bldg:WallSurface>
+					<bldg:lod2MultiSurface>
+						<gml:MultiSurface>
+							<gml:surfaceMember xlink:href="#b2_p_w_1">
+							</gml:surfaceMember>
+						</gml:MultiSurface>
+					</bldg:lod2MultiSurface>
+				</bldg:WallSurface>
+			</bldg:boundedBy>
+			<bldg:boundedBy>
+				<bldg:WallSurface>
+					<bldg:lod2MultiSurface>
+						<gml:MultiSurface>
+							<gml:surfaceMember xlink:href="#b2_p_w_2">
+							</gml:surfaceMember>
+						</gml:MultiSurface>
+					</bldg:lod2MultiSurface>
+				</bldg:WallSurface>
+			</bldg:boundedBy>
+			<bldg:boundedBy>
+				<bldg:WallSurface>
+					<bldg:lod2MultiSurface>
+						<gml:MultiSurface>
+							<gml:surfaceMember xlink:href="#b2_p_w_3">
+							</gml:surfaceMember>
+						</gml:MultiSurface>
+					</bldg:lod2MultiSurface>
+				</bldg:WallSurface>
+			</bldg:boundedBy>
+			<bldg:boundedBy>
+				<bldg:WallSurface>
+					<bldg:lod2MultiSurface>
+						<gml:MultiSurface>
+							<gml:surfaceMember xlink:href="#b2_p_w_4">
+							</gml:surfaceMember>
+							<gml:surfaceMember xlink:href="#b2_p_w_5">
+							</gml:surfaceMember>
+						</gml:MultiSurface>
+					</bldg:lod2MultiSurface>
+					
+					
+					<bldg:opening>
+						<bldg:Window gml:id="opening_window_1">
+							<energy:indoorShading>
+								<energy:ShadingType>
+									<energy:maximumCoverRatio uom="">0.5</energy:maximumCoverRatio>
+									<energy:name>energy_1</energy:name>
+									<energy:transmittance>
+										<energy:Transmittance>
+											<energy:fraction uom="scale">0.15</energy:fraction>
+											<energy:wavelengthRange>Solar</energy:wavelengthRange>
+										</energy:Transmittance>
+									</energy:transmittance>
+								</energy:ShadingType>
+							</energy:indoorShading>
+						</bldg:Window>
+					</bldg:opening>
+					
+				</bldg:WallSurface>
+			</bldg:boundedBy>			
+			<bldg:boundedBy>
+				<bldg:GroundSurface>
+					<bldg:lod2MultiSurface>
+						<gml:MultiSurface>
+							<gml:surfaceMember xlink:href="#b2_p_g_1">
+							</gml:surfaceMember>
+						</gml:MultiSurface>
+					</bldg:lod2MultiSurface>
+				</bldg:GroundSurface>
+			</bldg:boundedBy>
+			<energy:refurbishmentMeasureOnBuilding>
+				<energy:RefurbishmentMeasure>
+					<energy:dateOfRefurbishment>
+						<energy:DateOfEvent>
+							<energy:instant>1981</energy:instant>
+						</energy:DateOfEvent>
+					</energy:dateOfRefurbishment>
+					<energy:levelOfRefurbishment>UsualRefurbishment</energy:levelOfRefurbishment>
+				</energy:RefurbishmentMeasure>
+			</energy:refurbishmentMeasureOnBuilding>
+			
+			<energy:thermalZones>
+				<energy:ThermalZone gml:id="ID_ZONE_1">
+					<energy:floorArea>
+						<energy:FloorArea>
+							<energy:type>EnergyReferenceArea</energy:type>
+							<energy:value uom="m2">60</energy:value>
+						</energy:FloorArea>
+					</energy:floorArea>
+					<energy:isCooled>true</energy:isCooled>
+					<energy:isHeated>true</energy:isHeated>
+					
+					<energy:boundedBy>
+						<energy:ThermalBoundary gml:id="ID_3342">
+							<energy:thermalBoundaryType>Roof</energy:thermalBoundaryType>
+							<energy:partOf xlink:href="ID_ZONE_1"/>
+							<energy:composedOf>
+								<energy:ThermalComponent>
+									<energy:area uom="m2">20.</energy:area>
+									<energy:isGroundCoupled>false</energy:isGroundCoupled>
+									<energy:isSunExposed>true</energy:isSunExposed>
+									<energy:relates xlink:href="#opening_window_1"/>
+								</energy:ThermalComponent>
+							</energy:composedOf>
+							
+						</energy:ThermalBoundary>
+					</energy:boundedBy>
+				</energy:ThermalZone>
+			</energy:thermalZones>
+			<energy:usageZones>
+				<energy:UsageZone>
+					<energy:usageZoneClass>residence_1</energy:usageZoneClass>
+					<energy:usedFloors>2</energy:usedFloors>
+					<energy:floorArea>
+						<energy:FloorArea>
+							<energy:type>NetFloorArea</energy:type>
+							<energy:value uom="m2">60.0</energy:value>
+						</energy:FloorArea>
+					</energy:floorArea>
+				
+					<energy:contains>
+						<energy:BuildingUnit>
+							<energy:numberOfRooms>6</energy:numberOfRooms>
+							<energy:ownerName>Max Power</energy:ownerName>
+							<energy:ownershipType>OccupantPrivateOwner</energy:ownershipType>
+							<energy:floorArea>
+								<energy:FloorArea>
+									<energy:type>NetFloorArea</energy:type>
+									<energy:value uom="m2">60</energy:value>
+								</energy:FloorArea>
+							</energy:floorArea>							
+							<energy:has>
+								<energy:ElectricalAppliances gml:id="facility1">
+									<energy:operationSchedule>
+										<energy:ConstantValueSchedule>
+											<energy:averageValue uom="kw">10</energy:averageValue>
+										</energy:ConstantValueSchedule>
+									</energy:operationSchedule>
+								</energy:ElectricalAppliances>
+							</energy:has>
+						</energy:BuildingUnit>
+					</energy:contains>
+					<energy:occupiedBy>
+						<energy:Occupants>
+							<energy:numberOfOccupants>4</energy:numberOfOccupants>
+						</energy:Occupants>
+					</energy:occupiedBy>
+				</energy:UsageZone>
+			</energy:usageZones>
+		</bldg:Building>
+	</cityObjectMember>
+</CityModel>
