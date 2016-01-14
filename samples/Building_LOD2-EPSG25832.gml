@@ -5,7 +5,7 @@
 <!-- Jointly developed by the Special Interest Group 3D (SIG 3D) of GDI-DE, see http://www.sig3d.org               -->
 <!-- For further information see: http://www.citygml.org -->
 <CityModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://www.opengis.net/citygml/2.0 ../Schema/EnergyADE_0_6_0_local.xsd"
+ xsi:schemaLocation="http://www.opengis.net/citygml/2.0 ../xsd/energy.xsd"
  xmlns="http://www.opengis.net/citygml/2.0" xmlns:xAL="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"
  xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml"
  xmlns:dem="http://www.opengis.net/citygml/relief/2.0"
