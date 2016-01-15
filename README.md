@@ -37,7 +37,9 @@ The CityGML Energy ADE currently (v0.6.0) is implemented in a single XSD schema 
 ### Building Physics Module
 ![Class diagram of Building Physics Module](./guidelines/fig/class_geometry.png)
 ### Temporal Data Module
+## Time Series
 ![Class diagram of ADE Energy Core - Time Series](./guidelines/fig/class_time.png)
+## Schedules
 ![Class diagram of ADE Energy Core - Schedules](./guidelines/fig/class_schedules.png)
 ### Construction and Material Module
 ![Class diagram of Construction Module](./guidelines/fig/class_construction.png)
