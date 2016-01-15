@@ -33,7 +33,7 @@ It has been developed since May 2014 by an international consortium of urban ene
 A document which describes the guidelines can be downloaded from [this link](./guidelines/Guidelines_EnergyADE.pdf). The guidelines can also be read [online](./guidelines/Guidelines_EnergyADE.md).
 
 ## UML diagrams
-The CityGML Energy ADE currently (v0.6.0) is implemented in a single XSD schema. The following diagrams give an overview of each modules.
+The CityGML Energy ADE currently (v0.6.0) is implemented in a single XSD schema (class diagrams are described in [this pdf file](./doc/UML-Diagrams_Energy-ADE.pdf). The following diagrams give an overview of each modules.
 ### Building Physics Module
 ![Class diagram of Building Physics Module](./guidelines/fig/class_geometry.png)
 ### Temporal Data Module
