@@ -77,13 +77,13 @@ A document which describes the guidelines can be downloaded from [this link](./g
 ## UML diagrams
 The CityGML Energy ADE currently (v0.5.0) is implemented in a single XSD schema. The following diagrams give an overview of each modules.
 ### Building physics core
-![Building physics module (core of Energy ADE)](./guidelines/fig/class_geometry.png) <!--(./doc/UML_diagrams/BuildingPhysics.png)-->
+![Building physics module (core of Energy ADE)](./guidelines/fig/class_geometry.png)
 ### Occupancy module
-![Occupancy module](./guidelines/fig/class_occupancy.png) <!--(./doc/UML_diagrams/Occupancy.png)-->
+![Occupancy module](./guidelines/fig/class_occupancy.png)
 ### Energy system module
-![Energy system module](./guidelines/fig/class_EnergySystem.png)  <!--(./doc/UML_diagrams/EnergySystem.png)-->
+![Energy system module](./guidelines/fig/class_EnergySystem.png)
 ### Material module
-![Material module](./guidelines/fig/class_construction.png)  <!--(./doc/UML_diagrams/Material.png)-->
-### Time module (core)
-![Time series](./guidelines/fig/class_time.png) <!--(./doc/UML_diagrams/TimeSeriesAndSchedule.png)-->
+![Material module](./guidelines/fig/class_construction.png)
+### Time module
+![Time series](./guidelines/fig/class_time.png)
 ![Schedules](./guidelines/fig/class_schedules.png)
