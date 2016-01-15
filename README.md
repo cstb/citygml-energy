@@ -3,8 +3,6 @@
 ## Abstract
 The Application Domain Extension (ADE) Energy defines a standardized data model based on CityGML format for urban energy analyses, aiming to be a reference exchange data format between different urban modelling tools and expert databases.
 
-A documentation of each classes and parameters is in development on [iCloud](https://www.icloud.com/numbers/AwBWCAESEGokFkzrlOmbyLGSLf4aK1MaKml1UIi8WFdwYdhK0UTcW3yK1E1VdLPbAvkAdtkW6y9YHtsf7z8AYI2nqQMCUCAQEEICNf39VHMKgzmmsZDBWw4hJ1n2O0bfur2wdp6Xm6i0ZA#Definitionen).
-
 The latest ADE release is version 0.6.0. All releases can be found and downloaded on the [releases page](https://github.com/cstb/citygml-energy/releases) of the repository.
 
 It has been developed since May 2014 by an international consortium of urban energy simulation developers and users:
@@ -27,6 +25,7 @@ It has been developed since May 2014 by an international consortium of urban ene
 ![Ecole Polytechnique Fédérale de Lausanne logo](./doc/epfl.png)  ![Centre Scientifique et Technique du Batiment logo](./doc/cstb.png)  ![Electricité de France logo](./doc/edf.jpg)
 ![Sinergis logo](./doc/sinergis.png)  ![M.O.S.S Computer Grafik Systeme logo](./doc/moss.jpg)  ![Austrian Institute of Technology](./doc/ait.jpg)
 
+<!--
 ## Authors
 * Occupancy module
 	* Jean-Marie Bahu (EIFER)
@@ -70,19 +69,21 @@ It has been developed since May 2014 by an international consortium of urban ene
 	* Olivier Tournaire (CSTB)
 * Sample file
 	* Marcel Bruse (HFT Stuttgart)
+-->
 
 ## Guidelines
 A document which describes the guidelines can be downloaded from [this link](./guidelines/Guidelines_EnergyADE.pdf). The guidelines can also be read [online](./guidelines/Guidelines_EnergyADE.md).
 
 ## UML diagrams
 The CityGML Energy ADE currently (v0.5.0) is implemented in a single XSD schema. The following diagrams give an overview of each modules.
+### Building physics core
+![Building physics module (core of Energy ADE)](./guidelines/fig/class_geometry.png) <!--(./doc/UML_diagrams/BuildingPhysics.png)-->
 ### Occupancy module
-![Occupancy module](./doc/UML_diagrams/Occupancy.png)
-### Building physics module (core)
-![Building physics module (core)](./doc/UML_diagrams/BuildingPhysics.png)
-### Time series and schedule module (core)
-![Time series and schedule module (core)](./doc/UML_diagrams/TimeSeriesAndSchedule.png)
+![Occupancy module](./guidelines/fig/class_occupancy.png) <!--(./doc/UML_diagrams/Occupancy.png)-->
 ### Energy system module
-![Energy system module](./doc/UML_diagrams/EnergySystem.png)
+![Energy system module](./guidelines/fig/class_EnergySystem.png)  <!--(./doc/UML_diagrams/EnergySystem.png)-->
 ### Material module
-![Material module](./doc/UML_diagrams/Material.png)
+![Material module](./guidelines/fig/class_construction.png)  <!--(./doc/UML_diagrams/Material.png)-->
+### Time module (core)
+![Time series](./guidelines/fig/class_time.png) <!--(./doc/UML_diagrams/TimeSeriesAndSchedule.png)-->
+![Schedules](./guidelines/fig/class_schedules.png)
