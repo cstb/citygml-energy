@@ -3,7 +3,7 @@
 ## Abstract
 The Application Domain Extension (ADE) Energy defines a standardized data model based on CityGML format for urban energy analyses, aiming to be a reference exchange data format between different urban modelling tools and expert databases.
 
-A documentation of each classes and parameters is in development as an [Excel sheet](./doc/Definitions_Energy-ADE.xlsx).
+A documentation of each classes and parameters is in development as an [Excel sheet](./doc/Definitions_Energy-ADE.xlsx?raw=true).
 
 The latest ADE release is version 0.6.0. All releases can be found and downloaded on the [releases page](https://github.com/cstb/citygml-energy/releases) of the repository.
 
