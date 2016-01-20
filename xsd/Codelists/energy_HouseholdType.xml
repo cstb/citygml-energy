@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!--Erzeugt mit KIT (www.kit.edu) UmlToXmlTransformation-Software, Erstellungsdatum: 12.01.2016 10:00:53-->
+<Dictionary xmlns="http://www.opengis.net/gml/3.1.1" xmlns:gml="http://www.opengis.net/gml/3.1.1" gml:id="energy_HouseholdType">
+  <description>Classification of Household, according with their family structure, person number and generation.</description>
+  <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:HouseholdType</identifier>
+  <name>energy:HouseholdType</name>
+  <dictionaryEntry>
+    <Definition gml:id="S_LoneAdult">
+      <description>LoneAdult</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:HouseholdType:LoneAdult</identifier>
+      <name>LoneAdult</name>
+    </Definition>
+  </dictionaryEntry>
+  <dictionaryEntry>
+    <Definition gml:id="S_MultiFamily">
+      <description>MultiFamily</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:HouseholdType:MultiFamily</identifier>
+      <name>MultiFamily</name>
+    </Definition>
+  </dictionaryEntry>
+  <dictionaryEntry>
+    <Definition gml:id="S_OneFamily">
+      <description>OneFamily</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:HouseholdType:OneFamily</identifier>
+      <name>OneFamily</name>
+    </Definition>
+  </dictionaryEntry>
+  <dictionaryEntry>
+    <Definition gml:id="S_PensionerCouple">
+      <description>PensionerCouple</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:HouseholdType:PensionerCouple</identifier>
+      <name>PensionerCouple</name>
+    </Definition>
+  </dictionaryEntry>
+  <dictionaryEntry>
+    <Definition gml:id="S_UnrelatedAdults">
+      <description>UnrelatedAdults</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:HouseholdType:UnrelatedAdults</identifier>
+      <name>UnrelatedAdults</name>
+    </Definition>
+  </dictionaryEntry>
+  <dictionaryEntry>
+    <Definition gml:id="S_Vacant">
+      <description>Vacant</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:HouseholdType:Vacant</identifier>
+      <name>Vacant</name>
+    </Definition>
+  </dictionaryEntry>
+  <dictionaryEntry>
+    <Definition gml:id="S_WorkerCouple">
+      <description>WorkerCouple</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:HouseholdType:WorkerCouple</identifier>
+      <name>WorkerCouple</name>
+    </Definition>
+  </dictionaryEntry>
+</Dictionary>

@@ -1,0 +1,154 @@
+<html xmlns:doc="http://www.kit.edu/FeatureCatalogue/1.0" xmlns="http://www.kit.edu/FeatureCatalogue/1.0">
+   <head>
+      <title>Feature type</title><style type="text/css">
+                        
+tr {
+     vertical-align: middle;
+     margin-bottom: 0px;
+}
+
+table {
+
+}
+td {
+    vertical-align: middle;
+    margin-bottom: 0px;
+    margin-top: 0px;
+ }
+  h1 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 24px;
+ }
+h2 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        margin-bottom: 0px;
+ }
+ 
+h3 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        margin-bottom: 0px;
+ }
+
+ h4 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 10px;
+ }
+
+ p {
+     font-family: Arial, Helvetica, sans-serif;
+     font-size: 15px;
+     margin-bottom: 0px;
+     margin-top: 0px;
+  }
+
+.grau { background-color:#CCCCCC; }
+.einzug10 {  margin-left: 10px;
+}      
+      
+    </style></head>
+   <body><a name=""></a><h1>energy:ImageTexture</h1>
+      <h2>Type</h2>
+      <p class="einzug10">Feature Type</p>
+      <h2>Definition</h2>
+      <p class="einzug10">This is an X3D element to map a texture to this material. From X3D specification: The ImageTexture node defines a texture
+         map by specifying an image file and general parameters for mapping to geometry. Texture maps are defined in a 2D coordinate
+         system (s, t) that ranges from [0.0, 1.0] in both directions. The bottom edge of the image corresponds to the S-axis of the
+         texture map, and left edge of the image corresponds to the T-axis of the texture map. The lower-left pixel of the image corresponds
+         to s=0, t=0, and the top-right pixel of the image corresponds to s=1, t=1. <!--When fixed: add type="x3d:ImageTexture"-->
+      </p>
+      <h2>Belongs to module</h2>
+      <p class="einzug10"><a href="Package_energy_Energy-ADE.html">energy:Energy-ADE</a></p>
+      <h2>Attributes and associations</h2>
+      <table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#9DE5F7">
+               <p><strong><em>Name</em></strong></p>
+            </td>
+            <td bgcolor="#9DE5F7">
+               <p><strong><em>Type</em></strong></p>
+            </td>
+         </tr>
+         <tr><a name="energy_ImageTexture_url_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_ImageTexture_url">energy:url</a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>URI</p>
+            </td>
+         </tr>
+         <tr><a name="energy_ImageTexture_repeatS_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_ImageTexture_repeatS">energy:repeatS</a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>Boolean</p>
+            </td>
+         </tr>
+         <tr><a name="energy_ImageTexture_repeatT_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_ImageTexture_repeatT">energy:repeatT</a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>Boolean</p>
+            </td>
+         </tr>
+      </table><br></br><a name="energy_ImageTexture_url"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:url</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_ImageTexture_url_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10">Specifies location of the image. From X3D specification: The texture is read from the URL specified by the url field. When
+         the url field contains no values, texturing is disabled. Browsers shall support the JPEG and PNG image file formats. In addition,
+         browsers may support other image formats (e.g. CGM) which can be rendered into a 2D image. Support for the GIF format is also
+         recommended (including transparency).
+      </p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">1</p>
+      <h3>Data type</h3>
+      <p class="einzug10">URI</p><br></br><a name="energy_ImageTexture_repeatS"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:repeatS</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_ImageTexture_repeatS_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10">From X3D specification: If repeatS is TRUE, the texture map is repeated outside the [0.0, 1.0] texture coordinate range in
+         the S direction so that it fills the shape. If repeatS is FALSE, the texture coordinates are clamped in the S direction to
+         lie within the [0.0, 1.0] range.
+      </p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">1</p>
+      <h3>Data type</h3>
+      <p class="einzug10">Boolean</p><br></br><a name="energy_ImageTexture_repeatT"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:repeatT</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_ImageTexture_repeatT_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10">From X3D specification: If repeatT is TRUE, the texture map is repeated outside the [0.0, 1.0] texture coordinate range in
+         the T direction so that it fills the shape. If repeatT is FALSE, the texture coordinates are clamped in the T direction to
+         lie within the [0.0, 1.0] range.
+      </p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">1</p>
+      <h3>Data type</h3>
+      <p class="einzug10">Boolean</p>
+   </body>
+</html>

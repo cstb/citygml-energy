@@ -1,0 +1,314 @@
+<html xmlns:doc="http://www.kit.edu/FeatureCatalogue/1.0" xmlns="http://www.kit.edu/FeatureCatalogue/1.0">
+   <head>
+      <title>Feature type</title><style type="text/css">
+                        
+tr {
+     vertical-align: middle;
+     margin-bottom: 0px;
+}
+
+table {
+
+}
+td {
+    vertical-align: middle;
+    margin-bottom: 0px;
+    margin-top: 0px;
+ }
+  h1 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 24px;
+ }
+h2 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        margin-bottom: 0px;
+ }
+ 
+h3 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        margin-bottom: 0px;
+ }
+
+ h4 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 10px;
+ }
+
+ p {
+     font-family: Arial, Helvetica, sans-serif;
+     font-size: 15px;
+     margin-bottom: 0px;
+     margin-top: 0px;
+  }
+
+.grau { background-color:#CCCCCC; }
+.einzug10 {  margin-left: 10px;
+}      
+      
+    </style></head>
+   <body><a name=""></a><h1>energy:EnergyDemand</h1>
+      <h2>Type</h2>
+      <p class="einzug10">Feature Type</p>
+      <h2>Definition</h2>
+      <p class="einzug10">Energy demand is the useful energy required to satisfy a specific end-use, such as heating, cooling, domestic hot water etc.</p>
+      <h2>Belongs to module</h2>
+      <p class="einzug10"><a href="Package_energy_Energy-ADE.html">energy:Energy-ADE</a></p>
+      <h2>Attributes and associations</h2>
+      <table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#9DE5F7">
+               <p><strong><em>Name</em></strong></p>
+            </td>
+            <td bgcolor="#9DE5F7">
+               <p><strong><em>Type</em></strong></p>
+            </td>
+         </tr>
+         <tr><a name="energy_EnergyDemand_endUse_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_EnergyDemand_endUse">energy:endUse</a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>EndUseType</p>
+            </td>
+         </tr>
+         <tr><a name="energy_EnergyDemand_energyAmount_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_EnergyDemand_energyAmount">energy:energyAmount</a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>_TimeSeries</p>
+            </td>
+         </tr>
+         <tr><a name="energy_EnergyDemand_maximumLoad_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_EnergyDemand_maximumLoad">energy:maximumLoad</a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>Measure</p>
+            </td>
+         </tr>
+         <tr><a name="energy_EnergyDemand_energyDistribution_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_EnergyDemand_energyDistribution">energy:energyDistribution</a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>EnergyDistributionSystem</p>
+            </td>
+         </tr>
+         <tr><a name="energy_EnergyDemand_storage_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_EnergyDemand_storage">energy:storage</a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>_StorageSystem</p>
+            </td>
+         </tr>
+         <tr><a name="energy_EnergyDemand_isProvidedBy_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_EnergyDemand_isProvidedBy">energy:isProvidedBy</a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>EnergyConversionSystem</p>
+            </td>
+         </tr>
+      </table><br></br><a name="energy_EnergyDemand_endUse"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:endUse</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_EnergyDemand_endUse_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10">Category of end use related to an energy use.</p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">1</p>
+      <h3>Data type</h3>
+      <p class="einzug10">EndUseType (Enumeration)</p><br></br><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="70" height="20" bgcolor="#9DE5F7">
+               <p><strong><em>Code</em></strong></p>
+            </td>
+            <td colspan="2" width="700" bgcolor="#9DE5F7">
+               <p><strong><em>Text</em></strong></p>
+            </td>
+         </tr>
+         <tr>
+            <td width="70" bgcolor="#EEEEEE">
+               <p>Cooking</p>
+            </td>
+            <td width="300" bgcolor="#EEEEEE">
+               <p>Cooking</p>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <h4></h4>
+            </td>
+         </tr>
+         <tr>
+            <td width="70" bgcolor="#EEEEEE">
+               <p>DomesticHotWater</p>
+            </td>
+            <td width="300" bgcolor="#EEEEEE">
+               <p>DomesticHotWater</p>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <h4></h4>
+            </td>
+         </tr>
+         <tr>
+            <td width="70" bgcolor="#EEEEEE">
+               <p>ElectricalAppliances</p>
+            </td>
+            <td width="300" bgcolor="#EEEEEE">
+               <p>ElectricalAppliances</p>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <h4></h4>
+            </td>
+         </tr>
+         <tr>
+            <td width="70" bgcolor="#EEEEEE">
+               <p>Lighting</p>
+            </td>
+            <td width="300" bgcolor="#EEEEEE">
+               <p>Lighting</p>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <h4></h4>
+            </td>
+         </tr>
+         <tr>
+            <td width="70" bgcolor="#EEEEEE">
+               <p>OtherOrCombination</p>
+            </td>
+            <td width="300" bgcolor="#EEEEEE">
+               <p>OtherOrCombination</p>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <h4></h4>
+            </td>
+         </tr>
+         <tr>
+            <td width="70" bgcolor="#EEEEEE">
+               <p>SpaceCooling</p>
+            </td>
+            <td width="300" bgcolor="#EEEEEE">
+               <p>SpaceCooling</p>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <h4>Processes of cooling down the space.</h4>
+            </td>
+         </tr>
+         <tr>
+            <td width="70" bgcolor="#EEEEEE">
+               <p>SpaceHeating</p>
+            </td>
+            <td width="300" bgcolor="#EEEEEE">
+               <p>SpaceHeating</p>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <h4>Processes of heating up the space.</h4>
+            </td>
+         </tr>
+         <tr>
+            <td width="70" bgcolor="#EEEEEE">
+               <p>Ventilation</p>
+            </td>
+            <td width="300" bgcolor="#EEEEEE">
+               <p>Ventilation</p>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <h4></h4>
+            </td>
+         </tr>
+         <tr>
+            <td width="70" bgcolor="#EEEEEE">
+               <p>Process</p>
+            </td>
+            <td width="300" bgcolor="#EEEEEE">
+               <p>Process</p>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <h4></h4>
+            </td>
+         </tr>
+      </table><br></br><a name="energy_EnergyDemand_energyAmount"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:energyAmount</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_EnergyDemand_energyAmount_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10">[TimeSeries] Time-depending amount of useful energy, corresponding to a specific end-use. It can be constituted of  simulated
+         or monitored data, with different time resolutions (see TimeSeries model).
+      </p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..1</p>
+      <h3>Data type</h3><a href="energy__TimeSeries.html">
+         <p class="einzug10">_TimeSeries</p></a><br></br><a name="energy_EnergyDemand_maximumLoad"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:maximumLoad</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_EnergyDemand_maximumLoad_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10"></p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..1</p>
+      <h3>Data type</h3>
+      <p class="einzug10">Measure (Type)</p><br></br><a name="energy_EnergyDemand_energyDistribution"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:energyDistribution</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_EnergyDemand_energyDistribution_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10"></p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..*</p>
+      <h3>Data type</h3><a href="energy_EnergyDistributionSystem.html">
+         <p class="einzug10">EnergyDistributionSystem</p></a><br></br><a name="energy_EnergyDemand_storage"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:storage</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_EnergyDemand_storage_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10"></p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..*</p>
+      <h3>Data type</h3><a href="energy__StorageSystem.html">
+         <p class="einzug10">_StorageSystem</p></a><br></br><a name="energy_EnergyDemand_isProvidedBy"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:isProvidedBy</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_EnergyDemand_isProvidedBy_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10"></p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..*</p>
+      <h3>Data type</h3><a href="energy_EnergyConversionSystem.html">
+         <p class="einzug10">EnergyConversionSystem</p></a></body>
+</html>

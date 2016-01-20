@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!--Erzeugt mit KIT (www.kit.edu) UmlToXmlTransformation-Software, Erstellungsdatum: 18.11.2015 12:45:20-->
+<Dictionary xmlns="http://www.opengis.net/gml/3.1.1" xmlns:gml="http://www.opengis.net/gml/3.1.1" gml:id="energy_MediumType">
+  <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:MediumType</identifier>
+  <name>energy:MediumType</name>
+  <dictionaryEntry>
+    <Definition gml:id="S_Air">
+      <description>Air</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:MediumType:Air</identifier>
+      <name>Air</name>
+    </Definition>
+  </dictionaryEntry>
+  <dictionaryEntry>
+    <Definition gml:id="S_Steam">
+      <description>Steam</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:MediumType:Steam</identifier>
+      <name>Steam</name>
+    </Definition>
+  </dictionaryEntry>
+  <dictionaryEntry>
+    <Definition gml:id="S_Water">
+      <description>Water</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:MediumType:Water</identifier>
+      <name>Water</name>
+    </Definition>
+  </dictionaryEntry>
+</Dictionary>

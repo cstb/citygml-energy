@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!--Erzeugt mit KIT (www.kit.edu) UmlToXmlTransformation-Software, Erstellungsdatum: 18.11.2015 12:45:09-->
+<Dictionary xmlns="http://www.opengis.net/gml/3.1.1" xmlns:gml="http://www.opengis.net/gml/3.1.1" gml:id="energy_EnergyCarrierType">
+  <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:EnergyCarrierType</identifier>
+  <name>energy:EnergyCarrierType</name>
+  <dictionaryEntry>
+    <Definition gml:id="S_ChilledAir">
+      <description>ChilledAir</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:EnergyCarrierType:ChilledAir</identifier>
+      <name>ChilledAir</name>
+    </Definition>
+  </dictionaryEntry>
+  <dictionaryEntry>
+    <Definition gml:id="S_ChilledWater">
+      <description>ChilledWater</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:EnergyCarrierType:ChilledWater</identifier>
+      <name>ChilledWater</name>
+    </Definition>
+  </dictionaryEntry>
+  <dictionaryEntry>
+    <Definition gml:id="S_Coal">
+      <description>Coal</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:EnergyCarrierType:Coal</identifier>
+      <name>Coal</name>
+    </Definition>
+  </dictionaryEntry>
+  <dictionaryEntry>
+    <Definition gml:id="S_Electricity">
+      <description>Electricity</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:EnergyCarrierType:Electricity</identifier>
+      <name>Electricity</name>
+    </Definition>
+  </dictionaryEntry>
+  <dictionaryEntry>
+    <Definition gml:id="S_FuelOil">
+      <description>FuelOil</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:EnergyCarrierType:FuelOil</identifier>
+      <name>FuelOil</name>
+    </Definition>
+  </dictionaryEntry>
+  <dictionaryEntry>
+    <Definition gml:id="S_HotAir">
+      <description>HotAir</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:EnergyCarrierType:HotAir</identifier>
+      <name>HotAir</name>
+    </Definition>
+  </dictionaryEntry>
+  <dictionaryEntry>
+    <Definition gml:id="S_HotWater">
+      <description>HotWater</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:EnergyCarrierType:HotWater</identifier>
+      <name>HotWater</name>
+    </Definition>
+  </dictionaryEntry>
+  <dictionaryEntry>
+    <Definition gml:id="S_NaturalGas">
+      <description>NaturalGas</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:EnergyCarrierType:NaturalGas</identifier>
+      <name>NaturalGas</name>
+    </Definition>
+  </dictionaryEntry>
+  <dictionaryEntry>
+    <Definition gml:id="S_Propane">
+      <description>Propane</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:EnergyCarrierType:Propane</identifier>
+      <name>Propane</name>
+    </Definition>
+  </dictionaryEntry>
+  <dictionaryEntry>
+    <Definition gml:id="S_Steam">
+      <description>Steam</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:EnergyCarrierType:Steam</identifier>
+      <name>Steam</name>
+    </Definition>
+  </dictionaryEntry>
+  <dictionaryEntry>
+    <Definition gml:id="S_WoodChips">
+      <description>WoodChips</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:EnergyCarrierType:WoodChips</identifier>
+      <name>WoodChips</name>
+    </Definition>
+  </dictionaryEntry>
+  <dictionaryEntry>
+    <Definition gml:id="S_WoodPellets">
+      <description>WoodPellets</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:EnergyCarrierType:WoodPellets</identifier>
+      <name>WoodPellets</name>
+    </Definition>
+  </dictionaryEntry>
+</Dictionary>

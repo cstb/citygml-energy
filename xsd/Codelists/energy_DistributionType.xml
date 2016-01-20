@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!--Erzeugt mit KIT (www.kit.edu) UmlToXmlTransformation-Software, Erstellungsdatum: 18.11.2015 12:45:09-->
+<Dictionary xmlns="http://www.opengis.net/gml/3.1.1" xmlns:gml="http://www.opengis.net/gml/3.1.1" gml:id="energy_DistributionType">
+  <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:DistributionType</identifier>
+  <name>energy:DistributionType</name>
+  <dictionaryEntry>
+    <Definition gml:id="S_Building">
+      <description>Building</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:DistributionType:Building</identifier>
+      <name>Building</name>
+    </Definition>
+  </dictionaryEntry>
+  <dictionaryEntry>
+    <Definition gml:id="S_Dwelling">
+      <description>Dwelling</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:DistributionType:Dwelling</identifier>
+      <name>Dwelling</name>
+    </Definition>
+  </dictionaryEntry>
+  <dictionaryEntry>
+    <Definition gml:id="S_GroupOfBuildings">
+      <description>GroupOfBuildings</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:DistributionType:GroupOfBuildings</identifier>
+      <name>GroupOfBuildings</name>
+    </Definition>
+  </dictionaryEntry>
+  <dictionaryEntry>
+    <Definition gml:id="S_Room">
+      <description>Room</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:DistributionType:Room</identifier>
+      <name>Room</name>
+    </Definition>
+  </dictionaryEntry>
+  <dictionaryEntry>
+    <Definition gml:id="S_Staircase">
+      <description>Staircase</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:DistributionType:Staircase</identifier>
+      <name>Staircase</name>
+    </Definition>
+  </dictionaryEntry>
+  <dictionaryEntry>
+    <Definition gml:id="S_Storey">
+      <description>Storey</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:DistributionType:Storey</identifier>
+      <name>Storey</name>
+    </Definition>
+  </dictionaryEntry>
+</Dictionary>

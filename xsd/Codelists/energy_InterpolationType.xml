@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!--Erzeugt mit KIT (www.kit.edu) UmlToXmlTransformation-Software, Erstellungsdatum: 18.11.2015 12:45:19-->
+<Dictionary xmlns="http://www.opengis.net/gml/3.1.1" xmlns:gml="http://www.opengis.net/gml/3.1.1" gml:id="energy_InterpolationType">
+  <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:InterpolationType</identifier>
+  <name>energy:InterpolationType</name>
+  <dictionaryEntry>
+    <Definition gml:id="S_AverageInPrecedingInterval">
+      <description>AverageInPrecedingInterval</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:InterpolationType:AverageInPrecedingInterval</identifier>
+      <name>AverageInPrecedingInterval</name>
+    </Definition>
+  </dictionaryEntry>
+  <dictionaryEntry>
+    <Definition gml:id="S_AverageInSucceedingInterval">
+      <description>AverageInSucceedingInterval</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:InterpolationType:AverageInSucceedingInterval</identifier>
+      <name>AverageInSucceedingInterval</name>
+    </Definition>
+  </dictionaryEntry>
+  <dictionaryEntry>
+    <Definition gml:id="S_ConstantInPrecedingInterval">
+      <description>ConstantInPrecedingInterval</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:InterpolationType:ConstantInPrecedingInterval</identifier>
+      <name>ConstantInPrecedingInterval</name>
+    </Definition>
+  </dictionaryEntry>
+  <dictionaryEntry>
+    <Definition gml:id="S_ConstantInSucceedingInterval">
+      <description>ConstantInSucceedingInterval</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:InterpolationType:ConstantInSucceedingInterval</identifier>
+      <name>ConstantInSucceedingInterval</name>
+    </Definition>
+  </dictionaryEntry>
+  <dictionaryEntry>
+    <Definition gml:id="S_Continuous">
+      <description>Continuous</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:InterpolationType:Continuous</identifier>
+      <name>Continuous</name>
+    </Definition>
+  </dictionaryEntry>
+  <dictionaryEntry>
+    <Definition gml:id="S_Discontinuous">
+      <description>Discontinuous</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:InterpolationType:Discontinuous</identifier>
+      <name>Discontinuous</name>
+    </Definition>
+  </dictionaryEntry>
+  <dictionaryEntry>
+    <Definition gml:id="S_InstantaneousTotal">
+      <description>InstantaneousTotal</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:InterpolationType:InstantaneousTotal</identifier>
+      <name>InstantaneousTotal</name>
+    </Definition>
+  </dictionaryEntry>
+  <dictionaryEntry>
+    <Definition gml:id="S_MaximumInPrecedingInterval">
+      <description>MaximumInPrecedingInterval</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:InterpolationType:MaximumInPrecedingInterval</identifier>
+      <name>MaximumInPrecedingInterval</name>
+    </Definition>
+  </dictionaryEntry>
+  <dictionaryEntry>
+    <Definition gml:id="S_MaximumInSucceedingInterval">
+      <description>MaximumInSucceedingInterval</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:InterpolationType:MaximumInSucceedingInterval</identifier>
+      <name>MaximumInSucceedingInterval</name>
+    </Definition>
+  </dictionaryEntry>
+  <dictionaryEntry>
+    <Definition gml:id="S_MinimumInPrecedingInterval">
+      <description>MinimumInPrecedingInterval</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:InterpolationType:MinimumInPrecedingInterval</identifier>
+      <name>MinimumInPrecedingInterval</name>
+    </Definition>
+  </dictionaryEntry>
+  <dictionaryEntry>
+    <Definition gml:id="S_MinimumInSucceedingInterval">
+      <description>MinimumInSucceedingInterval</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:InterpolationType:MinimumInSucceedingInterval</identifier>
+      <name>MinimumInSucceedingInterval</name>
+    </Definition>
+  </dictionaryEntry>
+  <dictionaryEntry>
+    <Definition gml:id="S_PrecedingTotal">
+      <description>PrecedingTotal</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:InterpolationType:PrecedingTotal</identifier>
+      <name>PrecedingTotal</name>
+    </Definition>
+  </dictionaryEntry>
+  <dictionaryEntry>
+    <Definition gml:id="S_SucceedingTotal">
+      <description>SucceedingTotal</description>
+      <identifier codeSpace="urn:citgml">urn:citgml:def:codelist:energy:InterpolationType:SucceedingTotal</identifier>
+      <name>SucceedingTotal</name>
+    </Definition>
+  </dictionaryEntry>
+</Dictionary>
