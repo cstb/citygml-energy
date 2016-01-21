@@ -16,6 +16,8 @@
 %\usepackage{biblatex}
 %\bibliography{$biblio-files$}
 \usepackage{listings}
+%Allow degree escape in listings
+\usepackage{gensymb}
 \lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
 $if(highlighting-macros)$
 $highlighting-macros$
@@ -64,17 +66,17 @@ $endif$
 %% Normal page
 \fancypagestyle{normalpage}{%
 \fancyhf{}
-\rhead{
+\rhead{%
     \begin{footnotesize}
         ADE Energy Core
     \end{footnotesize}
 }
-\lfoot{
+\lfoot{%
     \begin{footnotesize}
         {$uptitle$}
     \end{footnotesize}
     }
-\rfoot{
+\rfoot{%
     \begin{footnotesize}
         \thepage%
     \end{footnotesize}
@@ -85,7 +87,7 @@ $endif$
 }
 
 %% Title Page
-\fancypagestyle{titlepage}{
+\fancypagestyle{titlepage}{%
 \fancyhf{}
 % The title page has different margins 
 \renewcommand{\headrulewidth}{0pt} % remove lines as well
