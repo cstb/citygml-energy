@@ -30,6 +30,7 @@ Zone of a building which serves as space unit for building heating/cooling simul
 This class inherits from `_CityObject`, and may therefore be associated to 1 or more `EnergyDemand` objects (see module Energy systems).
 For the requirement of the building heating/cooling simulations, the `ThermalZone` must be related to one or more `UsageZone` (see Occupancy Module).
 
+[XML example of thermal zone (heated) with all parameters - Giorgio]
 
 **ThermalBoundary**
 
@@ -48,6 +49,7 @@ Part of the thermal boundary corresponding to a homogeneous construction compone
 
 This class inherits from `_CityObject`, which allows him to be associated to a Construction Object (see module Construction and Material).
 
+[XML example of thermal zone / thermal boundary / thermal Component (10-20 lines)]
 
 **\_AbstractBuilding**
 
@@ -81,6 +83,7 @@ These values are typically used as source terms for the thermal calculations wit
 It is the sum of the direct, diffuse and reflected solar illuminance incident on a outside boundary surface. Its unit of measure is the Lux (lx).
 These values are typically used for outside and inside daylighting study, as well as the calculation of the energy consumptions of lighting systems required to reach the room illuminance threshold when the daylight illuminance is not enough.
 
+[XML example: Timeseries (e.g. monthly values...) for one boundary surface]
 
 Temporal Data Module
 --------------------
@@ -174,8 +177,6 @@ Physical characterisation of building envelop or intern room partition (e.g. wal
 
 In the Energy ADE, the object Construction aims to be linked to the `_ThermalComponents`, in order to defined the physical parameters of a walls, roofs of windows, for a space heating/cooling calculation. However, it may possibly be linked to any `_CityObject` for other purposes, in particular to `gml:_BoundarySurface`, `gml:_Opening` or even `_AbstractBuilding`.
 
-[XML code example]
-
 **ConstructionOrientation**
 
 Class defining the orientation convention of the Construction, it means the
@@ -206,6 +207,9 @@ Class of the materials which have a mass and a heat capacity.
 
 Class of the material whose mass and heat capacity are neglectable in comparison with `SolidMaterial`.
 
+[XML code example of wall construction with 2-3 layers (detailed) - Joachim]
+[XML code example of wall construction with Uvalue (simple) - Joachim] 
+[Picture: Cut of the wall of the same wall - Joachim? Peter?]
 
 <h3>Optical properties</h3>
 
@@ -236,6 +240,8 @@ According with the Kirchoff and Lambert law, for a diffuse grey body, the aborpt
 **WavelengthRangeType**
 
 solar, infrared, visible or total
+
+[XML code example of window construction - Romain]
 
 Occupancy Module
 ----------------
