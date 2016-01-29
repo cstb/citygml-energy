@@ -15,7 +15,7 @@ Its structure is thought of as modular; some of its modules can be potentially u
 Building Physics Module
 -----------------------
 
-This central module of the Energy ADE contains the thermal building objects required for the building energy modelling (e.g. `ThermalZone`, `ThermalBoundary`, `ThermalComponent`). These thermal building objects are linked to the CityGML building objects through its `_AbstractBuilding`, `_BoundarySurface` and `_Opening` classes.
+This central module of the Energy ADE contains the thermal building objects required for the building energy modelling (e.g. `ThermalZone`, `ThermalBoundary`, `ThermalComponent`). These thermal building objects are linked to the CityGML building objects through its `_AbstractBuilding`, `_BoundarySurface`, and `_Opening` classes.
 
 
 <h3>Building, zones and boundaries</h3>
@@ -25,7 +25,7 @@ This central module of the Energy ADE contains the thermal building objects requ
 
 **ThermalZone**
 
-Zone of a building which serves as space unit for building heating/cooling simulations, a thermal zone is considered as isothermal. It is a semantic object, with an optional geometry, which may be or not related to a geometric entity (`gml:Building`, `gml:BuildingPart`, `gml:Room` etc.).
+Zone of a building which serves as space unit for building heating/cooling simulations. A thermal zone is considered as isothermal. It is a semantic object, with an optional geometry, which may be related or not to a geometric entity (`gml:Building`, `gml:BuildingPart`, `gml:Room` etc.).
 
 This class inherits from `_CityObject`, and may therefore be associated to 1 or more `EnergyDemand` objects (see module Energy systems).
 For the requirement of the building heating/cooling simulations, the `ThermalZone` must be related to one or more `UsageZone` (see Occupancy Module).
