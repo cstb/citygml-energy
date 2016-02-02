@@ -39,7 +39,7 @@ more `EnergyDemand` objects (see module Energy systems).  For the requirement
 of the building heating/cooling simulations, the `ThermalZone` must be related
 to one or more `UsageZone` (see Occupancy Module).
 
-### ThermalBoundary
+[XML example of thermal zone (heated) with all parameters - Giorgio]
 
 Quasi-coplanar surface delimiting thermal zones. It represents the physical
 relationship between two thermal zones (defining the thermal zones adjacency)
@@ -65,6 +65,8 @@ also `Building` or `BuildingPart`) respectively `WallSurface`, `RoofSurface`,
 
 Part of the thermal boundary corresponding to a homogeneous construction
 component (e.g. windows, wall, insulated part of a wall etc.).
+
+[XML example of thermal zone / thermal boundary / thermal Component (10-20 lines)]
 
 This class inherits from `_CityObject`, which allows him to be associated to a
 Construction Object (see module Construction and Material).
@@ -117,8 +119,9 @@ the calculation of the energy consumptions of lighting systems required to
 reach the room illuminance threshold when the daylight illuminance is not
 enough.
 
-
 # Temporal Data Module
+
+[XML example: Timeseries (e.g. monthly values...) for one boundary surface]
 
 ## Time Series
 
@@ -264,6 +267,10 @@ Class of the materials which have a mass and a heat capacity.
 Class of the material whose mass and heat capacity are neglectable in
 comparison with `SolidMaterial`.
 
+[XML code example of wall construction with 2-3 layers (detailed) - Joachim]
+[XML code example of wall construction with Uvalue (simple) - Joachim] 
+[Picture: Cut of the wall of the same wall - Joachim? Peter?]
+
 ### Optical properties
 
 ### Transmittance
@@ -297,6 +304,8 @@ equals for a given wavelength range.
 ### WavelengthRangeType
 
 solar, infrared, visible or total
+
+[XML code example of window construction - Romain]
 
 # Occupancy Module
 
