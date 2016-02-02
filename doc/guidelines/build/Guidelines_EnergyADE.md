@@ -1,1 +1,1 @@
-/home/esteban/Documents/ADE/repo_open/citygml-energy/doc/guidelines/Guidelines_EnergyADE.md
+../Guidelines_EnergyADE.md
