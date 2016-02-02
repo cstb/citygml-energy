@@ -252,7 +252,7 @@ systems). For the requirement of the building heating/cooling
 simulations, the \texttt{ThermalZone} must be related to one or more
 \texttt{UsageZone} (see Occupancy Module).
 
-\subsubsection{ThermalBoundary}\label{thermalboundary}
+{[}XML example of thermal zone (heated) with all parameters - Giorgio{]}
 
 Quasi-coplanar surface delimiting thermal zones. It represents the
 physical relationship between two thermal zones (defining the thermal
@@ -285,6 +285,9 @@ also \texttt{Building} or \texttt{BuildingPart}) respectively
 
 Part of the thermal boundary corresponding to a homogeneous construction
 component (e.g.~windows, wall, insulated part of a wall etc.).
+
+{[}XML example of thermal zone / thermal boundary / thermal Component
+(10-20 lines){]}
 
 This class inherits from \texttt{\_CityObject}, which allows him to be
 associated to a Construction Object (see module Construction and
@@ -341,6 +344,9 @@ of lighting systems required to reach the room illuminance threshold
 when the daylight illuminance is not enough.
 
 \section{Temporal Data Module}\label{temporal-data-module}
+
+{[}XML example: Timeseries (e.g.~monthly values\ldots{}) for one
+boundary surface{]}
 
 \subsection{Time Series}\label{time-series}
 
@@ -516,6 +522,11 @@ Class of the materials which have a mass and a heat capacity.
 Class of the material whose mass and heat capacity are neglectable in
 comparison with \texttt{SolidMaterial}.
 
+{[}XML code example of wall construction with 2-3 layers (detailed) -
+Joachim{]}{[}XML code example of wall construction with Uvalue (simple)
+- Joachim{]} {[}Picture: Cut of the wall of the same wall - Joachim?
+Peter?{]}
+
 \subsubsection{Optical properties}\label{optical-properties}
 
 \subsubsection{Transmittance}\label{transmittance}
@@ -550,6 +561,8 @@ the emittance are equals for a given wavelength range.
 \subsubsection{WavelengthRangeType}\label{wavelengthrangetype}
 
 solar, infrared, visible or total
+
+{[}XML code example of window construction - Romain{]}
 
 \section{Occupancy Module}\label{occupancy-module}
 
