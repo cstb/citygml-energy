@@ -12,3 +12,9 @@ shapechange-2.0.0/*
 # eclipse settings
 .settings/
 .project
+
+# latex temp files
+*.aux
+*.log
+*.out
+*.toc
