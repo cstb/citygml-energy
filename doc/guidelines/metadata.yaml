@@ -42,4 +42,6 @@ abstract: |
     Ecole Polytechnique Fédérale de Lausanne, Centre Scientifique et
     Technique du Batiment, Electricité de France, Sinergis and M.O.S.S
     Computer Grafik Systeme).
+bibliography: EnergyADE-library.bib
+csl: chicago.csl
 ---
