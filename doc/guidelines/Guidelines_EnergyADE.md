@@ -39,7 +39,65 @@ more `EnergyDemand` objects (see module Energy systems).  For the requirement
 of the building heating/cooling simulations, the `ThermalZone` must be related
 to one or more `UsageZone` (see Occupancy Module).
 
-[XML example of thermal zone (heated) with all parameters - Giorgio]
+```xml
+<!--Example of a Thermal Zone inside a building:-->
+<core:cityObjectMember>
+	<bldg:Building gml:id="id_building_1">
+		<gml:description>This is Building 1</gml:description>
+		<gml:name>Building 1</gml:name>
+		<!--Additional attributes of the building class (omitted here)-->
+
+		<energy:thermalZones>
+			<energy:ThermalZone gml:id="id_thermalzone_1">
+				<gml:description>Description of Thermal Zone 1</gml:description>
+				<gml:name>Name of Thermal Zone 1</gml:name>
+				<energy:additionalThermalBridgeUValue uom="W/(K*m^2)">1</energy:additionalThermalBridgeUValue>
+				<energy:effectiveThermalCapacity uom="Wh/K">1</energy:effectiveThermalCapacity>
+				<energy:floorArea>
+					<energy:FloorArea>
+						<energy:type>grossFloorArea</energy:type>
+						<energy:value uom="m^2">50</energy:value>
+					</energy:FloorArea>
+				</energy:floorArea>
+				<energy:floorArea>
+					<energy:FloorArea>
+						<energy:type>netFloorArea</energy:type>
+						<energy:value uom="m^2">40</energy:value>
+					</energy:FloorArea>
+				</energy:floorArea>
+				<energy:grossVolume uom="m^3">200.0</energy:grossVolume>
+				<energy:relates xlink:href="#id_usagezone_1"/>
+				<energy:indirectlyHeatedAreaRatio uom="ratio">0</energy:indirectlyHeatedAreaRatio>
+				<energy:infiltrationRate uom="1/h">3</energy:infiltrationRate>
+				<energy:isCooled>true</energy:isCooled>
+				<energy:isHeated>true</energy:isHeated>
+				<energy:netVolume uom="m^3">160.0</energy:netVolume>
+				
+				<!--Here follow all ThermalBoundary objects, each inside a "boundedBy" tag-->
+				<energy:boundedBy>
+					<energy:ThermalBoundary gml:id="id_thermalboundary_1">
+						<!--Here come all attributes of the first ThermalBoundary (omitted here)-->
+					</energy:ThermalBoundary">
+				</energy:boundedBy>
+				<energy:boundedBy>
+					<energy:ThermalBoundary gml:id="id_thermalboundary_2">
+						<!--Here come all attributes of the second ThermalBoundary (omitted here)-->
+					</energy:ThermalBoundary">
+				</energy:boundedBy>
+				
+				<!--Add more ThermalBoundary objects here (if needed) -->
+			</energy:ThermalZone>
+		</energy:thermalZones>
+
+		<energy:thermalZones>
+			<energy:ThermalZone gml:id="id_thermalzone_2">
+				<!--Here come all attributes of the second ThermalZone (if needed) -->
+			</energy:ThermalZone>				
+		</energy:thermalZones>
+
+		</bldg:Building>
+</core:cityObjectMember>
+```
 
 Quasi-coplanar surface delimiting thermal zones. It represents the physical
 relationship between two thermal zones (defining the thermal zones adjacency)
@@ -338,6 +396,78 @@ also indicated (`usedFloorNumbers`), 0 corresponding to the ground floor.
 Its `internalGains` attribute correspond to the sum of the energy dissipated
 from the occupants and the facilities inside the zone.
 
+```xml
+<!--Example of a UsageZone inside a building:-->
+<core:cityObjectMember>
+	<bldg:Building gml:id="id_building_1">
+		<gml:description>Description of Building 1</gml:description>
+		<gml:name>Name of Building 1</gml:name>
+		<!--Additional attributes of the building class (omitted here)-->
+
+			<energy:usageZones>
+				<energy:UsageZone gml:id="id_usagezone_1">
+					<gml:description>Description of UsageZone 1</gml:description>
+					<gml:name>Name of UsageZone 1</gml:name>
+					<energy:usageZoneClass>Commercial</energy:usageZoneClass>
+					<energy:usedFloors>1</energy:usedFloors>
+					<energy:floorArea>
+						<energy:FloorArea>
+							<energy:type>grossFloorArea</energy:type>
+							<energy:value>50</energy:value>
+						</energy:FloorArea>
+					</energy:floorArea>
+					<energy:floorArea>
+						<energy:FloorArea>
+							<energy:type>netFloorArea</energy:type>
+							<energy:value>40</energy:value>
+						</energy:FloorArea>
+					</energy:floorArea>
+					<energy:internalGains>
+						<energy:HeatExchangeType>
+							<energy:convectiveFraction uom="ratio">0.6</energy:convectiveFraction>
+							<energy:latentFraction uom="ratio">0.1</energy:latentFraction>
+							<energy:radiantFraction uom="ratio">0.3</energy:radiantFraction>
+							<energy:totalValue uom="kW/m^2">80</energy:totalValue>
+						</energy:HeatExchangeType>
+					</energy:internalGains>
+
+					<!--Here follow all BuildingUnit objects, each inside a "contains" tag-->
+					<energy:contains>
+						<energy:BuildingUnit gml:id="id_buildingunit_1">
+							<!--Here come all attributes of the first BuildingUnit (if needed) -->
+						</energy:BuildingUnit>
+					</energy:contains>
+					<!--Add more BuildingUnit objects here (if needed) -->
+
+					<!--Here follow all Facility objects, each inside a "has" tag-->
+					<energy:has>
+						<energy:DHWFacilities gml:id="id_dhwfacilities_1">
+							<!--Here come all attributes of a Facility object -->
+						</energy:ElectricalAppliances>
+					</energy:has>
+					<energy:has>
+						<energy:ElectricalAppliances gml:id="id_electricalappliance_1">
+							<!--Here come all attributes of a Facility object -->
+						</energy:ElectricalAppliances>
+					</energy:has>
+					<energy:has>
+						<energy:LightingFacilities gml:id="id_lightningfacility_1">
+							<!--Here come all attributes of the Facility object -->
+						</energy:LightingFacilities>
+					</energy:has>
+
+				</energy:UsageZone>
+		</energy:usageZones>
+
+		<energy:usageZones>
+			<energy:UsageZone gml:id="id_usagezone_2">
+				<!--Here come all attributes of the second UsageZone (if needed) -->
+			</energy:UsageZone>
+		</energy:usageZones>
+	</bldg:Building>
+</core:cityObjectMember>
+```
+
 ### BuildingUnit
 
 Part of usage zone which is related to a single occupant entity, such as
@@ -370,9 +500,56 @@ these categories, they are part of the Energy System Module.
 
 ### DHWFacilities
 
+```xml
+<energy:DHWFacilities gml:id="id_dhwfacilities_1">
+	<gml:description>Description of Domestic Hot Water Facilities 1</gml:description>
+	<gml:name>Name of Domestic Hot Water Facilities 1</gml:name>
+	<energy:heatDissipation>
+		<energy:HeatExchangeType>
+			<energy:convectiveFraction uom="ratio">0.5</energy:convectiveFraction>
+			<energy:latentFraction uom="ratio">0.3</energy:latentFraction>
+			<energy:radiantFraction uom="ratio">0.2</energy:radiantFraction>
+			<energy:totalValue uom="W/m^2">10</energy:totalValue>
+		</energy:HeatExchangeType>
+	</energy:heatDissipation>
+	<energy:operationSchedule>
+		<!--Add here the Schedule data -->	
+	</energy:operationSchedule>
+	<energy:numberOfBaths>1</energy:numberOfBaths>
+	<energy:numberOfShowers>0</energy:numberOfShowers>
+	<energy:numberOfWashBasins>1</energy:numberOfWashBasins>
+	<energy:waterStorageVolume uom="m^3">0.8</energy:waterStorageVolume>
+</energy:DHWFacilities>
+```
+
+
 ### ElectricalAppliances
 
+```xml
+<!--Example of an ElectricalApplicances object:-->
+<energy:ElectricalAppliances gml:id="id_electricalappliance_1">
+	<gml:description>Description of Electrical Applicance 1</gml:description>
+	<gml:name>Name of Electrical Applicance 1</gml:name>
+	<energy:heatDissipation>
+		<energy:HeatExchangeType>
+			<energy:convectiveFraction uom="ratio">0.5</energy:convectiveFraction>
+			<energy:latentFraction uom="ratio">0.3</energy:latentFraction>
+			<energy:radiantFraction uom="ratio">0.2</energy:radiantFraction>
+			<energy:totalValue uom="W/m^2">10</energy:totalValue>
+		</energy:HeatExchangeType>
+	</energy:heatDissipation>
+	<energy:electricalPower uom="kW">11</energy:electricalPower>
+	<energy:operationSchedule>
+		<!--Add here the Schedule data -->	
+	</energy:operationSchedule>	
+</energy:ElectricalAppliances>
+```
+
+
 ### LightingFacilities
+
+Same structure and attributes as in ElectricalAppliances
+
 
 # Energy System Module
 
