@@ -15,14 +15,14 @@ track changes made on document lines.
 
 The metadata of the document including the title, authors, and abstract is
 stored on the `metadata.yaml` file. If you want to change the metadata you need
-to modify this file. This file defines variables that are parse as latex
-variables. All variables are define in the latex template: `template1.latex`.
+to modify this file. This file defines variables that are parsed as latex
+variables. All variables are defined in the latex template: `template1.latex`.
 All modifications to the document latex need to be made on this document.
 
 # Required software
 
 In order to compile the document you will need to have a latex environment
-configures. If you are able to compile a latex document you are good to go.
+configured. If you are able to compile a latex document you are good to go.
 Have a look at:
 
 http://www.latex-project.org/
@@ -34,7 +34,7 @@ http://pandoc.org/README.html
 
 # Compilation command
 
-You can compile the document directly to pdf of generate a latex file and
+You can compile the document directly to pdf or generate a latex file and
 compile it with `pdflatex`. Both alternatives are inside the shell scripts
 `makepaper` and `makelatex`. 
 
@@ -61,17 +61,17 @@ pandoc -S -o Guidelines_EnergyADE.pdf \
 
 ## Footnotes
 
-Footnotes are define as standard markdown footnotes. Type `[^1]` to add a
+Footnotes are defined as standard markdown footnotes. Type `[^1]` to add a
 footnote with reference to label `^1`. Each footnote needs a reference, e.g: 
 `[^1]: [citygml-energy](https://github.com/cstb/citygml-energy)`.
-It is good practice to have all footnote in the same place, this is normally the
+It is good practice to have all footnotes in the same place, this is normally the
 end of the document. 
 
 ## Citations
 
 In order to add citations we use a `*.bib` file. You can edit this file manually
 or with a citation manager (e.g: jabref). Every bibliographic entry needs to be
-imputed into this file.
+added to this file.
 
 Sample bib entries:
 
@@ -95,11 +95,11 @@ Sample bib entries:
 },
 ```
 
-After the entries are define in the `*.bib` file you can make reference to them
-in the text by using the `bibkey`. In this case we have define two bibkeys: (1)
+After the entries are defined in the `*.bib` file you can make references to them
+in the text by using the `bibkey`. In this case we have defined two bibkeys: (1)
 `donalduck.2013` and `donalduck.2014`.
 
-Here are some examples on how to cite the define entries on the bib file. 
+Here are some examples on how to cite the defined entries in the bib file. 
 
 ```
 Blah blah [see @donaldduck.2013, pp. 33-35; also @donaldduck.2014, ch. 1].
