@@ -1,10 +1,10 @@
 # Overview of the Application Domain Extension Energy
 
 The CityGML Energy ADE aims at extending the CityGML standard with
-energy-related entities necessary to lead energy analyses at urban scale.
+energy-related entities necessary to lead energy analysis at urban scale.
 
 Following the philosophy of CityGML, this Energy ADE aims to be flexible, in
-terms of compatibility with different data qualities, levels of details, and
+terms of compatibility with different data qualities, levels of detail, and
 urban energy models complexities (from monthly energy balance of ISO 13790, to
 sub-hourly dynamic simulation of softwares like CitySim or EnergyPlus). It
 takes into consideration the INSPIRE Directive of the European Parliament, as
@@ -29,15 +29,14 @@ linked to the CityGML building objects through its `_AbstractBuilding`,
 
 ### ThermalZone
 
-Zone of a building which serves as space unit for building heating/cooling
-simulations, a thermal zone is considered as isothermal. It is a semantic
+ThermalZone is instantiated as a zone of a building, which serves as space unit for building heating/cooling
+simulations. A thermal zone is considered as isothermal. It is a semantic
 object, with an optional geometry, which may be or not related to a geometric
 entity (`gml:Building`, `gml:BuildingPart`, `gml:Room` etc.).
 
-This class inherits from `_CityObject`, and may therefore be associated to 1 or
-more `EnergyDemand` objects (see module Energy systems).  For the requirement
-of the building heating/cooling simulations, the `ThermalZone` must be related
-to one or more `UsageZone` (see Occupancy Module).
+This class inherits from `_CityObject`; therefore, it can be associated to 1 or
+more `EnergyDemand` objects (see module Energy systems). The `ThermalZone` must be related
+to one or more `UsageZone` on the grounds of the building heating/cooling simulations' requirements (see Occupancy Module).
 
 [XML example of thermal zone (heated) with all parameters - Giorgio]
 
@@ -73,8 +72,7 @@ Construction Object (see module Construction and Material).
 
 ### \_AbstractBuilding
 
-Extension of CityGML object `_AbstractBuilding` in Application Domain Extension
-Energy.
+Extension of CityGML object `_AbstractBuilding` in Application Domain Extension, feeding the corresponding class with vital attributes that are required in the Energy domain.
 
 ### \_BoundarySurface
 
@@ -103,16 +101,16 @@ Module).
 
 ### globalSolarIrradiance
 
-It is the sum of the direct, diffuse and reflected irradiance incident on a
+It is the sum of the direct, diffuse, and reflected irradiance incident on a
 outside boundary surface. Its unit of measure is the Watt per sqm ($W/m^2$).
 These values are typically used as source terms for the thermal calculations
-within the buildings (more precisely the `_ThermalZone`), but also for the
+within the buildings (more precisely the `_ThermalZone`). Additionally, they are used for the
 calculation of the energy producted by the solar systems (photovoltaic and
 solar thermal panels).
 
 ### daylightIlluminance
 
-It is the sum of the direct, diffuse and reflected solar illuminance incident
+It is the sum of the direct, diffuse, and reflected solar illuminance incident
 on a outside boundary surface. Its unit of measure is the Lux ($lx$). These
 values are typically used for outside and inside daylighting study, as well as
 the calculation of the energy consumptions of lighting systems required to
@@ -129,7 +127,7 @@ enough.
 
 Time series are homogeneous list of time-depending values. They are used in the
 Energy ADE to store energy amount or schedule for instance. As non-domain
-specific feature, they is planned to be integrated in the CityGML 3.0.
+specific feature, they are planned to be integrated in the CityGML 3.0.
 
 They have common properties specified in the type
 
@@ -223,14 +221,14 @@ It may be extended for multi-field analysis (statics, acoustics etc.).
 
 ### Construction
 
-Physical characterisation of building envelop or intern room partition (e.g.
-wall, roof, openings), it may be specified as an ordered combination of layers.
+It is the physical characterisation of building envelop or intern room partition (e.g.
+wall, roof, openings). It may be specified as an ordered combination of layers.
 
 In the Energy ADE, the object Construction aims to be linked to the
-`_ThermalComponents`, in order to defined the physical parameters of a walls,
-roofs of windows, for a space heating/cooling calculation. However, it may
+`_ThermalComponents`, in order to define the physical parameters of walls,
+roofs of windows, and for a space heating/cooling calculation. However, it may
 possibly be linked to any `_CityObject` for other purposes, in particular to
-`gml:_BoundarySurface`, `gml:_Opening` or even `_AbstractBuilding`.
+`gml:_BoundarySurface`, `gml:_Opening`, or even `_AbstractBuilding`.
 
 [XML code example]
 
