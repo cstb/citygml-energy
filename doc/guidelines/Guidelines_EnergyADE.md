@@ -45,7 +45,7 @@ Quasi-coplanar surface delimiting thermal zones. It represents the physical
 relationship between two thermal zones (defining the thermal zones adjacency)
 or a thermal zone and the building surrounding.
 
-It is a semantic object, with an optional geometry. It may be linked to the
+ThermalZone class may be linked to the
 `gml:BoundarySurface` (through the `ADE:_BoundarySurface`) when possible, but
 not necessary (e.g. cellar ceiling or top storey ceiling in the case of CityGML
 LoD1 to LoD3).
