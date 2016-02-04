@@ -29,8 +29,8 @@ linked to the CityGML building objects through its `_AbstractBuilding`,
 
 ### ThermalZone
 
-Zone of a building which serves as space unit for building heating/cooling
-simulations, a thermal zone is considered as isothermal. It is a semantic
+ThermalZone is instantiated as a zone of a building, which serves as space unit for building heating/cooling
+simulations. A thermal zone is considered as isothermal. It is a semantic
 object, with an optional geometry, which may be or not related to a geometric
 entity (`gml:Building`, `gml:BuildingPart`, `gml:Room` etc.).
 
@@ -50,8 +50,8 @@ ThermalZone class may be linked to the
 not necessary (e.g. cellar ceiling or top storey ceiling in the case of CityGML
 LoD1 to LoD3).
 
-While separating two thermal zones, its optional geometry corresponds to the
-middle of the internal/shared wall.  While separating a thermal zone from the
+While separating two thermal zones, its optional geometry, represented as thermalBoundaryType, corresponds to the
+middle of the internal/shared wall, represented at the enumaration class `ThermalBoundaryTypeValues`. While separating a thermal zone from the
 building surrounding, its optional geometry corresponds to the external surface
 of the outer wall/roof/basement floor. The following figure represents these
 different cases in a building side section, relating the Energy ADE Objects
