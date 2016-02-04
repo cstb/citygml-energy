@@ -353,11 +353,10 @@ an occupant type (e.g. residents, workers, visitors etc.).
 
 ## Household
 
-Group of persons living in the same dwelling, in the case where occupants are
+Group of persons living in the same dwelling, whereas occupants are
 residents.
 
-There are defined by a type (e.g. one family, worker couple etc…) and a
-residence type (main/secondary residence or vacant).
+(`HouseHold`) is defined by (`HouseHoldType`) (e.g. one family, worker couple etc…) and a (`ResidenceType`) (main/secondary residence or vacant).
 
 ## Facilities
 
