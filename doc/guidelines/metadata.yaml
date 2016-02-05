@@ -5,14 +5,10 @@ title:
   dw:   In collaboration with OGC and SIG 3D
 author:
 - Romain Nouvel (RN)
-- Marcel Bruse (MB)
-- Olivier Tournaire (OT)
+- Marcel Bruse
+- Olivier Tournaire
 - Esteban Mu$\~n$oz (EM)
-- Jean-Marie Bahu (JB)
-- Jerome Kämpf (JK)
-- Joachim Benner (JB)
-- Giorgio Agugiaro (GA)
-\dots
+- \dots
 revision:
 - comment: Basis version
   date: 03.08.2015
@@ -32,7 +28,6 @@ institutes:
 - Electricité de France, France
 - Sinergis, Italy
 - M.O.S.S Computer Grafik Système, Germany
-- Austrian Institute of Technology, Austria
 abstract: |
     The Application Domain Extension (ADE) Energy detailed in this
     documentation defines a standardized data model based on CityGML format
