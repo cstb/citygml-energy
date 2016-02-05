@@ -567,7 +567,7 @@ An `Occupants` class identifies a homogeneous group of occupants of a usage zone
 A `Household` class identifies a group of persons living in the same dwelling, in the case where occupants are residents. They are defined by a type (e.g. one family, worker couple etc…) and a residence type (main/secondary residence or vacant).
 
 ```xml
-!--Example of a Household-->
+<!--Example of a Household-->
 ```
 
 ### DHWFacilities
