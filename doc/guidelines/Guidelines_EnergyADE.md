@@ -21,7 +21,13 @@ The Energy ADE extends the CityGML _AbstractBuilding by a number of attributes, 
 In the forllowing, an example of a building is given. Please note that the standard CityGML attributes are omitted for better readibility.
 
 ```xml
-<!--Example of a building with Energy ADE attributes-->
+<bldg:Building gml:id="BLDG_1">
+    <energy:atticType>Conditioned</energy:atticType>
+    <energy:averageCeilingHeight uom="m">2.70</energy:averageCeilingHeight>
+    <energy:basementType>Unconditioned</energy:basementType>
+    <energy:eavesHeight uom="m">8.0</energy:eavesHeight>
+    <energy:ridgeHeight uom="m">10.5</energy:ridgeHeight>  
+</bldg:Building>
 ```
 
 #### FloorArea
