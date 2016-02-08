@@ -48,13 +48,28 @@ In the forllowing, an example of a building is given. Please note that the stand
 #### EnergyPerformanceCertification
 
 ```xml
-<!--Example of EnergyPerformanceCertification-->
+<energy:energyPerformanceCertification>
+    <energy:EnergyPerformanceCertification>
+        <energy:certificationRating>GoldStar</energy:certificationRating>
+        <energy:certificationName>MyEnergyCertificaton</energy:certificationName>
+        <energy:certificationId>0815</energy:certificationId>
+    </energy:EnergyPerformanceCertification>       
+</energy:energyPerformanceCertification>
 ```
 
 #### RefurbishmentMeasure
 
 ```xml
-<!--Example of RefurbishmentMeasure-->
+<energy:refurbishmentMeasureOnBuilding>
+    <energy:RefurbishmentMeasure>
+        <energy:dateOfRefurbishment>
+            <energy:DateOfEvent>
+                <energy:instant indeterminatePosition="before">2010-06</energy:instant>
+            </energy:DateOfEvent>
+        </energy:dateOfRefurbishment>
+        <energy:levelOfRefurbishment>UsualRefurbishment</energy:levelOfRefurbishment>
+    </energy:RefurbishmentMeasure>
+</energy:refurbishmentMeasureOnBuilding>
 ```
 
 ### ThermalZone
@@ -403,13 +418,90 @@ substance. We distinguish solid materials (with mass) from gas (without mass).
 
 Class of the materials which have a mass and a heat capacity.
 
+```xml
+<!--Example of a three layered construction-->
+<energy:Construction gml:id="ThreeLayeredMaterial">
+    <energy:layer>
+        <energy:Layer>
+            <energy:layerComponent>
+                <energy:LayerComponent>
+                    <energy:thickness uom="m">0.24</energy:thickness>
+                    <energy:material>
+                        <energy:SolidMaterial>
+                            <gml:name>Concrete 2100</gml:name>
+                            <energy:conductivity uom="wm-1k-1">2.035</energy:conductivity>
+                            <energy:density uom="kgm-3">2100.0</energy:density>
+                            <energy:specificHeat uom="jkg-1K-1">920.0</energy:specificHeat>
+                        </energy:SolidMaterial>
+                    </energy:material>
+                </energy:LayerComponent>
+            </energy:layerComponent>
+           
+            <energy:layerComponent>
+                <energy:LayerComponent>
+                    <energy:thickness uom="m">0.062</energy:thickness>
+                    <energy:material>
+                        <energy:SolidMaterial>
+                            <gml:name>Insulation 047</gml:name>
+                            <energy:conductivity uom="wm-1k-1">0.047</energy:conductivity>
+                            <energy:density uom="kgm-3">75.0</energy:density>
+                            <energy:specificHeat uom="jkg-1K-1">840.0</energy:specificHeat>
+                        </energy:SolidMaterial>
+                    </energy:material>
+                </energy:LayerComponent>
+            </energy:layerComponent>
+            
+            <energy:layerComponent>
+                <energy:LayerComponent>
+                    <energy:thickness uom="m">0.025</energy:thickness>
+                    <energy:material>
+                        <energy:SolidMaterial>
+                            <gml:name>Fassade</gml:name>
+                            <energy:conductivity uom="wm-1k-1">0.45</energy:conductivity>
+                            <energy:density uom="kgm-3">1300.0</energy:density>
+                            <energy:specificHeat uom="jkg-1K-1">1050.0</energy:specificHeat>
+                        </energy:SolidMaterial>
+                    </energy:material>
+                </energy:LayerComponent>
+            </energy:layerComponent>                     
+        </energy:Layer>
+    </energy:layer>
+</energy:Construction>
+
+```
+
+
+```xml
+<!--Example of a simple wall construction with U-value:-->
+<energy:ThermalComponent>
+    <energy:construction>
+        <energy:Construction>
+            <energy:uValue uom="wm-2k-1">3.0</energy:uValue>
+        </energy:Construction>
+    </energy:construction>
+    <energy:area uom="m2">50.0</energy:area>
+    <energy:isGroundCoupled>false</energy:isGroundCoupled>
+    <energy:isSunExposed>true</energy:isSunExposed>                                     
+</energy:ThermalComponent>
+
+```
+
 ### Gas
 
 Class of the material whose mass and heat capacity are neglectable in
 comparison with `SolidMaterial`.
 
-[XML code example of wall construction with 2-3 layers (detailed) - Joachim]
-[XML code example of wall construction with Uvalue (simple) - Joachim] 
+```xml
+<!--Example of a material whose mass and heat capacity are neglectable-->
+<energy:Gas>
+    <energy:isVentilated>false</energy:isVentilated>
+    <energy:rValue uom="m2kw-1">4.5</energy:rValue>
+</energy:Gas>
+
+```
+
+
+
 [Picture: Cut of the wall of the same wall - Joachim? Peter?]
 
 ### Optical properties
