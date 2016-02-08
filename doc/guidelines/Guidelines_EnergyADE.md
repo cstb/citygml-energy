@@ -21,12 +21,77 @@ The Energy ADE extends the CityGML _AbstractBuilding by a number of attributes, 
 In the forllowing, an example of a building is given. Please note that the standard CityGML attributes are omitted for better readibility.
 
 ```xml
-<bldg:Building gml:id="BLDG_1">
-    <energy:atticType>Conditioned</energy:atticType>
-    <energy:averageCeilingHeight uom="m">2.70</energy:averageCeilingHeight>
-    <energy:basementType>Unconditioned</energy:basementType>
-    <energy:eavesHeight uom="m">8.0</energy:eavesHeight>
-    <energy:ridgeHeight uom="m">10.5</energy:ridgeHeight>  
+<!--Examples of Building with Energy ADE attributes-->
+<bldg:Building gml:id="id_building_1">
+	<gml:description>Description of Building 1</gml:description>
+	<gml:name>Name of Building 1</gml:name>
+
+	<energy:referencePoint>
+		<gml:Point gml:id="id_building_referencepoint_1" srsName="EPSG:31256" srsDimension="3">
+			<gml:pos>5 5 0</gml:pos>
+		</gml:Point>
+	</energy:referencePoint>
+	
+	<energy:basementType>Unconditioned</energy:basementType>
+
+	<!--Here follow all EnergyPerformanceCertification objects, each inside a "energyPerformanceCertification" tag-->
+	<energy:energyPerformanceCertification>
+		<energy:EnergyPerformanceCertification >
+			<!--Here come all attributes of a EnergyPerformanceCertification object (omitted here)-->
+		</energy:EnergyPerformanceCertification>
+	</energy:energyPerformanceCertification>
+
+	<energy:basementCeilingHeightAboveGroundSurface uom="m">1</energy:basementCeilingHeightAboveGroundSurface>
+	<energy:grossVolume uom="m^3">1050</energy:grossVolume>
+
+	<!--Here follow all RefurbishmentMeasure objects, each inside a "refurbishmentMeasureOnBuilding" tag-->
+	<energy:refurbishmentMeasureOnBuilding>
+		<energy:RefurbishmentMeasure>
+			<!--Here come all attributes of a RefurbishmentMeasure object (omitted here)-->
+		</energy:RefurbishmentMeasure>
+	</energy:refurbishmentMeasureOnBuilding>
+
+	<energy:averageCeilingHeight uom="m">2.7</energy:averageCeilingHeight>
+	<energy:atticType>Conditioned</energy:atticType>
+
+	<!--Here follow all UsageZone objects, each inside a "usageZones" tag-->
+	<energy:usageZones>
+		<energy:UsageZone gml:id="id_usagezone_1">	
+			<!--Here come all attributes of the first UsageZone (omitted here)-->
+		</energy:UsageZone>
+	</energy:usageZones>
+	<energy:usageZones>
+		<energy:UsageZone gml:id="id_usagezone_2">	
+			<!--Here come all attributes of the second UsageZone (omitted here)-->
+		</energy:UsageZone>
+	</energy:usageZones>
+
+	<energy:ridgeHeight uom="m">10.5</energy:ridgeHeight>
+	<energy:landmarked>false</energy:landmarked>
+	
+	<energy:floorArea>
+		<energy:FloorArea>
+			<energy:type>grossFloorArea</energy:type>
+			<energy:value uom="m^2">300</energy:value>
+		</energy:FloorArea>
+		<!--Here come further optional values of floorArea (see later)-->
+	</energy:floorArea>
+
+	<energy:eavesHeight uom="m">8</energy:eavesHeight>
+	<energy:constructionStyle>Massive</energy:constructionStyle>
+	<energy:buildingType>MultiFamilyHouse</energy:buildingType>
+
+	<!--Here follow all ThermalZone objects, each inside a "thermalZones" tag-->
+	<energy:thermalZones>
+		<energy:ThermalZone gml:id="id_thermalzone_1">
+			<!--Here come all attributes of the first ThermalZone (omitted here)-->
+		</energy:ThermalZone>
+	</energy:thermalZones>
+	<energy:thermalZones>
+		<energy:ThermalZone gml:id="id_thermalzone_2">
+			<!--Here come all attributes of the second ThermalZone (omitted here)-->
+		</energy:ThermalZone>
+	</energy:thermalZones>
 </bldg:Building>
 ```
 
@@ -48,6 +113,7 @@ In the forllowing, an example of a building is given. Please note that the stand
 #### EnergyPerformanceCertification
 
 ```xml
+<!--Example of Energy Performance Certification-->
 <energy:energyPerformanceCertification>
     <energy:EnergyPerformanceCertification>
         <energy:certificationRating>GoldStar</energy:certificationRating>
@@ -60,6 +126,7 @@ In the forllowing, an example of a building is given. Please note that the stand
 #### RefurbishmentMeasure
 
 ```xml
+<!--Example of Refurbishment Measure On Building-->
 <energy:refurbishmentMeasureOnBuilding>
     <energy:RefurbishmentMeasure>
         <energy:dateOfRefurbishment>
@@ -240,8 +307,7 @@ A XML example is presented in the following.
 
 ### \_BoundarySurface
 
-Extension of CityGML object `_BoundarySurface` in Application Domain Extension Energy.
-Even empty, this subtype is necessary for the connection of the ADE Energy to the CityGML, since a bi-directional associations to the existing definitions is added.
+Extension of CityGML object `_BoundarySurface` in Application Domain Extension Energy. Even empty, this subtype is necessary for the connection of the ADE Energy to the CityGML, since a bi-directional associations to the existing definitions is added.
 
 ### \_Opening
 
@@ -249,31 +315,17 @@ Extension of CityGML object `_Opening` in Application Domain Extension Energy. O
 
 ## Solar irradiances and Daylighting
 
-To realize solar and daylight potential studies, the Energy ADE enables to
-store the incident global solar irradiances, respectively the daylight
-illuminances available on each outside boundary surface of the buildings.
+To realize solar and daylight potential studies, the Energy ADE enables to store the incident global solar irradiances, respectively the daylight illuminances available on each outside boundary surface of the buildings.
 
-Both `globalSolarIrradiance` and `daylightIlluminance` are attributes of the
-object `_BoundarySurface`, of type `_TimeSeries` (see details in Temporal Data
-Module).
+Both `globalSolarIrradiance` and `daylightIlluminance` are attributes of the object `_BoundarySurface`, of type `_TimeSeries` (see details in Temporal Data Module).
 
 ### globalSolarIrradiance
 
-It is the sum of the direct, diffuse and reflected irradiance incident on a
-outside boundary surface. Its unit of measure is the Watt per sqm ($W/m^2$).
-These values are typically used as source terms for the thermal calculations
-within the buildings (more precisely the `_ThermalZone`), but also for the
-calculation of the energy producted by the solar systems (photovoltaic and
-solar thermal panels).
+It is the sum of the direct, diffuse and reflected irradiance incident on a outside boundary surface. Its unit of measure is the Watt per sqm ($W/m^2$). These values are typically used as source terms for the thermal calculations within the buildings (more precisely the `_ThermalZone`), but also for the calculation of the energy producted by the solar systems (photovoltaic and solar thermal panels).
 
 ### daylightIlluminance
 
-It is the sum of the direct, diffuse and reflected solar illuminance incident
-on a outside boundary surface. Its unit of measure is the Lux ($lx$). These
-values are typically used for outside and inside daylighting study, as well as
-the calculation of the energy consumptions of lighting systems required to
-reach the room illuminance threshold when the daylight illuminance is not
-enough.
+It is the sum of the direct, diffuse and reflected solar illuminance incident on a outside boundary surface. Its unit of measure is the Lux ($lx$). These values are typically used for outside and inside daylighting study, as well as the calculation of the energy consumptions of lighting systems required to reach the room illuminance threshold when the daylight illuminance is not enough.
 
 # Temporal Data Module
 
@@ -283,46 +335,29 @@ enough.
 
 ![Class diagram of ADE Energy Core - Time Series](fig/class_time.png)
 
-Time series are homogeneous list of time-depending values. They are used in the
-Energy ADE to store energy amount or schedule for instance. As non-domain
-specific feature, they is planned to be integrated in the CityGML 3.0.
-
-They have common properties specified in the type
+Time series are homogeneous list of time-depending values. They are used in the Energy ADE to store energy amount or schedule for instance. As non-domain specific feature, they is planned to be integrated in the CityGML 3.0. They have common properties specified in the type
 
 ### TimeValuesProperties
 
-These properties are the variable label, the variable unit of measure (*uom*),
-the interpolation type (based on the
-[WaterML ADE](http://def.seegrid.csiro.au/sissvoc/ogc-def/resource?uri=http://www.opengis.net/def/waterml/2.0/interpolationType/))
-and some data acquisition information like the data source, the acquisition
-method and the quality description.
+These properties are the variable label, the variable unit of measure (*uom*), the interpolation type (based on the [WaterML ADE](http://def.seegrid.csiro.au/sissvoc/ogc-def/resource?uri=http://www.opengis.net/def/waterml/2.0/interpolationType/)) and some data acquisition information like the data source, the acquisition method and the quality description.
 
 Time Series can be either regular or irregular.
 
-**RegularTimeSeries** contain `values` generated at regularly spaced interval
-of time (`timeInterval`), over a given `temporalExtent` (= start, end and
-duration time). They are relevant for instance to store automatically acquired
-data or hourly/daily/monthly simulation results.
+**RegularTimeSeries** contain `values` generated at regularly spaced interval of time (`timeInterval`), over a given `temporalExtent` (= start, end and duration time). They are relevant for instance to store automatically acquired data or hourly/daily/monthly simulation results.
 
-In **IrregularTimeSeries**, the data in the time series follows also a temporal
-sequence, but the measurement points might not happen at a regular time
-interval[^1]. Therefore, each value must be associated with a data or time.
+In **IrregularTimeSeries**, the data in the time series follows also a temporal sequence, but the measurement points might not happen at a regular time interval[^1]. Therefore, each value must be associated with a data or time.
 
 ## Schedules
 
 ![Class diagram of ADE Energy Core - Schedules](fig/class_schedules.png)
 
-The type Schedule is used in the Energy ADE for different kinds of schedules
-and variables, including heating/cooling schedules (set-point temperatures),
-ventilation schedules (mechanical air change rate) and occupancy rate.
+The type Schedule is used in the Energy ADE for different kinds of schedules and variables, including heating/cooling schedules (set-point temperatures), ventilation schedules (mechanical air change rate) and occupancy rate.
 
-Schedules may be modelled with 4 "semantic levels of details" depending on the
-available information and the application.
+Schedules may be modelled with 4 "semantic levels of details" depending on the available information and the application.
 
 ### ConstantValueSchedule
 
-Most basic level of detail, it corresponds to a constant value, generally
-corresponding to the average parameter value.
+Most basic level of detail, it corresponds to a constant value, generally corresponding to the average parameter value.
 
 ```xml
 <!--Example of the cooling schedule of a residential building:-->
@@ -335,12 +370,8 @@ corresponding to the average parameter value.
 
 ### DualValueSchedule
 
-Two-state schedule, specified by a usage value defined for usage times, and an
-idle value outside this temporal boundaries. Information about the approximate
-number of usage days per year and usage hours per usage days are also defined.
-
-This schedule complies in particular with the data requirements of the codes
-and norms describing the monthly energy balance (DIN 18599-2, ISO 13790).
+Two-state schedule, specified by a usage value defined for usage times, and an idle value outside this temporal boundaries. Information about the approximate number of usage days per year and usage hours per usage days are also defined.
+This schedule complies in particular with the data requirements of the codes and norms describing the monthly energy balance (DIN 18599-2, ISO 13790).
 
 ```xml
 <!--Example of the heating schedule of a residential building:-->
@@ -356,9 +387,7 @@ and norms describing the monthly energy balance (DIN 18599-2, ISO 13790).
 
 ### DailyPatternSchedule
 
-Detailed schedule composed of daily schedules associated to recurrent day types
-(weekday, weekend etc.). These daily schedules are Time Series as described
-above.
+Detailed schedule composed of daily schedules associated to recurrent day types (weekday, weekend etc.). These daily schedules are Time Series as described above.
 
 ### TimeSeriesSchedule
 
@@ -368,51 +397,34 @@ Most detailed schedule corresponding to a Time series as described above.
 
 ![Class diagram of Construction Module](fig/class_construction.png)
 
-The Construction and Material is a module of the ADE Energy, which contains the
-physical characterization of the boundary surfaces, surface components and even
-whole building (and potentially all the objects which inherits of
-`_CityObject`).
-
+The Construction and Material is a module of the ADE Energy, which contains the physical characterization of the boundary surfaces, surface components and even whole building (and potentially all the objects which inherits of `_CityObject`).
 It may be extended for multi-field analysis (statics, acoustics etc.).
 
 ## Construction and layers
 
 ### Construction
 
-Physical characterisation of building envelop or intern room partition (e.g.
-wall, roof, openings), it may be specified as an ordered combination of layers.
-
-In the Energy ADE, the object Construction aims to be linked to the
-`_ThermalComponents`, in order to defined the physical parameters of a walls,
-roofs of windows, for a space heating/cooling calculation. However, it may
-possibly be linked to any `_CityObject` for other purposes, in particular to
-`gml:_BoundarySurface`, `gml:_Opening` or even `_AbstractBuilding`.
+Physical characterisation of building envelop or intern room partition (e.g. wall, roof, openings), it may be specified as an ordered combination of layers. In the Energy ADE, the object Construction aims to be linked to the `_ThermalComponents`, in order to defined the physical parameters of a walls, roofs of windows, for a space heating/cooling calculation. However, it may possibly be linked to any `_CityObject` for other purposes, in particular to `gml:_BoundarySurface`, `gml:_Opening` or even `_AbstractBuilding`.
 
 [XML code example]
 
 ### ConstructionOrientation
 
-Class defining the orientation convention of the Construction, it means the
-order of the layers. A same Construction, common to different zones or
-buildings, will be orientated in two different directions for instance.
+Class defining the orientation convention of the Construction, it means the order of the layers. A same Construction, common to different zones or buildings, will be orientated in two different directions for instance. 
 
 ### Layer
 
-Combination of one of more materials, referenced via a layer component.
-
-It inherits from `_CityObject`.
+Combination of one of more materials, referenced via a layer component. It inherits from `_CityObject`.
 
 ### LayerComponent
 
-Homogeneous part of a layer, covering a given fraction (`areaFraction`) of the
-layer.
+Homogeneous part of a layer, covering a given fraction (`areaFraction`) of the layer.
 
 ## Materials
 
 ### AbstractMaterial
 
-Abstract superclass for all Material classes. A Material is a homogeneous
-substance. We distinguish solid materials (with mass) from gas (without mass).
+Abstract superclass for all Material classes. A Material is a homogeneous substance. We distinguish solid materials (with mass) from gas (without mass).
 
 ### SolidMaterial
 
@@ -470,7 +482,6 @@ Class of the materials which have a mass and a heat capacity.
 
 ```
 
-
 ```xml
 <!--Example of a simple wall construction with U-value:-->
 <energy:ThermalComponent>
@@ -481,15 +492,13 @@ Class of the materials which have a mass and a heat capacity.
     </energy:construction>
     <energy:area uom="m2">50.0</energy:area>
     <energy:isGroundCoupled>false</energy:isGroundCoupled>
-    <energy:isSunExposed>true</energy:isSunExposed>                                     
+    <energy:isSunExposed>true</energy:isSunExposed>
 </energy:ThermalComponent>
-
 ```
 
 ### Gas
 
-Class of the material whose mass and heat capacity are neglectable in
-comparison with `SolidMaterial`.
+Class of the material whose mass and heat capacity are neglectable in comparison with `SolidMaterial`.
 
 ```xml
 <!--Example of a material whose mass and heat capacity are neglectable-->
@@ -497,10 +506,7 @@ comparison with `SolidMaterial`.
     <energy:isVentilated>false</energy:isVentilated>
     <energy:rValue uom="m2kw-1">4.5</energy:rValue>
 </energy:Gas>
-
 ```
-
-
 
 [Picture: Cut of the wall of the same wall - Joachim? Peter?]
 
@@ -508,31 +514,19 @@ comparison with `SolidMaterial`.
 
 ### Transmittance
 
-Fraction of incident radiation passes through a specific object.
-
-It is specified for a given wavelength range type (`wavelengthRange`) .  In
-particular, the total transmittance of a window correspond to its *g-value*
-(also called Solar Heat Gain Coefficient).
-
-The transmittance percentage should be included between 0% (opaque object) and
-100% (transparent object).
+Fraction of incident radiation passes through a specific object. It is specified for a given wavelength range type (`wavelengthRange`) .  In
+particular, the total transmittance of a window correspond to its *g-value* (also called Solar Heat Gain Coefficient).
+The transmittance percentage should be included between 0% (opaque object) and 100% (transparent object).
 
 ### Reflectance
 
-Fraction of incident radiation which is reflected by an object.
-
-It is specified for a given surface (`SurfaceSide`), for a given wavelength
-range type.  The sum of the transmittance, reflectance and the absorptance of a
-surface/object is always 1.
+Fraction of incident radiation which is reflected by an object. It is specified for a given surface (`SurfaceSide`), for a given wavelength range type.  The sum of the transmittance, reflectance and the absorptance of a surface/object is always 1.
 
 ### Emissivity
 
-Ratio of the infrared (also called long-wave) radiation emitted by a specific
-surface /object to that of a black body.
+Ratio of the infrared (also called long-wave) radiation emitted by a specific surface /object to that of a black body.
 
-It is specified for a given surface (SurfaceSide).  According with the Kirchoff
-and Lambert law, for a diffuse grey body, the aborptance and the emittance are
-equals for a given wavelength range.
+It is specified for a given surface (SurfaceSide).  According with the Kirchoff and Lambert law, for a diffuse grey body, the aborptance and the emittance are equals for a given wavelength range.
 
 ### WavelengthRangeType
 
@@ -724,22 +718,15 @@ Same structure and attributes as in ElectricalAppliances
 
 ![Class diagram of Energy System Module](fig/class_EnergySystem.png)
 
-The Energy System Module is a module of the ADE Energy, which contains the
-information concerning the energy forms (energy demand, supply, sources) and
-the energy systems (conversion, distribution and storage systems). It is
-arranged around one central `EnergyDemand` object.
+The Energy System Module is a module of the ADE Energy, which contains the information concerning the energy forms (energy demand, supply, sources) and the energy systems (conversion, distribution and storage systems). It is arranged around one central `EnergyDemand` object.
 
 ## Energy Amounts and Forms
 
 ### EnergyDemand
 
-Useful energy required to satisfy a specific end use, such as heating, cooling,
-domestic hot water etc.  Beside its `EndUseType`, this object is characterized
-its `energyAmount` (time-depending energy demand value) and its maximum yearly
-load (`maximumLoad`) used for the sizing of the energy systems.
+Useful energy required to satisfy a specific end use, such as heating, cooling, domestic hot water etc.  Beside its `EndUseType`, this object is characterized its `energyAmount` (time-depending energy demand value) and its maximum yearly load (`maximumLoad`) used for the sizing of the energy systems.
 
-Every `_CityObject` (typically `ADE:_AbstractBuilding`, `ThermalZone`,
-`UsageZone` and `BuildingUnit`) may have one or more `EnergyDemand`.
+Every `_CityObject` (typically `ADE:_AbstractBuilding`, `ThermalZone`, `UsageZone` and `BuildingUnit`) may have one or more `EnergyDemand`.
 
 ### EndUseType
 
@@ -747,14 +734,11 @@ List of possible end uses as cooking, space heating and ventilation.
 
 ### EnergySource
 
-Final energy consumed (and sometimes produced) by the energy conversion system.
-
-Its energy characteristics are specified in the Energy Carrier object.
+Final energy consumed (and sometimes produced) by the energy conversion system. Its energy characteristics are specified in the Energy Carrier object.
 
 ### EnergyCarrier
 
-Primary energy and $CO_2$ emission factors, energy density and energy carrier
-type characterize this data type for energy carriers.
+Primary energy and $CO_2$ emission factors, energy density and energy carrier type characterize this data type for energy carriers.
 
 ### EnergyCarrierType
 
@@ -764,10 +748,7 @@ List of energy carriers as coal, chilled water or electricity.
 
 ### EnergyDistributionSystem
 
-System in charge of delivering the energy inside the building, from the place
-of energy production to the place of end-use. Power and Thermal distribution
-systems are differentiated. They all share a distribution perimeter that is
-described by the distribution type.
+System in charge of delivering the energy inside the building, from the place of energy production to the place of end-use. Power and Thermal distribution systems are differentiated. They all share a distribution perimeter that is described by the distribution type.
 
 ### Distribution Type
 
@@ -775,9 +756,7 @@ A list of possible distribution perimeters, e.g. Building, Dwelling, Room.
 
 ### ThermalDistributionSystem
 
-Type for thermal distribution systems with attributes for circulation
-(circulating system or not), the used medium, nominal flow, return and supply
-temperatures and thermal losses factor.
+Type for thermal distribution systems with attributes for circulation (circulating system or not), the used medium, nominal flow, return and supply temperatures and thermal losses factor.
 
 ### PowerDistributionSystem
 
@@ -791,19 +770,15 @@ This list is a collection of medium types as air and water.
 
 ### StorageSystem
 
-System storing energy. A same storage may store the energy of different
-end-users and different end uses. Power and Thermal storage systems are
-differentiated.
+System storing energy. A same storage may store the energy of different end-users and different end uses. Power and Thermal storage systems are differentiated.
 
 ### ThermalStorageSystem
 
-Thermal storages with a medium, preparation temperature, thermal losses factor
-and a volume.
+Thermal storages with a medium, preparation temperature, thermal losses factor and a volume.
 
 ### PowerStorageSystem
 
-Electrical storages with an electrical capacity and a string to describe the
-battery technology.
+Electrical storages with an electrical capacity and a string to describe the battery technology.
 
 ## Energy Conversion
 
@@ -812,76 +787,55 @@ battery technology.
 System converting an energy source into the energy necessary to satisfy the
 `EnergyDemand` (or to feed the networks).
 
-Energy conversion systems have common parameters: efficiency indicator, nominal
-installed power, nominal efficiency (in reference to an efficiency indicator),
-year of manufacture, name of the model, a serial number, a reference to product
-or installation documents and optionally refurbishment measures. They may be
-one or more (in this case, the nominal installed power corresponds to the
-totality).
+Energy conversion systems have common parameters: efficiency indicator, nominal installed power, nominal efficiency (in reference to an efficiency indicator), year of manufacture, name of the model, a serial number, a reference to product or installation documents and optionally refurbishment measures. They may be one or more (in this case, the nominal installed power corresponds to the totality).
 
 Specific energy conversion systems may have in addition specific parameters:
 
-A same system may have several operation modes (e.g. heat pump covering heating
-and domestic hot water demands).
+A same system may have several operation modes (e.g. heat pump covering heating and domestic hot water demands).
 
 ### SystemOperation
 
-It details the operation of the energy conversion system for a specific end-use
-and operation time.  For instance, a reversible heat pump may have 3 operation
-modes: heating production in winter, cooling production in summer, and hot
-water production during the whole year. Attributes are end use type, a schedule
-for operation time and yearly global efficiency.
+It details the operation of the energy conversion system for a specific end-use and operation time.  For instance, a reversible heat pump may have 3 operation modes: heating production in winter, cooling production in summer, and hot water production during the whole year. Attributes are end use type, a schedule for operation time and yearly global efficiency.
 
 ### DistrictNetworkSubstation
 
-Subtype of `EnergyConversionSystem` for heating or cooling networks
-substations. Adds attributes for network ID and network node ID.
+Subtype of `EnergyConversionSystem` for heating or cooling networks substations. Adds attributes for network ID and network node ID.
 
 ### HeatPump
 
-Subtype of `EnergyConversionSystem` for heat pumps to add carnot efficiency and
-heat source. Heat source is described using a `HeatSourceType`.
+Subtype of `EnergyConversionSystem` for heat pumps to add carnot efficiency and heat source. Heat source is described using a `HeatSourceType`.
 
 ### HeatSourceType
 
-List of heat source types for heat pumps, e.g. ambient air, aquifer and exhaust
-air.
+List of heat source types for heat pumps, e.g. ambient air, aquifer and exhaust air.
 
 ### ElectricalResistance
 
-Subtype of `EnergyConversionSystem` for electrical resistances. Comes without
-additional attributes.
+Subtype of `EnergyConversionSystem` for electrical resistances. Comes without additional attributes.
 
 ### MechanicalVentilation
 
-Subtype of `EnergyConversionSystem` for ventilation systems with attributes
-heat recovery (with or without) and recuperation factor.
+Subtype of `EnergyConversionSystem` for ventilation systems with attributes heat recovery (with or without) and recuperation factor.
 
 ### CombinedHeatPower
 
-Subtype of `EnergyConversionSystem` for CHP systems. Utilizes a string
-describing the technology type.
+Subtype of `EnergyConversionSystem` for CHP systems. Utilizes a string describing the technology type.
 
 ### Boiler
 
-Subtype of `EnergyConversionSystem` for boiler. Defines if it is a condensation
-boiler or not.
+Subtype of `EnergyConversionSystem` for boiler. Defines if it is a condensation boiler or not.
 
 ### SolarEnergySystem
 
-Subclass of `EnergyConversionSystem` for solar energy systems. Has attributes
-for collector surface, azimuth and inclination. Differentiates into solar
-thermal and photovoltaic systems.
+Subclass of `EnergyConversionSystem` for solar energy systems. Has attributes for collector surface, azimuth and inclination. Differentiates into solar thermal and photovoltaic systems.
 
 ### SolarThermalSystem
 
-Subtype of `SolarEnergySystem` for thermal systems. Uses a string to describe
-the technology type.
+Subtype of `SolarEnergySystem` for thermal systems. Uses a string to describe the technology type.
 
 ### PhotovoltaicSystem
 
-Subtype of `SolarEnergySystem` for photovoltaic systems. Defines the material
-type of photovoltaic cells with a string.
+Subtype of `SolarEnergySystem` for photovoltaic systems. Defines the material type of photovoltaic cells with a string.
 
 # References
 
