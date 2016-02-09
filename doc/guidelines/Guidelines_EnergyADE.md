@@ -8,7 +8,8 @@ Its structure is thought of as modular; some of its modules can be potentially u
 
 # Building Physics Module
 
-This central module of the Energy ADE contains the thermal building objects required for the building energy modelling (e.g. `ThermalZone`, `ThermalBoundary`, `ThermalComponent`). These thermal building objects are linked to the CityGML building objects through its `_AbstractBuilding`, `_BoundarySurface` and `_Opening` classes.
+This central module of the Energy ADE contains the thermal building objects required for building thermal modelling (e.g. calculation of space heating and space cooling demands): `ThermalZone`, `ThermalBoundary`, `ThermalComponent`. These thermal building objects are linked to the CityGML building objects through its `_AbstractBuilding`, `_BoundarySurface`, respectively `_Opening` classes.
+A Building may have several `ThermalZone`, for instance in the case of mixed-usage building, or to distinguish rooms or zones with difference orientations (i.e. different solar gains). These `ThermalZone` are separated to each other and to the outside by `ThermalBoundary`. These `ThermalBoundary` may or not correspond to the CityGML `_BoundarySurface`. However, since `globalSolarIrradiance` incident on `_BoundarySurface` is an important term of the building energy balance, every `ThermalBoundary` delimiting the `ThermalZone` from outside should be related (`correspondsTo`) with a `_BoundarySurface`.
 
 ## Building, zones and boundaries
 
@@ -16,7 +17,7 @@ This central module of the Energy ADE contains the thermal building objects requ
 
 ### \_AbstractBuilding 
 
-The Energy ADE extends the CityGML _AbstractBuilding by a number of attributes, e.g with regards to the attic and basement type, the construction style, the availability of Energy Performance certificates, etc. It is possible to define different types of floor area (e.g. gross area and net area), as well as to add refurbishment measures applied to the building.
+The Energy ADE extends the CityGML _AbstractBuilding by a number of energy-related attributes, e.g with regards to the attic and basement type, the construction style, the availability of Energy Performance certificates, etc. It is possible to define different types of floor area (e.g. gross area and net area), as well as to add refurbishment measures applied to the building.
 
 In the forllowing, an example of a building is given. Please note that the standard CityGML attributes are omitted for better readibility.
 
