@@ -127,12 +127,47 @@ In the forllowing, an example of a building is given. Please note that the stand
 #### RefurbishmentMeasure
 
 ```xml
-<!--Example of Refurbishment Measure On Building-->
+<!--Example of a Refurbishment Measure on a building with a very vague date ("before June 2010") -->
 <energy:refurbishmentMeasureOnBuilding>
     <energy:RefurbishmentMeasure>
         <energy:dateOfRefurbishment>
             <energy:DateOfEvent>
                 <energy:instant indeterminatePosition="before">2010-06</energy:instant>
+            </energy:DateOfEvent>
+        </energy:dateOfRefurbishment>
+        <energy:levelOfRefurbishment>UsualRefurbishment</energy:levelOfRefurbishment>
+    </energy:RefurbishmentMeasure>
+</energy:refurbishmentMeasureOnBuilding>
+```
+
+
+```xml
+<!--Example of an advanced Refurbishment Measure in the years 1998 and 1999 -->
+<energy:refurbishmentMeasureOnBuilding>
+    <energy:RefurbishmentMeasure>
+        <energy:dateOfRefurbishment>
+            <energy:DateOfEvent>
+                <energy:period>
+                    <gml:TimePeriod>
+                        <gml:beginPosition>1998</gml:beginPosition>
+                        <gml:endPosition>2000</gml:endPosition>
+                    </gml:TimePeriod>
+                </energy:period>
+            </energy:DateOfEvent>
+        </energy:dateOfRefurbishment>
+        <energy:levelOfRefurbishment>AdvancedRefurbishment</energy:levelOfRefurbishment>
+    </energy:RefurbishmentMeasure>
+</energy:refurbishmentMeasureOnBuilding>    
+```
+
+
+```xml
+<!--Example of an usual Refurbishment Measure in June 2012 -->
+<energy:refurbishmentMeasureOnBuilding>
+    <energy:RefurbishmentMeasure>
+        <energy:dateOfRefurbishment>
+            <energy:DateOfEvent>
+                <energy:instant>2012-06</energy:instant>
             </energy:DateOfEvent>
         </energy:dateOfRefurbishment>
         <energy:levelOfRefurbishment>UsualRefurbishment</energy:levelOfRefurbishment>
