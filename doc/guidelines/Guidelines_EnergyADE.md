@@ -177,13 +177,13 @@ In the forllowing, an example of a building is given. Please note that the stand
 
 ### \_Opening
 
-The CityGML abstract class `_Opening` is also extended by a number of energy-related attributes, in that openings (namely: windows and doors) may have an indoor and an outdoor shading system. They are further defined by an openable ratio. An example for a window and one for a door are given in the following. As in the Building example shown before, the standard CityGML attributes have been omitted for better readability. The door example is simpler and contains also information about construction and construction orientation (by means of Xlinks).
+The CityGML abstract class `_Opening` is extended by a number of energy-related attributes, in that openings (namely: windows and doors) may have an indoor and an outdoor shading system. They are further defined by an openable ratio. An example for a window and one for a door are given in the following. As in the Building example shown before, the standard CityGML attributes have been omitted for better readability. The door example is simpler and contains also information about construction and construction orientation (by means of Xlinks).
 
 ```xml
 <!--Example of a Window object -->
 <bldg:Window gml:id="id_window_1">
 	<gml:description>This is Window with an ouside rolling shutter and curtains inside</gml:description>
-	<gml:name>Window with rolling shutter and curtains1</gml:name>
+	<gml:name>Window with rolling shutter and curtains</gml:name>
 
 	<energy:outdoorShading>
 		<energy:ShadingType>
@@ -232,27 +232,18 @@ The CityGML abstract class `_Opening` is also extended by a number of energy-rel
 
 ### \_BoundarySurface
 
-Extension of CityGML object `_BoundarySurface` in Application Domain Extension Energy. Even empty, this subtype is necessary for the connection of the ADE Energy to the CityGML, since a bi-directional associations to the existing definitions is added.
-
-## Solar irradiances and Daylighting
-
-To realize solar and daylight potential studies, the Energy ADE enables to store the incident global solar irradiances, respectively the daylight illuminances available on each outside boundary surface of the buildings.
-
-Both `globalSolarIrradiance` and `daylightIlluminance` are attributes of the object `_BoundarySurface`, of type `_TimeSeries` (see details in Temporal Data Module).
-
-### globalSolarIrradiance
-
-It is the sum of the direct, diffuse and reflected irradiance incident on a outside boundary surface. Its unit of measure is the Watt per sqm ($W/m^2$). These values are typically used as source terms for the thermal calculations within the buildings (more precisely the `_ThermalZone`), but also for the calculation of the energy producted by the solar systems (photovoltaic and solar thermal panels).
-
-### daylightIlluminance
-
-It is the sum of the direct, diffuse and reflected solar illuminance incident on a outside boundary surface. Its unit of measure is the Lux ($lx$). These values are typically used for outside and inside daylighting study, as well as the calculation of the energy consumptions of lighting systems required to reach the room illuminance threshold when the daylight illuminance is not enough.
-
+The CityGML abstract class `_BoundarySurface` is extended by a number of attributes in order to store the incident global solar irradiances and the daylight illuminances available on each outside boundary surface of the building. Moreover, specific information about refurbishmennt measures can also be associated to a certain _BoundarySurface object (e.g. a Roofsurface, a Wallsurface, etc.).
+The global solar irradiance is the sum of the direct, diffuse and reflected irradiance incident on a outside boundary surface and is generally expressed in Watts per square metre.  These global solar irradiance is generally used for the thermal calculations within the buildings (more precisely the `_ThermalZone`), but also for the calculation of the energy yield from the solar systems (e.g. photovoltaic and solar thermal panels).
+Daylight illuminance is the sum of the direct, diffuse and reflected solar illuminance incident on a outside boundary surface. It is generally expressed in Lux. Daylight illuminance is typically used for outside and inside daylighting study, as well as the calculation of the energy consumptions of lighting systems required to reach the room illuminance threshold when the daylight illuminance is not enough.
+Both `globalSolarIrradiance` and `daylightIlluminance` attributes contain `_Timeseries` data (see details in Temporal Data Module).
+In the following, a XML example of a roof is given.
 
 ```xml
 <!--Example of a Roof object -->
+<!--
+TO DO: Add here example of roof
+-->
 ```
-
 
 ### ThermalZone
 
@@ -260,7 +251,7 @@ A `ThermalZone` is a zone of a building (or of a building part) which serves as 
 The `ThermalZone` may be related to a room (`gml:Room`), and may optionally contain an explicit volume geometry (e.g. useful for visualisation purposes).
 The actual surface boundaries of a ThermalZone are defined by means of `ThermalBoudary` objects (see later).
 
-This class `ThermalZone` inherits from `_CityObject`, and may therefore be associated to one or more `EnergyDemand` objects (see module Energy Systems).  For heating/cooling simulations, the `ThermalZone` must be related to at least one (or more) `UsageZone` objects (see Occupancy Module).
+The class `ThermalZone` inherits from `_CityObject`, and may therefore be associated to one or more `EnergyDemand` objects (see module Energy Systems).  For heating/cooling simulations, the `ThermalZone` must be related to at least one (or more) `UsageZone` objects (see Occupancy Module).
 In the following, the first XML example shows the structure of a ThermalZone without volume geometry. The second one exemplifies instead how to add such an attribute (called volumeGeometry).
 
 ```xml
