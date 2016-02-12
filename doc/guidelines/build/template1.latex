@@ -144,6 +144,9 @@ $for(author)$$author$$sep$\\$endfor$}
 \newpage
 }
 
+% show only two levels in the table of content
+\setcounter{tocdepth}{2}
+
 \begin{document}
 \pagestyle{titlepage}
 $if(title)$
