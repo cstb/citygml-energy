@@ -461,10 +461,10 @@ This schedule complies in particular with the data requirements of the codes and
 <!--Example of the heating schedule of a residential building:-->
 <energy:heatingSchedules>
     <energy:DualValueSchedule>
-        <energy:usageValue uom="\degree{C}">20</energy:usageValue>
-        <energy:idleValue uom="\degree{C}">16</energy:idleValue>
-        <energy:usageHoursPerDay uom="">17</energy:usageHoursPerDay>
-        <energy:usageDaysPerYear uom="">365</energy:usageDaysPerYeary>
+        <energy:usageValue uom="°C">20</energy:usageValue>
+        <energy:idleValue uom="°C">16</energy:idleValue>
+        <energy:usageHoursPerDay uom="hour">17</energy:usageHoursPerDay>
+        <energy:usageDaysPerYear uom="day">365</energy:usageDaysPerYeary>
     </energy:DualValueSchedule>
 </energy:heatingSchedules>
 ```
@@ -525,9 +525,9 @@ Class of the materials which have a mass and a heat capacity.
                     <energy:material>
                         <energy:SolidMaterial>
                             <gml:name>Concrete 2100</gml:name>
-                            <energy:conductivity uom="wm-1k-1">2.035</energy:conductivity>
-                            <energy:density uom="kgm-3">2100.0</energy:density>
-                            <energy:specificHeat uom="jkg-1K-1">920.0</energy:specificHeat>
+                            <energy:conductivity uom="W/(K*m^2)">2.035</energy:conductivity>
+                            <energy:density uom="kg/m^3">2100.0</energy:density>
+                            <energy:specificHeat uom="J/(K*kg)">920.0</energy:specificHeat>
                         </energy:SolidMaterial>
                     </energy:material>
                 </energy:LayerComponent>
@@ -539,9 +539,9 @@ Class of the materials which have a mass and a heat capacity.
                     <energy:material>
                         <energy:SolidMaterial>
                             <gml:name>Insulation 047</gml:name>
-                            <energy:conductivity uom="wm-1k-1">0.047</energy:conductivity>
-                            <energy:density uom="kgm-3">75.0</energy:density>
-                            <energy:specificHeat uom="jkg-1K-1">840.0</energy:specificHeat>
+                            <energy:conductivity uom="W/(K*m^2)">0.047</energy:conductivity>
+                            <energy:density uom="kg/m^3">75.0</energy:density>
+                            <energy:specificHeat uom="J/(K*kg)">840.0</energy:specificHeat>
                         </energy:SolidMaterial>
                     </energy:material>
                 </energy:LayerComponent>
@@ -552,10 +552,10 @@ Class of the materials which have a mass and a heat capacity.
                     <energy:thickness uom="m">0.025</energy:thickness>
                     <energy:material>
                         <energy:SolidMaterial>
-                            <gml:name>Fassade</gml:name>
-                            <energy:conductivity uom="wm-1k-1">0.45</energy:conductivity>
-                            <energy:density uom="kgm-3">1300.0</energy:density>
-                            <energy:specificHeat uom="jkg-1K-1">1050.0</energy:specificHeat>
+                            <gml:name>Facade</gml:name>
+                            <energy:conductivity uom="W/(K*m^2)">0.45</energy:conductivity>
+                            <energy:density uom="kg/m^3">1300.0</energy:density>
+                            <energy:specificHeat uom="J/(K*kg)">1050.0</energy:specificHeat>
                         </energy:SolidMaterial>
                     </energy:material>
                 </energy:LayerComponent>
@@ -571,10 +571,10 @@ Class of the materials which have a mass and a heat capacity.
 <energy:ThermalComponent>
     <energy:construction>
         <energy:Construction>
-            <energy:uValue uom="wm-2k-1">3.0</energy:uValue>
+            <energy:uValue uom="W/(K*m^2)">3.0</energy:uValue>
         </energy:Construction>
     </energy:construction>
-    <energy:area uom="m2">50.0</energy:area>
+    <energy:area uom="m^2">50.0</energy:area>
     <energy:isGroundCoupled>false</energy:isGroundCoupled>
     <energy:isSunExposed>true</energy:isSunExposed>
 </energy:ThermalComponent>
@@ -588,7 +588,7 @@ Class of the material whose mass and heat capacity are neglectable in comparison
 <!--Example of a material whose mass and heat capacity are neglectable-->
 <energy:Gas>
     <energy:isVentilated>false</energy:isVentilated>
-    <energy:rValue uom="m2kw-1">4.5</energy:rValue>
+    <energy:rValue uom="m^2*K/W">4.5</energy:rValue>
 </energy:Gas>
 ```
 
