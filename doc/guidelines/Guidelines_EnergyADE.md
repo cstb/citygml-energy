@@ -413,56 +413,64 @@ A XML example is presented in the following.
 
 # Temporal Data Module
 
-[XML example: Timeseries (e.g. monthly values...) for one boundary surface]
-
 ## Time Series
 
 ![Class diagram of ADE Energy Core - Time Series](fig/class_time.png)
 
-Time series are homogeneous list of time-depending values. They are used in the Energy ADE to store energy amount or schedule for instance. As non-domain specific feature, they is planned to be integrated in the CityGML 3.0. They have common properties specified in the type
+Time series are homogeneous lists of time-depending values. They are used in the Energy ADE to store energy amount or a schedule, for instance. As they actually are a data type which is not domain-specific, they are planned to be integrated in the CityGML 3.0.
+All time series share some common properties, contained in the variableProperties attribute. These properties are the variable label, the variable unit of measure (*uom*), the interpolation type (based on the [WaterML ADE](http://def.seegrid.csiro.au/sissvoc/ogc-def/resource?uri=http://www.opengis.net/def/waterml/2.0/interpolationType/)) and some further metadata like the data source, the acquisition method and a quality description.
+Time series can be either regular or irregular.  *RegularTimeSeries* contain values generated at regularly spaced interval of time (`timeInterval`), over a given `temporalExtent` (i.e. start, end and duration time). They are used, for instance, to store automatically acquired data or hourly/daily/monthly simulation results.
+In *IrregularTimeSeries*, data follows a temporal sequence, but the measurement points may not happen at a regular time interval[^1]. Therefore, each value must be associated with a data or time.
+What is more, each time series can be stored as an external file (e.g. csv or text) and for this purpose a number of attributes  provides the required information about how to retrieve the proper set of values from the files.
+In the following, several examples of time series are given.
 
-### TimeValuesProperties
+```xml
+<!--Example of RegularTimeSeries object with 12 monthly values-->
+```
 
-These properties are the variable label, the variable unit of measure (*uom*), the interpolation type (based on the [WaterML ADE](http://def.seegrid.csiro.au/sissvoc/ogc-def/resource?uri=http://www.opengis.net/def/waterml/2.0/interpolationType/)) and some data acquisition information like the data source, the acquisition method and the quality description.
 
-Time Series can be either regular or irregular.
+```xml
+<!--Example of RegularTimeSeries object with hourly values (exerpt)-->
+```
 
-**RegularTimeSeries** contain `values` generated at regularly spaced interval of time (`timeInterval`), over a given `temporalExtent` (= start, end and duration time). They are relevant for instance to store automatically acquired data or hourly/daily/monthly simulation results.
+```xml
+<!--Example of RegularTimeSeriesFile object-->
+```
 
-In **IrregularTimeSeries**, the data in the time series follows also a temporal sequence, but the measurement points might not happen at a regular time interval[^1]. Therefore, each value must be associated with a data or time.
+```xml
+<!--Example of IrregularTimeSeries object-->
+```
 
 ## Schedules
 
 ![Class diagram of ADE Energy Core - Schedules](fig/class_schedules.png)
 
-The type Schedule is used in the Energy ADE for different kinds of schedules and variables, including heating/cooling schedules (set-point temperatures), ventilation schedules (mechanical air change rate) and occupancy rate.
-
-Schedules may be modelled with 4 "semantic levels of details" depending on the available information and the application.
+The type Schedule is used in the Energy ADE for different kinds of schedules, e.g. heating/cooling schedules (set-point temperatures), ventilation schedules (mechanical air change rate) and occupancy rate.
+Schedules can be modelled up to 4 "semantic" levels of details depending on the available information and the application requirement. These levels of detail range from a simple constant value to a schedule characterised by a _TimeSeries object.
 
 ### ConstantValueSchedule
 
-Most basic level of detail, it corresponds to a constant value, generally corresponding to the average parameter value.
+The simplest level of detail, this Schedule is defined by a constant value, generally corresponding to the average parameter value.
 
 ```xml
-<!--Example of the cooling schedule of a residential building:-->
+<!--Example of the cooling ConstantValueSchedule of a residential building-->
 <energy:coolingSchedule>
-    <energy:ConstantValueSchedule*>
-        <energy:averageValue uom="\degree{C}">26</energy:averageValue>
-    </energy:ConstantValueSchedule*>
+    <energy:ConstantValueSchedule>
+        <energy:averageValue uom="degree Celsius">26</energy:averageValue>
+    </energy:ConstantValueSchedule>
 </energy:coolingSchedule>
 ```
 
 ### DualValueSchedule
 
-Two-state schedule, specified by a usage value defined for usage times, and an idle value outside this temporal boundaries. Information about the approximate number of usage days per year and usage hours per usage days are also defined.
-This schedule complies in particular with the data requirements of the codes and norms describing the monthly energy balance (DIN 18599-2, ISO 13790).
+A two-state schedule, this schedule is defined by a usage value for usage times, and an idle value outside this temporal boundaries. Information about the number of usage days per year and usage hours per usage days are also defined. This schedule complies in particular with the data requirements of the codes and norms describing the monthly energy balance (DIN 18599-2, ISO 13790).
 
 ```xml
-<!--Example of the heating schedule of a residential building:-->
+<!--Example of a heating DualValueSchedule of a residential building-->
 <energy:heatingSchedules>
     <energy:DualValueSchedule>
-        <energy:usageValue uom="°C">20</energy:usageValue>
-        <energy:idleValue uom="°C">16</energy:idleValue>
+        <energy:usageValue uom="degree Celsius">20</energy:usageValue>
+        <energy:idleValue uom="degree Celsius">16</energy:idleValue>
         <energy:usageHoursPerDay uom="hour">17</energy:usageHoursPerDay>
         <energy:usageDaysPerYear uom="day">365</energy:usageDaysPerYeary>
     </energy:DualValueSchedule>
@@ -481,20 +489,73 @@ Most detailed schedule corresponding to a Time series as described above.
 
 ![Class diagram of Construction Module](fig/class_construction.png)
 
-The Construction and Material is a module of the ADE Energy, which contains the physical characterization of the boundary surfaces, surface components and even whole building (and potentially all the objects which inherits of `_CityObject`).
-It may be extended for multi-field analysis (statics, acoustics etc.).
+The Construction and Material module of the ADE Energy contains the physical characterization of the boundary surfaces, surface components and, possibly, even the whole building. As it inherits from class `_CityObject`, all similar objects can be described also by means of construction and materials. Given that the nature of this module is not domain-specific, it can be used beyond energy-related applications (e.g. in statics, acoustics etc.) 
 
-## Construction and layers
+## Construction
 
-### Construction
+Physical characterisation of building envelop or intern room partition (e.g. wall, roof, openings), it may be specified as an ordered combination of layers. In the Energy ADE, the object Construction can be linked to the `_ThermalComponents`, in order to defined the physical parameters of a walls, roofs of windows, for a space heating/cooling calculation. However, it may possibly be linked to any `_CityObject` for other purposes, in particular to `_BoundarySurface`, `_Opening` or even `_AbstractBuilding`.
+Each construction object is characterised by a number of attributes like the U-value, or some optical properties, like transmittance, reflecatance and emissivity.
+In particular, *Transmittance* is the fraction of incident radiation which passes through a specific object. It is specified for a given wavelength range type (`wavelengthRange`). For example, the total transmittance of a window correspond to its *g-value* (also called Solar Heat Gain Coefficient). The transmittance value is included between 0 (completely opaque object) and 1 (completely transparent object).
+*Reflectance* is the fraction of incident radiation which is reflected by an object. It is specified for a given surface (`SurfaceSide`) and for a given wavelength range type.
+*Emissivity* is the ratio of the infrared (also called long-wave) radiation emitted by a specific surface/object to that of a black body. It is specified for a given surface (SurfaceSide). According with the Kirchoff and Lambert law, for a diffuse grey body the aborptance and the emittance are equal for a given wavelength range.
+The sum of the transmittance, reflectance and emissivity (or absorptance) fractions of a surface/object is always 1.
+In the following, several examples of Construction objects are presented, with different levels of complexity.
 
-Physical characterisation of building envelop or intern room partition (e.g. wall, roof, openings), it may be specified as an ordered combination of layers. In the Energy ADE, the object Construction aims to be linked to the `_ThermalComponents`, in order to defined the physical parameters of a walls, roofs of windows, for a space heating/cooling calculation. However, it may possibly be linked to any `_CityObject` for other purposes, in particular to `gml:_BoundarySurface`, `gml:_Opening` or even `_AbstractBuilding`.
+```xml
+<!--Example of Construction object-->
+```
 
-[XML code example]
+```xml
+<!--Example of a simple wall construction just with a U-value-->
+<energy:Construction gml:id="id_construction_2">
+	<gml:description>Description of Construction 2</gml:description>
+	<gml:name>Name of Construction 2</gml:name>
+	<energy:uValue uom="W/(K*m^2)">3.0</energy:uValue>
+</energy:Construction>
+```
 
-### ConstructionOrientation
+```xml
+<!--Example of window Construction object-->
+<energy:Construction gml:id="id_construction_2">
+	<gml:description>Description of the windows Construction</gml:description>
+	<gml:name>Name of the window Construction</gml:name>
 
-Class defining the orientation convention of the Construction, it means the order of the layers. A same Construction, common to different zones or buildings, will be orientated in two different directions for instance. 
+	<energy:uValue uom="W/(K*m^2)">1.9</energy:uValue>
+	<energy:opticalProperties>
+		<energy:OpticalProperties>
+			<energy:reflectance>
+				<energy:Reflectance>
+					<energy:fraction uom="ratio">0.2</energy:fraction>
+					<energy:surface>Outside</energy:surface>
+					<energy:wavelengthRange>Solar</energy:wavelengthRange>
+				</energy:Reflectance>
+			</energy:reflectance>
+			<energy:transmittance>
+				<energy:Transmittance>
+					<energy:fraction uom="ratio">0.8</energy:fraction>
+					<energy:wavelengthRange>Solar</energy:wavelengthRange>
+				</energy:Transmittance>
+			</energy:transmittance>
+			<energy:glazingRatio uom="ratio">0.9</energy:glazingRatio>
+		</energy:OpticalProperties>
+	</energy:opticalProperties>
+
+</energy:Construction>
+```
+
+## ConstructionOrientation
+
+This class defines the orientation convention of the `Construction` object it is referred to. In other words, it indicates in which order the layers are to be considered (from inside to outside, or viceversa), because the same construction, if common to different zones or buildings, might be orientated in two different directions for instance.
+
+```xml
+<!--Example of ConstructionOrientation object-->
+<energy:ConstructionOrientation gml:id="id_construction_orientation_ground_1">
+	<gml:description>Description of Construction Orientation 1 (from inside to outside)</gml:description>
+	<gml:name>Name of Construction Orientation 1</gml:name>
+	<energy:orientation>true</energy:orientation>
+	<energy:baseConstruction xlink:href="#id_construction_1"/>
+</energy:ConstructionOrientation>
+```
 
 ### Layer
 
@@ -563,21 +624,6 @@ Class of the materials which have a mass and a heat capacity.
         </energy:Layer>
     </energy:layer>
 </energy:Construction>
-
-```
-
-```xml
-<!--Example of a simple wall construction with U-value:-->
-<energy:ThermalComponent>
-    <energy:construction>
-        <energy:Construction>
-            <energy:uValue uom="W/(K*m^2)">3.0</energy:uValue>
-        </energy:Construction>
-    </energy:construction>
-    <energy:area uom="m^2">50.0</energy:area>
-    <energy:isGroundCoupled>false</energy:isGroundCoupled>
-    <energy:isSunExposed>true</energy:isSunExposed>
-</energy:ThermalComponent>
 ```
 
 ### Gas
@@ -585,7 +631,7 @@ Class of the materials which have a mass and a heat capacity.
 Class of the material whose mass and heat capacity are neglectable in comparison with `SolidMaterial`.
 
 ```xml
-<!--Example of a material whose mass and heat capacity are neglectable-->
+<!--Example of a gas material with neglectable mass and heat capacity-->
 <energy:Gas>
     <energy:isVentilated>false</energy:isVentilated>
     <energy:rValue uom="m^2*K/W">4.5</energy:rValue>
@@ -594,39 +640,13 @@ Class of the material whose mass and heat capacity are neglectable in comparison
 
 [Picture: Cut of the wall of the same wall - Joachim? Peter?]
 
-### Optical properties
-
-### Transmittance
-
-Fraction of incident radiation passes through a specific object. It is specified for a given wavelength range type (`wavelengthRange`) .  In
-particular, the total transmittance of a window correspond to its *g-value* (also called Solar Heat Gain Coefficient).
-The transmittance percentage should be included between 0% (opaque object) and 100% (transparent object).
-
-### Reflectance
-
-Fraction of incident radiation which is reflected by an object. It is specified for a given surface (`SurfaceSide`), for a given wavelength range type.  The sum of the transmittance, reflectance and the absorptance of a surface/object is always 1.
-
-### Emissivity
-
-Ratio of the infrared (also called long-wave) radiation emitted by a specific surface /object to that of a black body.
-
-It is specified for a given surface (SurfaceSide).  According with the Kirchoff and Lambert law, for a diffuse grey body, the aborptance and the emittance are equals for a given wavelength range.
-
-### WavelengthRangeType
-
-solar, infrared, visible or total
-
-[XML code example of window construction - Romain]
-
 # Occupancy Module
 
 ![Class diagram of Occupancy Module](fig/class_occupancy.png)
 
-The Occupancy Module is a module of the ADE Energy, which may be extended for multi-field analysis (socio-economics, demographics etc.).  It contains the characterization of the building usage, it is related to the rest of the ADE Energy and CityGML model through the unique class `UsageZone`.
+The Occupancy Module contains the detailed characterization of the building usage, it is related to the rest of the ADE Energy and CityGML model through the class `UsageZone`. Due to the type of information it allows to store, the Occupancy Module may be used also for multi-field analysis (socio-economics, demographics etc.).
 
-## Usage zone and Building Unit
-
-### UsageZone
+## UsageZone
 
 Zone of a building with homogeneous usage type. It is a semantic object, with an optional geometry (`volumeGeometry`), which may be or not related to a geometric entity (Building, BuildingPart, Room etc.).
 
@@ -694,18 +714,20 @@ Its internalGains attribute corresponds to the sum of the energy dissipated from
 
 TODO: Add examples of cooling, heating and ventilation schedules.
 
-### BuildingUnit
+## BuildingUnit
 
 A ``BuildingUnit` is a part of a `UsageZone` which is related to a single occupant entity, such as a dwelling or a  workplace. Owner information attributes (as owner name and ownership type) are specified in this class. It inherits from class `_CityObject`.
 
 ```xml
 <!--Example of a BuildingUnit-->
 <energy:BuildingUnit gml:id="id_building_unit_1">
-	<gml:description>Building Unit 1</gml:description>
-	<gml:name>Building Unit 1</gml:name>
+	<gml:description>Description of Building Unit 1</gml:description>
+	<gml:name>Name of Building Unit 1</gml:name>
+
 	<energy:numberOfRooms>2</energy:numberOfRooms>
 	<energy:ownerName>Lilli's Donuts</energy:ownerName>
 	<energy:ownershipType>OccupantPrivate</energy:ownershipType>
+
 	<energy:floorArea>
 		<energy:FloorArea>
 			<energy:type>netFloorArea</energy:type>
@@ -732,26 +754,71 @@ A ``BuildingUnit` is a part of a `UsageZone` which is related to a single occupa
 
 ## Occupants
 
-An `Occupants` class identifies a homogeneous group of occupants of a usage zone or building unit, defined with an occupant type (e.g. residents, workers, visitors etc.).
+An `Occupants` class identifies a homogeneous group of occupants of a usage zone or building unit, defined with an occupant type (e.g. residents, workers, visitors etc.). It can optionally contain one or more Household objects.
 
 ```xml
-<!--Example of a Occupants-->
+<!--Example of a Occupants object-->
+<energy:Occupants gml:id="id_occupants_1">
+	<gml:description>Description of Occupants 1</gml:description>
+	<gml:name>Name of Occupants 1</gml:name>
+
+	<energy:heatDissipation>
+		<energy:HeatExchangeType>
+			<energy:convectiveFraction uom="ratio">0.1</energy:convectiveFraction>
+			<energy:latentFraction uom="ratio">0.1</energy:latentFraction>
+			<energy:radiantFraction uom="ratio">0.8</energy:radiantFraction>
+			<energy:totalValue uom="W/person">80</energy:totalValue>
+		</energy:HeatExchangeType>
+	</energy:heatDissipation>
+
+	<energy:numberOfOccupants>3</energy:numberOfOccupants>
+
+	<energy:occupancyRate>
+		<!--Add here the Schedule data -->
+	</energy:occupancyRate>
+
+	<energy:occupantType>Residents</energy:occupantType>
+
+	<!--Here follow all Household objects, each inside a "consistsOf" tag-->
+	<energy:consiststOf>
+		<energy:Household gml:id="id_household_1">
+			<!--Here come all attributes of the first Household (omitted here)-->
+		</energy:Household>
+	</energy:consiststOf>
+	<energy:consiststOf>
+		<energy:Household gml:id="id_household_2">
+			<!--Here come all attributes of the second Household (omitted here)-->
+		</energy:Household>
+	</energy:consiststOf>
+
+</energy:Occupants>
 ```
 
 ## Household
 
-A `Household` class identifies a group of persons living in the same dwelling, in the case where occupants are residents. They are defined by a type (e.g. one family, worker couple etc…) and a residence type (main/secondary residence or vacant).
+A `Household` class identifies a group of persons living in the same dwelling, in the case where occupants are residents. They are defined by a type (e.g. one family, worker couple etc...) and a residence type (main/secondary residence or vacant).
 
 ```xml
-<!--Example of a Household-->
+<!--Example of a Household object-->
+<energy:Household gml:id="id_household_1">
+	<gml:description>Description of Household 1</gml:description>
+	<gml:name>Name of Household 1</gml:name>
+	<energy:residenceType>SecondaryResidence</energy:residenceType>
+	<energy:householdType>UnrelatedAdults</energy:householdType>
+</energy:Household>
 ```
 
-### DHWFacilities
+## Facilities
+
+Each `UsageZone` or `BuildingUnit` object can have one or multiple `Facilities` objects. Currently there are three types of facilities (DHWFacilities, ElectricalAppliances and LightingFacilities). Each of them is characterised by the heatDissipation and the operationSchedule attributes, plus some specific ones depending on the facility type.
+In the following, two XML examples are presented, one for domestic how water facilities and one for electrical applicances. Please note that the lighting facilities object shares the same structure and attributes of the ElectricalAppliances.
 
 ```xml
+<!--Example of a DHWFacilities object-->
 <energy:DHWFacilities gml:id="id_dhwfacilities_1">
 	<gml:description>Description of Domestic Hot Water Facilities 1</gml:description>
 	<gml:name>Name of Domestic Hot Water Facilities 1</gml:name>
+
 	<energy:heatDissipation>
 		<energy:HeatExchangeType>
 			<energy:convectiveFraction uom="ratio">0.5</energy:convectiveFraction>
@@ -760,9 +827,11 @@ A `Household` class identifies a group of persons living in the same dwelling, i
 			<energy:totalValue uom="W/m^2">10</energy:totalValue>
 		</energy:HeatExchangeType>
 	</energy:heatDissipation>
+
 	<energy:operationSchedule>
 		<!--Add here the Schedule data -->	
 	</energy:operationSchedule>
+
 	<energy:numberOfBaths>1</energy:numberOfBaths>
 	<energy:numberOfShowers>0</energy:numberOfShowers>
 	<energy:numberOfWashBasins>1</energy:numberOfWashBasins>
@@ -770,43 +839,34 @@ A `Household` class identifies a group of persons living in the same dwelling, i
 </energy:DHWFacilities>
 ```
 
-### ElectricalAppliances
-
 ```xml
-<!--Example of an ElectricalApplicances object:-->
+<!--Example of an ElectricalApplicances object-->
 <energy:ElectricalAppliances gml:id="id_electricalappliance_1">
 	<gml:description>Description of Electrical Applicance 1</gml:description>
 	<gml:name>Name of Electrical Applicance 1</gml:name>
+
 	<energy:heatDissipation>
 		<energy:HeatExchangeType>
-			<energy:convectiveFraction uom="ratio">0.5</energy:convectiveFraction>
-			<energy:latentFraction uom="ratio">0.3</energy:latentFraction>
-			<energy:radiantFraction uom="ratio">0.2</energy:radiantFraction>
 			<energy:totalValue uom="W/m^2">10</energy:totalValue>
 		</energy:HeatExchangeType>
 	</energy:heatDissipation>
-	<energy:electricalPower uom="kW">11</energy:electricalPower>
+
+	<energy:electricalPower uom="kW">1</energy:electricalPower>
+
 	<energy:operationSchedule>
 		<!--Add here the Schedule data -->	
 	</energy:operationSchedule>	
+
 </energy:ElectricalAppliances>
 ```
-
-
-### LightingFacilities
-
-Same structure and attributes as in ElectricalAppliances
-
 
 # Energy System Module
 
 ![Class diagram of Energy System Module](fig/class_EnergySystem.png)
 
-The Energy System Module is a module of the ADE Energy, which contains the information concerning the energy forms (energy demand, supply, sources) and the energy systems (conversion, distribution and storage systems). It is arranged around one central `EnergyDemand` object.
+The Energy System Module is a module of the ADE Energy which contains information concerning the energy forms (energy demand, supply, sources) and the energy systems (conversion, distribution and storage systems). It is arranged around one central `EnergyDemand` object.
 
-## Energy Amounts and Forms
-
-### EnergyDemand
+## EnergyDemand
 
 Useful energy required to satisfy a specific end use, such as heating, cooling, domestic hot water etc.  Beside its `EndUseType`, this object is characterized its `energyAmount` (time-depending energy demand value) and its maximum yearly load (`maximumLoad`) used for the sizing of the energy systems.
 
@@ -868,8 +928,7 @@ Electrical storages with an electrical capacity and a string to describe the bat
 
 ### EnergyConversionSystem
 
-System converting an energy source into the energy necessary to satisfy the
-`EnergyDemand` (or to feed the networks).
+System converting an energy source into the energy necessary to satisfy the `EnergyDemand` (or to feed the networks).
 
 Energy conversion systems have common parameters: efficiency indicator, nominal installed power, nominal efficiency (in reference to an efficiency indicator), year of manufacture, name of the model, a serial number, a reference to product or installation documents and optionally refurbishment measures. They may be one or more (in this case, the nominal installed power corresponds to the totality).
 
