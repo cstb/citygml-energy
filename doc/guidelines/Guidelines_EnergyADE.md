@@ -175,6 +175,85 @@ In the forllowing, an example of a building is given. Please note that the stand
 </energy:refurbishmentMeasureOnBuilding>
 ```
 
+### \_Opening
+
+The CityGML abstract class `_Opening` is also extended by a number of energy-related attributes, in that openings (namely: windows and doors) may have an indoor and an outdoor shading system. They are further defined by an openable ratio. An example for a window and one for a door are given in the following. As in the Building example shown before, the standard CityGML attributes have been omitted for better readability. The door example is simpler and contains also information about construction and construction orientation (by means of Xlinks).
+
+```xml
+<!--Example of a Window object -->
+<bldg:Window gml:id="id_window_1">
+	<gml:description>This is Window with an ouside rolling shutter and curtains inside</gml:description>
+	<gml:name>Window with rolling shutter and curtains1</gml:name>
+
+	<energy:outdoorShading>
+		<energy:ShadingType>
+			<energy:maximumCoverRatio uom="ratio">1</energy:maximumCoverRatio>
+			<energy:name>Rolling shutter</energy:name>
+			<energy:transmittance>
+				<energy:Transmittance>
+					<energy:fraction uom="ratio">0</energy:fraction>
+					<energy:wavelengthRange>Total</energy:wavelengthRange>
+				</energy:Transmittance>
+			</energy:transmittance>
+		</energy:ShadingType>
+	</energy:outdoorShading>
+
+	<energy:indoorShading>
+		<energy:ShadingType>
+			<energy:maximumCoverRatio uom="ratio">0.5</energy:maximumCoverRatio>
+			<energy:name>Curtain</energy:name>
+			<energy:transmittance>
+				<energy:Transmittance>
+					<energy:fraction uom="ratio">0.8</energy:fraction>
+					<energy:wavelengthRange>Total</energy:wavelengthRange>
+				</energy:Transmittance>
+			</energy:transmittance>
+		</energy:ShadingType>
+	</energy:indoorShading>
+
+	<energy:openableRatio uom="ratio">0.9</energy:openableRatio>
+
+</bldg:Window>
+```
+
+```xml
+<!--Example of a Door object -->
+<bldg:Door gml:id="id_door_1">
+	<gml:description>This is Door</gml:description>
+	<gml:name>Door 1</gml:name>
+	
+	<energy:constructionOrientation xlink:href="#id_construction_orientation_door"/>
+	<energy:construction xlink:href="#id_construction_orientation_door"/>
+
+	<energy:openableRatio uom="ratio">0.95</energy:openableRatio>
+
+</bldg:Door>
+```
+
+### \_BoundarySurface
+
+Extension of CityGML object `_BoundarySurface` in Application Domain Extension Energy. Even empty, this subtype is necessary for the connection of the ADE Energy to the CityGML, since a bi-directional associations to the existing definitions is added.
+
+## Solar irradiances and Daylighting
+
+To realize solar and daylight potential studies, the Energy ADE enables to store the incident global solar irradiances, respectively the daylight illuminances available on each outside boundary surface of the buildings.
+
+Both `globalSolarIrradiance` and `daylightIlluminance` are attributes of the object `_BoundarySurface`, of type `_TimeSeries` (see details in Temporal Data Module).
+
+### globalSolarIrradiance
+
+It is the sum of the direct, diffuse and reflected irradiance incident on a outside boundary surface. Its unit of measure is the Watt per sqm ($W/m^2$). These values are typically used as source terms for the thermal calculations within the buildings (more precisely the `_ThermalZone`), but also for the calculation of the energy producted by the solar systems (photovoltaic and solar thermal panels).
+
+### daylightIlluminance
+
+It is the sum of the direct, diffuse and reflected solar illuminance incident on a outside boundary surface. Its unit of measure is the Lux ($lx$). These values are typically used for outside and inside daylighting study, as well as the calculation of the energy consumptions of lighting systems required to reach the room illuminance threshold when the daylight illuminance is not enough.
+
+
+```xml
+<!--Example of a Roof object -->
+```
+
+
 ### ThermalZone
 
 A `ThermalZone` is a zone of a building (or of a building part) which serves as the smallest homogeneous, geometrically defined space unit for building heating/cooling simulations. It is considered as isothermal.
@@ -340,28 +419,6 @@ A XML example is presented in the following.
 	<energy:isSunExposed>true</energy:isSunExposed>
 </energy:ThermalComponent>
 ```
-
-### \_BoundarySurface
-
-Extension of CityGML object `_BoundarySurface` in Application Domain Extension Energy. Even empty, this subtype is necessary for the connection of the ADE Energy to the CityGML, since a bi-directional associations to the existing definitions is added.
-
-### \_Opening
-
-Extension of CityGML object `_Opening` in Application Domain Extension Energy. Openings may have an indoor and an outdoor shading system. They are further defined by an openable ratio.
-
-## Solar irradiances and Daylighting
-
-To realize solar and daylight potential studies, the Energy ADE enables to store the incident global solar irradiances, respectively the daylight illuminances available on each outside boundary surface of the buildings.
-
-Both `globalSolarIrradiance` and `daylightIlluminance` are attributes of the object `_BoundarySurface`, of type `_TimeSeries` (see details in Temporal Data Module).
-
-### globalSolarIrradiance
-
-It is the sum of the direct, diffuse and reflected irradiance incident on a outside boundary surface. Its unit of measure is the Watt per sqm ($W/m^2$). These values are typically used as source terms for the thermal calculations within the buildings (more precisely the `_ThermalZone`), but also for the calculation of the energy producted by the solar systems (photovoltaic and solar thermal panels).
-
-### daylightIlluminance
-
-It is the sum of the direct, diffuse and reflected solar illuminance incident on a outside boundary surface. Its unit of measure is the Lux ($lx$). These values are typically used for outside and inside daylighting study, as well as the calculation of the energy consumptions of lighting systems required to reach the room illuminance threshold when the daylight illuminance is not enough.
 
 # Temporal Data Module
 
