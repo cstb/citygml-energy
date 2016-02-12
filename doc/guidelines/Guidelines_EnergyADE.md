@@ -19,10 +19,10 @@ A Building may have several `ThermalZone`, for instance in the case of mixed-usa
 
 The Energy ADE extends the CityGML _AbstractBuilding by a number of energy-related attributes, e.g with regards to the attic and basement type, the construction style, the availability of Energy Performance certificates, etc. It is possible to define different types of floor area (e.g. gross area and net area), as well as to add refurbishment measures applied to the building.
 
-In the forllowing, an example of a building is given. Please note that the standard CityGML attributes are omitted for better readibility.
+In the following, an example of a building is given. Please note that the standard CityGML attributes are omitted for better readibility.
 
 ```xml
-<!--Examples of Building with Energy ADE attributes-->
+<!--Example of Building with Energy ADE attributes-->
 <bldg:Building gml:id="id_building_1">
 	<gml:description>Description of Building 1</gml:description>
 	<gml:name>Name of Building 1</gml:name>
@@ -182,7 +182,7 @@ The CityGML abstract class `_Opening` is extended by a number of energy-related 
 ```xml
 <!--Example of a Window object -->
 <bldg:Window gml:id="id_window_1">
-	<gml:description>This is Window with an ouside rolling shutter and curtains inside</gml:description>
+	<gml:description>This is a Window with an ouside rolling shutter and curtains inside</gml:description>
 	<gml:name>Window with rolling shutter and curtains</gml:name>
 
 	<energy:outdoorShading>
@@ -247,11 +247,11 @@ TO DO: Add here example of roof
 
 ### ThermalZone
 
-A `ThermalZone` is a zone of a building (or of a building part) which serves as the smallest homogeneous, geometrically defined space unit for building heating/cooling simulations. It is considered as isothermal.
+A `ThermalZone` is a zone of a building (or of a building part) which serves as the smallest homogeneous, geometrically defined space unit for building heating/cooling calculation. The temperature inside a thermal zone is considered as homogeneous and constant.
 The `ThermalZone` may be related to a room (`gml:Room`), and may optionally contain an explicit volume geometry (e.g. useful for visualisation purposes).
-The actual surface boundaries of a ThermalZone are defined by means of `ThermalBoudary` objects (see later).
+The actual surface boundaries of a ThermalZone are defined by means of `ThermalBoundary` objects (see later).
 
-The class `ThermalZone` inherits from `_CityObject`, and may therefore be associated to one or more `EnergyDemand` objects (see module Energy Systems).  For heating/cooling simulations, the `ThermalZone` must be related to at least one (or more) `UsageZone` objects (see Occupancy Module).
+The class `ThermalZone` inherits from `_CityObject`, and may therefore be associated to one or more `EnergyDemand` objects (see module Energy Systems). For heating/cooling simulations, the `ThermalZone` must be related to at least one `UsageZone` objects (see Occupancy Module).
 In the following, the first XML example shows the structure of a ThermalZone without volume geometry. The second one exemplifies instead how to add such an attribute (called volumeGeometry).
 
 ```xml
@@ -279,12 +279,12 @@ In the following, the first XML example shows the structure of a ThermalZone wit
 	<!--Here follow all ThermalBoundary objects, each inside a "boundedBy" tag-->
 	<energy:boundedBy>
 		<energy:ThermalBoundary gml:id="id_thermalboundary_1">
-			<!--Here come all attributes of the first ThermalBoundary (omitted here)-->
+			<!--Here come all attributes of the first ThermalBoundary (omitted here, see below)-->
 		</energy:ThermalBoundary>
 	</energy:boundedBy>
 	<energy:boundedBy>
 		<energy:ThermalBoundary gml:id="id_thermalboundary_2">
-			<!--Here come all attributes of the second ThermalBoundary (omitted here)-->
+			<!--Here come all attributes of the second ThermalBoundary (omitted here, see below)-->
 		</energy:ThermalBoundary>
 	</energy:boundedBy>
 	
