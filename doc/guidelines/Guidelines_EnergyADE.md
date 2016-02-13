@@ -1,15 +1,24 @@
-# Overview of the Application Domain Extension Energy
+# Overview of the Energy Application Domain Extension 
 
-The CityGML Energy ADE aims at extending the CityGML standard with energy-related entities necessary to lead energy analyses at urban scale.
+The CityGML Energy Application Domain Extension (Energy ADE) aims at extending the CityGML 2.0 standard with energy-related entities and attributes necessary to perform energy analyses at urban scale.
 
-Following the philosophy of CityGML, this Energy ADE aims to be flexible, in terms of compatibility with different data qualities, levels of details, and urban energy models complexities (from monthly energy balance of ISO 13790, to sub-hourly dynamic simulation of softwares like CitySim or EnergyPlus). It takes into consideration the INSPIRE Directive of the European Parliament, as well as the recent US Building Energy Data Exchange Specification (BEDES).
+In accordance with the philosophy of CityGML, the Energy ADE aims to be flexible in terms of compatibility with different data qualities, levels of detail and urban energy model complexities (e.g. from monthly energy balance methods as of ISO 13790, to sub-hourly dynamic simulations by means of software programs like CitySim or EnergyPlus). It takes into consideration the INSPIRE Directive of the European Parliament, as well as the recent US Building Energy Data Exchange Specification (BEDES).
 
-Its structure is thought of as modular; some of its modules can be potentially used and extended for other applications (e.g. module Occupancy for socio-economics, module Materials for acoustics or statics, module Metadata and Scenarios for every urban analysis).
+Its structure is conceived to be modular and, in its current version, it consists of 5 modules:
+- Building Physics module,
+- Occupancy module,
+- Construction and Material module,
+- Energy System module,
+- Timeseries and Schedules module.
+
+Some modules can be potentially used and extended also for other applications (e.g. module Occupancy for socio-economics, module Construction and Materials for acoustics or statics, etc).
+
+This document is intended to explain the main characteristics of each module and to provide a number of examples how the Energy ADE entities and attributes relate to the existing CityGML classes. Several XML examples are given as well, in order to facilitate the comprehension of how and where the Energy ADE is embedded into CityGML.
 
 # Building Physics Module
 
-This central module of the Energy ADE contains the thermal building objects required for building thermal modelling (e.g. calculation of space heating and space cooling demands): `ThermalZone`, `ThermalBoundary`, `ThermalComponent`. These thermal building objects are linked to the CityGML building objects through its `_AbstractBuilding`, `_BoundarySurface`, respectively `_Opening` classes.
-A Building may have several `ThermalZone`, for instance in the case of mixed-usage building, or to distinguish rooms or zones with difference orientations (i.e. different solar gains). These `ThermalZone` are separated to each other and to the outside by `ThermalBoundary`. These `ThermalBoundary` may or not correspond to the CityGML `_BoundarySurface`. However, since `globalSolarIrradiance` incident on `_BoundarySurface` is an important term of the building energy balance, every `ThermalBoundary` delimiting the `ThermalZone` from outside should be related (`correspondsTo`) with a `_BoundarySurface`.
+This module contains the thermal building objects required for building thermal modelling (e.g. calculation of space heating and space cooling demands): `ThermalZone`, `ThermalBoundary`, `ThermalComponent`. These thermal building objects are linked to the CityGML building objects through its `_AbstractBuilding`, `_BoundarySurface`, `_Opening` classes.
+A Building may have several `ThermalZone` objects, for instance in the case of mixed-usage building, or to distinguish rooms or zones with difference orientations (i.e. different solar gains). These `ThermalZone` objects are separated from each other and from the outside by `ThermalBoundary` objects. These `ThermalBoundary` objects may or not correspond to the CityGML `_BoundarySurface`. However, since `globalSolarIrradiance` incident on `_BoundarySurface` is an important term of the building energy balance, every `ThermalBoundary` delimiting the `ThermalZone` from outside should be related (`correspondsTo`) with a `_BoundarySurface`.
 
 ## Building, zones and boundaries
 
@@ -18,8 +27,7 @@ A Building may have several `ThermalZone`, for instance in the case of mixed-usa
 ### \_AbstractBuilding 
 
 The Energy ADE extends the CityGML _AbstractBuilding by a number of energy-related attributes, e.g with regards to the attic and basement type, the construction style, the availability of Energy Performance certificates, etc. It is possible to define different types of floor area (e.g. gross area and net area), as well as to add refurbishment measures applied to the building.
-
-In the forllowing, an example of a building is given. Please note that the standard CityGML attributes are omitted for better readibility.
+In the following, an example of a building is given. Please note that the standard CityGML attributes are omitted for better readability.
 
 ```xml
 <!--Examples of Building with Energy ADE attributes-->
@@ -101,13 +109,18 @@ In the forllowing, an example of a building is given. Please note that the stand
 ```xml
 <!--Examples of floorArea-->
 <energy:FloorArea>
-	<energy:type>grossFloorArea</energy:type>
+	<energy:type>GrossFloorArea</energy:type>
 	<energy:value uom="m^2">50</energy:value>
 </energy:FloorArea>
 
 <energy:FloorArea>
-	<energy:type>netFloorArea</energy:type>
+	<energy:type>NetFloorArea</energy:type>
 	<energy:value uom="m^2">40</energy:value>
+</energy:FloorArea>
+
+<energy:FloorArea>
+	<energy:type>EnergyReferenceArea</energy:type>
+	<energy:value uom="m^2">30</energy:value>
 </energy:FloorArea>
 ```
 
@@ -139,7 +152,6 @@ In the forllowing, an example of a building is given. Please note that the stand
     </energy:RefurbishmentMeasure>
 </energy:refurbishmentMeasureOnBuilding>
 ```
-
 
 ```xml
 <!--Example of an advanced Refurbishment Measure in the years 1998 and 1999 -->
@@ -263,7 +275,7 @@ In the following, the first XML example shows the structure of a ThermalZone wit
 	<energy:effectiveThermalCapacity uom="Wh/K">1</energy:effectiveThermalCapacity>
 	<energy:floorArea>
 		<energy:FloorArea>
-			<energy:type>netFloorArea</energy:type>
+			<energy:type>NetFloorArea</energy:type>
 			<energy:value uom="m^2">40</energy:value>
 		</energy:FloorArea>
 		<!--Here come further optional values of floorArea-->
@@ -350,8 +362,8 @@ The following figure represents these different cases in a building side section
 <energy:ThermalBoundary gml:id="id_thermalboundary_1">
 	<gml:description>Thermal Boundary 1</gml:description>
 	<gml:name>Thermal Boundary 1</gml:name>
-	<energy:azimuth uom="degrees">135</energy:azimuth>
-	<energy:inclination uom="degrees">25</energy:inclination>
+	<energy:azimuth uom="decimal degrees">135</energy:azimuth>
+	<energy:inclination uom="decimal degrees">25</energy:inclination>
 	<energy:thermalBoundaryType>Roof</energy:thermalBoundaryType>
 	
 	<!--Here follow one or more ThermalComponent objects, each inside a "composedOf" tag-->
