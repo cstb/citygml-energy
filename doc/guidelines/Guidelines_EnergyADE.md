@@ -503,16 +503,16 @@ Most detailed schedule corresponding to a Time series as described above.
 
 ![Class diagram of Construction Module](fig/class_construction.png)
 
-The Construction and Material module of the ADE Energy contains the physical characterization of the boundary surfaces, surface components and, possibly, even the whole building. As it inherits from class `_CityObject`, all similar objects can be described also by means of construction and materials. Given that the nature of this module is not domain-specific, it can be used beyond energy-related applications (e.g. in statics, acoustics etc.) 
+The Construction and Material module of the ADE Energy contains the physical characterization of the boundary surfaces, surface components and, possibly, even the whole building. As it inherits from class `_CityObject`, all similar objects can be described also by means of construction and materials. Given that the nature of this module is not domain-specific, it can be used beyond energy-related applications (e.g. in statics, acoustics etc.).  
 
 ## Construction
 
-Physical characterisation of building envelop or intern room partition (e.g. wall, roof, openings), it may be specified as an ordered combination of layers. In the Energy ADE, the object Construction can be linked to the `_ThermalComponents`, in order to defined the physical parameters of a walls, roofs of windows, for a space heating/cooling calculation. However, it may possibly be linked to any `_CityObject` for other purposes, in particular to `_BoundarySurface`, `_Opening` or even `_AbstractBuilding`.
-Each construction object is characterised by a number of attributes like the U-value, or some optical properties, like transmittance, reflecatance and emissivity.
-In particular, *Transmittance* is the fraction of incident radiation which passes through a specific object. It is specified for a given wavelength range type (`wavelengthRange`). For example, the total transmittance of a window correspond to its *g-value* (also called Solar Heat Gain Coefficient). The transmittance value is included between 0 (completely opaque object) and 1 (completely transparent object).
+Physical characterisation of building envelop or intern room partition (e.g. wall, roof, openings), it may be specified as an ordered combination of layers. In the Energy ADE, the object `Construction` can be linked to the `_ThermalComponents`, in order to define the physical parameters of walls, roofs of windows, for space heating/cooling calculation. However, it may possibly be linked to any `_CityObject` for other purposes, in particular to `_BoundarySurface`, `_Opening` or even `_AbstractBuilding`.
+Each construction object is characterised by a number of attributes like U-value, or optical properties, like transmittance, reflectance and emittance.
+In particular, *Transmittance* is the fraction of incident radiation which passes through a specific object. It is specified for a given wavelength range type (`wavelengthRange`). For example, the total transmittance of a window correspond to its *g-value* (also called Solar Heat Gain Coefficient). The value for transmittance ranges between 0 (completely opaque object) and 1 (completely transparent object).
 *Reflectance* is the fraction of incident radiation which is reflected by an object. It is specified for a given surface (`SurfaceSide`) and for a given wavelength range type.
-*Emissivity* is the ratio of the infrared (also called long-wave) radiation emitted by a specific surface/object to that of a black body. It is specified for a given surface (SurfaceSide). According with the Kirchoff and Lambert law, for a diffuse grey body the aborptance and the emittance are equal for a given wavelength range.
-The sum of the transmittance, reflectance and emissivity (or absorptance) fractions of a surface/object is always 1.
+*Emissivity* is the ratio of the infrared (also called long-wave) radiation emitted by a specific surface/object to that of a black body. It is specified for a given surface (SurfaceSide). According with the Kirchoff and Lambert law, for a diffuse grey body the absorptance and the emittance are equal for a given wavelength range.
+The sum of transmittance, reflectance and emittance (or absorptance) fractions of a surface/object for a given `wavelengthRange` equals always 1.
 In the following, several examples of Construction objects are presented, with different levels of complexity.
 
 ```xml
@@ -559,7 +559,7 @@ In the following, several examples of Construction objects are presented, with d
 
 ## ConstructionOrientation
 
-This class defines the orientation convention of the `Construction` object it is referred to. In other words, it indicates in which order the layers are to be considered (from inside to outside, or viceversa), because the same construction, if common to different zones or buildings, might be orientated in two different directions for instance.
+This class defines the orientation convention of the `Construction` object it is referred to. In other words, it indicates in which order the layers are to be considered (from inside to outside, or vice versa), because the same construction might be orientated in two different directions, e.g. a common element of different zones or buildings.
 
 ```xml
 <!--Example of ConstructionOrientation object-->
