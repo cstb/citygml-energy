@@ -79,11 +79,7 @@ In the following, an example of a building is given. Please note that the standa
 	<energy:landmarked>false</energy:landmarked>
 	
 	<energy:floorArea>
-		<energy:FloorArea>
-			<energy:type>grossFloorArea</energy:type>
-			<energy:value uom="m^2">300</energy:value>
-		</energy:FloorArea>
-		<!--Here come further optional values of floorArea (see later)-->
+		<!--Here come the floorArea attributes (see later)-->
 	</energy:floorArea>
 
 	<energy:eavesHeight uom="m">8</energy:eavesHeight>
@@ -252,9 +248,25 @@ In the following, a XML example of a roof is given.
 
 ```xml
 <!--Example of a Roof object -->
-<!--
-TO DO: Add here example of roof
--->
+<bldg:RoofSurface gml:id="id_roof_1">
+	<gml:description>Description of Roof 1</gml:description>
+	<gml:name>Name of Roof 1</gml:name>
+
+	<energy:refurbishmentMeasureOnBoundarySurface>
+		<energy:RefurbishmentMeasure>
+			<!--Here come all attributes of a RefurbishmentMeasure object (omitted here)-->
+		</energy:RefurbishmentMeasure>
+	</energy:refurbishmentMeasureOnBoundarySurface>
+
+	<energy:globalSolarIrradiance>
+		<!--Add here the TimeSeries data -->
+	</energy:globalSolarIrradiance>
+
+	<energy:daylightIlliminance>
+		<!--Add here the TimeSeries data -->
+	</energy:daylightIlliminance>
+
+</bldg:RoofSurface>
 ```
 
 ### ThermalZone
@@ -433,20 +445,63 @@ Time series are homogeneous lists of time-depending values. They are used in the
 All time series share some common properties, contained in the variableProperties attribute. These properties are the variable label, the variable unit of measure (*uom*), the interpolation type (based on the [WaterML ADE](http://def.seegrid.csiro.au/sissvoc/ogc-def/resource?uri=http://www.opengis.net/def/waterml/2.0/interpolationType/)) and some further metadata like the data source, the acquisition method and a quality description.
 Time series can be either regular or irregular.  *RegularTimeSeries* contain values generated at regularly spaced interval of time (`timeInterval`), over a given `temporalExtent` (i.e. start, end and duration time). They are used, for instance, to store automatically acquired data or hourly/daily/monthly simulation results.
 In *IrregularTimeSeries*, data follows a temporal sequence, but the measurement points may not happen at a regular time interval[^1]. Therefore, each value must be associated with a data or time.
-What is more, each time series can be stored as an external file (e.g. csv or text) and for this purpose a number of attributes  provides the required information about how to retrieve the proper set of values from the files.
+What is more, each time series can be stored as an external file (e.g. csv or text) and for this purpose a number of attributes provide the required information about how to retrieve the proper set of values from the files.
 In the following, several examples of time series are given.
 
 ```xml
 <!--Example of RegularTimeSeries object with 12 monthly values-->
+<energy:RegularTimeSeries gml:id="id_timeseries_electricity_demand_1">
+	<energy:variableProperties>
+		<energy:TimeValuesProperties>
+			<energy:acquisitionMethod>Description of the acquisition method</energy:acquisitionMethod>
+			<energy:interpolationType>AverageInSucceedingInterval</energy:interpolationType>
+			<energy:qualityDescription>Description of data quality</energy:qualityDescription>
+			<energy:source>Information about data source</energy:source>
+		</energy:TimeValuesProperties>
+	</energy:variableProperties>
+	<energy:temporalExtent>
+		<gml:TimePeriod>
+			<gml:beginPosition calendarEraName="CE">2016-01-01</gml:beginPosition>
+			<gml:endPosition calendarEraName="CE">2016-12-31</gml:endPosition>
+		</gml:TimePeriod>
+	</energy:temporalExtent>
+	<energy:timeInterval unit="year">0.0833</energy:timeInterval>
+	<energy:values uom="kWh">330 320 300 270 200 180 160 155 170 200 250 300</energy:values>
+</energy:RegularTimeSeries>
 ```
 
-
 ```xml
-<!--Example of RegularTimeSeries object with hourly values (exerpt)-->
+<!--Example of RegularTimeSeries object with daily values (exerpt)-->
+<energy:RegularTimeSeries gml:id="id_timeseries_electricity_demand_2">
+	<energy:temporalExtent>
+		<gml:TimePeriod>
+			<gml:beginPosition calendarEraName="AD">2011-01-01</gml:beginPosition>
+			<gml:endPosition calendarEraName="AD">2011-12-31</gml:endPosition>
+		</gml:TimePeriod>
+	</energy:temporalExtent>
+	<energy:timeInterval unit="day">1</energy:timeInterval>
+	<energy:values uom="kWh">11.2 11.4 10.2 9.6 6.3 11.5 12.7 ... (truncated, set of 365 values) </energy:values>
+</energy:RegularTimeSeries>
 ```
 
 ```xml
-<!--Example of RegularTimeSeriesFile object-->
+<!--Example of RegularTimeSeriesFile object with hourly values contained in a file-->
+<energy:RegularTimeSeriesFile gml:id="id_regulartimeseries_file_1">
+	<energy:uom uom="W/m^2"/>
+	<energy:file>file_name_containing_values.tsv</energy:file>
+	<energy:temporalExtent>
+	<energy:temporalExtent>
+		<gml:TimePeriod>
+			<gml:beginPosition></gml:beginPosition>
+			<gml:endPosition></gml:endPosition>
+			<gml:duration>P1Y</gml:endPosition>
+		</gml:TimePeriod>
+	</energy:temporalExtent>
+	<energy:timeInterval unit="hour">1</energy:timeInterval>
+	<energy:numberOfHeaderLines>1</energy:numberOfHeaderLines>
+	<energy:valueColumnNumber>1</energy:valueColumnNumber>
+	<energy:fieldSeparator>\t</energy:fieldSeparator>
+</energy:RegularTimeSeriesFile>
 ```
 
 ```xml
@@ -465,12 +520,10 @@ Schedules can be modelled up to 4 "semantic" levels of details depending on the 
 The simplest level of detail, this Schedule is defined by a constant value, generally corresponding to the average parameter value.
 
 ```xml
-<!--Example of the cooling ConstantValueSchedule of a residential building-->
-<energy:coolingSchedule>
-    <energy:ConstantValueSchedule>
-        <energy:averageValue uom="degree Celsius">26</energy:averageValue>
-    </energy:ConstantValueSchedule>
-</energy:coolingSchedule>
+<!--Example of a ConstantValueSchedule-->
+<energy:ConstantValueSchedule gml:id="id_constant_schedule_1">
+	<energy:averageValue uom="degree Celsius">26</energy:averageValue>
+</energy:ConstantValueSchedule>
 ```
 
 ### DualValueSchedule
@@ -478,24 +531,104 @@ The simplest level of detail, this Schedule is defined by a constant value, gene
 A two-state schedule, this schedule is defined by a usage value for usage times, and an idle value outside this temporal boundaries. Information about the number of usage days per year and usage hours per usage days are also defined. This schedule complies in particular with the data requirements of the codes and norms describing the monthly energy balance (DIN 18599-2, ISO 13790).
 
 ```xml
-<!--Example of a heating DualValueSchedule of a residential building-->
-<energy:heatingSchedules>
-    <energy:DualValueSchedule>
-        <energy:usageValue uom="degree Celsius">20</energy:usageValue>
-        <energy:idleValue uom="degree Celsius">16</energy:idleValue>
-        <energy:usageHoursPerDay uom="hour">17</energy:usageHoursPerDay>
-        <energy:usageDaysPerYear uom="day">365</energy:usageDaysPerYeary>
-    </energy:DualValueSchedule>
-</energy:heatingSchedules>
+<!--Example of a DualValueSchedule-->
+<energy:DualValueSchedule gml:id="id_dualvalue_schedule_2>
+	<energy:usageValue uom="degree Celsius">20</energy:usageValue>
+	<energy:idleValue uom="degree Celsius">16</energy:idleValue>
+	<energy:usageHoursPerDay uom="hour">17</energy:usageHoursPerDay>
+	<energy:usageDaysPerYear uom="day">365</energy:usageDaysPerYeary>
+</energy:DualValueSchedule>
 ```
 
 ### DailyPatternSchedule
 
 Detailed schedule composed of daily schedules associated to recurrent day types (weekday, weekend etc.). These daily schedules are Time Series as described above.
 
+```xml
+<!--Example of a daily pattern schedule for a standard day-->
+<energy:DailyPatternSchedule gml:id="id_occupants_schedule_3">
+	<energy:dailySchedule>
+		<energy:DailySchedule>
+			<energy:dayType>CustomDay1</energy:dayType>
+			<energy:schedule>
+				<energy:RegularTimeSeries gml:id="id_occupants_daily_timeseries_1">
+					<energy:temporalExtent>
+						<gml:TimePeriod>
+							<gml:beginPosition/>
+							<gml:endPosition/>
+							<gml:duration>P1D</gml:duration>
+						</gml:TimePeriod>
+					</energy:temporalExtent>
+					<energy:timeInterval unit="hour">1</energy:timeInterval>
+					<energy:values uom="ratio">1 1 1 0.74 0.35 ... (truncated, set of 24 values)</energy:values>
+				</energy:RegularTimeSeries>
+			</energy:schedule>
+		</energy:DailySchedule>
+	</energy:dailySchedule>
+</energy:DailyPatternSchedule>
+```
+
+```xml
+<!--Example of a daily pattern schedule for a standard week composed of weekday and weekend days-->
+<energy:DailyPatternSchedule gml:id="id_occupants_schedule_4">
+	<energy:dailySchedule>
+		<energy:DailySchedule>
+			<energy:dayType>WeekDay</energy:dayType>
+			<energy:schedule>
+				<energy:RegularTimeSeries gml:id="id_occupants_daily_timeseries_2">
+					<energy:temporalExtent>
+						<gml:TimePeriod>
+							<gml:beginPosition/>
+							<gml:endPosition/>
+							<gml:duration>P1D</gml:duration>
+						</gml:TimePeriod>
+					</energy:temporalExtent>
+					<energy:timeInterval unit="hour">1</energy:timeInterval>
+					<energy:values uom="ratio">0 0 0 0.1 0.2 0.5 ... (truncated, set of 24 values)</energy:values>
+				</energy:RegularTimeSeries>
+			</energy:schedule>
+		</energy:DailySchedule>
+	</energy:dailySchedule>
+	<energy:dailySchedule>
+		<energy:DailySchedule>
+			<energy:dayType>WeenEnd</energy:dayType>
+			<energy:schedule>
+				<energy:RegularTimeSeries gml:id="id_occupants_daily_timeseries_3">
+					<energy:temporalExtent>
+						<gml:TimePeriod>
+							<gml:beginPosition/>
+							<gml:endPosition/>
+							<gml:duration>P1D</gml:duration>
+						</gml:TimePeriod>
+					</energy:temporalExtent>
+					<energy:timeInterval unit="hour">1</energy:timeInterval>
+					<energy:values uom="ratio">0 0 0 0.11 0.22 ... (truncated, set of 24 values)</energy:values>
+				</energy:RegularTimeSeries>
+			</energy:schedule>
+		</energy:DailySchedule>
+	</energy:dailySchedule>
+</energy:DailyPatternSchedule>
+```
+
 ### TimeSeriesSchedule
 
 Most detailed schedule corresponding to a Time series as described above.
+
+```xml
+<!--Example of a time series based schedule with hourly values for one year-->
+<energy:TimeSeriesSchedule gml:id="id_occupants_schedule_5">
+	<energy:RegularTimeSeries "id_occupants_timeseries_5">
+			<energy:temporalExtent>
+				<gml:TimePeriod>
+					<gml:beginPosition>2000-01-01</gml:beginPosition>
+					<gml:endPosition>2000-12-31</gml:endPosition>
+				</gml:TimePeriod>
+			</energy:temporalExtent>
+			<energy:timeInterval unit="hour">1</energy:timeInterval>
+			<energy:values uom="ratio">1 1 1 1 0.9 0.7 0.5 ... (truncated, set of 8760 values)</energy:values>
+	</energy:RegularTimeSeries>
+</energy:TimeSeriesSchedule>
+```
 
 # Construction and Material Module
 
@@ -535,9 +668,15 @@ In the following, several examples of Construction objects are presented, with d
 	<energy:uValue uom="W/(K*m^2)">1.9</energy:uValue>
 	<energy:opticalProperties>
 		<energy:OpticalProperties>
+			<energy:emittance>
+				<energy:Emissivity>
+					<energy:fraction uom="ratio">0.1</energy:fraction>
+					<energy:surface>Outside</energy:surface>
+				</energy:Emissivity>
+			</energy:emittance>
 			<energy:reflectance>
 				<energy:Reflectance>
-					<energy:fraction uom="ratio">0.2</energy:fraction>
+					<energy:fraction uom="ratio">0.1</energy:fraction>
 					<energy:surface>Outside</energy:surface>
 					<energy:wavelengthRange>Solar</energy:wavelengthRange>
 				</energy:Reflectance>
@@ -676,7 +815,7 @@ Its internalGains attribute corresponds to the sum of the energy dissipated from
 	<energy:usedFloors>1</energy:usedFloors>
 	<energy:floorArea>
 		<energy:FloorArea>
-			<energy:type>netFloorArea</energy:type>
+			<energy:type>NetFloorArea</energy:type>
 			<energy:value>40</energy:value>
 		</energy:FloorArea>
 	</energy:floorArea>
@@ -716,7 +855,7 @@ Its internalGains attribute corresponds to the sum of the energy dissipated from
 		</energy:ElectricalAppliances>
 	</energy:has>
 	<energy:has>
-		<energy:LightingFacilities gml:id="id_lightningfacility_1">
+		<energy:LightingFacilities gml:id="id_lightingfacility_1">
 			<!--Here come all attributes of the Facility object -->
 		</energy:LightingFacilities>
 	</energy:has>
@@ -742,7 +881,7 @@ A ``BuildingUnit` is a part of a `UsageZone` which is related to a single occupa
 
 	<energy:floorArea>
 		<energy:FloorArea>
-			<energy:type>netFloorArea</energy:type>
+			<energy:type>NetFloorArea</energy:type>
 			<energy:value uom="m^2">40</energy:value>
 		</energy:FloorArea>
 	</energy:floorArea>
@@ -808,7 +947,7 @@ An `Occupants` class identifies a homogeneous group of occupants of a usage zone
 
 ## Household
 
-A `Household` class identifies a group of persons living in the same dwelling, in the case where occupants are residents. They are defined by a type (e.g. one family, worker couple etc...) and a residence type (main/secondary residence or vacant).
+A `Household` class identifies a group of persons living in the same dwelling, in the case where occupants are residents. They are defined by a type (e.g. one family, worker couple, etc.) and a residence type (main/secondary residence or vacant).
 
 ```xml
 <!--Example of a Household object-->
