@@ -532,7 +532,7 @@ A two-state schedule, this schedule is defined by a usage value for usage times,
 
 ```xml
 <!--Example of a DualValueSchedule-->
-<energy:DualValueSchedule gml:id="id_dualvalue_schedule_2>
+<energy:DualValueSchedule gml:id="id_dualvalue_schedule_2">
 	<energy:usageValue uom="degree Celsius">20</energy:usageValue>
 	<energy:idleValue uom="degree Celsius">16</energy:idleValue>
 	<energy:usageHoursPerDay uom="hour">17</energy:usageHoursPerDay>
