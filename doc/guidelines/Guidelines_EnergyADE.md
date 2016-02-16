@@ -546,7 +546,7 @@ Detailed schedule composed of daily schedules associated to recurrent day types 
 
 ```xml
 <!--Example of a daily pattern schedule for a standard day-->
-<energy:DailyPatternSchedule gml:id="id_occupants_schedule_3">
+<energy:DailyPatternSchedule gml:id="id_dailypattern_schedule_3">
 	<energy:dailySchedule>
 		<energy:DailySchedule>
 			<energy:dayType>CustomDay1</energy:dayType>
@@ -570,7 +570,7 @@ Detailed schedule composed of daily schedules associated to recurrent day types 
 
 ```xml
 <!--Example of a daily pattern schedule for a standard week composed of weekday and weekend days-->
-<energy:DailyPatternSchedule gml:id="id_occupants_schedule_4">
+<energy:DailyPatternSchedule gml:id="id_dailypattern_schedule_4">
 	<energy:dailySchedule>
 		<energy:DailySchedule>
 			<energy:dayType>WeekDay</energy:dayType>
@@ -616,7 +616,7 @@ Most detailed schedule corresponding to a Time series as described above.
 
 ```xml
 <!--Example of a time series based schedule with hourly values for one year-->
-<energy:TimeSeriesSchedule gml:id="id_occupants_schedule_5">
+<energy:TimeSeriesSchedule gml:id="id_timeseries_schedule_5">
 	<energy:RegularTimeSeries "id_occupants_timeseries_5">
 			<energy:temporalExtent>
 				<gml:TimePeriod>
