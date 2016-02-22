@@ -3,7 +3,7 @@ title:
 - up:   Draft Guidelines - Energy ADE version 0.6
   main: CityGML Energy Application Domain Extension
   dw:   In collaboration with OGC and SIG 3D
-author:
+authors:
 - Romain Nouvel (RN)
 - Marcel Bruse (MB)
 - Olivier Tournaire (OT)
@@ -31,22 +31,12 @@ institutes:
 - Centre Scientifique et Technique du Batiment, France
 - Electricité de France, France
 - Sinergis, Italy
-- M.O.S.S Computer Grafik Système, Germany
+- M.O.S.S Computer Grafik Systeme, Germany
 - Austrian Institute of Technology, Austria
 abstract: |
-    The Application Domain Extension (ADE) Energy detailed in this
-    documentation defines a standardized data model based on CityGML format
-    for urban energy analyses, aiming to be a reference exchange data format
-    between different urban modelling tools and expert databases.
+    The Energy Application Domain Extension (Energy ADE) described in this documentation defines a standardized data model based on the CityGML 2.0 format for urban energy analyses, aiming to be a reference exchange data model between different urban modelling tools and expert databases.
 
-    It has been developed since May 2014 by an international consortium of
-    urban energy simulation developers and users (University of Applied
-    Sciences Stuttgart, Technische Universität München, Karlsruhe Institute
-    für Technologie, RWTH Aachen University / E.ON Energy Research Center,
-    HafenCity Universität Hamburg, European Institute for Energy Research,
-    Ecole Polytechnique Fédérale de Lausanne, Centre Scientifique et
-    Technique du Batiment, Electricité de France, Sinergis and M.O.S.S
-    Computer Grafik Systeme).
+    The Energy ADE has been developed since May 2014 by an international consortium of urban energy simulation developers and users, both academic and commercial. To date, the consortium is composed by: University of Applied Sciences Stuttgart, Technische Universität München, Karlsruhe Institute für Technologie, RWTH Aachen University / E.ON Energy Research Center, HafenCity Universität Hamburg, European Institute for Energy Research, Ecole Polytechnique Fédérale de Lausanne, Centre Scientifique et Technique du Batiment, Electricité de France, Sinergis, M.O.S.S Computer Grafik Systeme and Austrian Institute of Technology.
 bibliography: EnergyADE-library.bib
 csl: chicago.csl
 ---
