@@ -34,9 +34,20 @@ institutes:
 - M.O.S.S Computer Grafik Systeme, Germany
 - Austrian Institute of Technology, Austria
 abstract: |
-    The Energy Application Domain Extension (Energy ADE) described in this documentation defines a standardized data model based on the CityGML 2.0 format for urban energy analyses, aiming to be a reference exchange data model between different urban modelling tools and expert databases.
+    The Energy Application Domain Extension (Energy ADE) described in this
+    documentation defines a standardized data model based on the CityGML 2.0
+    format for urban energy analyses, aiming to be a reference exchange data
+    model between different urban modelling tools and expert databases.
 
-    The Energy ADE has been developed since May 2014 by an international consortium of urban energy simulation developers and users, both academic and commercial. To date, the consortium is composed by: University of Applied Sciences Stuttgart, Technische Universität München, Karlsruhe Institute für Technologie, RWTH Aachen University / E.ON Energy Research Center, HafenCity Universität Hamburg, European Institute for Energy Research, Ecole Polytechnique Fédérale de Lausanne, Centre Scientifique et Technique du Batiment, Electricité de France, Sinergis, M.O.S.S Computer Grafik Systeme and Austrian Institute of Technology.
+    The Energy ADE has been developed since May 2014 by an international
+    consortium of urban energy simulation developers and users, both academic
+    and commercial. To date, the consortium is composed by: University of
+    Applied Sciences Stuttgart, Technische Universität München, Karlsruhe
+    Institute für Technologie, RWTH Aachen University / E.ON Energy Research
+    Center, HafenCity Universität Hamburg, European Institute for Energy
+    Research, Ecole Polytechnique Fédérale de Lausanne, Centre Scientifique et
+    Technique du Batiment, Electricité de France, Sinergis, M.O.S.S Computer
+    Grafik Systeme and Austrian Institute of Technology.
 bibliography: EnergyADE-library.bib
 csl: chicago.csl
 ---

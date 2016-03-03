@@ -24,6 +24,7 @@ $highlighting-macros$
 $endif$
 \usepackage{longtable,booktabs}
 \usepackage{graphicx}
+\usepackage{pdfpages}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
 \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
@@ -53,6 +54,12 @@ $endif$
 %$else$
 %\setcounter{secnumdepth}{0}
 %$endif$
+
+\usepackage{enumitem}
+\setlist{nosep, noitemsep}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 %% Reformat Sections
 \let\stdsection\section%
