@@ -52,8 +52,6 @@ other and from the outside by `ThermalBoundary` objects. These
 
 ![Class diagram of Building Physics Module](fig/class_geometry.png)
 
-\includepdf[pages={1}]{fig/test_epfl_building.pdf}
-
 ### \_AbstractBuilding 
 
 The Energy ADE extends the CityGML _AbstractBuilding by a number of
@@ -559,7 +557,9 @@ interval[^1]. Therefore, each value must be associated with a data or time.
 What is more, each time series can be stored as an external file (e.g. csv or
 text) and for this purpose a number of attributes provide the required
 information about how to retrieve the proper set of values from the files.  In
-the following, several examples of time series are given.
+the following, several examples of time series are given. Please note that the
+variableProperties are presented in the first example and omitted in the
+following ones for better readability.
 
 ```xml
 <!--Example of RegularTimeSeries object with 12 monthly values-->
@@ -574,8 +574,8 @@ the following, several examples of time series are given.
 	</energy:variableProperties>
 	<energy:temporalExtent>
 		<gml:TimePeriod>
-			<gml:beginPosition calendarEraName="CE">2016-01-01</gml:beginPosition>
-			<gml:endPosition calendarEraName="CE">2016-12-31</gml:endPosition>
+			<gml:beginPosition>2016-01-01</gml:beginPosition>
+			<gml:endPosition>2016-12-31</gml:endPosition>
 		</gml:TimePeriod>
 	</energy:temporalExtent>
 	<energy:timeInterval unit="year">0.0833</energy:timeInterval>
@@ -588,8 +588,8 @@ the following, several examples of time series are given.
 <energy:RegularTimeSeries gml:id="id_timeseries_electricity_demand_2">
 	<energy:temporalExtent>
 		<gml:TimePeriod>
-			<gml:beginPosition calendarEraName="AD">2011-01-01</gml:beginPosition>
-			<gml:endPosition calendarEraName="AD">2011-12-31</gml:endPosition>
+			<gml:beginPosition>2011-01-01</gml:beginPosition>
+			<gml:endPosition>2011-12-31</gml:endPosition>
 		</gml:TimePeriod>
 	</energy:temporalExtent>
 	<energy:timeInterval unit="day">1</energy:timeInterval>
@@ -605,9 +605,8 @@ the following, several examples of time series are given.
 	<energy:temporalExtent>
 	<energy:temporalExtent>
 		<gml:TimePeriod>
-			<gml:beginPosition></gml:beginPosition>
-			<gml:endPosition></gml:endPosition>
-			<gml:duration>P1Y</gml:endPosition>
+			<gml:beginPosition>2008-01-01</gml:beginPosition>
+			<gml:endPosition>2008-12-31</gml:endPosition>
 		</gml:TimePeriod>
 	</energy:temporalExtent>
 	<energy:timeInterval unit="hour">1</energy:timeInterval>
@@ -678,9 +677,8 @@ above.
 				<energy:RegularTimeSeries gml:id="id_occupants_daily_timeseries_1">
 					<energy:temporalExtent>
 						<gml:TimePeriod>
-							<gml:beginPosition/>
-							<gml:endPosition/>
-							<gml:duration>P1D</gml:duration>
+							<gml:beginPosition>00:00:00</gml:beginPosition>
+							<gml:endPosition>23:59:59</gml:endPosition>                                   
 						</gml:TimePeriod>
 					</energy:temporalExtent>
 					<energy:timeInterval unit="hour">1</energy:timeInterval>
@@ -702,9 +700,8 @@ above.
 				<energy:RegularTimeSeries gml:id="id_occupants_daily_timeseries_2">
 					<energy:temporalExtent>
 						<gml:TimePeriod>
-							<gml:beginPosition/>
-							<gml:endPosition/>
-							<gml:duration>P1D</gml:duration>
+							<gml:beginPosition>00:00:00</gml:beginPosition>
+							<gml:endPosition>23:59:59</gml:endPosition>  
 						</gml:TimePeriod>
 					</energy:temporalExtent>
 					<energy:timeInterval unit="hour">1</energy:timeInterval>
@@ -720,9 +717,8 @@ above.
 				<energy:RegularTimeSeries gml:id="id_occupants_daily_timeseries_3">
 					<energy:temporalExtent>
 						<gml:TimePeriod>
-							<gml:beginPosition/>
-							<gml:endPosition/>
-							<gml:duration>P1D</gml:duration>
+							<gml:beginPosition>00:00:00</gml:beginPosition>
+							<gml:endPosition>23:59:59</gml:endPosition>  
 						</gml:TimePeriod>
 					</energy:temporalExtent>
 					<energy:timeInterval unit="hour">1</energy:timeInterval>
@@ -939,7 +935,7 @@ comparison with `SolidMaterial`.
 <!--Example of a gas material with neglectable mass and heat capacity-->
 <energy:Gas>
     <energy:isVentilated>false</energy:isVentilated>
-    <energy:rValue uom="m^2*K/W">4.5</energy:rValue>
+    <energy:rValue uom="K*m^2/W">4.5</energy:rValue>
 </energy:Gas>
 ```
 
