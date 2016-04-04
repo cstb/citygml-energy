@@ -33,66 +33,49 @@ These `ThermalZone` objects are separated from each other and from the outside b
 
 ### \_AbstractBuilding 
 
-The Energy ADE extends the CityGML _AbstractBuilding by a number of energy-related attributes, e.g with regards to the attic and basement type, the construction style, the availability of Energy Performance certificates, etc. It is possible to define different types of floor area (e.g. gross area and net area), as well as to add refurbishment measures applied to the building.
-In the following, an example of a building is given. Please note that the standard CityGML attributes are omitted for better readability.
+The Energy ADE extends the CityGML _AbstractBuilding by a number of energy-related attributes, e.g with regards to the geometrical characteristics (`referencePoint`, `averageCeilingHeight`, `eavesHeight`, `ridgeHeight`, `basementCeilingHeightAboveGrounSurface`, `floorArea`, `grossVolume`), to the conditioning of basement and attic (`basementType`, `atticType`), to the available energy certificates (`energyPerformanceCertification`) and refurbishment measures (`RefurbishmentMeasureOnBuilding`), and other building information useful for building typology categorisations (`buildingType` and `constructionStyle`).
+
+All these attributes are optional. Some of them, like `floorArea` and `energyPerformanceCertification`, have a cardinality [0..*] and may consequently be attributed several times to a building, specifying different values for different `FloorAreaType`, respectively `certificationName`.
+
+Finally, because `_AbstractBuilding` inherits from `_CityObject`, further objects may be assigned to it, like `EnergyDemand` (see Module Energy and Systems).
+
+In the following, an extract of CityGML file for a building is given, included some of its Energy ADE attributes.
 
 ```xml
 <!--Examples of Building with Energy ADE attributes-->
 <bldg:Building gml:id="id_building_1">
 	<gml:description>Description of Building 1</gml:description>
 	<gml:name>Name of Building 1</gml:name>
-
 	<energy:referencePoint>
 		<gml:Point gml:id="id_building_referencepoint_1" srsName="EPSG:31256" srsDimension="3">
 			<gml:pos>5 5 0</gml:pos>
 		</gml:Point>
 	</energy:referencePoint>
-	
 	<energy:basementType>Unconditioned</energy:basementType>
-
-	<!--Here follow all EnergyPerformanceCertification objects, each inside a "energyPerformanceCertification" tag-->
 	<energy:energyPerformanceCertification>
-		<energy:EnergyPerformanceCertification >
-			<!--Here come all attributes of a EnergyPerformanceCertification object (omitted here)-->
-		</energy:EnergyPerformanceCertification>
+		<!--Here come the EnergyPerformanceCertification objects (see later) -->
 	</energy:energyPerformanceCertification>
-
 	<energy:basementCeilingHeightAboveGroundSurface uom="m">1</energy:basementCeilingHeightAboveGroundSurface>
 	<energy:grossVolume uom="m^3">1050</energy:grossVolume>
-
-	<!--Here follow all RefurbishmentMeasure objects, each inside a "refurbishmentMeasureOnBuilding" tag-->
 	<energy:refurbishmentMeasureOnBuilding>
 		<energy:RefurbishmentMeasure>
 			<!--Here come all attributes of a RefurbishmentMeasure object (omitted here)-->
 		</energy:RefurbishmentMeasure>
 	</energy:refurbishmentMeasureOnBuilding>
-
 	<energy:averageCeilingHeight uom="m">2.7</energy:averageCeilingHeight>
 	<energy:atticType>Conditioned</energy:atticType>
-
-	<!--Here follow all UsageZone objects, each inside a "usageZones" tag-->
-	<energy:usageZones>
-		<energy:UsageZone gml:id="id_usagezone_1">	
-			<!--Here come all attributes of the first UsageZone (omitted here)-->
-		</energy:UsageZone>
-	</energy:usageZones>
-	<energy:usageZones>
-		<energy:UsageZone gml:id="id_usagezone_2">	
-			<!--Here come all attributes of the second UsageZone (omitted here)-->
-		</energy:UsageZone>
-	</energy:usageZones>
-
+	
+	<!--Here may come a list of UsageZone of the building (see Module Occupancy) -->
+	
 	<energy:ridgeHeight uom="m">10.5</energy:ridgeHeight>
 	<energy:landmarked>false</energy:landmarked>
-	
 	<energy:floorArea>
-		<!--Here come the floorArea attributes (see later)-->
+		<!--Here come the floorArea objects (see later)-->
 	</energy:floorArea>
-
 	<energy:eavesHeight uom="m">8</energy:eavesHeight>
 	<energy:constructionStyle>Massive</energy:constructionStyle>
 	<energy:buildingType>MultiFamilyHouse</energy:buildingType>
-
+	
 	<!--Here follow all ThermalZone objects, each inside a "thermalZones" tag-->
 	<energy:thermalZones>
 		<energy:ThermalZone gml:id="id_thermalzone_1">
@@ -108,6 +91,8 @@ In the following, an example of a building is given. Please note that the standa
 ```
 
 #### FloorArea
+
+A building may have several `floorArea`, related to several `FloorAreaType` (e.g. net floor area, gross floor area, energy reference area). 
 
 ```xml
 <!--Examples of floorArea-->
@@ -128,6 +113,8 @@ In the following, an example of a building is given. Please note that the standa
 ```
 
 #### EnergyPerformanceCertification
+
+A building may present several `energyPerformanceCertification` related to different `certificationName` (e.g. PassivHaus, LEED) and/or different certification dates (specificied by `certificationId`).
 
 ```xml
 <!--Example of Energy Performance Certification-->
