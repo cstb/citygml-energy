@@ -2,9 +2,9 @@
 
 The CityGML Energy Application Domain Extension (Energy ADE) aims at extending the CityGML 2.0 standard with energy-related entities and attributes necessary to perform energy analyses at urban scale.
 
-In accordance with the philosophy of CityGML, the Energy ADE aims to be flexible in terms of compatibility with different data qualities, levels of detail and urban energy model complexities (e.g. from monthly energy balance methods as of ISO 13790, to sub-hourly dynamic simulations by means of software programs like CitySim or EnergyPlus). It takes into consideration the INSPIRE Directive of the European Parliament, as well as the recent US Building Energy Data Exchange Specification (BEDES).
+In accordance with the philosophy of CityGML, the Energy ADE aims to be flexible in terms of compatibility with different data qualities, levels of detail and urban energy model complexities (e.g. from monthly energy balance methods as of ISO 13790, to sub-hourly dynamic simulations by means of software programs like CitySim or EnergyPlus). It intends also to take into consideration the INSPIRE Directive of the European Parliament, as well as the recent US Building Energy Data Exchange Specification (BEDES).
 
-Its structure is conceived to be modular and, in its current version, it consists of 5 modules:
+Its structure is conceived to be modular. In its current version 0.7, it consists of 5 modules:
 - Building Physics module,
 - Occupancy module,
 - Construction and Material module,
@@ -13,12 +13,19 @@ Its structure is conceived to be modular and, in its current version, it consist
 
 Some modules can be potentially used and extended also for other applications (e.g. module Occupancy for socio-economics, module Construction and Materials for acoustics or statics, etc).
 
-This document is intended to explain the main characteristics of each module and to provide a number of examples how the Energy ADE entities and attributes relate to the existing CityGML classes. Several XML examples are given as well, in order to facilitate the comprehension of how and where the Energy ADE is embedded into CityGML.
+This document is intended to explain the characteristics and purposes of each module, their entities and attributes. It provides also a number of XML examples, illustrating how and where the Energy ADE entities and attributes may be embedded into CityGML. 
 
 # Building Physics Module
 
-This module contains the thermal building objects required for building thermal modelling (e.g. calculation of space heating and space cooling demands): `ThermalZone`, `ThermalBoundary`, `ThermalComponent`. These thermal building objects are linked to the CityGML building objects through its `_AbstractBuilding`, `_BoundarySurface`, `_Opening` classes.
-A Building may have several `ThermalZone` objects, for instance in the case of mixed-usage building, or to distinguish rooms or zones with difference orientations (i.e. different solar gains). These `ThermalZone` objects are separated from each other and from the outside by `ThermalBoundary` objects. These `ThermalBoundary` objects may or not correspond to the CityGML `_BoundarySurface`. However, since `globalSolarIrradiance` incident on `_BoundarySurface` is an important term of the building energy balance, every `ThermalBoundary` delimiting the `ThermalZone` from outside should be related (`correspondsTo`) with a `_BoundarySurface`.
+## Module overview and main relationships
+
+This module contains the thermal building objects required for building thermal modelling (e.g. calculation of space heating and space cooling demands): `ThermalZone`, `ThermalBoundary`, `ThermalComponent`. These thermal building objects are linked to the CityGML building objects through its `_AbstractBuilding`, `_BoundarySurface`, `_Opening` classes, which are extended with Energy ADE attributes.
+
+The `ThermalZone`, which represents the spatial unit for heating and cooling demand calculation, is the central object of this Building Physics Module. A Building may have several `ThermalZone`, for instance in the case of mixed-usage building, or to distinguish rooms or zones with different solar gains and/or thermal behaviour. 
+<br />
+If occupied, a `ThermalZone` must be related to at less 1 `UsageZone`, which contains the usage boundary conditions for the heating and cooling demand calculation (see Occupancy Module). `ThermalZone` may be related to several `UsageZone` for simplified modelling of mixed-usage space, in which case the usage boundary conditions of the `UsageZone` should be aggregated or weighted according with their floorArea.
+
+These `ThermalZone` objects are separated from each other and from the outside by `ThermalBoundary` objects. These `ThermalBoundary` objects may or not correspond to the CityGML `_BoundarySurface`. However, every `ThermalBoundary` delimiting the `ThermalZone` from outside must be related (`correspondsTo`) with a `_BoundarySurface`, in order to consider the `globalSolarIrradiance` incident on `_BoundarySurface` in the heating and cooling calculations.
 
 ## Building, zones and boundaries
 
