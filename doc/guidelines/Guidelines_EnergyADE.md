@@ -92,7 +92,7 @@ In the following, an extract of CityGML file for a building is given, included s
 
 #### FloorArea
 
-A building may have several `floorArea`, related to several `FloorAreaType` (e.g. net floor area, gross floor area, energy reference area). 
+Buildings (`_AbstractBuilding`) and building zones (`ThermalZone` and `UsageZone`) may have several `floorArea`, related to several `FloorAreaType` (e.g. net floor area, gross floor area, energy reference area). 
 
 ```xml
 <!--Examples of three floor areas-->
@@ -120,8 +120,8 @@ A building may present several `energyPerformanceCertification` related to diffe
 <!--Example of two energy performance certifications-->
 <energy:energyPerformanceCertification>
     <energy:EnergyPerformanceCertification>
-        <energy:certificationRating>GoldStar</energy:certificationRating>
-        <energy:certificationName>MyEnergyCertificaton</energy:certificationName>
+        <energy:certificationRating>Platinum</energy:certificationRating>
+        <energy:certificationName>LEED</energy:certificationName>
         <energy:certificationId>0815</energy:certificationId>
     </energy:EnergyPerformanceCertification>
     <energy:EnergyPerformanceCertification>
@@ -135,7 +135,7 @@ A building may present several `energyPerformanceCertification` related to diffe
 
 #### RefurbishmentMeasure
 
-Energy-efficient refurbishment operations and measures may be signaled as attribute of `_AbstractBuilding`. The `RefurbishmentMeasure` object contains two information: the date and level of refurbishment.
+Energy-efficient refurbishment operations and measures may be indicated as attribute of `_AbstractBuilding`, `_BoundarySurface` and `_Opening`. The `RefurbishmentMeasure` object contains two information: the date and level of refurbishment.
 
 The attribute `levelOfRefurbishment` is a codeList whose elements generally relates to refurbishment measure libraries or to a building typology categorisation.
 <br />
@@ -190,12 +190,16 @@ The attribute `dateOfRefurbishment` is defined by the GML type `DateOfEvent`, an
 
 ### \_Opening
 
-The CityGML abstract class `_Opening` is extended by a number of energy-related attributes, in that openings (namely: windows and doors) may have an indoor and an outdoor shading system. They are further defined by an openable ratio. An example for a window and one for a door are given in the following. As in the Building example shown before, the standard CityGML attributes have been omitted for better readability. The door example is simpler and contains also information about construction and construction orientation (by means of Xlinks).
+The CityGML abstract class `_Opening` (inherited by the objects `Window` and `Door`) is extended in this Energy ADE by a number of energy-related attributes. 
+<br />
+First of all, an optional attribute `openableRatio` details the proportion of the opening area which may be opened. An indoor and an outdoor shading system may complement the opening, with a `ShadingType` characterized by a `transmittance` (see details in Module Materials and Constructions) and a `maximumCoverRatio`. Finally, information about possible refurbishment measures and operations may also be added at the level of the opening (e.g window exchange), through the attribute `refurbishmentMeasureOnOpening` of type `RefurbishmentMeasure`.
+
+As in the Building example shown before, the standard CityGML attributes have been omitted for better readability. The door example is simpler and contains also information about construction and construction orientation (by means of Xlinks).
 
 ```xml
 <!--Example of a Window object -->
 <bldg:Window gml:id="id_window_1">
-	<gml:description>This is Window with an ouside rolling shutter and curtains inside</gml:description>
+	<gml:description>This is window with an outside rolling shutter and curtains inside</gml:description>
 	<gml:name>Window with rolling shutter and curtains</gml:name>
 
 	<energy:outdoorShading>
@@ -229,26 +233,15 @@ The CityGML abstract class `_Opening` is extended by a number of energy-related 
 </bldg:Window>
 ```
 
-```xml
-<!--Example of a Door object -->
-<bldg:Door gml:id="id_door_1">
-	<gml:description>This is Door</gml:description>
-	<gml:name>Door 1</gml:name>
-	
-	<energy:constructionOrientation xlink:href="#id_construction_orientation_door"/>
-	<energy:construction xlink:href="#id_construction_orientation_door"/>
+### \_BoundarySurface, globalSolarIrradiance and daylightIlluminance
 
-	<energy:openableRatio uom="ratio">0.95</energy:openableRatio>
+The CityGML abstract class `_BoundarySurface` is extended by a number of Energy ADE attributes, in order in particular to store the incident global solar irradiances and the daylight illuminances available on each outside boundary surface of the building. Moreover,  information about refurbishment measures on roof or facade can characterised the `_BoundarySurface` objects, in the same way that the buildings and openings, through the attribute `refurbishmentMeasureOnBoundarySurface` of type `RefurbishmentMeasure`.
 
-</bldg:Door>
-```
+The `globalSolarIrradiance` is the sum of the direct, diffuse and reflected irradiance incident on a outside boundary surface and is generally expressed in Watts per square metre.  These global solar irradiance is generally used for the thermal calculations within the buildings, but also for the calculation of the energy yield produced by the solar systems (e.g. photovoltaic and solar thermal panels).
 
-### \_BoundarySurface
+The `daylightIlluminance` is the sum of the direct, diffuse and reflected solar illuminance incident on a outside boundary surface. It is generally expressed in Lux. Daylight illuminance is typically used for outside and inside daylighting study, as well as the calculation of the energy consumptions of lighting systems required to reach the room illuminance threshold when the daylight illuminance is not enough.
 
-The CityGML abstract class `_BoundarySurface` is extended by a number of attributes in order to store the incident global solar irradiances and the daylight illuminances available on each outside boundary surface of the building. Moreover, specific information about refurbishmennt measures can also be associated to a certain _BoundarySurface object (e.g. a Roofsurface, a Wallsurface, etc.).
-The global solar irradiance is the sum of the direct, diffuse and reflected irradiance incident on a outside boundary surface and is generally expressed in Watts per square metre.  These global solar irradiance is generally used for the thermal calculations within the buildings (more precisely the `_ThermalZone`), but also for the calculation of the energy yield from the solar systems (e.g. photovoltaic and solar thermal panels).
-Daylight illuminance is the sum of the direct, diffuse and reflected solar illuminance incident on a outside boundary surface. It is generally expressed in Lux. Daylight illuminance is typically used for outside and inside daylighting study, as well as the calculation of the energy consumptions of lighting systems required to reach the room illuminance threshold when the daylight illuminance is not enough.
-Both `globalSolarIrradiance` and `daylightIlluminance` attributes contain `_Timeseries` data (see details in Temporal Data Module).
+Both `globalSolarIrradiance` and `daylightIlluminance` attributes are `_Timeseries` data (see details in Temporal Data Module).
 In the following, a XML example of a roof is given.
 
 ```xml
