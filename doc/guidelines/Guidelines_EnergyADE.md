@@ -37,7 +37,7 @@ The Energy ADE extends the CityGML _AbstractBuilding by a number of energy-relat
 
 All these attributes are optional. Some of them, like `floorArea` and `energyPerformanceCertification`, have a cardinality [0..*] and may consequently be attributed several times to a building, specifying different values for different `FloorAreaType`, respectively `certificationName`.
 
-Finally, because `_AbstractBuilding` inherits from `_CityObject`, further objects may be assigned to it, like `EnergyDemand` (see Module Energy and Systems).
+Finally, because `_AbstractBuilding` inherits from `_CityObject`, further objects may be assigned to it, like `EnergyDemand` in particular (see Module Energy and Systems).
 
 In the following, an extract of CityGML file for a building is given, included some of its Energy ADE attributes.
 
@@ -95,20 +95,20 @@ In the following, an extract of CityGML file for a building is given, included s
 A building may have several `floorArea`, related to several `FloorAreaType` (e.g. net floor area, gross floor area, energy reference area). 
 
 ```xml
-<!--Examples of floorArea-->
+<!--Examples of three floor areas-->
 <energy:FloorArea>
-	<energy:type>GrossFloorArea</energy:type>
-	<energy:value uom="m^2">50</energy:value>
-</energy:FloorArea>
-
-<energy:FloorArea>
-	<energy:type>NetFloorArea</energy:type>
-	<energy:value uom="m^2">40</energy:value>
-</energy:FloorArea>
-
-<energy:FloorArea>
-	<energy:type>EnergyReferenceArea</energy:type>
-	<energy:value uom="m^2">30</energy:value>
+	<energy:FloorArea>
+		<energy:type>GrossFloorArea</energy:type>
+		<energy:value uom="m^2">50.0</energy:value>
+	</energy:FloorArea>
+	<energy:FloorArea>
+		<energy:type>NetFloorArea</energy:type>
+		<energy:value uom="m^2">40.0</energy:value>
+	</energy:FloorArea>
+	<energy:FloorArea>
+		<energy:type>EnergyReferenceArea</energy:type>
+		<energy:value uom="m^2">43.0</energy:value>
+	</energy:FloorArea>
 </energy:FloorArea>
 ```
 
@@ -117,17 +117,29 @@ A building may have several `floorArea`, related to several `FloorAreaType` (e.g
 A building may present several `energyPerformanceCertification` related to different `certificationName` (e.g. PassivHaus, LEED) and/or different certification dates (specificied by `certificationId`).
 
 ```xml
-<!--Example of Energy Performance Certification-->
+<!--Example of two energy performance certifications-->
 <energy:energyPerformanceCertification>
     <energy:EnergyPerformanceCertification>
         <energy:certificationRating>GoldStar</energy:certificationRating>
         <energy:certificationName>MyEnergyCertificaton</energy:certificationName>
         <energy:certificationId>0815</energy:certificationId>
-    </energy:EnergyPerformanceCertification>       
+    </energy:EnergyPerformanceCertification>
+    <energy:EnergyPerformanceCertification>
+        <energy:certificationRating>Passive house</energy:certificationRating>
+        <energy:certificationName>EnerPHit</energy:certificationName>
+        <energy:certificationId>4756</energy:certificationId>
+    </energy:EnergyPerformanceCertification>  
 </energy:energyPerformanceCertification>
+
 ```
 
 #### RefurbishmentMeasure
+
+Energy-efficient refurbishment operations and measures may be signaled as attribute of `_AbstractBuilding`. The `RefurbishmentMeasure` object contains two information: the date and level of refurbishment.
+
+The attribute `levelOfRefurbishment` is a codeList whose elements generally relates to refurbishment measure libraries or to a building typology categorisation.
+<br />
+The attribute `dateOfRefurbishment` is defined by the GML type `DateOfEvent`, and may consequently be specified in different manners (see the 3 examples below).
 
 ```xml
 <!--Example of a Refurbishment Measure on a building with a very vague date ("before June 2010") -->
@@ -161,7 +173,6 @@ A building may present several `energyPerformanceCertification` related to diffe
     </energy:RefurbishmentMeasure>
 </energy:refurbishmentMeasureOnBuilding>    
 ```
-
 
 ```xml
 <!--Example of an usual Refurbishment Measure in June 2012 -->
