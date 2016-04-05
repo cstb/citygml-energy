@@ -402,8 +402,6 @@ In the following, two XML examples of `ThermalBoundary`, with and without explic
 </energy:ThermalBoundary>
 ```
 
-An example of how to add explicit multisurface geometry for a `ThermalBoundary` can be seen in the following example.
-
 ```xml
 <!--Example of a ThermalBoundary with explicit surface geometry, separating two thermal zones -->
 <energy:ThermalBoundary gml:id="id_thermalboundary_2">
@@ -429,8 +427,9 @@ An example of how to add explicit multisurface geometry for a `ThermalBoundary` 
 
 ### ThermalComponent
 
-A `ThermalComponent` object is used to semantically model a part of the thermal boundary corresponding to a homogeneous construction component (e.g. windows, wall, insulated part of a wall etc.). For each component, its area is given as well as information whether it is coupled to ground or exposed to sun. As `ThermalComponent` inherits from `_CityObject`, it can be associated to a `Construction` object (see module Construction and Material), either inline or by means of xlinks.
-A XML example is presented in the following.
+A `ThermalComponent` object is a part of the thermal boundary corresponding to a homogeneous construction component (e.g. windows, wall, insulated part of a wall etc.). Each `ThermalComponent` is characterized with their `Area`, information whether it is coupled to ground (`isGroundCoupled`) and exposed to sun (`isSunExposed`).
+<br />
+Since `ThermalComponent` inherits from `_CityObject`, it can be associated to a `Construction` object (see module Construction and Material). This may be done either inline or by means of xlinks (see example below). In this way, `ThermalComponent` provides the physical properties of the building envelope to calculate the heating and cooling demand.
 
 ```xml
 <!--Example of a ThermalComponent-->
