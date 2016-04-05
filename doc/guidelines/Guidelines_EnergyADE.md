@@ -151,6 +151,7 @@ The attribute `dateOfRefurbishment` is defined by the GML type `DateOfEvent`, an
             </energy:DateOfEvent>
         </energy:dateOfRefurbishment>
         <energy:levelOfRefurbishment>UsualRefurbishment</energy:levelOfRefurbishment>
+        <gml:description>Refurbishment consisting in the outside insulation of walls with 12cm polystyrol etc.</gml:description>
     </energy:RefurbishmentMeasure>
 </energy:refurbishmentMeasureOnBuilding>
 ```
@@ -357,30 +358,36 @@ In the following, Two XML examples present a `ThermalZone`, with and without exp
 
 ### ThermalBoundary
 
-A `ThermalBoundary` is a coplanar, or nearly coplanar, surface geometrically delimiting a `ThermalZone`. A set of `ThermalBoundary` objects represent therefore the physical boundary of each `ThermalZone`. In case af adjacent ThermalZones, i.e. when two ThermalZones are divided by a common shared wall, a ThermalBoundary object contains topological information about both adjacent ThermalZones.
+A `ThermalBoundary` represent the physical relationship between two `ThermalZone`, or one `ThermalZone` and the building environment. Its geometrical representation is a coplanar, or quasi coplanar, surface.
 
-Each `ThermalBoundary` object contains information about its azimut and inclination angles, as well as about which type of ThermalBoundary it is (e.g. an exterior wall, a roof, a cellar ceiling, a floor, etc.).
-When a ThermalBoundary corresponds to the (external) boundary surfaces of the building, it can be linked to the corresponding _BoundarySurface object (e.g. a wallsurface, a roofsurface, a groundsurface in LoD2). This could be the case, for example, when performing single ThermalZone simulations using the whole building.
-When an intermediate floor or ceiling, or a shared wall between two adjacent ThermalZones in the same building need to be modelled, then it is possible to add an explicit surface geometry by means of the surfaceGeometry attribute.
+Each `ThermalZone` is geometrically closed by its whole set of bounding `ThermalBoundary` (specificied in the relationship "boundedBy").
+<br />
+In the case where the `ThermalBoundary` delimits one `ThermalZone` from the building environment, corresponding then to the external boundary of a building, its geometrical representation coincides with the external surfaces of the related outer wall/roof/basement floor. In this case, the `ThermalBoundary` should be linked to the corresponding `_BoundarySurface` object (e.g. a `WallSurface`, a `RoofSurface`, a `GroundSurface` in LoD2) if existing, through the relationship "correspondsTo". It may however occurs that such `ThermalBoundary` does not match with any `_BoundarySurface` (e.g. basement ceiling, attic floor).
+<br />
+In the case where the `ThermalBoundary` separate two adjacent `ThermalZone`, corresponding then to an intermediate floor, ceiling, or a shared wall, its geometrical representation coincides with the plan laying at the middle of this construction thickness.
+<br />
 
-In the following, two XML examples are given: the first one references a LoD2 `_BoundarySurface`, the second one models a shared wall explicitly. Please note following rules:
-- While separating a thermal zone from the building surrounding, its ThermalBoundaries correspond to the external surfaces of the outer wall/roof/basement floor.
-- While separating two thermal zones, its thermal boundaries correspond to the middle of the shared wall (or floor/ceiling).
-
-The following figure represents these different cases in a building side section, relating the Energy ADE objects `ThermalZone` and `ThermalBoundary` to the CityGML objects `Room`.
+The following figure represents these 2 different cases in a building side section, relating the Energy ADE objects `ThermalZone` and `ThermalBoundary` to the CityGML objects `Room` and `_BoundarySurface`.
 
 ![Schema of adjacent thermal zones](fig/ThermalZoneAdjacency.png)
 
+`ThermalBoundary` may contain attributes characterizing their type (`thermalBoundaryType`), orientation (`azimuth` and `inclination`) and explicit geometry (`surfaceGeometry`). All these attributes are optional. Thus, a `ThermalZone` may optionally contain an explicit surface geometry (specified by `surfaceGeometry`), useful in particular for visualisation purposes if the `ThermalBoundary` does not coincide with any `_BoundarySurface`, but not necessary for heating and cooling demand calculations.
+<br />
+The `ThermalBoundaryType` type is slightly different to the types of `_BoundarySurface` from CityGML, integrating further thermal boundaries like AtticFloor, BasementCeiling, BasementFloor or SharedWall.
+
+Each `ThermalBoundaryType` is composed of `ThermalComponent` (e.g. wall construction, windows etc.) which holds the `Construction`.
+
+In the following, two XML examples of `ThermalBoundary`, with and without explicit geometry are given.
+
 ```xml
-<!--Example of a ThermalBoundary-->
+<!--Example of a ThermalBoundary corresponding to a building roof, delimiting a thermal zone -->
 <energy:ThermalBoundary gml:id="id_thermalboundary_1">
 	<gml:description>Thermal Boundary 1</gml:description>
 	<gml:name>Thermal Boundary 1</gml:name>
 	<energy:azimuth uom="decimal degrees">135</energy:azimuth>
-	<energy:inclination uom="decimal degrees">25</energy:inclination>
+	<energy:inclination uom="decimal degrees">55</energy:inclination>
 	<energy:thermalBoundaryType>Roof</energy:thermalBoundaryType>
-	
-	<!--Here follow one or more ThermalComponent objects, each inside a "composedOf" tag-->
+	<partOf xlink:href="#id_thermalzone_1"/>
 	<energy:composedOf>
 		<energy:ThermalComponent gml:id="id_thermalcomponent_1">
 			<!--Here come all attributes of the first ThermalComponent (omitted here)-->
@@ -391,14 +398,14 @@ The following figure represents these different cases in a building side section
 			<!--Here come all attributes of the second ThermalComponent (omitted here)-->
 		</energy:ThermalComponent>
 	</energy:composedOf>
-	<partOf xlink:href="#id_thermalzone_1"/>
+	<correspondsTo xlink:href="#id_RoofSurface_1"/>
 </energy:ThermalBoundary>
 ```
 
 An example of how to add explicit multisurface geometry for a `ThermalBoundary` can be seen in the following example.
 
 ```xml
-<!--Example of a ThermalBoundary with explicit surface geometry-->
+<!--Example of a ThermalBoundary with explicit surface geometry, separating two thermal zones -->
 <energy:ThermalBoundary gml:id="id_thermalboundary_2">
 	<!--Additional attributes of the ThermalBoundary class (omitted here)-->
 	
@@ -415,10 +422,10 @@ An example of how to add explicit multisurface geometry for a `ThermalBoundary` 
 			</gml:surfaceMember>
 		</gml:MultiSurface>
 	</energy:surfaceGeometry>
+	<partOf xlink:href="#id_thermalzone_1"/>
+	<partOf xlink:href="#id_thermalzone_2"/>
 </energy:ThermalBoundary>
 ```
-
-TO DO: Add a complete example how to model a ThermalBoundary shared between two thermal zones (e.g. a shared wall)
 
 ### ThermalComponent
 
