@@ -1,4 +1,4 @@
-# Overview of the Energy Application Domain Extension 
+# Overview of the Energy Application Domain Extension
 
 The CityGML Energy Application Domain Extension (Energy ADE) aims at extending
 the CityGML 2.0 standard with energy-related entities and attributes necessary
@@ -28,7 +28,7 @@ for acoustics or statics, etc).
 This document is intended to explain the characteristics and purposes of each
 module, their entities and attributes. It provides also a number of XML
 examples, illustrating how and where the Energy ADE entities and attributes may
-be embedded into CityGML. 
+be embedded into CityGML.
 
 # Building Physics Module
 
@@ -45,7 +45,7 @@ The `ThermalZone`, which represents the spatial unit for heating and cooling
 demand calculation, is the central object of this Building Physics Module. A
 Building may have several `ThermalZone`, for instance in the case of
 mixed-usage building, or to distinguish rooms or zones with different solar
-gains and/or thermal behaviour. 
+gains and/or thermal behaviour.
 
 If occupied, a `ThermalZone` must be related to at less 1 `UsageZone`, which
 contains the usage boundary conditions for the heating and cooling demand
@@ -65,7 +65,7 @@ incident on `_BoundarySurface` in the heating and cooling calculations.
 
 ![Class diagram of Building Physics Module](fig/class_geometry.png)
 
-### \_AbstractBuilding 
+### \_AbstractBuilding
 
 The Energy ADE extends the CityGML _AbstractBuilding by a number of
 energy-related attributes, e.g with regards to the geometrical characteristics
@@ -77,7 +77,7 @@ refurbishment measures (`RefurbishmentMeasureOnBuilding`), and other building
 information useful for building typology categorisations (`buildingType` and
 `constructionStyle`).
 
-All these attributes are optional. Some of them, like `floorArea` and
+All these attributes are optional. Some of them, like `floorArea` and  
 `energyPerformanceCertification`, have a cardinality [0..*] and may
 consequently be attributed several times to a building, specifying different
 values for different `FloorAreaType`, respectively `certificationName`.
@@ -112,9 +112,9 @@ some of its Energy ADE attributes.
 	</energy:refurbishmentMeasureOnBuilding>
 	<energy:averageCeilingHeight uom="m">2.7</energy:averageCeilingHeight>
 	<energy:atticType>Conditioned</energy:atticType>
-	
+
 	<!--Here may come a list of UsageZone of the building (see Module Occupancy) -->
-	
+
 	<energy:ridgeHeight uom="m">10.5</energy:ridgeHeight>
 	<energy:landmarked>false</energy:landmarked>
 	<energy:floorArea>
@@ -123,7 +123,7 @@ some of its Energy ADE attributes.
 	<energy:eavesHeight uom="m">8</energy:eavesHeight>
 	<energy:constructionStyle>Massive</energy:constructionStyle>
 	<energy:buildingType>MultiFamilyHouse</energy:buildingType>
-	
+
 	<!--Here follow all ThermalZone objects, each inside a "thermalZones" tag-->
 	<energy:thermalZones>
 		<energy:ThermalZone gml:id="id_thermalzone_1">
@@ -142,7 +142,7 @@ some of its Energy ADE attributes.
 
 Buildings (`_AbstractBuilding`) and building zones (`ThermalZone` and
 `UsageZone`) may have several `floorArea`, related to several `FloorAreaType`
-(e.g. net floor area, gross floor area, energy reference area). 
+(e.g. net floor area, gross floor area, energy reference area).
 
 ```xml
 <!--Examples of three floor areas-->
@@ -164,7 +164,8 @@ Buildings (`_AbstractBuilding`) and building zones (`ThermalZone` and
 
 #### EnergyPerformanceCertification
 
-A building may present several `energyPerformanceCertification` related to
+A building may present several  
+`energyPerformanceCertification` related to
 different `certificationName` (e.g. PassivHaus, LEED) and/or different
 certification dates (specificied by `certificationId`).
 
@@ -180,7 +181,7 @@ certification dates (specificied by `certificationId`).
         <energy:certificationRating>Passive house</energy:certificationRating>
         <energy:certificationName>EnerPHit</energy:certificationName>
         <energy:certificationId>4756</energy:certificationId>
-    </energy:EnergyPerformanceCertification>  
+    </energy:EnergyPerformanceCertification>
 </energy:energyPerformanceCertification>
 
 ```
@@ -231,7 +232,7 @@ below).
         </energy:dateOfRefurbishment>
         <energy:levelOfRefurbishment>AdvancedRefurbishment</energy:levelOfRefurbishment>
     </energy:RefurbishmentMeasure>
-</energy:refurbishmentMeasureOnBuilding>    
+</energy:refurbishmentMeasureOnBuilding>
 ```
 
 ```xml
@@ -252,7 +253,7 @@ below).
 
 The CityGML abstract class `_Opening` (inherited by the objects `Window` and
 `Door`) is extended in this Energy ADE by a number of energy-related
-attributes. 
+attributes.
 
 First of all, an optional attribute `openableRatio` details the proportion of
 the opening area which may be opened. An indoor and an outdoor shading system
@@ -364,7 +365,7 @@ building heating and cooling demand calculation. A `ThermalZone` is a zone of a
 for building heating and cooling demand calculation. It is generally a "thermal
 homogeneous" space considered as isothermal, but may also refer to several
 building rooms and zones with different usage boundary conditions for
-simplified building energy modelling. 
+simplified building energy modelling.
 
 A `ThermalZone` contains a series of energy-related attributes which
 characterize its geometry (`floorArea`, `grossVolume`, `netVolume`,
@@ -390,7 +391,7 @@ mixed-usage space, in which case the usage boundary conditions of the UsageZone
 should be aggregated or weighted according with their `floorArea`.
 
 The class `ThermalZone` inherits from `_CityObject`, and may therefore be
-associated to one or more `EnergyDemand` objects (see module Energy Systems). 
+associated to one or more `EnergyDemand` objects (see module Energy Systems).
 
 In the following, Two XML examples present a `ThermalZone`, with and without
 explicit volume geometry.
@@ -409,16 +410,16 @@ explicit volume geometry.
 		</energy:FloorArea>
 	</energy:floorArea>
 	<energy:grossVolume uom="m^3">200.0</energy:grossVolume>
-	
+
 	<!-- here follows a related usage zone -->
 	<energy:relates xlink:href="#id_usagezone_1"/>
-	
+
 	<energy:indirectlyHeatedAreaRatio uom="ratio">0.15</energy:indirectlyHeatedAreaRatio>
 	<energy:infiltrationRate uom="1/h">1.2</energy:infiltrationRate>
 	<energy:isCooled>true</energy:isCooled>
 	<energy:isHeated>true</energy:isHeated>
 	<energy:netVolume uom="m^3">180.0</energy:netVolume>
-	
+
 	<!--Here follow all ThermalBoundary objects, each inside a "boundedBy" tag-->
 	<energy:boundedBy>
 		<energy:ThermalBoundary gml:id="id_thermalboundary_1">
@@ -430,7 +431,7 @@ explicit volume geometry.
 			<!--Here come all attributes of the second ThermalBoundary (omitted here)-->
 		</energy:ThermalBoundary>
 	</energy:boundedBy>
-	
+
 </energy:ThermalZone>
 ```
 
@@ -438,7 +439,7 @@ explicit volume geometry.
 <!--Example of a ThermalZone with explicit volume geometry-->
 <energy:ThermalZone gml:id="id_thermalzone_2">
 	<!--Additional attributes of the ThermalZone (omitted here)-->
-	
+
 	<energy:volumeGeometry>
 		<gml:Solid gml:id="id_thermalzone_volume_geometry_1" srsName="EPSG:31256" srsDimension="3">
 			<gml:exterior>
@@ -499,7 +500,7 @@ the CityGML objects `Room` and `_BoundarySurface`.
 
 ![Schema of adjacent thermal zones](fig/ThermalZoneAdjacency.png)
 
-`ThermalBoundary` may contain attributes characterizing their type
+`ThermalBoundary` may contain attributes characterizing their type  
 (`thermalBoundaryType`), orientation (`azimuth` and `inclination`) and explicit
 geometry (`surfaceGeometry`). All these attributes are optional. Thus, a
 `ThermalZone` may optionally contain an explicit surface geometry (specified by
@@ -544,7 +545,7 @@ explicit geometry are given.
 <!--Example of a ThermalBoundary with explicit surface geometry, separating two thermal zones -->
 <energy:ThermalBoundary gml:id="id_thermalboundary_2">
 	<!--Additional attributes of the ThermalBoundary class (omitted here)-->
-	
+
 	<energy:surfaceGeometry>
 		<gml:MultiSurface gml:id="id_thermalboundary_2_surface_geometry" srsName="EPSG:31256" srsDimension="3">
 			<gml:surfaceMember>
@@ -601,7 +602,7 @@ actually are a data type which is not domain-specific, they are planned to be
 integrated in the CityGML 3.0.  All time series share some common properties,
 contained in the variableProperties attribute. These properties are the
 variable label, the variable unit of measure (*uom*), the interpolation type
-(based on the [WaterML ADE](http://def.seegrid.csiro.au/sissvoc/ogc-def/resource?uri=http://www.opengis.net/def/waterml/2.0/interpolationType/))
+(based on the [WaterML ADE] []
 and some further metadata like the data source, the acquisition method and a
 quality description.
 
@@ -611,7 +612,8 @@ given `temporalExtent` (i.e. start, end and duration time). They are used, for
 instance, to store automatically acquired data or hourly/daily/monthly
 simulation results.  In *IrregularTimeSeries*, data follows a temporal
 sequence, but the measurement points may not happen at a regular time
-interval[^1]. Therefore, each value must be associated with a data or time.
+interval ([IBM knowledge Center] []).
+Therefore, each value must be associated with a data or time.
 What is more, each time series can be stored as an external file (e.g. csv or
 text) and for this purpose a number of attributes provide the required
 information about how to retrieve the proper set of values from the files.  In
@@ -736,7 +738,7 @@ above.
 					<energy:temporalExtent>
 						<gml:TimePeriod>
 							<gml:beginPosition>00:00:00</gml:beginPosition>
-							<gml:endPosition>23:59:59</gml:endPosition>                                   
+							<gml:endPosition>23:59:59</gml:endPosition>
 						</gml:TimePeriod>
 					</energy:temporalExtent>
 					<energy:timeInterval unit="hour">1</energy:timeInterval>
@@ -759,7 +761,7 @@ above.
 					<energy:temporalExtent>
 						<gml:TimePeriod>
 							<gml:beginPosition>00:00:00</gml:beginPosition>
-							<gml:endPosition>23:59:59</gml:endPosition>  
+							<gml:endPosition>23:59:59</gml:endPosition>
 						</gml:TimePeriod>
 					</energy:temporalExtent>
 					<energy:timeInterval unit="hour">1</energy:timeInterval>
@@ -776,7 +778,7 @@ above.
 					<energy:temporalExtent>
 						<gml:TimePeriod>
 							<gml:beginPosition>00:00:00</gml:beginPosition>
-							<gml:endPosition>23:59:59</gml:endPosition>  
+							<gml:endPosition>23:59:59</gml:endPosition>
 						</gml:TimePeriod>
 					</energy:temporalExtent>
 					<energy:timeInterval unit="hour">1</energy:timeInterval>
@@ -817,7 +819,7 @@ characterization of the boundary surfaces, surface components and, possibly,
 even the whole building. As it inherits from class `_CityObject`, all similar
 objects can be described also by means of construction and materials. Given
 that the nature of this module is not domain-specific, it can be used beyond
-energy-related applications (e.g. in statics, acoustics etc.) 
+energy-related applications (e.g. in statics, acoustics etc.).
 
 ## Construction
 
@@ -951,7 +953,7 @@ Class of the materials which have a mass and a heat capacity.
                     </energy:material>
                 </energy:LayerComponent>
             </energy:layerComponent>
-           
+
             <energy:layerComponent>
                 <energy:LayerComponent>
                     <energy:thickness uom="m">0.062</energy:thickness>
@@ -965,7 +967,7 @@ Class of the materials which have a mass and a heat capacity.
                     </energy:material>
                 </energy:LayerComponent>
             </energy:layerComponent>
-            
+
             <energy:layerComponent>
                 <energy:LayerComponent>
                     <energy:thickness uom="m">0.025</energy:thickness>
@@ -978,7 +980,7 @@ Class of the materials which have a mass and a heat capacity.
                         </energy:SolidMaterial>
                     </energy:material>
                 </energy:LayerComponent>
-            </energy:layerComponent>                     
+            </energy:layerComponent>
         </energy:Layer>
     </energy:layer>
 </energy:Construction>
@@ -1111,7 +1113,7 @@ inherits from class `_CityObject`.
 			<energy:value uom="m^2">40</energy:value>
 		</energy:FloorArea>
 	</energy:floorArea>
-	
+
 	<!--Here follow all Occupants objects, each inside a "occupiedBy" tag-->
 	<energy:occupiedBy>
 		<energy:Occupants gml:id="id_occupants_1">
@@ -1217,7 +1219,7 @@ structure and attributes of the ElectricalAppliances.
 	</energy:heatDissipation>
 
 	<energy:operationSchedule>
-		<!--Add here the Schedule data -->	
+		<!--Add here the Schedule data -->
 	</energy:operationSchedule>
 
 	<energy:numberOfBaths>1</energy:numberOfBaths>
@@ -1242,8 +1244,8 @@ structure and attributes of the ElectricalAppliances.
 	<energy:electricalPower uom="kW">1</energy:electricalPower>
 
 	<energy:operationSchedule>
-		<!--Add here the Schedule data -->	
-	</energy:operationSchedule>	
+		<!--Add here the Schedule data -->
+	</energy:operationSchedule>
 
 </energy:ElectricalAppliances>
 ```
@@ -1410,4 +1412,6 @@ type of photovoltaic cells with a string.
 
 # References
 
-[^1]: [IBM knowledge Center](http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosphere.streams.timeseries-toolkit.doc/doc/timeseries-regular.html)
+[WaterML ADE]: http://def.seegrid.csiro.au/sissvoc/ogc-def/resource?uri=http://www.opengis.net/def/waterml/2.0/interpolationType/ "WaterML ADE"
+
+[IBM knowledge Center]: http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosphere.streams.timeseries-toolkit.doc/doc/timeseries-regular.html "IBM knowledge Center"
