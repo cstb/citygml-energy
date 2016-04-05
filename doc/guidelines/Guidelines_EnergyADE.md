@@ -151,7 +151,7 @@ The attribute `dateOfRefurbishment` is defined by the GML type `DateOfEvent`, an
             </energy:DateOfEvent>
         </energy:dateOfRefurbishment>
         <energy:levelOfRefurbishment>UsualRefurbishment</energy:levelOfRefurbishment>
-        <gml:description>Refurbishment consisting in the outside insulation of walls with 12cm polystyrol etc.</gml:description>
+        <gml:description>Refurbishment consisting of an outside insulation of walls etc.</gml:description>
     </energy:RefurbishmentMeasure>
 </energy:refurbishmentMeasureOnBuilding>
 ```
@@ -445,26 +445,38 @@ Since `ThermalComponent` inherits from `_CityObject`, it can be associated to a 
 
 # Temporal Data Module
 
+This module introduces the two new types `_TimeSeries` and `_Schedules`, essential to model the time-depending inputs and results of urban energy analyses. These types are used in other Modules of the Energy ADE, in particular the module Occupancy and module Energy and Systems.
+<br/ >
+As theses types are actually not domain-specific, we are collaborating with the development team of the CityGML 3.0 to integrate them in the new CityGML 3.0 to come (as Dynamizer).
+
 ## Time Series
 
 ![Class diagram of ADE Energy Core - Time Series](fig/class_time.png)
 
-Time series are homogeneous lists of time-depending values. They are used in the Energy ADE to store energy amount or a schedule, for instance. As they actually are a data type which is not domain-specific, they are planned to be integrated in the CityGML 3.0.
-All time series share some common properties, contained in the variableProperties attribute. These properties are the variable label, the variable unit of measure (*uom*), the interpolation type (based on the [WaterML ADE](http://def.seegrid.csiro.au/sissvoc/ogc-def/resource?uri=http://www.opengis.net/def/waterml/2.0/interpolationType/)) and some further metadata like the data source, the acquisition method and a quality description.
-Time series can be either regular or irregular.  *RegularTimeSeries* contain values generated at regularly spaced interval of time (`timeInterval`), over a given `temporalExtent` (i.e. start, end and duration time). They are used, for instance, to store automatically acquired data or hourly/daily/monthly simulation results.
-In *IrregularTimeSeries*, data follows a temporal sequence, but the measurement points may not happen at a regular time interval[^1]. Therefore, each value must be associated with a data or time.
-What is more, each time series can be stored as an external file (e.g. csv or text) and for this purpose a number of attributes provide the required information about how to retrieve the proper set of values from the files.
-In the following, several examples of time series are given. Please note that the variableProperties are presented in the first example and omitted in the following ones for better readability.
+Time series are homogeneous lists of time-depending values. They are used in the Energy ADE to store energy amount or an occupancy schedule, for instance. 
 
+All time series share some common properties, gathered in the `TimeValuesProperties` type object. This object specifies optionally the  `acquisitionMethod` (e.g. simulated with software X, measured with heat meter), `interpolationType` (based on the [WaterML ADE](http://def.seegrid.csiro.au/sissvoc/ogc-def/resource?uri=http://www.opengis.net/def/waterml/2.0/interpolationType/), to know for instance if measured data are "Average in Preceding Interval", or "Instantaneous Total"), `qualityDescription` and `source` of the time series data. Additionally, `_TimeSeries`may contain the the usual GML type attributes `name` and `description`.
+
+Time series can be either regular or irregular. `RegularTimeSeries` contain `values` generated at regularly spaced interval of time (`timeInterval`), over a given `temporalExtent` (i.e. start, end and duration time). They are used, for instance, to store automatically acquired data or hourly/daily/monthly simulation results.
+<br />
+In `IrregularTimeSeries`, data follows a temporal sequence, but the measurement points may not happen at a regular time interval[^1]. Therefore, each value must be associated with a data or time.
+
+Time series values may be also stored on an external file (e.g. csv or text), both for regular (`RegularTimeSeriesFile`) and irregular time series (`IrregularTimeSeriesFile`). A number of attributes must be detailed to retrieve the `file`, interprete the formats and values inside it (`decimalSymbol`, `recordSeparator`, `fieldSeparator`, `numberOfHeaderLines`, `uom`), and know which values of the file should be read (`timeColumnNumber` for irregular time series and `valueColumnNumber` for both of them). One file with different records may be reused by different `RegularTimeSeriesFile` or `IrregularTimeSeriesFile` with the corresponding `valueColumnNumber`.
+
+In the following, four examples of time series illustrates the four types of time series. The variableProperties and gml attributes are presented in the first example but not always repeated in the following examples for better readibility.
+
+Example of RegularTimeSeries object:
 ```xml
-<!--Example of RegularTimeSeries object with 12 monthly values-->
+<!--Example of RegularTimeSeries object with daily values-->
 <energy:RegularTimeSeries gml:id="id_timeseries_electricity_demand_1">
+	<gml:description>Description of the time series id_timeseries_electricity_demand_1</gml:description>
+	<gml:name>Name of the  time series id_timeseries_electricity_demand_1</gml:name>
 	<energy:variableProperties>
 		<energy:TimeValuesProperties>
-			<energy:acquisitionMethod>Description of the acquisition method</energy:acquisitionMethod>
+			<energy:acquisitionMethod>Measured electronically with heat power</energy:acquisitionMethod>
 			<energy:interpolationType>AverageInSucceedingInterval</energy:interpolationType>
-			<energy:qualityDescription>Description of data quality</energy:qualityDescription>
-			<energy:source>Information about data source</energy:source>
+			<energy:qualityDescription>Accurate (+/- 0.2 kWh)</energy:qualityDescription>
+			<energy:source>Subcontracting company X</energy:source>
 		</energy:TimeValuesProperties>
 	</energy:variableProperties>
 	<energy:temporalExtent>
@@ -473,31 +485,49 @@ In the following, several examples of time series are given. Please note that th
 			<gml:endPosition>2016-12-31</gml:endPosition>
 		</gml:TimePeriod>
 	</energy:temporalExtent>
-	<energy:timeInterval unit="year">0.0833</energy:timeInterval>
-	<energy:values uom="kWh">330 320 300 270 200 180 160 155 170 200 250 300</energy:values>
-</energy:RegularTimeSeries>
-```
-
-```xml
-<!--Example of RegularTimeSeries object with daily values (exerpt)-->
-<energy:RegularTimeSeries gml:id="id_timeseries_electricity_demand_2">
-	<energy:temporalExtent>
-		<gml:TimePeriod>
-			<gml:beginPosition>2011-01-01</gml:beginPosition>
-			<gml:endPosition>2011-12-31</gml:endPosition>
-		</gml:TimePeriod>
-	</energy:temporalExtent>
 	<energy:timeInterval unit="day">1</energy:timeInterval>
 	<energy:values uom="kWh">11.2 11.4 10.2 9.6 6.3 11.5 12.7 ... (truncated, set of 365 values) </energy:values>
 </energy:RegularTimeSeries>
 ```
 
+Example of IrregularTimeSeries object:
+```xml
+<!--Example of IrregularTimeSeries object listing one value per year-->
+<energy:IrregularTimeSeries gml:id="id_timeseries_electricity_demand_1">
+	<energy:variableProperties>
+		<energy:TimeValuesProperties>
+			<energy:acquisitionMethod>Manual read on electrical meter</energy:acquisitionMethod>
+			<energy:interpolationType>InstantTotal</energy:interpolationType>
+		</energy:TimeValuesProperties>
+	</energy:variableProperties>
+	<energy:uom uom="kWh"/>
+	<energy:contains>
+		<energy:MeasurementPoint>
+			<energy:time>2010-02-24</energy:time>
+			<energy:value>12050</energy:value>
+		</energy:MeasurementPoint>
+	</energy:contains>
+	<energy:contains>
+		<energy:MeasurementPoint>
+			<energy:time>2011-02-15</energy:time>
+			<energy:value>14050</energy:value>
+		</energy:MeasurementPoint>
+	</energy:contains>
+	<energy:contains>
+		<energy:MeasurementPoint>
+			<energy:time>2012-03-01</energy:time>
+			<energy:value>16245</energy:value>
+		</energy:MeasurementPoint>
+	</energy:contains>
+</energy:RegularTimeSeries>
+```
+
+Example of RegularTimeSeriesFile object:
 ```xml
 <!--Example of RegularTimeSeriesFile object with hourly values contained in a file-->
 <energy:RegularTimeSeriesFile gml:id="id_regulartimeseries_file_1">
 	<energy:uom uom="W/m^2"/>
-	<energy:file>file_name_containing_values.tsv</energy:file>
-	<energy:temporalExtent>
+	<energy:file>file_name_containing_values.csv</energy:file>
 	<energy:temporalExtent>
 		<gml:TimePeriod>
 			<gml:beginPosition>2008-01-01</gml:beginPosition>
@@ -511,20 +541,32 @@ In the following, several examples of time series are given. Please note that th
 </energy:RegularTimeSeriesFile>
 ```
 
+Example of IrregularTimeSeriesFile object:
 ```xml
-<!--Example of IrregularTimeSeries object-->
+<!--Example of IrregularTimeSeriesFile object-->
+<energy:RegularTimeSeriesFile gml:id="id_regulartimeseries_file_1">
+	<energy:uom uom="W/m^2"/>
+	<energy:file>file_name_containing_values.csv</energy:file>
+	<energy:numberOfHeaderLines>1</energy:numberOfHeaderLines>
+	<energy:recordSeparator> </energy:recordSeparator>
+	<energy:decimalSymbol>,</energy:decimalSymbol>
+	<energy:valueColumnNumber>9</energy:valueColumnNumber>
+	<energy:timeColumnNumber>1</energy:timeColumnNumber>
+	<energy:fieldSeparator>\t</energy:fieldSeparator>
+</energy:RegularTimeSeriesFile>
 ```
 
 ## Schedules
 
 ![Class diagram of ADE Energy Core - Schedules](fig/class_schedules.png)
 
-The type Schedule is used in the Energy ADE for different kinds of schedules, e.g. heating/cooling schedules (set-point temperatures), ventilation schedules (mechanical air change rate) and occupancy rate.
-Schedules can be modelled up to 4 "semantic" levels of details depending on the available information and the application requirement. These levels of detail range from a simple constant value to a schedule characterised by a _TimeSeries object.
+The type `_Schedule` is used in the Energy ADE for different kinds of schedules related to the building usage: heating and cooling schedules (set-point temperatures), ventilation schedules (mechanical air change rate), occupancy rate and facilities operation schedules.
+<br />
+Schedules can be modelled in 4 possible "semantic levels of detail", depending on the available information and the application requirements. These levels of detail range from a simple constant value to a detailed schedule characterised by a `_TimeSeries` object.
 
 ### ConstantValueSchedule
 
-The simplest level of detail, this Schedule is defined by a constant value, generally corresponding to the average parameter value.
+The simplest level of detail, this Schedule is defined by a constant measure (`averageValue`), generally corresponding to the average parameter value.
 
 ```xml
 <!--Example of a ConstantValueSchedule-->
@@ -535,7 +577,7 @@ The simplest level of detail, this Schedule is defined by a constant value, gene
 
 ### DualValueSchedule
 
-A two-state schedule, this schedule is defined by a usage value for usage times, and an idle value outside this temporal boundaries. Information about the number of usage days per year and usage hours per usage days are also defined. This schedule complies in particular with the data requirements of the codes and norms describing the monthly energy balance (DIN 18599-2, ISO 13790).
+A two-state schedule. This schedule is defined by a `usageValue` for usage times, and an `idleValue` outside these temporal boundaries. Usage times are characterized by the numbers `usageHoursPerDay` and `usageHoursPerDay` (usage hours per usage days). This schedule complies in particular with the data requirements of the codes and norms describing the monthly energy balance (DIN 18599-2, ISO 13790).
 
 ```xml
 <!--Example of a DualValueSchedule-->
@@ -549,39 +591,16 @@ A two-state schedule, this schedule is defined by a usage value for usage times,
 
 ### DailyPatternSchedule
 
-Detailed schedule composed of daily schedules associated to recurrent day types (weekday, weekend etc.). These daily schedules are Time Series as described above.
-
-```xml
-<!--Example of a daily pattern schedule for a standard day-->
-<energy:DailyPatternSchedule gml:id="id_dailypattern_schedule_3">
-	<energy:dailySchedule>
-		<energy:DailySchedule>
-			<energy:dayType>CustomDay1</energy:dayType>
-			<energy:schedule>
-				<energy:RegularTimeSeries gml:id="id_occupants_daily_timeseries_1">
-					<energy:temporalExtent>
-						<gml:TimePeriod>
-							<gml:beginPosition>00:00:00</gml:beginPosition>
-							<gml:endPosition>23:59:59</gml:endPosition>                                   
-						</gml:TimePeriod>
-					</energy:temporalExtent>
-					<energy:timeInterval unit="hour">1</energy:timeInterval>
-					<energy:values uom="ratio">1 1 1 0.74 0.35 ... (truncated, set of 24 values)</energy:values>
-				</energy:RegularTimeSeries>
-			</energy:schedule>
-		</energy:DailySchedule>
-	</energy:dailySchedule>
-</energy:DailyPatternSchedule>
-```
+This more detailed schedule is composed of daily `schedule` associated to recurrent `dayType` (e.g. weekday, weekend). These daily schedules are of type` _TimeSeries`, as described above.
 
 ```xml
 <!--Example of a daily pattern schedule for a standard week composed of weekday and weekend days-->
-<energy:DailyPatternSchedule gml:id="id_dailypattern_schedule_4">
+<energy:DailyPatternSchedule gml:id="id_dailypattern_schedule_3">
 	<energy:dailySchedule>
 		<energy:DailySchedule>
 			<energy:dayType>WeekDay</energy:dayType>
 			<energy:schedule>
-				<energy:RegularTimeSeries gml:id="id_occupants_daily_timeseries_2">
+				<energy:RegularTimeSeries gml:id="id_occupants_daily_timeseries_1">
 					<energy:temporalExtent>
 						<gml:TimePeriod>
 							<gml:beginPosition>00:00:00</gml:beginPosition>
@@ -598,7 +617,7 @@ Detailed schedule composed of daily schedules associated to recurrent day types 
 		<energy:DailySchedule>
 			<energy:dayType>WeenEnd</energy:dayType>
 			<energy:schedule>
-				<energy:RegularTimeSeries gml:id="id_occupants_daily_timeseries_3">
+				<energy:RegularTimeSeries gml:id="id_occupants_daily_timeseries2">
 					<energy:temporalExtent>
 						<gml:TimePeriod>
 							<gml:beginPosition>00:00:00</gml:beginPosition>
@@ -616,12 +635,12 @@ Detailed schedule composed of daily schedules associated to recurrent day types 
 
 ### TimeSeriesSchedule
 
-Most detailed schedule corresponding to a Time series as described above.
+This type is the most detailed of all `_schedule` levels of details. It consists of a unique time series, without patterns.
 
 ```xml
 <!--Example of a time series based schedule with hourly values for one year-->
-<energy:TimeSeriesSchedule gml:id="id_timeseries_schedule_5">
-	<energy:RegularTimeSeries "id_occupants_timeseries_5">
+<energy:TimeSeriesSchedule gml:id="id_timeseries_schedule_4">
+	<energy:RegularTimeSeries "id_occupants_timeseries4">
 			<energy:temporalExtent>
 				<gml:TimePeriod>
 					<gml:beginPosition>2000-01-01</gml:beginPosition>
