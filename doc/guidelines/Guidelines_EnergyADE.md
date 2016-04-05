@@ -657,67 +657,77 @@ This type is the most detailed of all `_schedule` levels of details. It consists
 
 ![Class diagram of Construction Module](fig/class_construction.png)
 
-The Construction and Material module of the ADE Energy contains the physical characterization of the boundary surfaces, surface components and, possibly, even the whole building. As it inherits from class `_CityObject`, all similar objects can be described also by means of construction and materials. Given that the nature of this module is not domain-specific, it can be used beyond energy-related applications (e.g. in statics, acoustics etc.) 
+The Construction and Material module of the ADE Energy characterizes physically the building construction parts, detailing their structure and specifiying their thermal and optical properties. 
+<br />
+As its central object `Construction` inherits from class `_CityObject`, all similar objects, can be described by means of construction and materials.
+<br />Given that the nature of this module is not domain-specific, it can be used beyond energy-related applications (e.g. in statics, acoustics etc.) 
 
 ## Construction
 
-Physical characterisation of building envelop or intern room partition (e.g. wall, roof, openings), it may be specified as an ordered combination of layers. In the Energy ADE, the object Construction can be linked to the `_ThermalComponents`, in order to defined the physical parameters of a walls, roofs of windows, for a space heating/cooling calculation. However, it may possibly be linked to any `_CityObject` for other purposes, in particular to `_BoundarySurface`, `_Opening` or even `_AbstractBuilding`.
-Each construction object is characterised by a number of attributes like the U-value, or some optical properties, like transmittance, reflecatance and emissivity.
-In particular, *Transmittance* is the fraction of incident radiation which passes through a specific object. It is specified for a given wavelength range type (`wavelengthRange`). For example, the total transmittance of a window correspond to its *g-value* (also called Solar Heat Gain Coefficient). The transmittance value is included between 0 (completely opaque object) and 1 (completely transparent object).
-*Reflectance* is the fraction of incident radiation which is reflected by an object. It is specified for a given surface (`SurfaceSide`) and for a given wavelength range type.
-*Emissivity* is the ratio of the infrared (also called long-wave) radiation emitted by a specific surface/object to that of a black body. It is specified for a given surface (SurfaceSide). According with the Kirchoff and Lambert law, for a diffuse grey body the aborptance and the emittance are equal for a given wavelength range.
+This is the central object of this module, which holds the physical characterisation of building envelop or intern room partition (e.g. wall, roof, openings).
+In the Energy ADE, the object `Construction` is generally linked to the object `ThermalComponents` for space heating and cooling demand calculations, in order to specified in the building model the physical parameters of walls, roofs of windows etc. However, it may possibly be linked to any `_CityObject` for other purposes, in particular to `_BoundarySurface`, `_Opening` or even `_AbstractBuilding`.
+
+Each `Construction` object may be characterised by optical and/or physical properties.
+
+The `OpticalProperties` type specified the `emissivity`, `reflectance`, `transmittance` and `glazingRatio` of the construction and its surfaces:
+- *Emissivity* is the ratio of the infrared (also called long-wave) radiation emitted by a specific surface/object to that of a black body. It is specified for a given surface (`SurfaceSide`). According with the Kirchoff and Lambert law, for a diffuse grey body the aborptance and the emittance are equal for a given wavelength range.
+- *Reflectance* is the fraction of incident radiation which is reflected by an object. It is specified for a given surface (`SurfaceSide`) and for a given `wavelengthRange` type ("Visible", "Infrared", "Solar" or "Total" spectrums).
+- *Transmittance* is the fraction of incident radiation which passes through a specific object. It is specified for a given `wavelengthRange` type . For example, the total transmittance of a window correspond to its *g-value* (also called Solar Heat Gain Coefficient). The transmittance value is included between 0 (completely opaque object) and 1 (completely transparent object).
+- the `glazingRatio` corresponds of to proportion of the construction surface which is transparent and for which the transmittance is defined. For the modelling of window, `glazingRatio` corresponds to the proportion of window surface not cover by the window frame.
 The sum of the transmittance, reflectance and emissivity (or absorptance) fractions of a surface/object is always 1.
+
+The thermal properties of the Construction may be characterized with two possible "levels of details" : either with the heat transmission coefficient `uValue` for steady-state thermal modelling, or by detailing its different `Layer` of materials and their thermal behaviour.
+<br />
+In this last case, the `Construction` may be defined as an ordered combination of `Layer`, containing possibly several `LayerComponent` made of materials.
+
 In the following, several examples of Construction objects are presented, with different levels of complexity.
 
+A simple wall characterised with its U-value :
 ```xml
-<!--Example of Construction object-->
-```
-
-```xml
-<!--Example of a simple wall construction just with a U-value-->
-<energy:Construction gml:id="id_construction_2">
-	<gml:description>Description of Construction 2</gml:description>
-	<gml:name>Name of Construction 2</gml:name>
-	<energy:uValue uom="W/(K*m^2)">3.0</energy:uValue>
+<!--Example of a wall construction simply characterised with a U-value-->
+<energy:Construction gml:id="id_construction_1">
+	<gml:description>Description of Construction 1</gml:description>
+	<gml:name>Name of Construction 1</gml:name>
+	<energy:uValue uom="W/(K*m^2)">1.2</energy:uValue>
 </energy:Construction>
 ```
 
+A window characterised with its U-value, its emissivity, its g-value and its visible transmittance
 ```xml
-<!--Example of window Construction object-->
+<!--Example of low-emissivity window Construction object-->
 <energy:Construction gml:id="id_construction_2">
 	<gml:description>Description of the windows Construction</gml:description>
 	<gml:name>Name of the window Construction</gml:name>
-
 	<energy:uValue uom="W/(K*m^2)">1.9</energy:uValue>
 	<energy:opticalProperties>
 		<energy:OpticalProperties>
 			<energy:emittance>
 				<energy:Emissivity>
-					<energy:fraction uom="ratio">0.1</energy:fraction>
-					<energy:surface>Outside</energy:surface>
+					<energy:fraction uom="ratio">0.04</energy:fraction>
+					<energy:surface>Inside</energy:surface>
 				</energy:Emissivity>
 			</energy:emittance>
-			<energy:reflectance>
-				<energy:Reflectance>
-					<energy:fraction uom="ratio">0.1</energy:fraction>
-					<energy:surface>Outside</energy:surface>
-					<energy:wavelengthRange>Solar</energy:wavelengthRange>
-				</energy:Reflectance>
-			</energy:reflectance>
+			<!-- Here follows the g-value (or SHGC) characterization-->
 			<energy:transmittance>
 				<energy:Transmittance>
-					<energy:fraction uom="ratio">0.8</energy:fraction>
-					<energy:wavelengthRange>Solar</energy:wavelengthRange>
+					<energy:fraction uom="ratio">0.65</energy:fraction>
+					<energy:wavelengthRange>Total</energy:wavelengthRange>
 				</energy:Transmittance>
 			</energy:transmittance>
-			<energy:glazingRatio uom="ratio">0.9</energy:glazingRatio>
+			<!-- Here follows the visible transmittance characterization-->
+			<energy:transmittance>
+				<energy:Transmittance>
+					<energy:fraction uom="ratio">0.55</energy:fraction>
+					<energy:wavelengthRange>Visible</energy:wavelengthRange>
+				</energy:Transmittance>
+			</energy:transmittance>
+			<energy:glazingRatio uom="ratio">0.8</energy:glazingRatio>
 		</energy:OpticalProperties>
 	</energy:opticalProperties>
-
 </energy:Construction>
 ```
 
-## ConstructionOrientation
+### ConstructionOrientation
 
 This class defines the orientation convention of the `Construction` object it is referred to. In other words, it indicates in which order the layers are to be considered (from inside to outside, or viceversa), because the same construction, if common to different zones or buildings, might be orientated in two different directions for instance.
 
@@ -731,68 +741,37 @@ This class defines the orientation convention of the `Construction` object it is
 </energy:ConstructionOrientation>
 ```
 
-### Layer
+## Layer and LayerComponent
 
-Combination of one of more materials, referenced via a layer component. It inherits from `_CityObject`.
+A `Construction` may be defined as an ordered combination of layers, themselves composed of one or more `LayerComponent`. A `LayerComponent` is a homogeneous part of a `Layer` (composed of a unique material) covering a given fraction (`areaFraction`) of it.
+<br />
+The materials of each `LayerComponent` may be specified either inline or by means of xlinks (more adapted to materials  reused in different constructions).
 
-### LayerComponent
+The XML example below characterizes a insulated outer wall construction with three layers. The materials are referenced with xlinks (the material characterization of ID_Material_Concrete follows in the paragrap Material).
 
-Homogeneous part of a layer, covering a given fraction (`areaFraction`) of the layer.
-
-## Materials
-
-### AbstractMaterial
-
-Abstract superclass for all Material classes. A Material is a homogeneous substance. We distinguish solid materials (with mass) from gas (without mass).
-
-### SolidMaterial
-
-Class of the materials which have a mass and a heat capacity.
-
-```xml
+ ```xml                   
 <!--Example of a three layered construction-->
 <energy:Construction gml:id="ThreeLayeredMaterial">
     <energy:layer>
         <energy:Layer>
             <energy:layerComponent>
                 <energy:LayerComponent>
-                    <energy:thickness uom="m">0.24</energy:thickness>
-                    <energy:material>
-                        <energy:SolidMaterial>
-                            <gml:name>Concrete 2100</gml:name>
-                            <energy:conductivity uom="W/(K*m^2)">2.035</energy:conductivity>
-                            <energy:density uom="kg/m^3">2100.0</energy:density>
-                            <energy:specificHeat uom="J/(K*kg)">920.0</energy:specificHeat>
-                        </energy:SolidMaterial>
-                    </energy:material>
+                    <energy:thickness uom="m">0.02</energy:thickness>
+                    <energy:material xlink:href="#ID_Material_Plasterboard"/>
                 </energy:LayerComponent>
             </energy:layerComponent>
            
             <energy:layerComponent>
                 <energy:LayerComponent>
-                    <energy:thickness uom="m">0.062</energy:thickness>
-                    <energy:material>
-                        <energy:SolidMaterial>
-                            <gml:name>Insulation 047</gml:name>
-                            <energy:conductivity uom="W/(K*m^2)">0.047</energy:conductivity>
-                            <energy:density uom="kg/m^3">75.0</energy:density>
-                            <energy:specificHeat uom="J/(K*kg)">840.0</energy:specificHeat>
-                        </energy:SolidMaterial>
-                    </energy:material>
+                    <energy:thickness uom="m">0.24</energy:thickness>
+                    <energy:material xlink:href="#ID_Material_Concrete"/>
                 </energy:LayerComponent>
             </energy:layerComponent>
             
             <energy:layerComponent>
                 <energy:LayerComponent>
-                    <energy:thickness uom="m">0.025</energy:thickness>
-                    <energy:material>
-                        <energy:SolidMaterial>
-                            <gml:name>Facade</gml:name>
-                            <energy:conductivity uom="W/(K*m^2)">0.45</energy:conductivity>
-                            <energy:density uom="kg/m^3">1300.0</energy:density>
-                            <energy:specificHeat uom="J/(K*kg)">1050.0</energy:specificHeat>
-                        </energy:SolidMaterial>
-                    </energy:material>
+                    <energy:thickness uom="m">0.12</energy:thickness>
+                    <energy:material xlink:href="#ID_Material_Polyurethan"/>
                 </energy:LayerComponent>
             </energy:layerComponent>                     
         </energy:Layer>
@@ -800,19 +779,44 @@ Class of the materials which have a mass and a heat capacity.
 </energy:Construction>
 ```
 
+[Picture: Cut of the wall of the same wall - Joachim? Peter?]
+
+## Materials
+
+### AbstractMaterial
+
+`_AbstractMaterial` is the abstract superclass for all Material classes. A Material is a homogeneous substance. We distinguish solid materials (with mass) from gas (without mass).
+
+### SolidMaterial
+
+`SolidMaterial` is the class of materials which have a mass and a heat capacity.
+
+```xml
+<!-- Characterisation of the material Concrete-->
+<energy:material gml = "ID_Material_Concrete">
+        <energy:SolidMaterial>
+                <gml:name>Concrete 2100</gml:name>
+                <energy:conductivity uom="W/(K*m^2)">2.035</energy:conductivity>
+                <energy:density uom="kg/m^3">2100.0</energy:density>
+                <energy:specificHeat uom="J/(K*kg)">920.0</energy:specificHeat>
+        </energy:SolidMaterial>
+</energy:material>
+```
+ 
 ### Gas
 
-Class of the material whose mass and heat capacity are neglectable in comparison with `SolidMaterial`.
+`Gas` is the class of materials whose mass and heat capacity are neglectable in comparison with `SolidMaterial`.
 
 ```xml
 <!--Example of a gas material with neglectable mass and heat capacity-->
-<energy:Gas>
-    <energy:isVentilated>false</energy:isVentilated>
-    <energy:rValue uom="K*m^2/W">4.5</energy:rValue>
-</energy:Gas>
+<energy:material>
+	<energy:Gas>
+		<gml:name>non-ventilated air gap</gml:name>
+		<energy:isVentilated>false</energy:isVentilated>
+		<energy:rValue uom="K*m^2/W">4.5</energy:rValue>
+	</energy:Gas>
+</energy:material>
 ```
-
-[Picture: Cut of the wall of the same wall - Joachim? Peter?]
 
 # Occupancy Module
 
