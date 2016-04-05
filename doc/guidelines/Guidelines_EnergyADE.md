@@ -269,34 +269,41 @@ In the following, a XML example of a roof is given.
 
 ### ThermalZone
 
-A `ThermalZone` is a zone of a building (or of a building part) which serves as the smallest homogeneous, geometrically defined space unit for building heating/cooling simulations. It is considered as isothermal.
-The `ThermalZone` may be related to a room (`gml:Room`), and may optionally contain an explicit volume geometry (e.g. useful for visualisation purposes).
-The actual surface boundaries of a ThermalZone are defined by means of `ThermalBoudary` objects (see later).
+The `ThermalZone` is a new object introduced in the Energy ADE to realize building heating and cooling demand calculation. A `ThermalZone` is a zone of a `Building` (or of a `BuildingPart`) which serves as the smallest spatial zone for building heating and cooling demand calculation. It is generally a "thermal homogeneous" space considered as isothermal, but may also refer to several building rooms and zones with different usage boundary conditions for simplified building energy modelling. 
 
-The class `ThermalZone` inherits from `_CityObject`, and may therefore be associated to one or more `EnergyDemand` objects (see module Energy Systems).  For heating/cooling simulations, the `ThermalZone` must be related to at least one (or more) `UsageZone` objects (see Occupancy Module).
-In the following, the first XML example shows the structure of a ThermalZone without volume geometry. The second one exemplifies instead how to add such an attribute (called volumeGeometry).
+A `ThermalZone` contains a series of energy-related attributes which characterize its geometry (`floorArea`, `grossVolume`, `netVolume`, `volumeGeometry`), its conditioning status (`isCooled`, `isHeated`, `indirectlyHeatedAreaRatio`) and overall building physics properties (`additionalThermalBridgeUValue`, `infiltration rate`, `effectiveThermalCapacity`).
+
+All these attributes are optional. Among those, `floorArea` may be attributed several times to a building, specifying different values for different `FloorAreaType`. A `ThermalZone` may optionally contain an explicit volume geometry (specified by `volumeGeometry`), useful in particular for visualisation purposes, but not necessary for heating and cooling demand calculations. The `ThermalZone` may also be related to a room (`gml:Room`). The actual surface boundaries of a `ThermalZone` are defined by means of `ThermalBoudary` objects (see later).
+
+If occupied, a `ThermalZone` must be related to at less one `UsageZone` object (see Occupancy Module), which contains the usage boundary conditions for the heating and cooling demand calculation (see Occupancy Module). `ThermalZone` may even be related to several `UsageZone` for simplified modelling of mixed-usage space, in which case the usage boundary conditions of the UsageZone should be aggregated or weighted according with their `floorArea`.
+
+The class `ThermalZone` inherits from `_CityObject`, and may therefore be associated to one or more `EnergyDemand` objects (see module Energy Systems). 
+
+In the following, Two XML examples present a `ThermalZone`, with and without explicit volume geometry.
 
 ```xml
-<!--Example of a ThermalZone-->
+<!--Example of a ThermalZone without explicit volume geometry-->
 <energy:ThermalZone gml:id="id_thermalzone_1">
 	<gml:description>Description of Thermal Zone 1</gml:description>
 	<gml:name>Name of Thermal Zone 1</gml:name>
-	<energy:additionalThermalBridgeUValue uom="W/(K*m^2)">1</energy:additionalThermalBridgeUValue>
-	<energy:effectiveThermalCapacity uom="Wh/K">1</energy:effectiveThermalCapacity>
+	<energy:additionalThermalBridgeUValue uom="W/(K*m^2)">0.5</energy:additionalThermalBridgeUValue>
+	<energy:effectiveThermalCapacity uom="J/K">500</energy:effectiveThermalCapacity>
 	<energy:floorArea>
 		<energy:FloorArea>
-			<energy:type>NetFloorArea</energy:type>
-			<energy:value uom="m^2">40</energy:value>
+			<energy:type>EnergyReferenceArea</energy:type>
+			<energy:value uom="m^2">55.0</energy:value>
 		</energy:FloorArea>
-		<!--Here come further optional values of floorArea-->
 	</energy:floorArea>
 	<energy:grossVolume uom="m^3">200.0</energy:grossVolume>
+	
+	<!-- here follows a related usage zone -->
 	<energy:relates xlink:href="#id_usagezone_1"/>
-	<energy:indirectlyHeatedAreaRatio uom="ratio">0</energy:indirectlyHeatedAreaRatio>
-	<energy:infiltrationRate uom="1/h">3</energy:infiltrationRate>
+	
+	<energy:indirectlyHeatedAreaRatio uom="ratio">0.15</energy:indirectlyHeatedAreaRatio>
+	<energy:infiltrationRate uom="1/h">1.2</energy:infiltrationRate>
 	<energy:isCooled>true</energy:isCooled>
 	<energy:isHeated>true</energy:isHeated>
-	<energy:netVolume uom="m^3">160.0</energy:netVolume>
+	<energy:netVolume uom="m^3">180.0</energy:netVolume>
 	
 	<!--Here follow all ThermalBoundary objects, each inside a "boundedBy" tag-->
 	<energy:boundedBy>
@@ -310,7 +317,6 @@ In the following, the first XML example shows the structure of a ThermalZone wit
 		</energy:ThermalBoundary>
 	</energy:boundedBy>
 	
-	<!--Add more ThermalBoundary objects here (if needed) -->
 </energy:ThermalZone>
 ```
 
@@ -341,9 +347,7 @@ In the following, the first XML example shows the structure of a ThermalZone wit
 							</gml:exterior>
 						</gml:Polygon>
 					</gml:surfaceMember>
-
 					<!--Here come further surfaceMember objects-->
-
 					</gml:CompositeSurface>
 			</gml:exterior>
 		</gml:Solid>
