@@ -8,11 +8,11 @@ In accordance with the philosophy of CityGML, the Energy ADE aims to be
 flexible in terms of compatibility with different data qualities, levels of
 detail and urban energy model complexities (e.g. from monthly energy balance
 methods as of ISO 13790, to sub-hourly dynamic simulations by means of software
-programs like CitySim or EnergyPlus). It takes into consideration the INSPIRE
-Directive of the European Parliament, as well as the recent US Building Energy
-Data Exchange Specification (BEDES).
+programs like CitySim or EnergyPlus). It intends also to take into
+consideration the INSPIRE Directive of the European Parliament, as well as the
+recent US Building Energy Data Exchange Specification (BEDES).
 
-Its structure is conceived to be modular and, in its current version, it
+Its structure is conceived to be modular. In its current version 0.7, it
 consists of 5 modules:
 
 - Building Physics module,
@@ -25,28 +25,41 @@ Some modules can be potentially used and extended also for other applications
 (e.g. module Occupancy for socio-economics, module Construction and Materials
 for acoustics or statics, etc).
 
-This document is intended to explain the main characteristics of each module
-and to provide a number of examples how the Energy ADE entities and attributes
-relate to the existing CityGML classes. Several XML examples are given as well,
-in order to facilitate the comprehension of how and where the Energy ADE is
-embedded into CityGML.
+This document is intended to explain the characteristics and purposes of each
+module, their entities and attributes. It provides also a number of XML
+examples, illustrating how and where the Energy ADE entities and attributes may
+be embedded into CityGML. 
 
 # Building Physics Module
+
+## Module overview and main relationships
 
 This module contains the thermal building objects required for building thermal
 modelling (e.g. calculation of space heating and space cooling demands):
 `ThermalZone`, `ThermalBoundary`, `ThermalComponent`. These thermal building
 objects are linked to the CityGML building objects through its
-`_AbstractBuilding`, `_BoundarySurface`, `_Opening` classes.  A Building may
-have several `ThermalZone` objects, for instance in the case of mixed-usage
-building, or to distinguish rooms or zones with difference orientations (i.e.
-different solar gains). These `ThermalZone` objects are separated from each
-other and from the outside by `ThermalBoundary` objects. These
-`ThermalBoundary` objects may or not correspond to the CityGML
-`_BoundarySurface`. However, since `globalSolarIrradiance` incident on
-`_BoundarySurface` is an important term of the building energy balance, every
-`ThermalBoundary` delimiting the `ThermalZone` from outside should be related
-(`correspondsTo`) with a `_BoundarySurface`.
+`_AbstractBuilding`, `_BoundarySurface`, `_Opening` classes, which are extended
+with Energy ADE attributes.
+
+The `ThermalZone`, which represents the spatial unit for heating and cooling
+demand calculation, is the central object of this Building Physics Module. A
+Building may have several `ThermalZone`, for instance in the case of
+mixed-usage building, or to distinguish rooms or zones with different solar
+gains and/or thermal behaviour. 
+
+If occupied, a `ThermalZone` must be related to at less 1 `UsageZone`, which
+contains the usage boundary conditions for the heating and cooling demand
+calculation (see Occupancy Module). `ThermalZone` may be related to several
+`UsageZone` for simplified modelling of mixed-usage space, in which case the
+usage boundary conditions of the `UsageZone` should be aggregated or weighted
+according with their floorArea.
+
+These `ThermalZone` objects are separated from each other and from the outside
+by `ThermalBoundary` objects. These `ThermalBoundary` objects may or not
+correspond to the CityGML `_BoundarySurface`. However, every `ThermalBoundary`
+delimiting the `ThermalZone` from outside must be related (`correspondsTo`)
+with a `_BoundarySurface`, in order to consider the `globalSolarIrradiance`
+incident on `_BoundarySurface` in the heating and cooling calculations.
 
 ## Building, zones and boundaries
 
@@ -55,70 +68,62 @@ other and from the outside by `ThermalBoundary` objects. These
 ### \_AbstractBuilding 
 
 The Energy ADE extends the CityGML _AbstractBuilding by a number of
-energy-related attributes, e.g with regards to the attic and basement type, the
-construction style, the availability of Energy Performance certificates, etc.
-It is possible to define different types of floor area (e.g. gross area and net
-area), as well as to add refurbishment measures applied to the building.  In
-the following, an example of a building is given. Please note that the standard
-CityGML attributes are omitted for better readability.
+energy-related attributes, e.g with regards to the geometrical characteristics
+(`referencePoint`, `averageCeilingHeight`, `eavesHeight`, `ridgeHeight`,
+`basementCeilingHeightAboveGrounSurface`, `floorArea`, `grossVolume`), to the
+conditioning of basement and attic (`basementType`, `atticType`), to the
+available energy certificates (`energyPerformanceCertification`) and
+refurbishment measures (`RefurbishmentMeasureOnBuilding`), and other building
+information useful for building typology categorisations (`buildingType` and
+`constructionStyle`).
+
+All these attributes are optional. Some of them, like `floorArea` and
+`energyPerformanceCertification`, have a cardinality [0..*] and may
+consequently be attributed several times to a building, specifying different
+values for different `FloorAreaType`, respectively `certificationName`.
+
+Finally, because `_AbstractBuilding` inherits from `_CityObject`, further
+objects may be assigned to it, like `EnergyDemand` in particular (see Module
+Energy and Systems).
+
+In the following, an extract of CityGML file for a building is given, included
+some of its Energy ADE attributes.
 
 ```xml
 <!--Examples of Building with Energy ADE attributes-->
 <bldg:Building gml:id="id_building_1">
 	<gml:description>Description of Building 1</gml:description>
 	<gml:name>Name of Building 1</gml:name>
-
 	<energy:referencePoint>
 		<gml:Point gml:id="id_building_referencepoint_1" srsName="EPSG:31256" srsDimension="3">
 			<gml:pos>5 5 0</gml:pos>
 		</gml:Point>
 	</energy:referencePoint>
-	
 	<energy:basementType>Unconditioned</energy:basementType>
-
-	<!--Here follow all EnergyPerformanceCertification objects, each inside a "energyPerformanceCertification" tag-->
 	<energy:energyPerformanceCertification>
-		<energy:EnergyPerformanceCertification >
-			<!--Here come all attributes of a EnergyPerformanceCertification object (omitted here)-->
-		</energy:EnergyPerformanceCertification>
+		<!--Here come the EnergyPerformanceCertification objects (see later) -->
 	</energy:energyPerformanceCertification>
-
 	<energy:basementCeilingHeightAboveGroundSurface uom="m">1</energy:basementCeilingHeightAboveGroundSurface>
 	<energy:grossVolume uom="m^3">1050</energy:grossVolume>
-
-	<!--Here follow all RefurbishmentMeasure objects, each inside a "refurbishmentMeasureOnBuilding" tag-->
 	<energy:refurbishmentMeasureOnBuilding>
 		<energy:RefurbishmentMeasure>
 			<!--Here come all attributes of a RefurbishmentMeasure object (omitted here)-->
 		</energy:RefurbishmentMeasure>
 	</energy:refurbishmentMeasureOnBuilding>
-
 	<energy:averageCeilingHeight uom="m">2.7</energy:averageCeilingHeight>
 	<energy:atticType>Conditioned</energy:atticType>
-
-	<!--Here follow all UsageZone objects, each inside a "usageZones" tag-->
-	<energy:usageZones>
-		<energy:UsageZone gml:id="id_usagezone_1">	
-			<!--Here come all attributes of the first UsageZone (omitted here)-->
-		</energy:UsageZone>
-	</energy:usageZones>
-	<energy:usageZones>
-		<energy:UsageZone gml:id="id_usagezone_2">	
-			<!--Here come all attributes of the second UsageZone (omitted here)-->
-		</energy:UsageZone>
-	</energy:usageZones>
-
+	
+	<!--Here may come a list of UsageZone of the building (see Module Occupancy) -->
+	
 	<energy:ridgeHeight uom="m">10.5</energy:ridgeHeight>
 	<energy:landmarked>false</energy:landmarked>
-	
 	<energy:floorArea>
-		<!--Here come the floorArea attributes (see later)-->
+		<!--Here come the floorArea objects (see later)-->
 	</energy:floorArea>
-
 	<energy:eavesHeight uom="m">8</energy:eavesHeight>
 	<energy:constructionStyle>Massive</energy:constructionStyle>
 	<energy:buildingType>MultiFamilyHouse</energy:buildingType>
-
+	
 	<!--Here follow all ThermalZone objects, each inside a "thermalZones" tag-->
 	<energy:thermalZones>
 		<energy:ThermalZone gml:id="id_thermalzone_1">
@@ -135,38 +140,65 @@ CityGML attributes are omitted for better readability.
 
 #### FloorArea
 
+Buildings (`_AbstractBuilding`) and building zones (`ThermalZone` and
+`UsageZone`) may have several `floorArea`, related to several `FloorAreaType`
+(e.g. net floor area, gross floor area, energy reference area). 
+
 ```xml
-<!--Examples of floorArea-->
+<!--Examples of three floor areas-->
 <energy:FloorArea>
-	<energy:type>GrossFloorArea</energy:type>
-	<energy:value uom="m^2">50</energy:value>
-</energy:FloorArea>
-
-<energy:FloorArea>
-	<energy:type>NetFloorArea</energy:type>
-	<energy:value uom="m^2">40</energy:value>
-</energy:FloorArea>
-
-<energy:FloorArea>
-	<energy:type>EnergyReferenceArea</energy:type>
-	<energy:value uom="m^2">30</energy:value>
+	<energy:FloorArea>
+		<energy:type>GrossFloorArea</energy:type>
+		<energy:value uom="m^2">50.0</energy:value>
+	</energy:FloorArea>
+	<energy:FloorArea>
+		<energy:type>NetFloorArea</energy:type>
+		<energy:value uom="m^2">40.0</energy:value>
+	</energy:FloorArea>
+	<energy:FloorArea>
+		<energy:type>EnergyReferenceArea</energy:type>
+		<energy:value uom="m^2">43.0</energy:value>
+	</energy:FloorArea>
 </energy:FloorArea>
 ```
 
 #### EnergyPerformanceCertification
 
+A building may present several `energyPerformanceCertification` related to
+different `certificationName` (e.g. PassivHaus, LEED) and/or different
+certification dates (specificied by `certificationId`).
+
 ```xml
-<!--Example of Energy Performance Certification-->
+<!--Example of two energy performance certifications-->
 <energy:energyPerformanceCertification>
     <energy:EnergyPerformanceCertification>
-        <energy:certificationRating>GoldStar</energy:certificationRating>
-        <energy:certificationName>MyEnergyCertificaton</energy:certificationName>
+        <energy:certificationRating>Platinum</energy:certificationRating>
+        <energy:certificationName>LEED</energy:certificationName>
         <energy:certificationId>0815</energy:certificationId>
-    </energy:EnergyPerformanceCertification>       
+    </energy:EnergyPerformanceCertification>
+    <energy:EnergyPerformanceCertification>
+        <energy:certificationRating>Passive house</energy:certificationRating>
+        <energy:certificationName>EnerPHit</energy:certificationName>
+        <energy:certificationId>4756</energy:certificationId>
+    </energy:EnergyPerformanceCertification>  
 </energy:energyPerformanceCertification>
+
 ```
 
 #### RefurbishmentMeasure
+
+Energy-efficient refurbishment operations and measures may be indicated as
+attribute of `_AbstractBuilding`, `_BoundarySurface` and `_Opening`. The
+`RefurbishmentMeasure` object contains two information: the date and level of
+refurbishment.
+
+The attribute `levelOfRefurbishment` is a codeList whose elements generally
+relates to refurbishment measure libraries or to a building typology
+categorisation.
+
+The attribute `dateOfRefurbishment` is defined by the GML type `DateOfEvent`,
+and may consequently be specified in different manners (see the 3 examples
+below).
 
 ```xml
 <!--Example of a Refurbishment Measure on a building with a very vague date ("before June 2010") -->
@@ -178,6 +210,7 @@ CityGML attributes are omitted for better readability.
             </energy:DateOfEvent>
         </energy:dateOfRefurbishment>
         <energy:levelOfRefurbishment>UsualRefurbishment</energy:levelOfRefurbishment>
+        <gml:description>Refurbishment consisting in the outside insulation of walls with 12cm polystyrol etc.</gml:description>
     </energy:RefurbishmentMeasure>
 </energy:refurbishmentMeasureOnBuilding>
 ```
@@ -201,7 +234,6 @@ CityGML attributes are omitted for better readability.
 </energy:refurbishmentMeasureOnBuilding>    
 ```
 
-
 ```xml
 <!--Example of an usual Refurbishment Measure in June 2012 -->
 <energy:refurbishmentMeasureOnBuilding>
@@ -218,19 +250,28 @@ CityGML attributes are omitted for better readability.
 
 ### \_Opening
 
-The CityGML abstract class `_Opening` is extended by a number of energy-related
-attributes, in that openings (namely: windows and doors) may have an indoor and
-an outdoor shading system. They are further defined by an openable ratio. An
-example for a window and one for a door are given in the following. As in the
-Building example shown before, the standard CityGML attributes have been
-omitted for better readability. The door example is simpler and contains also
-information about construction and construction orientation (by means of
+The CityGML abstract class `_Opening` (inherited by the objects `Window` and
+`Door`) is extended in this Energy ADE by a number of energy-related
+attributes. 
+
+First of all, an optional attribute `openableRatio` details the proportion of
+the opening area which may be opened. An indoor and an outdoor shading system
+may complement the opening, with a `ShadingType` characterized by a
+`transmittance` (see details in Module Materials and Constructions) and a
+`maximumCoverRatio`. Finally, information about possible refurbishment measures
+and operations may also be added at the level of the opening (e.g window
+exchange), through the attribute `refurbishmentMeasureOnOpening` of type
+`RefurbishmentMeasure`.
+
+As in the Building example shown before, the standard CityGML attributes have
+been omitted for better readability. The door example is simpler and contains
+also information about construction and construction orientation (by means of
 Xlinks).
 
 ```xml
 <!--Example of a Window object -->
 <bldg:Window gml:id="id_window_1">
-	<gml:description>This is Window with an ouside rolling shutter and curtains inside</gml:description>
+	<gml:description>This is window with an outside rolling shutter and curtains inside</gml:description>
 	<gml:name>Window with rolling shutter and curtains</gml:name>
 
 	<energy:outdoorShading>
@@ -264,44 +305,33 @@ Xlinks).
 </bldg:Window>
 ```
 
-```xml
-<!--Example of a Door object -->
-<bldg:Door gml:id="id_door_1">
-	<gml:description>This is Door</gml:description>
-	<gml:name>Door 1</gml:name>
-	
-	<energy:constructionOrientation xlink:href="#id_construction_orientation_door"/>
-	<energy:construction xlink:href="#id_construction_orientation_door"/>
+### \_BoundarySurface, globalSolarIrradiance and daylightIlluminance
 
-	<energy:openableRatio uom="ratio">0.95</energy:openableRatio>
+The CityGML abstract class `_BoundarySurface` is extended by a number of Energy
+ADE attributes, in order in particular to store the incident global solar
+irradiances and the daylight illuminances available on each outside boundary
+surface of the building. Moreover,  information about refurbishment measures on
+roof or facade can characterised the `_BoundarySurface` objects, in the same
+way that the buildings and openings, through the attribute
+`refurbishmentMeasureOnBoundarySurface` of type `RefurbishmentMeasure`.
 
-</bldg:Door>
-```
+The `globalSolarIrradiance` is the sum of the direct, diffuse and reflected
+irradiance incident on a outside boundary surface and is generally expressed in
+Watts per square metre.  These global solar irradiance is generally used for
+the thermal calculations within the buildings, but also for the calculation of
+the energy yield produced by the solar systems (e.g. photovoltaic and solar
+thermal panels).
 
-### \_BoundarySurface
-
-The CityGML abstract class `_BoundarySurface` is extended by a number of
-attributes in order to store the incident global solar irradiances and the
-daylight illuminances available on each outside boundary surface of the
-building. Moreover, specific information about refurbishmennt measures can also
-be associated to a certain _BoundarySurface object (e.g. a Roofsurface, a
-Wallsurface, etc.).  The global solar irradiance is the sum of the direct,
-diffuse and reflected irradiance incident on a outside boundary surface and is
-generally expressed in Watts per square metre.  These global solar irradiance
-is generally used for the thermal calculations within the buildings (more
-precisely the `_ThermalZone`), but also for the calculation of the energy yield
-from the solar systems (e.g. photovoltaic and solar thermal panels).
-
-Daylight illuminance is the sum of the direct, diffuse and reflected solar
+The `daylightIlluminance` is the sum of the direct, diffuse and reflected solar
 illuminance incident on a outside boundary surface. It is generally expressed
 in Lux. Daylight illuminance is typically used for outside and inside
 daylighting study, as well as the calculation of the energy consumptions of
 lighting systems required to reach the room illuminance threshold when the
-daylight illuminance is not enough.  Both `globalSolarIrradiance` and
-`daylightIlluminance` attributes contain `_Timeseries` data (see details in
-Temporal Data Module).
+daylight illuminance is not enough.
 
-In the following, a XML example of a roof is given.
+Both `globalSolarIrradiance` and `daylightIlluminance` attributes are
+`_Timeseries` data (see details in Temporal Data Module).  In the following, a
+XML example of a roof is given.
 
 ```xml
 <!--Example of a Roof object -->
@@ -328,44 +358,66 @@ In the following, a XML example of a roof is given.
 
 ### ThermalZone
 
-A `ThermalZone` is a zone of a building (or of a building part) which serves as
-the smallest homogeneous, geometrically defined space unit for building
-heating/cooling simulations. It is considered as isothermal.  The `ThermalZone`
-may be related to a room (`gml:Room`), and may optionally contain an explicit
-volume geometry (e.g. useful for visualisation purposes).
+The `ThermalZone` is a new object introduced in the Energy ADE to realize
+building heating and cooling demand calculation. A `ThermalZone` is a zone of a
+`Building` (or of a `BuildingPart`) which serves as the smallest spatial zone
+for building heating and cooling demand calculation. It is generally a "thermal
+homogeneous" space considered as isothermal, but may also refer to several
+building rooms and zones with different usage boundary conditions for
+simplified building energy modelling. 
 
-The actual surface boundaries of a ThermalZone are defined by means of
+A `ThermalZone` contains a series of energy-related attributes which
+characterize its geometry (`floorArea`, `grossVolume`, `netVolume`,
+`volumeGeometry`), its conditioning status (`isCooled`, `isHeated`,
+`indirectlyHeatedAreaRatio`) and overall building physics properties
+(`additionalThermalBridgeUValue`, `infiltration rate`,
+`effectiveThermalCapacity`).
+
+All these attributes are optional. Among those, `floorArea` may be attributed
+several times to a building, specifying different values for different
+`FloorAreaType`. A `ThermalZone` may optionally contain an explicit volume
+geometry (specified by `volumeGeometry`), useful in particular for
+visualisation purposes, but not necessary for heating and cooling demand
+calculations. The `ThermalZone` may also be related to a room (`gml:Room`). The
+actual surface boundaries of a `ThermalZone` are defined by means of
 `ThermalBoudary` objects (see later).
 
+If occupied, a `ThermalZone` must be related to at less one `UsageZone` object
+(see Occupancy Module), which contains the usage boundary conditions for the
+heating and cooling demand calculation (see Occupancy Module). `ThermalZone`
+may even be related to several `UsageZone` for simplified modelling of
+mixed-usage space, in which case the usage boundary conditions of the UsageZone
+should be aggregated or weighted according with their `floorArea`.
+
 The class `ThermalZone` inherits from `_CityObject`, and may therefore be
-associated to one or more `EnergyDemand` objects (see module Energy Systems).
-For heating/cooling simulations, the `ThermalZone` must be related to at least
-one (or more) `UsageZone` objects (see Occupancy Module).  In the following,
-the first XML example shows the structure of a ThermalZone without volume
-geometry. The second one exemplifies instead how to add such an attribute
-(called volumeGeometry).
+associated to one or more `EnergyDemand` objects (see module Energy Systems). 
+
+In the following, Two XML examples present a `ThermalZone`, with and without
+explicit volume geometry.
 
 ```xml
-<!--Example of a ThermalZone-->
+<!--Example of a ThermalZone without explicit volume geometry-->
 <energy:ThermalZone gml:id="id_thermalzone_1">
 	<gml:description>Description of Thermal Zone 1</gml:description>
 	<gml:name>Name of Thermal Zone 1</gml:name>
-	<energy:additionalThermalBridgeUValue uom="W/(K*m^2)">1</energy:additionalThermalBridgeUValue>
-	<energy:effectiveThermalCapacity uom="Wh/K">1</energy:effectiveThermalCapacity>
+	<energy:additionalThermalBridgeUValue uom="W/(K*m^2)">0.5</energy:additionalThermalBridgeUValue>
+	<energy:effectiveThermalCapacity uom="J/K">500</energy:effectiveThermalCapacity>
 	<energy:floorArea>
 		<energy:FloorArea>
-			<energy:type>NetFloorArea</energy:type>
-			<energy:value uom="m^2">40</energy:value>
+			<energy:type>EnergyReferenceArea</energy:type>
+			<energy:value uom="m^2">55.0</energy:value>
 		</energy:FloorArea>
-		<!--Here come further optional values of floorArea-->
 	</energy:floorArea>
 	<energy:grossVolume uom="m^3">200.0</energy:grossVolume>
+	
+	<!-- here follows a related usage zone -->
 	<energy:relates xlink:href="#id_usagezone_1"/>
-	<energy:indirectlyHeatedAreaRatio uom="ratio">0</energy:indirectlyHeatedAreaRatio>
-	<energy:infiltrationRate uom="1/h">3</energy:infiltrationRate>
+	
+	<energy:indirectlyHeatedAreaRatio uom="ratio">0.15</energy:indirectlyHeatedAreaRatio>
+	<energy:infiltrationRate uom="1/h">1.2</energy:infiltrationRate>
 	<energy:isCooled>true</energy:isCooled>
 	<energy:isHeated>true</energy:isHeated>
-	<energy:netVolume uom="m^3">160.0</energy:netVolume>
+	<energy:netVolume uom="m^3">180.0</energy:netVolume>
 	
 	<!--Here follow all ThermalBoundary objects, each inside a "boundedBy" tag-->
 	<energy:boundedBy>
@@ -379,7 +431,6 @@ geometry. The second one exemplifies instead how to add such an attribute
 		</energy:ThermalBoundary>
 	</energy:boundedBy>
 	
-	<!--Add more ThermalBoundary objects here (if needed) -->
 </energy:ThermalZone>
 ```
 
@@ -410,9 +461,7 @@ geometry. The second one exemplifies instead how to add such an attribute
 							</gml:exterior>
 						</gml:Polygon>
 					</gml:surfaceMember>
-
 					<!--Here come further surfaceMember objects-->
-
 					</gml:CompositeSurface>
 			</gml:exterior>
 		</gml:Solid>
@@ -422,53 +471,61 @@ geometry. The second one exemplifies instead how to add such an attribute
 
 ### ThermalBoundary
 
-A `ThermalBoundary` is a coplanar, or nearly coplanar, surface geometrically
-delimiting a `ThermalZone`. A set of `ThermalBoundary` objects represent
-therefore the physical boundary of each `ThermalZone`. In case af adjacent
-ThermalZones, i.e. when two ThermalZones are divided by a common shared wall, a
-ThermalBoundary object contains topological information about both adjacent
-ThermalZones.
+A `ThermalBoundary` represent the physical relationship between two
+`ThermalZone`, or one `ThermalZone` and the building environment. Its
+geometrical representation is a coplanar, or quasi coplanar, surface.
 
-Each `ThermalBoundary` object contains information about its azimut and
-inclination angles, as well as about which type of ThermalBoundary it is (e.g.
-an exterior wall, a roof, a cellar ceiling, a floor, etc.).  When a
-ThermalBoundary corresponds to the (external) boundary surfaces of the
-building, it can be linked to the corresponding _BoundarySurface object (e.g. a
-wallsurface, a roofsurface, a groundsurface in LoD2). This could be the case,
-for example, when performing single ThermalZone simulations using the whole
-building.
+Each `ThermalZone` is geometrically closed by its whole set of bounding
+`ThermalBoundary` (specificied in the relationship "boundedBy").
 
-When an intermediate floor or ceiling, or a shared wall between two adjacent
-ThermalZones in the same building need to be modelled, then it is possible to
-add an explicit surface geometry by means of the surfaceGeometry attribute.
+In the case where the `ThermalBoundary` delimits one `ThermalZone` from the
+building environment, corresponding then to the external boundary of a
+building, its geometrical representation coincides with the external surfaces
+of the related outer wall/roof/basement floor. In this case, the
+`ThermalBoundary` should be linked to the corresponding `_BoundarySurface`
+object (e.g. a `WallSurface`, a `RoofSurface`, a `GroundSurface` in LoD2) if
+existing, through the relationship "correspondsTo". It may however occurs that
+such `ThermalBoundary` does not match with any `_BoundarySurface` (e.g.
+basement ceiling, attic floor).
 
-In the following, two XML examples are given: the first one references a LoD2
-`_BoundarySurface`, the second one models a shared wall explicitly. Please note
-following rules:
+In the case where the `ThermalBoundary` separate two adjacent `ThermalZone`,
+corresponding then to an intermediate floor, ceiling, or a shared wall, its
+geometrical representation coincides with the plan laying at the middle of this
+construction thickness.
 
-- While separating a thermal zone from the building surrounding, its
-  ThermalBoundaries correspond to the external surfaces of the outer
-  wall/roof/basement floor.
-
-- While separating two thermal zones, its thermal boundaries correspond to the
-  middle of the shared wall (or floor/ceiling).
-
-The following figure represents these different cases in a building side
+The following figure represents these 2 different cases in a building side
 section, relating the Energy ADE objects `ThermalZone` and `ThermalBoundary` to
-the CityGML objects `Room`.
+the CityGML objects `Room` and `_BoundarySurface`.
 
 ![Schema of adjacent thermal zones](fig/ThermalZoneAdjacency.png)
 
+`ThermalBoundary` may contain attributes characterizing their type
+(`thermalBoundaryType`), orientation (`azimuth` and `inclination`) and explicit
+geometry (`surfaceGeometry`). All these attributes are optional. Thus, a
+`ThermalZone` may optionally contain an explicit surface geometry (specified by
+`surfaceGeometry`), useful in particular for visualisation purposes if the
+`ThermalBoundary` does not coincide with any `_BoundarySurface`, but not
+necessary for heating and cooling demand calculations.
+
+The `ThermalBoundaryType` type is slightly different to the types of
+`_BoundarySurface` from CityGML, integrating further thermal boundaries like
+AtticFloor, BasementCeiling, BasementFloor or SharedWall.
+
+Each `ThermalBoundaryType` is composed of `ThermalComponent` (e.g. wall
+construction, windows etc.) which holds the `Construction`.
+
+In the following, two XML examples of `ThermalBoundary`, with and without
+explicit geometry are given.
+
 ```xml
-<!--Example of a ThermalBoundary-->
+<!--Example of a ThermalBoundary corresponding to a building roof, delimiting a thermal zone -->
 <energy:ThermalBoundary gml:id="id_thermalboundary_1">
 	<gml:description>Thermal Boundary 1</gml:description>
 	<gml:name>Thermal Boundary 1</gml:name>
 	<energy:azimuth uom="decimal degrees">135</energy:azimuth>
-	<energy:inclination uom="decimal degrees">25</energy:inclination>
+	<energy:inclination uom="decimal degrees">55</energy:inclination>
 	<energy:thermalBoundaryType>Roof</energy:thermalBoundaryType>
-	
-	<!--Here follow one or more ThermalComponent objects, each inside a "composedOf" tag-->
+	<partOf xlink:href="#id_thermalzone_1"/>
 	<energy:composedOf>
 		<energy:ThermalComponent gml:id="id_thermalcomponent_1">
 			<!--Here come all attributes of the first ThermalComponent (omitted here)-->
@@ -479,15 +536,12 @@ the CityGML objects `Room`.
 			<!--Here come all attributes of the second ThermalComponent (omitted here)-->
 		</energy:ThermalComponent>
 	</energy:composedOf>
-	<partOf xlink:href="#id_thermalzone_1"/>
+	<correspondsTo xlink:href="#id_RoofSurface_1"/>
 </energy:ThermalBoundary>
 ```
 
-An example of how to add explicit multisurface geometry for a `ThermalBoundary`
-can be seen in the following example.
-
 ```xml
-<!--Example of a ThermalBoundary with explicit surface geometry-->
+<!--Example of a ThermalBoundary with explicit surface geometry, separating two thermal zones -->
 <energy:ThermalBoundary gml:id="id_thermalboundary_2">
 	<!--Additional attributes of the ThermalBoundary class (omitted here)-->
 	
@@ -504,20 +558,24 @@ can be seen in the following example.
 			</gml:surfaceMember>
 		</gml:MultiSurface>
 	</energy:surfaceGeometry>
+	<partOf xlink:href="#id_thermalzone_1"/>
+	<partOf xlink:href="#id_thermalzone_2"/>
 </energy:ThermalBoundary>
 ```
 
-TO DO: Add a complete example how to model a ThermalBoundary shared between two thermal zones (e.g. a shared wall)
-
 ### ThermalComponent
 
-A `ThermalComponent` object is used to semantically model a part of the thermal
-boundary corresponding to a homogeneous construction component (e.g. windows,
-wall, insulated part of a wall etc.). For each component, its area is given as
-well as information whether it is coupled to ground or exposed to sun. As
-`ThermalComponent` inherits from `_CityObject`, it can be associated to a
-`Construction` object (see module Construction and Material), either inline or
-by means of xlinks.  A XML example is presented in the following.
+A `ThermalComponent` object is a part of the thermal boundary corresponding to
+a homogeneous construction component (e.g. windows, wall, insulated part of a
+wall etc.). Each `ThermalComponent` is characterized with their `Area`,
+information whether it is coupled to ground (`isGroundCoupled`) and exposed to
+sun (`isSunExposed`).
+
+Since `ThermalComponent` inherits from `_CityObject`, it can be associated to a
+`Construction` object (see module Construction and Material). This may be done
+either inline or by means of xlinks (see example below). In this way,
+`ThermalComponent` provides the physical properties of the building envelope to
+calculate the heating and cooling demand.
 
 ```xml
 <!--Example of a ThermalComponent-->
