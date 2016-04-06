@@ -19,6 +19,8 @@ This document is intended to explain the characteristics and purposes of each mo
 
 ## Module overview and main relationships
 
+![Class diagram of Building Physics Module](fig/class_geometry.png)
+
 This module contains the thermal building objects required for building thermal modelling (e.g. calculation of space heating and space cooling demands): `ThermalZone`, `ThermalBoundary`, `ThermalComponent`. These thermal building objects are linked to the CityGML building objects through its `_AbstractBuilding`, `_BoundarySurface`, `_Opening` classes, which are extended with Energy ADE attributes.
 
 The `ThermalZone`, which represents the spatial unit for heating and cooling demand calculation, is the central object of this Building Physics Module. A Building may have several `ThermalZone`, for instance in the case of mixed-usage building, or to distinguish rooms or zones with different solar gains and/or thermal behaviour. 
@@ -27,9 +29,7 @@ If occupied, a `ThermalZone` must be related to at less 1 `UsageZone`, which con
 
 These `ThermalZone` objects are separated from each other and from the outside by `ThermalBoundary` objects. These `ThermalBoundary` objects may or not correspond to the CityGML `_BoundarySurface`. However, every `ThermalBoundary` delimiting the `ThermalZone` from outside must be related (`correspondsTo`) with a `_BoundarySurface`, in order to consider the `globalSolarIrradiance` incident on `_BoundarySurface` in the heating and cooling calculations.
 
-## Building, zones and boundaries
-
-![Class diagram of Building Physics Module](fig/class_geometry.png)
+## Extension of CityGML building objects
 
 ### \_AbstractBuilding 
 
@@ -267,6 +267,8 @@ In the following, a XML example of a roof is given.
 
 </bldg:RoofSurface>
 ```
+
+## Thermal zones, thermal boundaries and thermal components
 
 ### ThermalZone
 
@@ -741,7 +743,7 @@ This class defines the orientation convention of the `Construction` object it is
 </energy:ConstructionOrientation>
 ```
 
-## Layer and LayerComponent
+## Layers and layer components
 
 A `Construction` may be defined as an ordered combination of layers, themselves composed of one or more `LayerComponent`. A `LayerComponent` is a homogeneous part of a `Layer` (composed of a unique material) covering a given fraction (`areaFraction`) of it.
 <br />
@@ -824,7 +826,9 @@ The XML example below characterizes a insulated outer wall construction with thr
 
 The Occupancy Module contains the detailed characterization of the building usage, it is related to the rest of the ADE Energy and CityGML model through the class `UsageZone`. Due to the type of information it allows to store, the Occupancy Module may be used also for multi-field analysis (socio-economics, demographics etc.).
 
-## UsageZone
+## Usage zones and building units
+
+### UsageZone
 
 Zone of a building with homogeneous usage type. It is a semantic object, with an optional geometry (`volumeGeometry`), which may be or not related to a geometric entity (Building, BuildingPart, Room etc.).
 
@@ -892,7 +896,7 @@ Its internalGains attribute corresponds to the sum of the energy dissipated from
 
 TODO: Add examples of cooling, heating and ventilation schedules.
 
-## BuildingUnit
+### BuildingUnit
 
 A ``BuildingUnit` is a part of a `UsageZone` which is related to a single occupant entity, such as a dwelling or a  workplace. Owner information attributes (as owner name and ownership type) are specified in this class. It inherits from class `_CityObject`.
 
@@ -930,7 +934,9 @@ A ``BuildingUnit` is a part of a `UsageZone` which is related to a single occupa
 </energy:BuildingUnit>
 ```
 
-## Occupants
+## People
+
+### Occupants
 
 An `Occupants` class identifies a homogeneous group of occupants of a usage zone or building unit, defined with an occupant type (e.g. residents, workers, visitors etc.). It can optionally contain one or more Household objects.
 
@@ -972,7 +978,7 @@ An `Occupants` class identifies a homogeneous group of occupants of a usage zone
 </energy:Occupants>
 ```
 
-## Household
+### Household
 
 A `Household` class identifies a group of persons living in the same dwelling, in the case where occupants are residents. They are defined by a type (e.g. one family, worker couple, etc.) and a residence type (main/secondary residence or vacant).
 
@@ -1044,7 +1050,9 @@ In the following, two XML examples are presented, one for domestic how water fac
 
 The Energy System Module is a module of the ADE Energy which contains information concerning the energy forms (energy demand, supply, sources) and the energy systems (conversion, distribution and storage systems). It is arranged around one central `EnergyDemand` object.
 
-## EnergyDemand
+## Energy amounts and types
+
+### EnergyDemand
 
 Useful energy required to satisfy a specific end use, such as heating, cooling, domestic hot water etc.  Beside its `EndUseType`, this object is characterized its `energyAmount` (time-depending energy demand value) and its maximum yearly load (`maximumLoad`) used for the sizing of the energy systems.
 
@@ -1066,7 +1074,7 @@ Primary energy and $CO_2$ emission factors, energy density and energy carrier ty
 
 List of energy carriers as coal, chilled water or electricity.
 
-## Energy Distribution
+## Energy distribution
 
 ### EnergyDistributionSystem
 
@@ -1088,7 +1096,7 @@ Type for electrical distribution systems, described by current and voltage.
 
 This list is a collection of medium types as air and water.
 
-## Energy Storage
+## Energy storage
 
 ### StorageSystem
 
@@ -1102,7 +1110,7 @@ Thermal storages with a medium, preparation temperature, thermal losses factor a
 
 Electrical storages with an electrical capacity and a string to describe the battery technology.
 
-## Energy Conversion
+## Energy conversion
 
 ### EnergyConversionSystem
 
