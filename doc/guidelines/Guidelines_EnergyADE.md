@@ -44,49 +44,49 @@ In the following, an extract of CityGML file for a building is given, included s
 ```xml
 <!--Examples of Building with Energy ADE attributes-->
 <bldg:Building gml:id="id_building_1">
-	<gml:description>Description of Building 1</gml:description>
-	<gml:name>Name of Building 1</gml:name>
-	<energy:referencePoint>
-		<gml:Point gml:id="id_building_referencepoint_1" srsName="EPSG:31256" srsDimension="3">
-			<gml:pos>5 5 0</gml:pos>
-		</gml:Point>
-	</energy:referencePoint>
-	<energy:basementType>Unconditioned</energy:basementType>
-	<energy:energyPerformanceCertification>
-		<!--Here come the EnergyPerformanceCertification objects (see later) -->
-	</energy:energyPerformanceCertification>
-	<energy:basementCeilingHeightAboveGroundSurface uom="m">1</energy:basementCeilingHeightAboveGroundSurface>
-	<energy:grossVolume uom="m^3">1050</energy:grossVolume>
-	<energy:refurbishmentMeasureOnBuilding>
-		<energy:RefurbishmentMeasure>
-			<!--Here come all attributes of a RefurbishmentMeasure object (omitted here)-->
-		</energy:RefurbishmentMeasure>
-	</energy:refurbishmentMeasureOnBuilding>
-	<energy:averageCeilingHeight uom="m">2.7</energy:averageCeilingHeight>
-	<energy:atticType>Conditioned</energy:atticType>
-	
-	<!--Here may come a list of UsageZone of the building (see Module Occupancy) -->
-	
-	<energy:ridgeHeight uom="m">10.5</energy:ridgeHeight>
-	<energy:landmarked>false</energy:landmarked>
-	<energy:floorArea>
-		<!--Here come the floorArea objects (see later)-->
-	</energy:floorArea>
-	<energy:eavesHeight uom="m">8</energy:eavesHeight>
-	<energy:constructionStyle>Massive</energy:constructionStyle>
-	<energy:buildingType>MultiFamilyHouse</energy:buildingType>
-	
-	<!--Here follow all ThermalZone objects, each inside a "thermalZones" tag-->
-	<energy:thermalZones>
-		<energy:ThermalZone gml:id="id_thermalzone_1">
-			<!--Here come all attributes of the first ThermalZone (omitted here)-->
-		</energy:ThermalZone>
-	</energy:thermalZones>
-	<energy:thermalZones>
-		<energy:ThermalZone gml:id="id_thermalzone_2">
-			<!--Here come all attributes of the second ThermalZone (omitted here)-->
-		</energy:ThermalZone>
-	</energy:thermalZones>
+ <gml:description>Description of Building 1</gml:description>
+ <gml:name>Name of Building 1</gml:name>
+ <energy:referencePoint>
+  <gml:Point gml:id="id_building_referencepoint_1" srsName="EPSG:31256" srsDimension="3">
+   <gml:pos>5 5 0</gml:pos>
+  </gml:Point>
+ </energy:referencePoint>
+ <energy:basementType>Unconditioned</energy:basementType>
+ <energy:energyPerformanceCertification>
+  <!--Here come the EnergyPerformanceCertification objects (see later) -->
+ </energy:energyPerformanceCertification>
+ <energy:basementCeilingHeightAboveGroundSurface uom="m">1</energy:basementCeilingHeightAboveGroundSurface>
+ <energy:grossVolume uom="m^3">1050</energy:grossVolume>
+ <energy:refurbishmentMeasureOnBuilding>
+  <energy:RefurbishmentMeasure>
+   <!--Here come all attributes of a RefurbishmentMeasure object (omitted here)-->
+  </energy:RefurbishmentMeasure>
+ </energy:refurbishmentMeasureOnBuilding>
+ <energy:averageCeilingHeight uom="m">2.7</energy:averageCeilingHeight>
+ <energy:atticType>Conditioned</energy:atticType>
+ 
+ <!--Here may come a list of UsageZone of the building (see Module Occupancy) -->
+ 
+ <energy:ridgeHeight uom="m">10.5</energy:ridgeHeight>
+ <energy:landmarked>false</energy:landmarked>
+ <energy:floorArea>
+  <!--Here come the floorArea objects (see later)-->
+ </energy:floorArea>
+ <energy:eavesHeight uom="m">8</energy:eavesHeight>
+ <energy:constructionStyle>Massive</energy:constructionStyle>
+ <energy:buildingType>MultiFamilyHouse</energy:buildingType>
+ 
+ <!--Here follow all ThermalZone objects, each inside a "thermalZones" tag-->
+ <energy:thermalZones>
+  <energy:ThermalZone gml:id="id_thermalzone_1">
+   <!--Here come all attributes of the first ThermalZone (omitted here)-->
+  </energy:ThermalZone>
+ </energy:thermalZones>
+ <energy:thermalZones>
+  <energy:ThermalZone gml:id="id_thermalzone_2">
+   <!--Here come all attributes of the second ThermalZone (omitted here)-->
+  </energy:ThermalZone>
+ </energy:thermalZones>
 </bldg:Building>
 ```
 
@@ -752,30 +752,30 @@ The XML example below characterizes a insulated outer wall construction with thr
  ```xml                   
 <!--Example of a three layered construction-->
 <energy:Construction gml:id="ThreeLayeredMaterial">
-    <energy:layer>
-        <energy:Layer>
-            <energy:layerComponent>
-                <energy:LayerComponent>
-                    <energy:thickness uom="m">0.02</energy:thickness>
-                    <energy:material xlink:href="#ID_Material_Plasterboard"/>
-                </energy:LayerComponent>
-            </energy:layerComponent>
-           
-            <energy:layerComponent>
-                <energy:LayerComponent>
-                    <energy:thickness uom="m">0.24</energy:thickness>
-                    <energy:material xlink:href="#ID_Material_Concrete"/>
-                </energy:LayerComponent>
-            </energy:layerComponent>
-            
-            <energy:layerComponent>
-                <energy:LayerComponent>
-                    <energy:thickness uom="m">0.12</energy:thickness>
-                    <energy:material xlink:href="#ID_Material_Polyurethan"/>
-                </energy:LayerComponent>
-            </energy:layerComponent>                     
-        </energy:Layer>
-    </energy:layer>
+ <energy:layer>
+  <energy:Layer>
+   <energy:layerComponent>
+    <energy:LayerComponent>
+     <energy:thickness uom="m">0.02</energy:thickness>
+     <energy:material xlink:href="#ID_Material_Plasterboard"/>
+    </energy:LayerComponent>
+   </energy:layerComponent>
+
+   <energy:layerComponent>
+    <energy:LayerComponent>
+     <energy:thickness uom="m">0.24</energy:thickness>
+     <energy:material xlink:href="#ID_Material_Concrete"/>
+    </energy:LayerComponent>
+   </energy:layerComponent>
+
+   <energy:layerComponent>
+    <energy:LayerComponent>
+     <energy:thickness uom="m">0.12</energy:thickness>
+     <energy:material xlink:href="#ID_Material_Polyurethan"/>
+    </energy:LayerComponent>
+   </energy:layerComponent>
+  </energy:Layer>
+ </energy:layer>
 </energy:Construction>
 ```
 
