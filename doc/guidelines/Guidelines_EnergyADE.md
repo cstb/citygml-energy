@@ -34,6 +34,8 @@ be embedded into CityGML.
 
 ## Module overview and main relationships
 
+![Class diagram of Building Physics Module](fig/class_geometry.png)
+
 This module contains the thermal building objects required for building thermal
 modelling (e.g. calculation of space heating and space cooling demands):
 `ThermalZone`, `ThermalBoundary`, `ThermalComponent`. These thermal building
@@ -61,9 +63,7 @@ delimiting the `ThermalZone` from outside must be related (`correspondsTo`)
 with a `_BoundarySurface`, in order to consider the `globalSolarIrradiance`
 incident on `_BoundarySurface` in the heating and cooling calculations.
 
-## Building, zones and boundaries
-
-![Class diagram of Building Physics Module](fig/class_geometry.png)
+## Extension of CityGML building objects
 
 ### \_AbstractBuilding
 
@@ -92,49 +92,50 @@ some of its Energy ADE attributes.
 ```xml
 <!--Examples of Building with Energy ADE attributes-->
 <bldg:Building gml:id="id_building_1">
-	<gml:description>Description of Building 1</gml:description>
-	<gml:name>Name of Building 1</gml:name>
-	<energy:referencePoint>
-		<gml:Point gml:id="id_building_referencepoint_1" srsName="EPSG:31256" srsDimension="3">
-			<gml:pos>5 5 0</gml:pos>
-		</gml:Point>
-	</energy:referencePoint>
-	<energy:basementType>Unconditioned</energy:basementType>
-	<energy:energyPerformanceCertification>
-		<!--Here come the EnergyPerformanceCertification objects (see later) -->
-	</energy:energyPerformanceCertification>
-	<energy:basementCeilingHeightAboveGroundSurface uom="m">1</energy:basementCeilingHeightAboveGroundSurface>
-	<energy:grossVolume uom="m^3">1050</energy:grossVolume>
-	<energy:refurbishmentMeasureOnBuilding>
-		<energy:RefurbishmentMeasure>
-			<!--Here come all attributes of a RefurbishmentMeasure object (omitted here)-->
-		</energy:RefurbishmentMeasure>
-	</energy:refurbishmentMeasureOnBuilding>
-	<energy:averageCeilingHeight uom="m">2.7</energy:averageCeilingHeight>
-	<energy:atticType>Conditioned</energy:atticType>
-
-	<!--Here may come a list of UsageZone of the building (see Module Occupancy) -->
-
-	<energy:ridgeHeight uom="m">10.5</energy:ridgeHeight>
-	<energy:landmarked>false</energy:landmarked>
-	<energy:floorArea>
-		<!--Here come the floorArea objects (see later)-->
-	</energy:floorArea>
-	<energy:eavesHeight uom="m">8</energy:eavesHeight>
-	<energy:constructionStyle>Massive</energy:constructionStyle>
-	<energy:buildingType>MultiFamilyHouse</energy:buildingType>
-
-	<!--Here follow all ThermalZone objects, each inside a "thermalZones" tag-->
-	<energy:thermalZones>
-		<energy:ThermalZone gml:id="id_thermalzone_1">
-			<!--Here come all attributes of the first ThermalZone (omitted here)-->
-		</energy:ThermalZone>
-	</energy:thermalZones>
-	<energy:thermalZones>
-		<energy:ThermalZone gml:id="id_thermalzone_2">
-			<!--Here come all attributes of the second ThermalZone (omitted here)-->
-		</energy:ThermalZone>
-	</energy:thermalZones>
+ <gml:description>Description of Building 1</gml:description>
+ <gml:name>Name of Building 1</gml:name>
+ <energy:referencePoint>
+  <gml:Point gml:id="id_building_referencepoint_1" srsName="EPSG:31256" srsDimension="3">
+   <gml:pos>5 5 0</gml:pos>
+  </gml:Point>
+ </energy:referencePoint>
+ <energy:basementType>Unconditioned</energy:basementType>
+ <energy:energyPerformanceCertification>
+  <!--Here come the EnergyPerformanceCertification objects (see later) -->
+ </energy:energyPerformanceCertification>
+ <energy:basementCeilingHeightAboveGroundSurface uom="m">1</energy:basementCeilingHeightAboveGroundSurface>
+ <energy:grossVolume uom="m^3">1050</energy:grossVolume>
+ <energy:refurbishmentMeasureOnBuilding>
+  <energy:RefurbishmentMeasure>
+   <!--Here come all attributes of a RefurbishmentMeasure object (omitted here)-->
+  </energy:RefurbishmentMeasure>
+ </energy:refurbishmentMeasureOnBuilding>
+ <energy:averageCeilingHeight uom="m">2.7</energy:averageCeilingHeight>
+ <energy:atticType>Conditioned</energy:atticType>
+ 
+ <!--Here may come a list of UsageZone of the building (see Module Occupancy) -->
+ 
+ <energy:ridgeHeight uom="m">10.5</energy:ridgeHeight>
+ <energy:landmarked>false</energy:landmarked>
+ <energy:floorArea>
+  <!--Here come the floorArea objects (see later)-->
+ </energy:floorArea>
+ <energy:eavesHeight uom="m">8</energy:eavesHeight>
+ <energy:constructionStyle>Massive</energy:constructionStyle>
+ <energy:buildingType>MultiFamilyHouse</energy:buildingType>
+ 
+ <!--Here follow all ThermalZone objects, each inside a "thermalZones" tag-->
+ <energy:thermalZones>
+  <energy:ThermalZone gml:id="id_thermalzone_1">
+   <!--Here come all attributes of the first ThermalZone (omitted here)-->
+  </energy:ThermalZone>
+ </energy:thermalZones>
+ <energy:thermalZones>
+  <energy:ThermalZone gml:id="id_thermalzone_2">
+   <!--Here come all attributes of the second ThermalZone (omitted here)-->
+  </energy:ThermalZone>
+ </energy:thermalZones>
+>>>>>>> a35741d611e4222bf1460a371d60d3e2d210ce68
 </bldg:Building>
 ```
 
@@ -211,7 +212,7 @@ below).
             </energy:DateOfEvent>
         </energy:dateOfRefurbishment>
         <energy:levelOfRefurbishment>UsualRefurbishment</energy:levelOfRefurbishment>
-        <gml:description>Refurbishment consisting in the outside insulation of walls with 12cm polystyrol etc.</gml:description>
+        <gml:description>Refurbishment consisting of an outside insulation of walls etc.</gml:description>
     </energy:RefurbishmentMeasure>
 </energy:refurbishmentMeasureOnBuilding>
 ```
@@ -356,6 +357,8 @@ XML example of a roof is given.
 
 </bldg:RoofSurface>
 ```
+
+## Thermal zones, thermal boundaries and thermal components
 
 ### ThermalZone
 
@@ -592,44 +595,64 @@ calculate the heating and cooling demand.
 
 # Temporal Data Module
 
+This module introduces the two new types `_TimeSeries` and `_Schedules`, essential to model the time-depending inputs and results of urban energy analyses. These types are used in other Modules of the Energy ADE, in particular the module Occupancy and module Energy and Systems.
+<br/ >
+As theses types are actually not domain-specific, we are collaborating with the development team of the CityGML 3.0 to integrate them in the new CityGML 3.0 to come (as Dynamizer).
+
 ## Time Series
 
 ![Class diagram of ADE Energy Core - Time Series](fig/class_time.png)
 
 Time series are homogeneous lists of time-depending values. They are used in
-the Energy ADE to store energy amount or a schedule, for instance. As they
-actually are a data type which is not domain-specific, they are planned to be
-integrated in the CityGML 3.0.  All time series share some common properties,
-contained in the variableProperties attribute. These properties are the
-variable label, the variable unit of measure (*uom*), the interpolation type
-(based on the [WaterML ADE] []
-and some further metadata like the data source, the acquisition method and a
-quality description.
+the Energy ADE to store energy amount or an occupancy schedule, for instance. 
 
-Time series can be either regular or irregular.  *RegularTimeSeries* contain
-values generated at regularly spaced interval of time (`timeInterval`), over a
-given `temporalExtent` (i.e. start, end and duration time). They are used, for
-instance, to store automatically acquired data or hourly/daily/monthly
-simulation results.  In *IrregularTimeSeries*, data follows a temporal
-sequence, but the measurement points may not happen at a regular time
-interval ([IBM knowledge Center] []).
-Therefore, each value must be associated with a data or time.
-What is more, each time series can be stored as an external file (e.g. csv or
-text) and for this purpose a number of attributes provide the required
-information about how to retrieve the proper set of values from the files.  In
-the following, several examples of time series are given. Please note that the
-variableProperties are presented in the first example and omitted in the
-following ones for better readability.
+All time series share some common properties, gathered in the
+`TimeValuesProperties` type object. This object specifies optionally the
+`acquisitionMethod` (e.g. simulated with software X, measured with heat meter),
+`interpolationType` (based on the
+[WaterML ADE](http://def.seegrid.csiro.au/sissvoc/ogc-def/resource?uri=http://www.opengis.net/def/waterml/2.0/interpolationType/),
+to know for instance if measured data are "Average in Preceding Interval", or
+"Instantaneous Total"), `qualityDescription` and `source` of the time series
+data. Additionally, `_TimeSeries`may contain the the usual GML type attributes
+`name` and `description`.
 
+Time series can be either regular or irregular. `RegularTimeSeries` contain
+`values` generated at regularly spaced interval of time (`timeInterval`), over
+a given `temporalExtent` (i.e. start, end and duration time). They are used,
+for instance, to store automatically acquired data or hourly/daily/monthly
+simulation results.
+
+In `IrregularTimeSeries`, data follows a temporal sequence, but the measurement
+points may not happen at a regular time interval[^1]. Therefore, each value
+must be associated with a data or time.
+
+Time series values may be also stored on an external file (e.g. csv or text),
+both for regular (`RegularTimeSeriesFile`) and irregular time series
+(`IrregularTimeSeriesFile`). A number of attributes must be detailed to
+retrieve the `file`, interprete the formats and values inside it
+(`decimalSymbol`, `recordSeparator`, `fieldSeparator`, `numberOfHeaderLines`,
+`uom`), and know which values of the file should be read (`timeColumnNumber`
+for irregular time series and `valueColumnNumber` for both of them). One file
+with different records may be reused by different `RegularTimeSeriesFile` or
+`IrregularTimeSeriesFile` with the corresponding `valueColumnNumber`.
+
+In the following, four examples of time series illustrates the four types of
+time series. The variableProperties and gml attributes are presented in the
+first example but not always repeated in the following examples for better
+readibility.
+
+Example of RegularTimeSeries object:
 ```xml
-<!--Example of RegularTimeSeries object with 12 monthly values-->
+<!--Example of RegularTimeSeries object with daily values-->
 <energy:RegularTimeSeries gml:id="id_timeseries_electricity_demand_1">
+	<gml:description>Description of the time series id_timeseries_electricity_demand_1</gml:description>
+	<gml:name>Name of the  time series id_timeseries_electricity_demand_1</gml:name>
 	<energy:variableProperties>
 		<energy:TimeValuesProperties>
-			<energy:acquisitionMethod>Description of the acquisition method</energy:acquisitionMethod>
+			<energy:acquisitionMethod>Measured electronically with heat power</energy:acquisitionMethod>
 			<energy:interpolationType>AverageInSucceedingInterval</energy:interpolationType>
-			<energy:qualityDescription>Description of data quality</energy:qualityDescription>
-			<energy:source>Information about data source</energy:source>
+			<energy:qualityDescription>Accurate (+/- 0.2 kWh)</energy:qualityDescription>
+			<energy:source>Subcontracting company X</energy:source>
 		</energy:TimeValuesProperties>
 	</energy:variableProperties>
 	<energy:temporalExtent>
@@ -638,31 +661,49 @@ following ones for better readability.
 			<gml:endPosition>2016-12-31</gml:endPosition>
 		</gml:TimePeriod>
 	</energy:temporalExtent>
-	<energy:timeInterval unit="year">0.0833</energy:timeInterval>
-	<energy:values uom="kWh">330 320 300 270 200 180 160 155 170 200 250 300</energy:values>
-</energy:RegularTimeSeries>
-```
-
-```xml
-<!--Example of RegularTimeSeries object with daily values (exerpt)-->
-<energy:RegularTimeSeries gml:id="id_timeseries_electricity_demand_2">
-	<energy:temporalExtent>
-		<gml:TimePeriod>
-			<gml:beginPosition>2011-01-01</gml:beginPosition>
-			<gml:endPosition>2011-12-31</gml:endPosition>
-		</gml:TimePeriod>
-	</energy:temporalExtent>
 	<energy:timeInterval unit="day">1</energy:timeInterval>
 	<energy:values uom="kWh">11.2 11.4 10.2 9.6 6.3 11.5 12.7 ... (truncated, set of 365 values) </energy:values>
 </energy:RegularTimeSeries>
 ```
 
+Example of IrregularTimeSeries object:
+```xml
+<!--Example of IrregularTimeSeries object listing one value per year-->
+<energy:IrregularTimeSeries gml:id="id_timeseries_electricity_demand_1">
+	<energy:variableProperties>
+		<energy:TimeValuesProperties>
+			<energy:acquisitionMethod>Manual read on electrical meter</energy:acquisitionMethod>
+			<energy:interpolationType>InstantTotal</energy:interpolationType>
+		</energy:TimeValuesProperties>
+	</energy:variableProperties>
+	<energy:uom uom="kWh"/>
+	<energy:contains>
+		<energy:MeasurementPoint>
+			<energy:time>2010-02-24</energy:time>
+			<energy:value>12050</energy:value>
+		</energy:MeasurementPoint>
+	</energy:contains>
+	<energy:contains>
+		<energy:MeasurementPoint>
+			<energy:time>2011-02-15</energy:time>
+			<energy:value>14050</energy:value>
+		</energy:MeasurementPoint>
+	</energy:contains>
+	<energy:contains>
+		<energy:MeasurementPoint>
+			<energy:time>2012-03-01</energy:time>
+			<energy:value>16245</energy:value>
+		</energy:MeasurementPoint>
+	</energy:contains>
+</energy:RegularTimeSeries>
+```
+
+Example of RegularTimeSeriesFile object:
 ```xml
 <!--Example of RegularTimeSeriesFile object with hourly values contained in a file-->
 <energy:RegularTimeSeriesFile gml:id="id_regulartimeseries_file_1">
 	<energy:uom uom="W/m^2"/>
-	<energy:file>file_name_containing_values.tsv</energy:file>
-	<energy:temporalExtent>
+	<energy:file>file_name_containing_values.csv</energy:file>
 	<energy:temporalExtent>
 		<gml:TimePeriod>
 			<gml:beginPosition>2008-01-01</gml:beginPosition>
@@ -676,25 +717,39 @@ following ones for better readability.
 </energy:RegularTimeSeriesFile>
 ```
 
+Example of IrregularTimeSeriesFile object:
 ```xml
-<!--Example of IrregularTimeSeries object-->
+<!--Example of IrregularTimeSeriesFile object-->
+<energy:RegularTimeSeriesFile gml:id="id_regulartimeseries_file_1">
+	<energy:uom uom="W/m^2"/>
+	<energy:file>file_name_containing_values.csv</energy:file>
+	<energy:numberOfHeaderLines>1</energy:numberOfHeaderLines>
+	<energy:recordSeparator> </energy:recordSeparator>
+	<energy:decimalSymbol>,</energy:decimalSymbol>
+	<energy:valueColumnNumber>9</energy:valueColumnNumber>
+	<energy:timeColumnNumber>1</energy:timeColumnNumber>
+	<energy:fieldSeparator>\t</energy:fieldSeparator>
+</energy:RegularTimeSeriesFile>
 ```
 
 ## Schedules
 
 ![Class diagram of ADE Energy Core - Schedules](fig/class_schedules.png)
 
-The type Schedule is used in the Energy ADE for different kinds of schedules,
-e.g. heating/cooling schedules (set-point temperatures), ventilation schedules
-(mechanical air change rate) and occupancy rate.  Schedules can be modelled up
-to 4 "semantic" levels of details depending on the available information and
-the application requirement. These levels of detail range from a simple
-constant value to a schedule characterised by a _TimeSeries object.
+The type `_Schedule` is used in the Energy ADE for different kinds of schedules
+related to the building usage: heating and cooling schedules (set-point
+temperatures), ventilation schedules (mechanical air change rate), occupancy
+rate and facilities operation schedules.
+
+Schedules can be modelled in 4 possible "semantic levels of detail", depending
+on the available information and the application requirements. These levels of
+detail range from a simple constant value to a detailed schedule characterised
+by a `_TimeSeries` object.
 
 ### ConstantValueSchedule
 
-The simplest level of detail, this Schedule is defined by a constant value,
-generally corresponding to the average parameter value.
+The simplest level of detail, this Schedule is defined by a constant measure
+(`averageValue`), generally corresponding to the average parameter value.
 
 ```xml
 <!--Example of a ConstantValueSchedule-->
@@ -705,11 +760,12 @@ generally corresponding to the average parameter value.
 
 ### DualValueSchedule
 
-A two-state schedule, this schedule is defined by a usage value for usage
-times, and an idle value outside this temporal boundaries. Information about
-the number of usage days per year and usage hours per usage days are also
-defined. This schedule complies in particular with the data requirements of the
-codes and norms describing the monthly energy balance (DIN 18599-2, ISO 13790).
+A two-state schedule. This schedule is defined by a `usageValue` for usage
+times, and an `idleValue` outside these temporal boundaries. Usage times are
+characterized by the numbers `usageHoursPerDay` and `usageHoursPerDay` (usage
+hours per usage days). This schedule complies in particular with the data
+requirements of the codes and norms describing the monthly energy balance (DIN
+18599-2, ISO 13790).
 
 ```xml
 <!--Example of a DualValueSchedule-->
@@ -723,41 +779,18 @@ codes and norms describing the monthly energy balance (DIN 18599-2, ISO 13790).
 
 ### DailyPatternSchedule
 
-Detailed schedule composed of daily schedules associated to recurrent day types
-(weekday, weekend etc.). These daily schedules are Time Series as described
-above.
-
-```xml
-<!--Example of a daily pattern schedule for a standard day-->
-<energy:DailyPatternSchedule gml:id="id_dailypattern_schedule_3">
-	<energy:dailySchedule>
-		<energy:DailySchedule>
-			<energy:dayType>CustomDay1</energy:dayType>
-			<energy:schedule>
-				<energy:RegularTimeSeries gml:id="id_occupants_daily_timeseries_1">
-					<energy:temporalExtent>
-						<gml:TimePeriod>
-							<gml:beginPosition>00:00:00</gml:beginPosition>
-							<gml:endPosition>23:59:59</gml:endPosition>
-						</gml:TimePeriod>
-					</energy:temporalExtent>
-					<energy:timeInterval unit="hour">1</energy:timeInterval>
-					<energy:values uom="ratio">1 1 1 0.74 0.35 ... (truncated, set of 24 values)</energy:values>
-				</energy:RegularTimeSeries>
-			</energy:schedule>
-		</energy:DailySchedule>
-	</energy:dailySchedule>
-</energy:DailyPatternSchedule>
-```
+This more detailed schedule is composed of daily `schedule` associated to
+recurrent `dayType` (e.g. weekday, weekend). These daily schedules are of type`
+_TimeSeries`, as described above.
 
 ```xml
 <!--Example of a daily pattern schedule for a standard week composed of weekday and weekend days-->
-<energy:DailyPatternSchedule gml:id="id_dailypattern_schedule_4">
+<energy:DailyPatternSchedule gml:id="id_dailypattern_schedule_3">
 	<energy:dailySchedule>
 		<energy:DailySchedule>
 			<energy:dayType>WeekDay</energy:dayType>
 			<energy:schedule>
-				<energy:RegularTimeSeries gml:id="id_occupants_daily_timeseries_2">
+				<energy:RegularTimeSeries gml:id="id_occupants_daily_timeseries_1">
 					<energy:temporalExtent>
 						<gml:TimePeriod>
 							<gml:beginPosition>00:00:00</gml:beginPosition>
@@ -774,7 +807,7 @@ above.
 		<energy:DailySchedule>
 			<energy:dayType>WeenEnd</energy:dayType>
 			<energy:schedule>
-				<energy:RegularTimeSeries gml:id="id_occupants_daily_timeseries_3">
+				<energy:RegularTimeSeries gml:id="id_occupants_daily_timeseries2">
 					<energy:temporalExtent>
 						<gml:TimePeriod>
 							<gml:beginPosition>00:00:00</gml:beginPosition>
@@ -792,12 +825,13 @@ above.
 
 ### TimeSeriesSchedule
 
-Most detailed schedule corresponding to a Time series as described above.
+This type is the most detailed of all `_schedule` levels of details. It
+consists of a unique time series, without patterns.
 
 ```xml
 <!--Example of a time series based schedule with hourly values for one year-->
-<energy:TimeSeriesSchedule gml:id="id_timeseries_schedule_5">
-	<energy:RegularTimeSeries "id_occupants_timeseries_5">
+<energy:TimeSeriesSchedule gml:id="id_timeseries_schedule_4">
+	<energy:RegularTimeSeries "id_occupants_timeseries4">
 			<energy:temporalExtent>
 				<gml:TimePeriod>
 					<gml:beginPosition>2000-01-01</gml:beginPosition>
@@ -814,89 +848,116 @@ Most detailed schedule corresponding to a Time series as described above.
 
 ![Class diagram of Construction Module](fig/class_construction.png)
 
-The Construction and Material module of the ADE Energy contains the physical
-characterization of the boundary surfaces, surface components and, possibly,
-even the whole building. As it inherits from class `_CityObject`, all similar
-objects can be described also by means of construction and materials. Given
-that the nature of this module is not domain-specific, it can be used beyond
-energy-related applications (e.g. in statics, acoustics etc.).
+The Construction and Material module of the ADE Energy characterizes physically
+the building construction parts, detailing their structure and specifiying
+their thermal and optical properties. 
+
+As its central object `Construction` inherits from class `_CityObject`, all
+similar objects, can be described by means of construction and materials.
+
+Given that the nature of this module is not domain-specific, it can be used
+beyond energy-related applications (e.g. in statics, acoustics etc.) 
 
 ## Construction
 
-Physical characterisation of building envelop or intern room partition (e.g.
-wall, roof, openings), it may be specified as an ordered combination of layers.
-In the Energy ADE, the object Construction can be linked to the
-`_ThermalComponents`, in order to defined the physical parameters of a walls,
-roofs of windows, for a space heating/cooling calculation. However, it may
-possibly be linked to any `_CityObject` for other purposes, in particular to
-`_BoundarySurface`, `_Opening` or even `_AbstractBuilding`.  Each construction
-object is characterised by a number of attributes like the U-value, or some
-optical properties, like transmittance, reflecatance and emissivity. In
-particular, *Transmittance* is the fraction of incident radiation which passes
-through a specific object. It is specified for a given wavelength range type
-(`wavelengthRange`). For example, the total transmittance of a window
-correspond to its *g-value* (also called Solar Heat Gain Coefficient). The
-transmittance value is included between 0 (completely opaque object) and 1
-(completely transparent object).  *Reflectance* is the fraction of incident
-radiation which is reflected by an object. It is specified for a given surface
-(`SurfaceSide`) and for a given wavelength range type.  *Emissivity* is the
-ratio of the infrared (also called long-wave) radiation emitted by a specific
-surface/object to that of a black body. It is specified for a given surface
-(SurfaceSide). According with the Kirchoff and Lambert law, for a diffuse grey
-body the aborptance and the emittance are equal for a given wavelength range.
-The sum of the transmittance, reflectance and emissivity (or absorptance)
-fractions of a surface/object is always 1.  In the following, several examples
-of Construction objects are presented, with different levels of complexity.
+This is the central object of this module, which holds the physical
+characterisation of building envelop or intern room partition (e.g. wall, roof,
+openings).
+In the Energy ADE, the object `Construction` is generally linked to the object
+`ThermalComponents` for space heating and cooling demand calculations, in order
+to specified in the building model the physical parameters of walls, roofs of
+windows etc. However, it may possibly be linked to any `_CityObject` for other
+purposes, in particular to `_BoundarySurface`, `_Opening` or even
+`_AbstractBuilding`.
+
+Each `Construction` object may be characterised by optical and/or physical
+properties.
+
+The `OpticalProperties` type specified the `emissivity`, `reflectance`,
+`transmittance` and `glazingRatio` of the construction and its surfaces:
+
+- *Emissivity* is the ratio of the infrared (also called long-wave) radiation
+  emitted by a specific surface/object to that of a black body. It is specified
+  for a given surface (`SurfaceSide`). According with the Kirchoff and Lambert
+  law, for a diffuse grey body the aborptance and the emittance are equal for a
+  given wavelength range.
+
+- *Reflectance* is the fraction of incident radiation which is reflected by an
+  object. It is specified for a given surface (`SurfaceSide`) and for a given
+  `wavelengthRange` type ("Visible", "Infrared", "Solar" or "Total" spectrums).
+
+- *Transmittance* is the fraction of incident radiation which passes through a
+  specific object. It is specified for a given `wavelengthRange` type . For
+  example, the total transmittance of a window correspond to its *g-value*
+  (also called Solar Heat Gain Coefficient). The transmittance value is
+  included between 0 (completely opaque object) and 1 (completely transparent
+  object).
+
+- the `glazingRatio` corresponds of to proportion of the construction surface
+  which is transparent and for which the transmittance is defined. For the
+  modelling of window, `glazingRatio` corresponds to the proportion of window
+  surface not cover by the window frame.
+
+The thermal properties of the Construction may be characterized with two
+possible "levels of details" : either with the heat transmission coefficient
+`uValue` for steady-state thermal modelling, or by detailing its different
+`Layer` of materials and their thermal behaviour.
+
+In this last case, the `Construction` may be defined as an ordered combination
+of `Layer`, containing possibly several `LayerComponent` made of materials.
+
+In the following, several examples of Construction objects are presented, with
+different levels of complexity.
+
+A simple wall characterised with its U-value :
 
 ```xml
-<!--Example of Construction object-->
-```
-
-```xml
-<!--Example of a simple wall construction just with a U-value-->
-<energy:Construction gml:id="id_construction_2">
-	<gml:description>Description of Construction 2</gml:description>
-	<gml:name>Name of Construction 2</gml:name>
-	<energy:uValue uom="W/(K*m^2)">3.0</energy:uValue>
+<!--Example of a wall construction simply characterised with a U-value-->
+<energy:Construction gml:id="id_construction_1">
+	<gml:description>Description of Construction 1</gml:description>
+	<gml:name>Name of Construction 1</gml:name>
+	<energy:uValue uom="W/(K*m^2)">1.2</energy:uValue>
 </energy:Construction>
 ```
 
+A window characterised with its U-value, its emissivity, its g-value and its
+visible transmittance.
+
 ```xml
-<!--Example of window Construction object-->
+<!--Example of low-emissivity window Construction object-->
 <energy:Construction gml:id="id_construction_2">
 	<gml:description>Description of the windows Construction</gml:description>
 	<gml:name>Name of the window Construction</gml:name>
-
 	<energy:uValue uom="W/(K*m^2)">1.9</energy:uValue>
 	<energy:opticalProperties>
 		<energy:OpticalProperties>
 			<energy:emittance>
 				<energy:Emissivity>
-					<energy:fraction uom="ratio">0.1</energy:fraction>
-					<energy:surface>Outside</energy:surface>
+					<energy:fraction uom="ratio">0.04</energy:fraction>
+					<energy:surface>Inside</energy:surface>
 				</energy:Emissivity>
 			</energy:emittance>
-			<energy:reflectance>
-				<energy:Reflectance>
-					<energy:fraction uom="ratio">0.1</energy:fraction>
-					<energy:surface>Outside</energy:surface>
-					<energy:wavelengthRange>Solar</energy:wavelengthRange>
-				</energy:Reflectance>
-			</energy:reflectance>
+			<!-- Here follows the g-value (or SHGC) characterization-->
 			<energy:transmittance>
 				<energy:Transmittance>
-					<energy:fraction uom="ratio">0.8</energy:fraction>
-					<energy:wavelengthRange>Solar</energy:wavelengthRange>
+					<energy:fraction uom="ratio">0.65</energy:fraction>
+					<energy:wavelengthRange>Total</energy:wavelengthRange>
 				</energy:Transmittance>
 			</energy:transmittance>
-			<energy:glazingRatio uom="ratio">0.9</energy:glazingRatio>
+			<!-- Here follows the visible transmittance characterization-->
+			<energy:transmittance>
+				<energy:Transmittance>
+					<energy:fraction uom="ratio">0.55</energy:fraction>
+					<energy:wavelengthRange>Visible</energy:wavelengthRange>
+				</energy:Transmittance>
+			</energy:transmittance>
+			<energy:glazingRatio uom="ratio">0.8</energy:glazingRatio>
 		</energy:OpticalProperties>
 	</energy:opticalProperties>
-
 </energy:Construction>
 ```
 
-## ConstructionOrientation
+### ConstructionOrientation
 
 This class defines the orientation convention of the `Construction` object it
 is referred to. In other words, it indicates in which order the layers are to
@@ -914,92 +975,93 @@ two different directions for instance.
 </energy:ConstructionOrientation>
 ```
 
-### Layer
+## Layers and layer components
 
-Combination of one of more materials, referenced via a layer component. It
-inherits from `_CityObject`.
+A `Construction` may be defined as an ordered combination of layers, themselves
+composed of one or more `LayerComponent`.
+A `LayerComponent` is a homogeneous part of a `Layer` (composed of a unique
+material) covering a given fraction (`areaFraction`) of it.
 
-### LayerComponent
+The materials of each `LayerComponent` may be specified either inline or by
+means of xlinks (more adapted to materials  reused in different constructions).
 
-Homogeneous part of a layer, covering a given fraction (`areaFraction`) of the
-layer.
+The XML example below characterizes a insulated outer wall construction with
+three layers.
+The materials are referenced with xlinks (the material characterization of
+ID_Material_Concrete follows in the paragrap Material).
+
+```xml                   
+<!--Example of a three layered construction-->
+<energy:Construction gml:id="ThreeLayeredMaterial">
+ <energy:layer>
+  <energy:Layer>
+   <energy:layerComponent>
+    <energy:LayerComponent>
+     <energy:thickness uom="m">0.02</energy:thickness>
+     <energy:material xlink:href="#ID_Material_Plasterboard"/>
+    </energy:LayerComponent>
+   </energy:layerComponent>
+
+   <energy:layerComponent>
+    <energy:LayerComponent>
+     <energy:thickness uom="m">0.24</energy:thickness>
+     <energy:material xlink:href="#ID_Material_Concrete"/>
+    </energy:LayerComponent>
+   </energy:layerComponent>
+
+   <energy:layerComponent>
+    <energy:LayerComponent>
+     <energy:thickness uom="m">0.12</energy:thickness>
+     <energy:material xlink:href="#ID_Material_Polyurethan"/>
+    </energy:LayerComponent>
+   </energy:layerComponent>
+  </energy:Layer>
+ </energy:layer>
+</energy:Construction>
+```
+
+[Picture: Cut of the wall of the same wall - Joachim? Peter?]
 
 ## Materials
 
 ### AbstractMaterial
 
-Abstract superclass for all Material classes. A Material is a homogeneous
-substance. We distinguish solid materials (with mass) from gas (without mass).
+`_AbstractMaterial` is the abstract superclass for all Material classes. A
+Material is a homogeneous substance. We distinguish solid materials (with mass)
+from gas (without mass).
 
 ### SolidMaterial
 
-Class of the materials which have a mass and a heat capacity.
+`SolidMaterial` is the class of materials which have a mass and a heat
+capacity.
 
 ```xml
-<!--Example of a three layered construction-->
-<energy:Construction gml:id="ThreeLayeredMaterial">
-    <energy:layer>
-        <energy:Layer>
-            <energy:layerComponent>
-                <energy:LayerComponent>
-                    <energy:thickness uom="m">0.24</energy:thickness>
-                    <energy:material>
-                        <energy:SolidMaterial>
-                            <gml:name>Concrete 2100</gml:name>
-                            <energy:conductivity uom="W/(K*m^2)">2.035</energy:conductivity>
-                            <energy:density uom="kg/m^3">2100.0</energy:density>
-                            <energy:specificHeat uom="J/(K*kg)">920.0</energy:specificHeat>
-                        </energy:SolidMaterial>
-                    </energy:material>
-                </energy:LayerComponent>
-            </energy:layerComponent>
-
-            <energy:layerComponent>
-                <energy:LayerComponent>
-                    <energy:thickness uom="m">0.062</energy:thickness>
-                    <energy:material>
-                        <energy:SolidMaterial>
-                            <gml:name>Insulation 047</gml:name>
-                            <energy:conductivity uom="W/(K*m^2)">0.047</energy:conductivity>
-                            <energy:density uom="kg/m^3">75.0</energy:density>
-                            <energy:specificHeat uom="J/(K*kg)">840.0</energy:specificHeat>
-                        </energy:SolidMaterial>
-                    </energy:material>
-                </energy:LayerComponent>
-            </energy:layerComponent>
-
-            <energy:layerComponent>
-                <energy:LayerComponent>
-                    <energy:thickness uom="m">0.025</energy:thickness>
-                    <energy:material>
-                        <energy:SolidMaterial>
-                            <gml:name>Facade</gml:name>
-                            <energy:conductivity uom="W/(K*m^2)">0.45</energy:conductivity>
-                            <energy:density uom="kg/m^3">1300.0</energy:density>
-                            <energy:specificHeat uom="J/(K*kg)">1050.0</energy:specificHeat>
-                        </energy:SolidMaterial>
-                    </energy:material>
-                </energy:LayerComponent>
-            </energy:layerComponent>
-        </energy:Layer>
-    </energy:layer>
-</energy:Construction>
+<!-- Characterisation of the material Concrete-->
+<energy:material gml = "ID_Material_Concrete">
+        <energy:SolidMaterial>
+                <gml:name>Concrete 2100</gml:name>
+                <energy:conductivity uom="W/(K*m^2)">2.035</energy:conductivity>
+                <energy:density uom="kg/m^3">2100.0</energy:density>
+                <energy:specificHeat uom="J/(K*kg)">920.0</energy:specificHeat>
+        </energy:SolidMaterial>
+</energy:material>
 ```
-
+ 
 ### Gas
 
-Class of the material whose mass and heat capacity are neglectable in
+`Gas` is the class of materials whose mass and heat capacity are neglectable in
 comparison with `SolidMaterial`.
 
 ```xml
 <!--Example of a gas material with neglectable mass and heat capacity-->
-<energy:Gas>
-    <energy:isVentilated>false</energy:isVentilated>
-    <energy:rValue uom="K*m^2/W">4.5</energy:rValue>
-</energy:Gas>
+<energy:material>
+	<energy:Gas>
+		<gml:name>non-ventilated air gap</gml:name>
+		<energy:isVentilated>false</energy:isVentilated>
+		<energy:rValue uom="K*m^2/W">4.5</energy:rValue>
+	</energy:Gas>
+</energy:material>
 ```
-
-[Picture: Cut of the wall of the same wall - Joachim? Peter?]
 
 # Occupancy Module
 
@@ -1011,7 +1073,9 @@ the class `UsageZone`. Due to the type of information it allows to store, the
 Occupancy Module may be used also for multi-field analysis (socio-economics,
 demographics etc.).
 
-## UsageZone
+## Usage zones and building units
+
+### UsageZone
 
 Zone of a building with homogeneous usage type. It is a semantic object, with
 an optional geometry (`volumeGeometry`), which may be or not related to a
@@ -1090,7 +1154,7 @@ the zone.
 
 TODO: Add examples of cooling, heating and ventilation schedules.
 
-## BuildingUnit
+### BuildingUnit
 
 A `BuildingUnit` is a part of a `UsageZone` which is related to a single
 occupant entity, such as a dwelling or a  workplace. Owner information
@@ -1131,7 +1195,9 @@ inherits from class `_CityObject`.
 </energy:BuildingUnit>
 ```
 
-## Occupants
+## People
+
+### Occupants
 
 An `Occupants` class identifies a homogeneous group of occupants of a usage
 zone or building unit, defined with an occupant type (e.g. residents, workers,
@@ -1175,7 +1241,7 @@ visitors etc.). It can optionally contain one or more Household objects.
 </energy:Occupants>
 ```
 
-## Household
+### Household
 
 A `Household` class identifies a group of persons living in the same dwelling,
 in the case where occupants are residents. They are defined by a type (e.g. one
@@ -1259,7 +1325,9 @@ information concerning the energy forms (energy demand, supply, sources) and
 the energy systems (conversion, distribution and storage systems). It is
 arranged around one central `EnergyDemand` object.
 
-## EnergyDemand
+## Energy amounts and types
+
+### EnergyDemand
 
 Useful energy required to satisfy a specific end use, such as heating, cooling,
 domestic hot water etc.  Beside its `EndUseType`, this object is characterized
@@ -1287,7 +1355,7 @@ type characterize this data type for energy carriers.
 
 List of energy carriers as coal, chilled water or electricity.
 
-## Energy Distribution
+## Energy distribution
 
 ### EnergyDistributionSystem
 
@@ -1314,7 +1382,7 @@ Type for electrical distribution systems, described by current and voltage.
 
 This list is a collection of medium types as air and water.
 
-## Energy Storage
+## Energy storage
 
 ### StorageSystem
 
@@ -1332,7 +1400,7 @@ and a volume.
 Electrical storages with an electrical capacity and a string to describe the
 battery technology.
 
-## Energy Conversion
+## Energy conversion
 
 ### EnergyConversionSystem
 
