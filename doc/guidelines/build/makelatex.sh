@@ -1,6 +1,7 @@
 # this file should be use for debugging purposes only
 
 pandoc -S -o Guidelines_EnergyADE.tex \
+    --listings \
     --template=template1 \
     --filter pandoc-citeproc \
     Guidelines_EnergyADE.md metadata.yaml

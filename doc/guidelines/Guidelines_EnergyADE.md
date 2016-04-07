@@ -135,7 +135,6 @@ some of its Energy ADE attributes.
    <!--Here come all attributes of the second ThermalZone (omitted here)-->
   </energy:ThermalZone>
  </energy:thermalZones>
->>>>>>> a35741d611e4222bf1460a371d60d3e2d210ce68
 </bldg:Building>
 ```
 
@@ -595,9 +594,14 @@ calculate the heating and cooling demand.
 
 # Temporal Data Module
 
-This module introduces the two new types `_TimeSeries` and `_Schedules`, essential to model the time-depending inputs and results of urban energy analyses. These types are used in other Modules of the Energy ADE, in particular the module Occupancy and module Energy and Systems.
-<br/ >
-As theses types are actually not domain-specific, we are collaborating with the development team of the CityGML 3.0 to integrate them in the new CityGML 3.0 to come (as Dynamizer).
+This module introduces the two new types `_TimeSeries` and `_Schedules`,
+essential to model the time-depending inputs and results of urban energy
+analyses. These types are used in other Modules of the Energy ADE, in
+particular the module Occupancy and module Energy and Systems.
+
+As theses types are actually not domain-specific, we are collaborating with the
+development team of the CityGML 3.0 to integrate them in the new CityGML 3.0 to
+come (as Dynamizer).
 
 ## Time Series
 
@@ -609,22 +613,20 @@ the Energy ADE to store energy amount or an occupancy schedule, for instance.
 All time series share some common properties, gathered in the
 `TimeValuesProperties` type object. This object specifies optionally the
 `acquisitionMethod` (e.g. simulated with software X, measured with heat meter),
-`interpolationType` (based on the
-[WaterML ADE](http://def.seegrid.csiro.au/sissvoc/ogc-def/resource?uri=http://www.opengis.net/def/waterml/2.0/interpolationType/),
-to know for instance if measured data are "Average in Preceding Interval", or
-"Instantaneous Total"), `qualityDescription` and `source` of the time series
-data. Additionally, `_TimeSeries`may contain the the usual GML type attributes
-`name` and `description`.
+`interpolationType` (based on the [WaterML ADE][] to know for instance if
+measured data are "Average in Preceding Interval", or "Instantaneous Total"),
+`qualityDescription` and `source` of the time series data.
+Additionally, `_TimeSeries`may contain the the usual GML type attributes `name`
+and `description`.
 
 Time series can be either regular or irregular. `RegularTimeSeries` contain
 `values` generated at regularly spaced interval of time (`timeInterval`), over
 a given `temporalExtent` (i.e. start, end and duration time). They are used,
 for instance, to store automatically acquired data or hourly/daily/monthly
 simulation results.
-
 In `IrregularTimeSeries`, data follows a temporal sequence, but the measurement
-points may not happen at a regular time interval[^1]. Therefore, each value
-must be associated with a data or time.
+points may not happen at a regular time interval ([IBM knowledge Center][]).
+Therefore, each value must be associated with a data or time.
 
 Time series values may be also stored on an external file (e.g. csv or text),
 both for regular (`RegularTimeSeriesFile`) and irregular time series
@@ -642,6 +644,7 @@ first example but not always repeated in the following examples for better
 readibility.
 
 Example of RegularTimeSeries object:
+
 ```xml
 <!--Example of RegularTimeSeries object with daily values-->
 <energy:RegularTimeSeries gml:id="id_timeseries_electricity_demand_1">

@@ -1,7 +1,7 @@
 \documentclass[a4paper,12pt]{article}
 \usepackage{geometry}
 \geometry{left=3cm,right=3cm,top=3cm,bottom=3cm,footskip=2cm}
-\usepackage{setspace}	
+\usepackage{setspace}
 \linespread{1.3}
 
 \usepackage{lmodern}
@@ -18,10 +18,40 @@
 \usepackage{listings}
 %Allow degree escape in listings
 \usepackage{gensymb}
-\lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
-$if(highlighting-macros)$
-$highlighting-macros$
-$endif$
+\usepackage{color}
+\definecolor{lightgray}{gray}{0.60}
+\definecolor{lightgraycode}{gray}{0.80}
+\definecolor{keywords}{RGB}{255,0,90}
+\definecolor{comments}{RGB}{76,76,76}
+\definecolor{string}{RGB}{0,0,250}
+\definecolor{identifier}{RGB}{250,80,0}
+\definecolor{tag}{rgb}{0,0.46,0}
+
+\lstset{
+  basicstyle=\ttfamily \lst@ifdisplaystyle\scriptsize\fi,
+  framexleftmargin = 5mm,
+  frame            = shadowbox,
+  rulesepcolor     = \color{lightgraycode},
+  numbers          = left,
+  numberstyle      = \tiny,
+  numbersep        = 10pt,
+  columns          = fullflexible,
+  breaklines       = true,
+  showstringspaces = false,
+  commentstyle     = \color{comments}\upshape
+}
+
+\lstdefinelanguage{XML}
+{
+  morestring=[b]",
+  morestring=[s]{>}{<},
+  morecomment=[s]{<?}{?>},
+  morecomment=[s]{--}{--},
+  moredelim=[s][\color{keywords}]{\ }{=},
+  stringstyle=\color{black},
+  identifierstyle=\color{tag},
+}
+
 \usepackage{longtable,booktabs}
 \usepackage{graphicx}
 \usepackage{pdfpages}
@@ -96,14 +126,13 @@ $endif$
 %% Title Page
 \fancypagestyle{titlepage}{%
 \fancyhf{}
-% The title page has different margins 
+% The title page has different margins
 \renewcommand{\headrulewidth}{0pt} % remove lines as well
 \renewcommand{\footrulewidth}{0pt}
 }
 
 \pagestyle{titlepage}
-\usepackage{color}
-\definecolor{lightgray}{gray}{0.60}
+
 %% Maketitle
 \renewcommand\maketitle{%
 \sffamily
@@ -133,7 +162,7 @@ $for(revision)$
     $revision.who$
 $sep$\\
 $endfor$
-%    $for(revision)$$revision.comment$$sep$\\$endfor$ 
+%    $for(revision)$$revision.comment$$sep$\\$endfor$
     \\
     \bottomrule
 \end{tabular}
