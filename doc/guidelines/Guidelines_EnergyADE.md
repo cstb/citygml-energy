@@ -434,15 +434,30 @@ A `ThermalComponent` object is a part of the thermal boundary corresponding to a
 Since `ThermalComponent` inherits from `_CityObject`, it can be associated to a `Construction` object (see module Construction and Material). This may be done either inline or by means of xlinks (see example below). In this way, `ThermalComponent` provides the physical properties of the building envelope to calculate the heating and cooling demand.
 
 ```xml
-<!--Example of a ThermalComponent-->
-<energy:ThermalComponent gml:id="id_thermalcomponent_1">
-	<gml:description>Thermal Component 1</gml:description>
-	<gml:name>Thermal Component 1</gml:name>
-	<energy:construction xlink:href="#id_construction_1"/>
-	<energy:area uom="m^2">50.0</energy:area>
-	<energy:isGroundCoupled>false</energy:isGroundCoupled>
-	<energy:isSunExposed>true</energy:isSunExposed>
-</energy:ThermalComponent>
+<!--Example of a Facade with 20% window to wall ratio -->
+<energy:ThermalBoundary gml:id="Id_Facade_1">
+  <energy:thermalBoundaryType>OuterWall</energy:thermalBoundaryType>
+  <energy:partOf xlink:href="ID_ZONE_1"/>
+  <energy:composedOf>
+    <energy:ThermalComponent gml:id="id_Wall_1">
+      <gml:description>Part of the facade of wall</gml:description>
+      <energy:construction xlink:href="#id_WallConstruction_1"/>
+      <energy:area uom="m^2">40.0</energy:area>
+      <energy:isGroundCoupled>false</energy:isGroundCoupled>
+      <energy:isSunExposed>true</energy:isSunExposed>
+    </energy:ThermalComponent>
+  </energy:composedOf>
+  <energy:composedOf>
+    <energy:ThermalComponent gml:id="id_Window_1">
+      <gml:description>Part of the facade of windows</gml:description>
+      <energy:construction xlink:href="#id_WindowConstruction_1"/>
+      <energy:area uom="m^2">10.0</energy:area>
+      <energy:isGroundCoupled>false</energy:isGroundCoupled>
+      <energy:isSunExposed>true</energy:isSunExposed>
+      <energy:relates xlink:href="#opening_window_1"/>
+    </energy:ThermalComponent>
+  </energy:composedOf>				
+</energy:ThermalBoundary>
 ```
 
 # Temporal Data Module
