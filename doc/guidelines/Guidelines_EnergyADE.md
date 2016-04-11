@@ -581,15 +581,30 @@ either inline or by means of xlinks (see example below). In this way,
 calculate the heating and cooling demand.
 
 ```xml
-<!--Example of a ThermalComponent-->
-<energy:ThermalComponent gml:id="id_thermalcomponent_1">
-	<gml:description>Thermal Component 1</gml:description>
-	<gml:name>Thermal Component 1</gml:name>
-	<energy:construction xlink:href="#id_construction_1"/>
-	<energy:area uom="m^2">50.0</energy:area>
-	<energy:isGroundCoupled>false</energy:isGroundCoupled>
-	<energy:isSunExposed>true</energy:isSunExposed>
-</energy:ThermalComponent>
+<!--Example of a Facade with 20% window to wall ratio -->
+<energy:ThermalBoundary gml:id="Id_Facade_1">
+	<energy:thermalBoundaryType>OuterWall</energy:thermalBoundaryType>
+	<energy:partOf xlink:href="ID_ZONE_1"/>
+	<energy:composedOf>
+		<energy:ThermalComponent gml:id="id_Wall_1">
+	  		<gml:description>Part of the facade of wall</gml:description>
+	  		<energy:construction xlink:href="#id_WallConstruction_1"/>
+	  		<energy:area uom="m^2">40.0</energy:area>
+	  		<energy:isGroundCoupled>false</energy:isGroundCoupled>
+			<energy:isSunExposed>true</energy:isSunExposed>
+    		</energy:ThermalComponent>
+  	</energy:composedOf>
+  	<energy:composedOf>
+		<energy:ThermalComponent gml:id="id_Window_1">
+	      		<gml:description>Part of the facade of windows</gml:description>
+	      		<energy:construction xlink:href="#id_WindowConstruction_1"/>
+	      		<energy:area uom="m^2">10.0</energy:area>
+	      		<energy:isGroundCoupled>false</energy:isGroundCoupled>
+	      		<energy:isSunExposed>true</energy:isSunExposed>
+	      		<energy:relates xlink:href="#opening_window_1"/>
+    		</energy:ThermalComponent>
+  	</energy:composedOf>				
+</energy:ThermalBoundary>
 ```
 
 # Temporal Data Module
@@ -1071,32 +1086,45 @@ comparison with `SolidMaterial`.
 ![Class diagram of Occupancy Module](fig/class_occupancy.png)
 
 The Occupancy Module contains the detailed characterization of the building
-usage, it is related to the rest of the ADE Energy and CityGML model through
-the class `UsageZone`. Due to the type of information it allows to store, the
-Occupancy Module may be used also for multi-field analysis (socio-economics,
-demographics etc.).
+usage, it means the people and the facilities. It is related to the rest of the
+ADE Energy and CityGML model through the class `UsageZone`.
+One building may have several `UsageZone`. Due to the type of information it
+allows to store, the Occupancy Module may be used also for multi-field analysis
+(socio-economics, demographics etc.).
 
 ## Usage zones and building units
 
 ### UsageZone
 
-Zone of a building with homogeneous usage type. It is a semantic object, with
-an optional geometry (`volumeGeometry`), which may be or not related to a
+The `UsageZone` is a new object introduced in the Energy ADE to realize
+building usage analyses, and in particular to calculate the energy demand
+related to occupant-depending end-uses such as domestic hot water, electrical
+appliances, cooking etc. When related to the `ThermalZone`, it allows also to
+provide the zone usage conditions (e.g. internal gains, HVAC schedules) for the
+space heating and cooling demand calculations.
+
+`UsageZone` is a zone of a `Building` (or of a `BuildingPart`) with homogeneous
+usage conditions and indoor climate control settings. It is a semantic object,
+with an optional geometry (`volumeGeometry`), which may be or not related to a
 geometric entity (Building, BuildingPart, Room etc.).
 
-Its usage type is defined by a `usageZoneClass` (corresponding to the CityGML
-Code list of the `_AbstractBuilding` attribute class). This zone is operated
-with a single heating and cooling set-point temperature schedule
-(`heatingSchedule` respectively `coolingSchedule`) and single air ventilation
-schedule.
+`UsageZone` is minimally defined by the two mandatory attributes
+`usageZoneClass` (its usage type according to the CityGML Code list of the
+`_AbstractBuilding` attribute `class`) and `floorArea`. The latter may be
+attributed several times to a building, specifying different values for
+different `FloorAreaType`.
+Its HVAC schedules are characterized by the optional attributes
+`heatingSchedule`, `coolingSchedule` and `ventilationSchedule` (respectively
+for the heating and cooling set-point temperature schedules, and air
+ventilation schedules). Alternatively to the `volumeGeometry` attribute, the
+building storeys occupied by this `UsageZone` may be also indicated by means of
+the attribute `usedFloors` (0 corresponding to the ground floor).
+Its optional `internalGains` attribute corresponds to the sum of the energy
+dissipated from the occupants and the facilities inside the zone.
 
-This class inherits from `_CityObject` and may therefore be associated to 1 or
-more `EnergyDemand` objects. This class is defined by at least a usage zone
-class and a floor area. The building storeys occupied by this UsageZone may be
-also indicated by means of the attribute usedFloorNumbers, e.g. with 0
-corresponding to the ground floor.  Its internalGains attribute corresponds to
-the sum of the energy dissipated from the occupants and the facilities inside
-the zone.
+The following XML example describe the modeling of a mixed-usage building.
+[Please introduce the photo of the mixed-usage building of Piergiorgio and the
+related XML code]
 
 ```xml
 <!--Example of a UsageZone-->
@@ -1265,12 +1293,13 @@ vacant).
 
 Each `UsageZone` or `BuildingUnit` object can have one or multiple `Facilities`
 objects. Currently there are three types of facilities (DHWFacilities,
-ElectricalAppliances and LightingFacilities). Each of them is characterised by
-the heatDissipation and the operationSchedule attributes, plus some specific
-ones depending on the facility type.  In the following, two XML examples are
-presented, one for domestic how water facilities and one for electrical
-applicances. Please note that the lighting facilities object shares the same
-structure and attributes of the ElectricalAppliances.
+ElectricalAppliances and LightingFacilities).
+Each of them is characterised by the heatDissipation and the operationSchedule
+attributes, plus some specific ones depending on the facility type.
+In the following, two XML examples are presented, one for domestic how water
+facilities and one for electrical applicances.
+Please note that the lighting facilities object shares the same structure and
+attributes of the ElectricalAppliances.
 
 ```xml
 <!--Example of a DHWFacilities object-->
@@ -1323,23 +1352,87 @@ structure and attributes of the ElectricalAppliances.
 
 ![Class diagram of Energy System Module](fig/class_EnergySystem.png)
 
-The Energy System Module is a module of the ADE Energy which contains
-information concerning the energy forms (energy demand, supply, sources) and
-the energy systems (conversion, distribution and storage systems). It is
-arranged around one central `EnergyDemand` object.
+The Energy System Module contains the energy forms (energy demand and sources)
+and energy systems (conversion, distribution and storage systems) to realize
+energy demand and supply analyses.
+It allows also to calculate $CO_2$ emissions or Primary energy balances.
+
+It is related to the Energy ADE and CityGML model through the object
+`EnergyDemand`, which can be related to any `_CityObject`.
+The `EnergyConversionSystems` may be additionally related to the
+`_AbstractBuilding` and `_BoundarySurface` where, respectively on which, they
+are installed.
+
+The Energy System Module follows a "star structure", with the
+`EnergyDistributionSystem`, `_StorageSystem` and `EnergyConversionSystem` all
+related to the central object `EnergyDemand`, defined for different end-uses
+(e.g. space heating, electrical appliances) and acquisition methods (e.g.
+measurements, simulation).
 
 ## Energy amounts and types
 
 ### EnergyDemand
 
-Useful energy required to satisfy a specific end use, such as heating, cooling,
-domestic hot water etc.  Beside its `EndUseType`, this object is characterized
-its `energyAmount` (time-depending energy demand value) and its maximum yearly
-load (`maximumLoad`) used for the sizing of the energy systems.
+The `EnergyDemand` is the central object of the Energy System Module.
 
-Every `_CityObject` (typically `ADE:_AbstractBuilding`, `ThermalZone`,
-`UsageZone` and `BuildingUnit`) may have one or more `EnergyDemand`.
+It is the useful energy required to satisfy the specific end-use (e.g. space
+heating, space cooling, domestic hot water) of a given object (`_CityObject` to
+which it relates).
+Beside its attribute `endUse`, this object is characterized by its
+`energyAmount` (time-depending energy demand values) and its maximum
+yearly load (`maximumLoad`) used for the sizing of the energy systems.
 
+Every `_CityObject` (typically `_AbstractBuilding`, `ThermalZone`, `UsageZone`
+and `BuildingUnit`) may have one or more `EnergyDemand`, related to its
+different `endUseType`, and possibly to different `acquisitionMethod` and
+`sources` (both attributes of the `TimeValueProperties` defining the time
+series `energyAmount`) such as "measurements", "simulations" etc.
+
+The XML examples below detail the two end-uses of a same building.
+
+```xml
+<!--Building characterized with its Domestic hot water and electrical appliances demands-->
+<bldg:Building>
+	<energy:energyDemands>
+		<energy:EnergyDemand>
+			<energy:endUse>DomesticHotWater</energy:endUse>
+			<energy:energyAmount>
+				<energy:IrregularTimeSeries>
+					<gml:description>DHW demand of Mr X for year 2016</gml:description>
+					<energy:variableProperties>
+						<energy:TimeValuesProperties>
+							<energy:acquisitionMethod>Measurements</energy:acquisitionMethod>
+							<energy:source>Company X, year 2016</energy:source>
+						</energy:TimeValuesProperties>
+					</energy:variableProperties>
+					<energy:uom uom="kWh"/>
+					<!-- here come the values of the time series -->
+				</energy:IrregularTimeSeries>
+			</energy:energyAmount>
+			<energy:maximumLoad uom="kW">8.0</energy:maximumLoad>
+		</energy:EnergyDemand>
+	</energy:energyDemands>
+	
+	<energy:energyDemands>
+		<energy:EnergyDemand>
+			<energy:endUse>ElectricalAppliances</energy:endUse>
+			<energy:energyAmount>
+				<energy:RegularTimeSeriesFile>
+					<gml:description>Simulated electrical demand of Mr X for typical year</gml:description>
+					<energy:variableProperties>
+						<energy:TimeValuesProperties>
+							<energy:acquisitionMethod>Simulated</energy:acquisitionMethod>
+							<energy:source>Research Institut Y</energy:source>
+						</energy:TimeValuesProperties>
+					</energy:variableProperties>
+					<!-- here come the file reading information -->
+				</energy:IrregularTimeSeries>
+			</energy:energyAmount>
+			<energy:maximumLoad uom="kW">5.2</energy:maximumLoad>
+		</energy:EnergyDemand>
+	</energy:energyDemands>
+</bldg:Building>
+```
 ### EndUseType
 
 List of possible end uses as cooking, space heating and ventilation.
@@ -1410,7 +1503,7 @@ battery technology.
 System converting an energy source into the energy necessary to satisfy the
 `EnergyDemand` (or to feed the networks).
 
-Energy conversion systems have common parameters: efficiency indicator, nominal
+`EnergyConversionSystem` have common parameters: efficiency indicator, nominal
 installed power, nominal efficiency (in reference to an efficiency indicator),
 year of manufacture, name of the model, a serial number, a reference to product
 or installation documents and optionally refurbishment measures. They may be
