@@ -28,9 +28,9 @@
 \definecolor{tag}{rgb}{0,0.46,0}
 
 \lstset{
-  basicstyle=\ttfamily \lst@ifdisplaystyle\scriptsize\fi,
+  basicstyle=\ttfamily \lst@ifdisplaystyle\footnotesize\fi,
   framexleftmargin = 5mm,
-  frame            = shadowbox,
+  %frame            = shadowbox,
   rulesepcolor     = \color{lightgraycode},
   numbers          = left,
   numberstyle      = \tiny,
@@ -94,6 +94,10 @@
 %% Reformat Sections
 \let\stdsection\section%
 \renewcommand\section{\newpage\stdsection}
+
+%% Reformat Paragraph
+\let\stdparagraph\paragraph%
+\renewcommand{\paragraph}[1]{\stdparagraph{#1}\mbox{}\\\vspace{-0.5cm}}
 
 %% Title Page
 \usepackage{fancyhdr}
