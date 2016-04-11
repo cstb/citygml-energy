@@ -1064,15 +1064,64 @@ In the following, two XML examples are presented, one for domestic how water fac
 
 ![Class diagram of Energy System Module](fig/class_EnergySystem.png)
 
-The Energy System Module is a module of the ADE Energy which contains information concerning the energy forms (energy demand, supply, sources) and the energy systems (conversion, distribution and storage systems). It is arranged around one central `EnergyDemand` object.
+The Energy System Module contains the energy forms (energy demand and sources) and energy systems (conversion, distribution and storage systems) to realize energy demand and supply analyses. It allows also to calculate CO2 emissions or Primary energy balances.
+<br />
+It is related to the Energy ADE and CityGML model through the object `EnergyDemand`, which can be related to any `_CityObject`. The `EnergyConversionSystems` may be additionally related to the `_AbstractBuilding` and `_BoundarySurface` where, respectively on which, they are installed.
+
+The Energy System Module follows a "star structure", with the `EnergyDistributionSystem`, `_StorageSystem` and `EnergyConversionSystem` all related to the central object `EnergyDemand`, defined for different end-uses (e.g. space heating, electrical appliances) and acquisition methods (e.g. measurements, simulation).
 
 ## Energy amounts and types
 
 ### EnergyDemand
 
-Useful energy required to satisfy a specific end use, such as heating, cooling, domestic hot water etc.  Beside its `EndUseType`, this object is characterized its `energyAmount` (time-depending energy demand value) and its maximum yearly load (`maximumLoad`) used for the sizing of the energy systems.
+The `EnergyDemand` is the central object of the Energy System Module.
+<br />
+It is the useful energy required to satisfy the specific end-use (e.g. space heating, space cooling, domestic hot water) of a given object (`_CityObject` to which it relates). Beside its attribute `endUse`, this object is characterized by its `energyAmount` (time-depending energy demand values) and its maximum yearly load (`maximumLoad`) used for the sizing of the energy systems.
 
-Every `_CityObject` (typically `ADE:_AbstractBuilding`, `ThermalZone`, `UsageZone` and `BuildingUnit`) may have one or more `EnergyDemand`.
+Every `_CityObject` (typically `_AbstractBuilding`, `ThermalZone`, `UsageZone` and `BuildingUnit`) may have one or more `EnergyDemand`, related to its different `endUseType`, and possibly to different `acquisitionMethod` and `sources` (both attributes of the `TimeValueProperties` defining the time series `energyAmount`) such as "measurements", "simulations" etc.
+
+The XML examples below detail the two end-uses of a same building.
+
+```xml
+<!--Building characterized with its Domestic hot water and electrical appliances demands-->
+<bldg:Building>
+	<energy:energyDemands>
+		<energy:EnergyDemand>
+			<energy:endUse>DomesticHotWater</energy:endUse>
+			<energy:energyAmount>
+				<energy:IrregularTimeSeries>
+					<gml:description>DHW demand of Mr X for year 2016</gml:description>
+					<energy:variableProperties>
+						<energy:TimeValuesProperties>
+							<energy:acquisitionMethod>Measurements</energy:acquisitionMethod>
+							<energy:source>Company X, year 2016</energy:source>
+						</energy:TimeValuesProperties>
+					</energy:variableProperties>
+					<energy:uom uom="kWh"/>
+					<!-- here come the values of the time series -->
+				</energy:IrregularTimeSeries>
+			</energy:energyAmount>
+			<energy:maximumLoad uom="kW">8.0</energy:maximumLoad>
+		</energy:EnergyDemand>
+		<energy:EnergyDemand>
+			<energy:endUse>ElectricalAppliances</energy:endUse>
+			<energy:energyAmount>
+				<energy:RegularTimeSeriesFile>
+					<gml:description>Simulated electrical demand of Mr X for typical year</gml:description>
+					<energy:variableProperties>
+						<energy:TimeValuesProperties>
+							<energy:acquisitionMethod>Simulated</energy:acquisitionMethod>
+							<energy:source>Research Institut Y</energy:source>
+						</energy:TimeValuesProperties>
+					</energy:variableProperties>
+					<!-- here come the file reading information -->
+				</energy:IrregularTimeSeries>
+			</energy:energyAmount>
+			<energy:maximumLoad uom="kW">5.2</energy:maximumLoad>
+		</energy:EnergyDemand>
+	</energy:energyDemands>
+</bldg:Building>
+```
 
 ### EndUseType
 
@@ -1132,7 +1181,7 @@ Electrical storages with an electrical capacity and a string to describe the bat
 
 System converting an energy source into the energy necessary to satisfy the `EnergyDemand` (or to feed the networks).
 
-Energy conversion systems have common parameters: efficiency indicator, nominal installed power, nominal efficiency (in reference to an efficiency indicator), year of manufacture, name of the model, a serial number, a reference to product or installation documents and optionally refurbishment measures. They may be one or more (in this case, the nominal installed power corresponds to the totality).
+`EnergyConversionSystem` have common parameters: efficiency indicator, nominal installed power, nominal efficiency (in reference to an efficiency indicator), year of manufacture, name of the model, a serial number, a reference to product or installation documents and optionally refurbishment measures. They may be one or more (in this case, the nominal installed power corresponds to the totality).
 
 Specific energy conversion systems may have in addition specific parameters:
 
