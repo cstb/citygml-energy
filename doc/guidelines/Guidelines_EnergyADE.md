@@ -1103,6 +1103,9 @@ The XML examples below detail the two end-uses of a same building.
 			</energy:energyAmount>
 			<energy:maximumLoad uom="kW">8.0</energy:maximumLoad>
 		</energy:EnergyDemand>
+	</energy:energyDemands>
+	
+	<energy:energyDemands>
 		<energy:EnergyDemand>
 			<energy:endUse>ElectricalAppliances</energy:endUse>
 			<energy:energyAmount>
