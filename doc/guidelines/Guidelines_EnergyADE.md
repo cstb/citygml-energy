@@ -48,7 +48,7 @@ In the following, an extract of CityGML file for a building is given, included s
  <gml:name>Name of Building 1</gml:name>
  <energy:referencePoint>
   <gml:Point gml:id="id_building_referencepoint_1" srsName="EPSG:31256" srsDimension="3">
-   <gml:pos>5 5 0</gml:pos>
+   <gml:pos>2525.5 338567.5 162.6</gml:pos>
   </gml:Point>
  </energy:referencePoint>
  <energy:basementType>Unconditioned</energy:basementType>
