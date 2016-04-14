@@ -42,6 +42,7 @@ Script to generate a latex via `pandoc` and compile via `pdflatex`.
 
 ``` shell
 pandoc -S -o Guidelines_EnergyADE.tex \
+    --listings \
     --template=template1 \
     --filter pandoc-citeproc \
     Guidelines_EnergyADE.md metadata.yaml
@@ -52,6 +53,7 @@ pdflatex Guidelines_EnergyADE.tex
 Script to generate the pdf directly with `pandoc`.
 ```
 pandoc -S -o Guidelines_EnergyADE.pdf \
+    --listings \
     --template template1 \
     --filter pandoc-citeproc \
     Guidelines_EnergyADE.md metadata.yaml

@@ -1,7 +1,7 @@
 \documentclass[a4paper,12pt]{article}
 \usepackage{geometry}
 \geometry{left=3cm,right=3cm,top=3cm,bottom=3cm,footskip=2cm}
-\usepackage{setspace}	
+\usepackage{setspace}
 \linespread{1.3}
 
 \usepackage{lmodern}
@@ -18,12 +18,43 @@
 \usepackage{listings}
 %Allow degree escape in listings
 \usepackage{gensymb}
-\lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
-$if(highlighting-macros)$
-$highlighting-macros$
-$endif$
+\usepackage{color}
+\definecolor{lightgray}{gray}{0.60}
+\definecolor{lightgraycode}{gray}{0.80}
+\definecolor{keywords}{RGB}{255,0,90}
+\definecolor{comments}{RGB}{76,76,76}
+\definecolor{string}{RGB}{0,0,250}
+\definecolor{identifier}{RGB}{250,80,0}
+\definecolor{tag}{rgb}{0,0.46,0}
+
+\lstset{
+  basicstyle=\ttfamily \lst@ifdisplaystyle\footnotesize\fi,
+  framexleftmargin = 5mm,
+  %frame            = shadowbox,
+  rulesepcolor     = \color{lightgraycode},
+  numbers          = left,
+  numberstyle      = \tiny,
+  numbersep        = 10pt,
+  columns          = fullflexible,
+  breaklines       = true,
+  showstringspaces = false,
+  commentstyle     = \color{comments}\upshape
+}
+
+\lstdefinelanguage{XML}
+{
+  morestring=[b]",
+  morestring=[s]{>}{<},
+  morecomment=[s]{<?}{?>},
+  morecomment=[s]{--}{--},
+  moredelim=[s][\color{keywords}]{\ }{=},
+  stringstyle=\color{black},
+  identifierstyle=\color{tag},
+}
+
 \usepackage{longtable,booktabs}
 \usepackage{graphicx}
+\usepackage{pdfpages}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
 \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
@@ -54,9 +85,19 @@ $endif$
 %\setcounter{secnumdepth}{0}
 %$endif$
 
+\usepackage{enumitem}
+\setlist{nosep, noitemsep}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
 %% Reformat Sections
 \let\stdsection\section%
 \renewcommand\section{\newpage\stdsection}
+
+%% Reformat Paragraph
+\let\stdparagraph\paragraph%
+\renewcommand{\paragraph}[1]{\stdparagraph{#1}\mbox{}\\\vspace{-0.5cm}}
 
 %% Title Page
 \usepackage{fancyhdr}
@@ -89,14 +130,13 @@ $endif$
 %% Title Page
 \fancypagestyle{titlepage}{%
 \fancyhf{}
-% The title page has different margins 
+% The title page has different margins
 \renewcommand{\headrulewidth}{0pt} % remove lines as well
 \renewcommand{\footrulewidth}{0pt}
 }
 
 \pagestyle{titlepage}
-\usepackage{color}
-\definecolor{lightgray}{gray}{0.60}
+
 %% Maketitle
 \renewcommand\maketitle{%
 \sffamily
@@ -126,7 +166,7 @@ $for(revision)$
     $revision.who$
 $sep$\\
 $endfor$
-%    $for(revision)$$revision.comment$$sep$\\$endfor$ 
+%    $for(revision)$$revision.comment$$sep$\\$endfor$
     \\
     \bottomrule
 \end{tabular}
@@ -143,6 +183,9 @@ $for(author)$$author$$sep$\\$endfor$}
 \end{itemize}
 \newpage
 }
+
+% show only two levels in the table of content
+\setcounter{tocdepth}{2}
 
 \begin{document}
 \pagestyle{titlepage}
