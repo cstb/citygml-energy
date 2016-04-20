@@ -1574,6 +1574,55 @@ the technology type.
 Subtype of `SolarEnergySystem` for photovoltaic systems. Defines the material
 type of photovoltaic cells with a string.
 
+The XML example below shows how to define a PV panel in a surface of a building. The Roof surface 'Roof_57' is equipped with a Photovoltaic system 'PV_1'.
+
+```xml
+<bldg:Building gml:id="Bldg-1">
+	<bldg:lod2Solid>
+		<gml:Solid>
+			<gml:exterior>
+				<gml:CompositeSurface>
+					<gml:surfaceMember>
+						<gml:Polygon gml:id="b1_p_r_57">
+							<gml:exterior>
+								<gml:LinearRing>
+									<gml:posList>
+										289.255402 140.755798 18.5
+										286.830322 199.945572 20.1746292
+										242.470306 199.945572 20.1746292
+										240.200317 140.755798 18.5
+										289.255402 140.755798 18.5
+									</gml:posList>
+								</gml:LinearRing>
+							</gml:exterior>
+						</gml:Polygon>
+					</gml:surfaceMember>
+				</gml:CompositeSurface>
+			</gml:exterior>
+		</gml:Solid>
+	</bldg:lod2Solid>
+	<bldg:boundedBy>
+		<bldg:RoofSurface gml:id="Roof_57">
+			<bldg:lod2MultiSurface>
+				<gml:MultiSurface>
+					<gml:surfaceMember xlink:href="#b1_p_r_57">
+					</gml:surfaceMember>
+				</gml:MultiSurface>
+			</bldg:lod2MultiSurface>
+			<energy:equippedWith>
+				<energy:PhotovoltaicSystem gml:id="PV_1">
+					<energy:nominalEfficiency uom="ratio">0.102035273</energy:nominalEfficiency>
+					<energy:collectorSurface uom="m2">1843.81055</energy:collectorSurface>
+					<energy:panelAzimuth uom="deg">180</energy:panelAzimuth>
+					<energy:panelInclination uom="deg">88.3794785</energy:panelInclination>
+					<energy:installedOn xlink:href="#Roof_57">
+				</energy:PhotovoltaicSystem>
+			</energy:equippedWith>
+		</bldg:RoofSurface>
+	</bldg:boundedBy>
+</bldg:Building>
+```
+
 # References
 
 [WaterML ADE]: http://def.seegrid.csiro.au/sissvoc/ogc-def/resource?uri=http://www.opengis.net/def/waterml/2.0/interpolationType/ "WaterML ADE"
