@@ -570,11 +570,10 @@ explicit geometry are given.
 
 A `ThermalComponent` object is a part of the thermal boundary corresponding to
 a homogeneous construction component (e.g. windows, wall, insulated part of a
-wall etc.). Each `ThermalComponent` is characterized with their `Area`,
-information whether it is coupled to ground (`isGroundCoupled`) and exposed to
-sun (`isSunExposed`).
+wall etc.) and either entirely above or below the terrain. 
+Each `ThermalComponent` must be characterized with its `Area`, and its position relative to the Terrain (attribute `relativeToTerrain` which it inherits from `_CityObject`).
 
-Since `ThermalComponent` inherits from `_CityObject`, it can be associated to a
+Since `ThermalComponent` inherits from `_CityObject`, it can also be associated to a
 `Construction` object (see module Construction and Material). This may be done
 either inline or by means of xlinks (see example below). In this way,
 `ThermalComponent` provides the physical properties of the building envelope to
@@ -588,19 +587,17 @@ calculate the heating and cooling demand.
 	<energy:composedOf>
 		<energy:ThermalComponent gml:id="id_Wall_1">
 	  		<gml:description>Part of the facade of wall</gml:description>
+	  		<relativeToTerrain>entirelyAboveTerrain</relativeToTerrain>
 	  		<energy:construction xlink:href="#id_WallConstruction_1"/>
 	  		<energy:area uom="m^2">40.0</energy:area>
-	  		<energy:isGroundCoupled>false</energy:isGroundCoupled>
-			<energy:isSunExposed>true</energy:isSunExposed>
     		</energy:ThermalComponent>
   	</energy:composedOf>
   	<energy:composedOf>
 		<energy:ThermalComponent gml:id="id_Window_1">
 	      		<gml:description>Part of the facade of windows</gml:description>
+	      		<relativeToTerrain>entirelyAboveTerrain</relativeToTerrain>
 	      		<energy:construction xlink:href="#id_WindowConstruction_1"/>
 	      		<energy:area uom="m^2">10.0</energy:area>
-	      		<energy:isGroundCoupled>false</energy:isGroundCoupled>
-	      		<energy:isSunExposed>true</energy:isSunExposed>
 	      		<energy:relates xlink:href="#opening_window_1"/>
     		</energy:ThermalComponent>
   	</energy:composedOf>				
