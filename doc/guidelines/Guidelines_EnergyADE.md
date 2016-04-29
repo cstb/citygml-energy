@@ -1430,6 +1430,74 @@ The XML examples below detail the two end-uses of a same building.
 	</energy:energyDemands>
 </bldg:Building>
 ```
+## Energy distribution
+
+### EnergyDistributionSystem
+
+System in charge of delivering the energy inside the building, from the place
+of energy production to the place of end-use. Power and Thermal distribution
+systems are differentiated. They all share a distribution perimeter that is
+described by the distribution type.
+
+### Distribution Type
+
+A list of possible distribution perimeters, e.g. Building, Dwelling, Room.
+
+### ThermalDistributionSystem
+
+Type for thermal distribution systems with attributes for circulation
+(circulating system or not), the used medium, nominal flow, return and supply
+temperatures and thermal losses factor.
+
+### PowerDistributionSystem
+
+Type for electrical distribution systems, described by current and voltage.
+
+### MediumType
+
+This list is a collection of medium types as air and water.
+
+## Energy storage
+
+### StorageSystem
+
+System storing energy. A same storage may store the energy of different
+end-users and different end uses. Power and Thermal storage systems are
+differentiated.
+
+### ThermalStorageSystem
+
+Thermal storages with a medium, preparation temperature, thermal losses factor
+and a volume.
+
+### PowerStorageSystem
+
+Electrical storages with an electrical capacity and a string to describe the
+battery technology.
+
+## Energy conversion
+
+### EnergyConversionSystem
+
+System converting an energy source into the energy necessary to satisfy the
+`EnergyDemand` (or to feed the networks). It is the central element describing 
+energy conversion.
+
+`EnergyConversionSystem` have common parameters regarding technical properties 
+(`efficiencyIndicator`, `installedNominalPower`, `nominalEfficiency` 
+(in reference to an efficiency indicator)) and general properties 
+(`yearOfManufacture`, `model` (name of the model), `number` (a serial number), 
+`productAndInstallationDocument` (a reference to productor installation documents 
+and optionally refurbishment measures) and `refurbishmentMeasureOnEnergySystem`). 
+They may be one or more (in this case, the nominal installed power corresponds to 
+the totality).
+
+`EnergyConversionSystem` features several specific energy conversion systems that 
+may have in addition specific parameters:
+
+A same system may have several operation modes (e.g. heat pump covering heating
+and domestic hot water demands).
+
 ### EnergySource
 
 Final energy consumed (and sometimes produced) by the `EnergyConversionSystem`.
@@ -1498,70 +1566,6 @@ type characterize this data type for energy carriers.
 ### EnergyCarrierType
 
 List of energy carriers as coal, chilled water or electricity.
-
-## Energy distribution
-
-### EnergyDistributionSystem
-
-System in charge of delivering the energy inside the building, from the place
-of energy production to the place of end-use. Power and Thermal distribution
-systems are differentiated. They all share a distribution perimeter that is
-described by the distribution type.
-
-### Distribution Type
-
-A list of possible distribution perimeters, e.g. Building, Dwelling, Room.
-
-### ThermalDistributionSystem
-
-Type for thermal distribution systems with attributes for circulation
-(circulating system or not), the used medium, nominal flow, return and supply
-temperatures and thermal losses factor.
-
-### PowerDistributionSystem
-
-Type for electrical distribution systems, described by current and voltage.
-
-### MediumType
-
-This list is a collection of medium types as air and water.
-
-## Energy storage
-
-### StorageSystem
-
-System storing energy. A same storage may store the energy of different
-end-users and different end uses. Power and Thermal storage systems are
-differentiated.
-
-### ThermalStorageSystem
-
-Thermal storages with a medium, preparation temperature, thermal losses factor
-and a volume.
-
-### PowerStorageSystem
-
-Electrical storages with an electrical capacity and a string to describe the
-battery technology.
-
-## Energy conversion
-
-### EnergyConversionSystem
-
-System converting an energy source into the energy necessary to satisfy the
-`EnergyDemand` (or to feed the networks).
-
-`EnergyConversionSystem` have common parameters: efficiency indicator, nominal
-installed power, nominal efficiency (in reference to an efficiency indicator),
-year of manufacture, name of the model, a serial number, a reference to product
-or installation documents and optionally refurbishment measures. They may be
-one or more (in this case, the nominal installed power corresponds to the
-totality).
-
-Specific energy conversion systems may have in addition specific parameters:
-
-A same system may have several operation modes (e.g. heat pump covering heating
-and domestic hot water demands).
 
 ### SystemOperation
 
