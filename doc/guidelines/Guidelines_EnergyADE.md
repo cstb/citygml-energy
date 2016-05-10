@@ -1094,7 +1094,7 @@ allows to store, the Occupancy Module may be used also for multi-field analysis
 `UsageZone` and `BuildingUnit` are the two occupancy-related spatial partitions of the building, in the CityGML Energy ADE.
 A mixed-use building will be modelled with several `UsageZone`. Each of this `UsageZone` may contain several `BuildingUnit`, related to the different owners of the part of the building contained inside the `UsageZone`.
 
-The picture below represents a mixed-use building corresponding to a single Building entity in a CityGML model.
+The picture below illustrates this concept, showing a mixed-use building corresponding to a single Building entity in a CityGML model file.
 It consists in 3 different uses : office on the first floor at the left of the main entrance, residential on the first floor in the opposite side of the building, and a public administration (post-office) covering the whole ground floor and the part of the first floor just above the main entrance. Both `UsageZone` of type office and residential have two `BuildingUnit`, corresponding to different private offices, respectively different dwellings.
 
 ![3D representation of mixed-use building](fig/UsageZoneBuildingUnitExample.png)
