@@ -1091,21 +1091,57 @@ allows to store, the Occupancy Module may be used also for multi-field analysis
 
 ## Usage zones and building units
 
-`UsageZone` and `BuildingUnit` are the two occupancy-related spatial partitions of the building, in the CityGML Energy ADE.
-A mixed-use building will be modelled with several `UsageZone`. Each of this `UsageZone` may contain several `BuildingUnit`, related to the different owners of the part of the building contained inside the `UsageZone`.
+`UsageZone` and `BuildingUnit` are the two occupancy-related spatial partitions of a building in the CityGML Energy ADE.
+A mixed-use building will be modelled with several `UsageZone`. Each of this `UsageZone` may contain several `BuildingUnit`, related to the premises (dwellings, offices etc.) located inside the defined `UsageZone`.
 
-The picture below illustrates this concept, showing a mixed-use building corresponding to a single Building entity in a CityGML model file.
-It consists in 3 different uses : office on the first floor at the left of the main entrance, residential on the first floor in the opposite side of the building, and a public administration (post-office) covering the whole ground floor and the part of the first floor just above the main entrance. Both `UsageZone` of type office and residential have two `BuildingUnit`, corresponding to different private offices, respectively different dwellings.
+The picture below illustrates this concept, showing a mixed-use building corresponding to a single Building entity in a CityGML model file (although several real adresses).
+It consists in 3 different uses : company office on the first floor at the left of the main entrance, residential on the first floor in the opposite side of the building, and a post office covering the whole ground floor and the part of the first floor just above the main entrance ("Post"). Both `UsageZone` of type office and residential have two `BuildingUnit`, corresponding to different private offices ("O1" and "O2"), respectively different dwellings ("D1" and "D2").
 
 ![3D representation of mixed-use building](fig/UsageZoneBuildingUnitExample.png)
 
-The CityGML+Energy ADE modelling of this example is detailed below:
+The CityGML+Energy ADE model of this example is detailed below:
 ```xml
 <!--mixed-use building example-->
-<bldg:building gml:id="id_usagezone_1">
-	<energy:UsageZone gml:id="id_usagezone_1">
-	</energy:UsageZone gml:id="id_usagezone_1">
-</bldg:building gml:id="id_usagezone_1">
+<bldg:Building gml:id="ExampleMixedUseBuilding">
+	<energy:usageZones>
+		<energy:UsageZone gml:id="Post">
+			<energy:usageZoneClass>Post office</energy:usageZoneClass>
+			<!-- Further attributes of usage zone "Post-Office" -->
+		</energy:UsageZone>
+	</energy:usageZones>
+	<energy:usageZones>
+		<energy:UsageZone gml:id="Offices">
+			<energy:usageZoneClass>Company office</energy:usageZoneClass>
+			<!-- Further attributes of usage zone "Offices" -->
+			<energy:contains>
+				<energy:BuildingUnit gml:id="O1">
+					<!-- Further attributes of building unit "O1" -->	
+				</energy:BuildingUnit>
+			</energy:contains>
+			<energy:contains>
+				<energy:BuildingUnit gml:id="O2">
+					<!-- Further attributes of building unit "O2" -->	
+				</energy:BuildingUnit>
+			</energy:contains>
+		</energy:UsageZone>
+	</energy:usageZones>
+	<energy:usageZones>
+		<energy:UsageZone gml:id="Dwellings">
+			<energy:usageZoneClass>residential</energy:usageZoneClass>
+			<!-- Further attributes of usage zone "Dwellings" -->
+			<energy:contains>
+				<energy:BuildingUnit gml:id="D1">
+					<!-- Further attributes of building unit "D1" -->	
+				</energy:BuildingUnit>
+			</energy:contains>
+			<energy:contains>
+				<energy:BuildingUnit gml:id="D2">
+					<!-- Further attributes of building unit "D2" -->	
+				</energy:BuildingUnit>
+			</energy:contains>
+		</energy:UsageZone>
+	</energy:usageZones>
+</bldg:Building>
 ```
 
 ### UsageZone
