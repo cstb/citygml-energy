@@ -1237,10 +1237,9 @@ TODO: Add examples of cooling, heating and ventilation schedules.
 
 ### BuildingUnit
 
-A `BuildingUnit` is a part of a `UsageZone` which is related to a single
-occupant entity, such as a dwelling or a  workplace. Owner information
-attributes (as owner name and ownership type) are specified in this class. It
-inherits from class `_CityObject`.
+A `BuildingUnit` is a part of a `UsageZone` which can be defined as a subdivision of a Building with its own lockable access from the outside or from a common area (i.e. not from another BuildingUnit), which is atomic, functionally independent, and
+may be separately sold, rented out, inherited, etc (source: INSPIRE Data Specification Buildings, v3.0, p.29). 
+It inherits from class `_CityObject`.
 
 ```xml
 <!--Example of a BuildingUnit-->
