@@ -1173,8 +1173,6 @@ Its optional `internalGains` attribute corresponds to the sum of the energy
 dissipated from the occupants and the facilities inside the zone.
 
 The following XML example describe the modeling of a mixed-usage building.
-[Please introduce the photo of the mixed-usage building of Piergiorgio and the
-related XML code]
 
 ```xml
 <!--Example of a UsageZone-->
