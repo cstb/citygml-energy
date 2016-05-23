@@ -1045,7 +1045,7 @@ ID_Material_Concrete follows in the paragrap Material).
 </energy:Construction>
 ```
 
-[Picture: Cut of the wall of the same wall - Joachim? Peter?]
+![Three layer Construction](fig/ThreeLayerConstruction.png)
 
 ## Materials
 
