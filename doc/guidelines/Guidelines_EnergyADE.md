@@ -1008,22 +1008,9 @@ ID_Material_Concrete follows in the paragrap Material).
 ```xml                   
 <!--Example of a three layered construction-->
 <energy:Construction gml:id="ThreeLayeredMaterial">
+
  <energy:layer>
   <energy:Layer>
-   <energy:layerComponent>
-    <energy:LayerComponent>
-     <energy:thickness uom="m">0.02</energy:thickness>
-     <energy:material xlink:href="#ID_Material_Plasterboard"/>
-    </energy:LayerComponent>
-   </energy:layerComponent>
-
-   <energy:layerComponent>
-    <energy:LayerComponent>
-     <energy:thickness uom="m">0.24</energy:thickness>
-     <energy:material xlink:href="#ID_Material_Concrete"/>
-    </energy:LayerComponent>
-   </energy:layerComponent>
-
    <energy:layerComponent>
     <energy:LayerComponent>
      <energy:thickness uom="m">0.12</energy:thickness>
@@ -1032,6 +1019,29 @@ ID_Material_Concrete follows in the paragrap Material).
    </energy:layerComponent>
   </energy:Layer>
  </energy:layer>
+ 
+  <energy:layer>
+  <energy:Layer>
+   <energy:layerComponent>
+    <energy:LayerComponent>
+     <energy:thickness uom="m">0.24</energy:thickness>
+     <energy:material xlink:href="#ID_Material_Concrete"/>
+    </energy:LayerComponent>
+   </energy:layerComponent>
+  </energy:Layer>
+ </energy:layer>
+ 
+ <energy:layer>
+  <energy:Layer>
+   <energy:layerComponent>
+    <energy:LayerComponent>
+     <energy:thickness uom="m">0.02</energy:thickness>
+     <energy:material xlink:href="#ID_Material_Plasterboard"/>
+    </energy:LayerComponent>
+   </energy:layerComponent>
+  </energy:Layer>
+ </energy:layer>
+
 </energy:Construction>
 ```
 
