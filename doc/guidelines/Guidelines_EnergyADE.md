@@ -1490,6 +1490,66 @@ The XML examples below detail the two end-uses of a same building.
 	</energy:energyDemands>
 </bldg:Building>
 ```
+
+### EnergySource
+
+Final energy consumed (and sometimes produced) by the `EnergyConversionSystem`.
+It is defined by an `energyAmount`, a time series containing the amount of consumed or produced energy,
+and an `energyCarrier` of type `EnergyCarrier`.
+
+`EnergySource` is linked to `EnergyConversionSystem` via `produces` or `consumes`. Each `EnergyConversionSystem` can have multiple `EnergySources` that is consumes or produces. With `produces` and `consumes`, it is possible to link multiple `EnergyConversionSystem` if one consumes energy produced by another.
+
+The XML example below shows a typical use of `EnergySource`.
+
+```xml
+<!--Heat pump and CHP with EnergySource objects-->
+      <energy:HeatPump>
+       <energy:installedNominalPower uom="W">2000</energy:installedNominalPower>
+       <energy:nominalEfficiency uom="ratio">0.5</energy:nominalEfficiency>
+       <energy:consumes xlink:href="#Electricity_CHP"/>
+       <energy:carnotEfficiency>0.4</energy:carnotEfficiency>
+       <energy:heatSource>VerticalGroundCollector</energy:heatSource>
+       </energy:HeatPump>
+       
+       <energy:CombinedHeatPower>
+       <energy:installedNominalPower uom="W">2000</energy:installedNominalPower>
+       <energy:nominalEfficiency uom="ratio">0.5</energy:nominalEfficiency>
+       <energy:consumes>
+        <energy:EnergySource>
+         <energy:energyCarrier>
+          <energy:EnergyCarrier>
+           <energy:co2EmissionFactor uom="g/(kWh)">201.6</energy:co2EmissionFactor>
+           <energy:primaryEnergyFactor uom="">1.1</energy:primaryEnergyFactor>
+           <energy:type>Propane</energy:type>
+          </energy:EnergyCarrier>
+         </energy:energyCarrier>
+        </energy:EnergySource>
+       </energy:consumes>
+       <energy:produces>
+        <energy:EnergySource gml:id="Electricity_CHP">
+         <energy:energyCarrier>
+          <energy:EnergyCarrier>
+           <energy:co2EmissionFactor uom="g/(kWh)">100.8</energy:co2EmissionFactor>
+           <energy:primaryEnergyFactor uom="ratio">0.55</energy:primaryEnergyFactor>
+           <energy:type>Electricity</energy:type>
+          </energy:EnergyCarrier>
+         </energy:energyCarrier>
+        </energy:EnergySource>
+       </energy:produces>
+       <energy:technologyType>Gas</energy:technologyType>       
+      </energy:CombinedHeatPower>
+```
+
+### EnergyCarrier
+
+Primary energy and $CO_2$ emission factors, energy density and energy carrier
+type characterize this data type for energy carriers.
+
+### EnergyCarrierType
+
+List of energy carriers as coal, chilled water or electricity.
+
+
 ## Energy distribution
 
 ### EnergyDistributionSystem
@@ -1557,72 +1617,6 @@ may have in addition specific parameters:
 
 A same system may have several operation modes (e.g. heat pump covering heating
 and domestic hot water demands).
-
-### EnergySource
-
-Final energy consumed (and sometimes produced) by the `EnergyConversionSystem`.
-It is defined by an `energyAmount`, a time series containing the amount of consumed or produced energy,
-and an `energyCarrier` of type `EnergyCarrier`.
-
-`EnergySource` is linked to `EnergyConversionSystem` via `produces` or `consumes`. Each `EnergyConversionSystem` can have multiple `EnergySources` that is consumes or produces. With `produces` and `consumes`, it is possible to link multiple `EnergyConversionSystem` if one consumes energy produced by another.
-
-The XML example below shows a typical use of `EnergySource`.
-
-```xml
-<!--Heat pump and CHP with EnergySource objects-->
-      <energy:HeatPump>
-       <energy:installedNominalPower uom="W">2000</energy:installedNominalPower>
-       <energy:nominalEfficiency uom="ratio">0.5</energy:nominalEfficiency>
-       <energy:consumes xlink:href="#Electricity_CHP"/>
-       <energy:carnotEfficiency>0.4</energy:carnotEfficiency>
-       <energy:heatSource>VerticalGroundCollector</energy:heatSource>
-       </energy:HeatPump>
-       
-       <energy:CombinedHeatPower>
-       <energy:installedNominalPower uom="W">2000</energy:installedNominalPower>
-       <energy:nominalEfficiency uom="ratio">0.5</energy:nominalEfficiency>
-       <energy:consumes>
-        <energy:EnergySource>
-         <energy:energyCarrier>
-          <energy:EnergyCarrier>
-           <energy:co2EmissionFactor uom="g/(kWh)">201.6</energy:co2EmissionFactor>
-           <energy:primaryEnergyFactor uom="">1.1</energy:primaryEnergyFactor>
-           <energy:type>Propane</energy:type>
-          </energy:EnergyCarrier>
-         </energy:energyCarrier>
-        </energy:EnergySource>
-       </energy:consumes>
-       <energy:produces>
-        <energy:EnergySource gml:id="Electricity_CHP">
-         <energy:energyCarrier>
-          <energy:EnergyCarrier>
-           <energy:co2EmissionFactor uom="g/(kWh)">100.8</energy:co2EmissionFactor>
-           <energy:primaryEnergyFactor uom="ratio">0.55</energy:primaryEnergyFactor>
-           <energy:type>Electricity</energy:type>
-          </energy:EnergyCarrier>
-         </energy:energyCarrier>
-        </energy:EnergySource>
-       </energy:produces>
-       <energy:technologyType>Gas</energy:technologyType>       
-      </energy:CombinedHeatPower>
-```
-
-### EnergyCarrier
-
-Primary energy and $CO_2$ emission factors, energy density and energy carrier
-type characterize this data type for energy carriers.
-
-### EnergyCarrierType
-
-List of energy carriers as coal, chilled water or electricity.
-
-### SystemOperation
-
-It details the operation of the energy conversion system for a specific end-use
-and operation time. For instance, a reversible heat pump may have 3 operation
-modes: heating production in winter, cooling production in summer, and hot
-water production during the whole year. Attributes are end use type, a schedule
-for operation time and yearly global efficiency.
 
 ### DistrictNetworkSubstation
 
@@ -1754,6 +1748,14 @@ The XML example below shows how to define a PV panel in a surface of a building.
 	</bldg:boundedBy>
 </bldg:Building>
 ```
+
+### SystemOperation
+
+It details the operation of the energy conversion system for a specific end-use
+and operation time. For instance, a reversible heat pump may have 3 operation
+modes: heating production in winter, cooling production in summer, and hot
+water production during the whole year. Attributes are end use type, a schedule
+for operation time and yearly global efficiency.
 
 # References
 
