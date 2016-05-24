@@ -1547,7 +1547,7 @@ energy conversion.
 (`efficiencyIndicator`, `installedNominalPower`, `nominalEfficiency` 
 (in reference to an efficiency indicator)) and general properties 
 (`yearOfManufacture`, `model` (name of the model), `number` (a serial number), 
-`productAndInstallationDocument` (a reference to productor installation documents 
+`productAndInstallationDocument` (a reference to manufacturer's installation documents 
 and optionally refurbishment measures) and `refurbishmentMeasureOnEnergySystem`). 
 They may be one or more (in this case, the nominal installed power corresponds to 
 the totality).
@@ -1634,6 +1634,23 @@ substations. Adds attributes for network ID and network node ID.
 Subtype of `EnergyConversionSystem` for heat pumps to add carnot efficiency and
 heat source. Heat source is described using a `HeatSourceType`.
 
+In the following example, a 5 kW heat pump is described with a technical efficiency of 0.4 and a carnot efficiency defined between the source and target temperatures 2°C and 35°C. The heat pump depicted satisfies the EnergyDemand.
+
+```xml
+<!--Heat pump satisfying an EnergyDemand -->
+				<energy:EnergyDemand>
+					...
+					<energy:isProvidedBy>
+						<energy:HeatPump>
+							<energy:installedNominalPower uom="W">5000</energy:installedNominalPower>
+							<energy:nominalEfficiency uom="ratio">0.4</energy:nominalEfficiency>
+							<energy:carnotEfficiency>9.27166667</energy:carnotEfficiency>
+							<energy:heatSource>VerticalGroundCollector</energy:heatSource>
+						</energy:HeatPump>
+					</energy:isProvidedBy>
+				</energy:EnergyDemand>
+```
+
 ### HeatSourceType
 
 List of heat source types for heat pumps, e.g. ambient air, aquifer and exhaust
@@ -1657,7 +1674,21 @@ describing the technology type.
 ### Boiler
 
 Subtype of `EnergyConversionSystem` for boiler. Defines if it is a condensation
-boiler or not.
+boiler or not. The following example defines a 5 kW condensation gas boiler with an efficiency of 96%.
+
+```xml
+<!--Boiler satisfying an EnergyDemand -->
+				<energy:EnergyDemand>
+					...
+					<energy:isProvidedBy>
+						<energy:Boiler>
+							<energy:installedNominalPower uom="W">5000</energy:installedNominalPower>
+							<energy:nominalEfficiency uom="ratio">0.96</energy:nominalEfficiency>
+							<energy:condensation>true</energy:condensation>
+						</energy:Boiler>
+					</energy:isProvidedBy>
+				</energy:EnergyDemand>
+```
 
 ### SolarEnergySystem
 
