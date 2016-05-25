@@ -32,32 +32,16 @@ This document is intended to explain the characteristics and purposes of each mo
 
 ![Class diagram of Building Physics Module](fig/class_geometry.png)
 
-This module contains the thermal building objects required for building thermal
-modelling (e.g. calculation of space heating and space cooling demands):
-`ThermalZone`, `ThermalBoundary`, `ThermalComponent`. These thermal building
-objects are linked to the CityGML building objects through its
-`_AbstractBuilding`, `_BoundarySurface`, `_Opening` classes, which are extended
-with Energy ADE attributes.
+Main purpose of this module is building thermal modeling (e.g. calculation of space heating and space cooling demands).
 
-The `ThermalZone`, which represents the spatial unit for heating and cooling
-demand calculation, is the central object of this Building Physics Module. A
-Building may have several `ThermalZone`, for instance in the case of
-mixed-usage building, or to distinguish rooms or zones with different solar
-gains and/or thermal behaviour.
+Thus, it extends the existing CityGML objects `_AbstractBuilding`, `_BoundarySurface`and `_Opening` with energy-related attributes, and define new thermal building objects `ThermalZone`, `ThermalBoundary`, respectively `ThermalComponent` related to them.
 
-If occupied, a `ThermalZone` must be related to at less 1 `UsageZone`, which
-contains the usage boundary conditions for the heating and cooling demand
-calculation (see Occupancy Module). `ThermalZone` may be related to several
-`UsageZone` for simplified modelling of mixed-usage space, in which case the
-usage boundary conditions of the `UsageZone` should be aggregated or weighted
+The `ThermalZone `is the unit volume for heating and cooling demand calculation. A Building may have several `ThermalZone`, for instance in the case of mixed-usage building, or to distinguish rooms or zones with different orientations (i.e. solar gains) and/or thermal behaviour.
+
+These `ThermalZone` objects are separated from each other and from the outside by `ThermalBoundary` objects. These `ThermalBoundary` objects may or not correspond to the CityGML `_BoundarySurface`. To count the `globalSolarIrradiance` incident on `_BoundarySurface` in the building energy balance, every `ThermalBoundary` delimiting the `ThermalZone` from outside should however be related (relation `correspondsTo`) with a `_BoundarySurface`.
+
+If occupied, a `ThermalZone` must be related to at less 1 `UsageZone`, which contains the usage boundary conditions required for the heating and cooling demand calculation (see Occupancy Module). One `ThermalZone` may be related to several `UsageZone` for simplified modelling of mixed-usage space, in which case the usage boundary conditions of the `UsageZone` should be aggregated or weighted
 according with their floorArea.
-
-These `ThermalZone` objects are separated from each other and from the outside
-by `ThermalBoundary` objects. These `ThermalBoundary` objects may or not
-correspond to the CityGML `_BoundarySurface`. However, every `ThermalBoundary`
-delimiting the `ThermalZone` from outside must be related (`correspondsTo`)
-with a `_BoundarySurface`, in order to consider the `globalSolarIrradiance`
-incident on `_BoundarySurface` in the heating and cooling calculations.
 
 ## Extension of CityGML building objects
 
