@@ -1,34 +1,30 @@
 # Overview of the Energy Application Domain Extension
 
-The CityGML Energy Application Domain Extension (Energy ADE) aims at extending
-the CityGML 2.0 standard with energy-related entities and attributes necessary
-to perform energy analyses at urban scale.
+## Motivation and design objectives
 
-In accordance with the philosophy of CityGML, the Energy ADE aims to be
-flexible in terms of compatibility with different data qualities, levels of
-detail and urban energy model complexities (e.g. from monthly energy balance
-methods as of ISO 13790, to sub-hourly dynamic simulations by means of software
-programs like CitySim or EnergyPlus). It intends also to take into
-consideration the INSPIRE Directive of the European Parliament, as well as the
-recent US Building Energy Data Exchange Specification (BEDES).
+The CityGML Energy Application Domain Extension (Energy ADE) aims at extending the CityGML 2.0 standard with energy-related entities and attributes necessary to perform energy analyses at urban scale, such as energy demand diagnostics, solar potential study, simulation of low-carbon energy strategies etc...
 
-Its structure is conceived to be modular. In its current version 0.7, it
-consists of 5 modules:
+In accordance with the philosophy of CityGML, the Energy ADE aims to be flexible in terms of compatibility with different data qualities and levels of details. His design is driven by the following objectives : 
+- store and manage energy-related data collected at urban scale, based on the standard data specification of INSPIRE Directive of the European Parliament, as well as the recent US Building Energy Data Exchange Specification (BEDES). 
+- provide information data required by different urban energy models and simulation (e.g. from standard energy balance methods as of ISO 13790, to sub-hourly dynamic simulations by means of software programs like CitySim or EnergyPlus)
 
+## General structure overview
+
+Its structure is conceived to be modular, so as to be potentially used and extended also for other applications (e.g. module Occupancy for socio-economics, module Construction and Materials for acoustics or statics, etc). It consists of 5 modules:
 - Building Physics module,
 - Occupancy module,
 - Construction and Material module,
-- Energy System module,
+- Energy Use and System module,
 - Timeseries and Schedules module.
 
-Some modules can be potentially used and extended also for other applications
-(e.g. module Occupancy for socio-economics, module Construction and Materials
-for acoustics or statics, etc).
+The Building Physics module is the core of the Energy ADE. It extends the existing CityGML objects (Abstract Building, BoundarySurface and Opening) and relate them to new thermal entities (ThermalZone, ThermalBoundary, resp. ThermalComponent). Its central object is the ThermalZone, which is the volume unit for heat/cool energy demand calculation.
 
-This document is intended to explain the characteristics and purposes of each
-module, their entities and attributes. It provides also a number of XML
-examples, illustrating how and where the Energy ADE entities and attributes may
-be embedded into CityGML.
+The Occupancy module is related to the CityGML model (AbstractBuilding) and Building Physics Module (ThermalZone) through its central object : UsageZone. The latter is the spatial unit for user-depending energy use study (e.g. domestic hot water, electrical appliances) and can provide usage boundary conditions for the heat/cool energy demand calculations.
+
+The Construction and Material, Energy Use and System, and Timeseries and Schedules modules are independant « floating modules » which may be connected to different CityGML and Energy ADE CityObjects. 
+
+
+This document is intended to explain the characteristics and purposes of each module, their entities and attributes. It provides also a number of XML examples, illustrating how and where the Energy ADE entities and attributes may be embedded into CityGML.
 
 # Building Physics Module
 
