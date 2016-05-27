@@ -1497,7 +1497,31 @@ An enumeration list of dsitribution types that are supplied by `EnergyDistributi
 Type for thermal distribution systems with attributes for circulation `isCirculation`
 (circulating system or not), the used medium of `MediumType`, `nominalFlow`, `returnTemperature` and `supplyTemperature` and `thermalLossesFactor`.
 
+```xml
+<energy:energyDistribution>
+ <energy:ThermalDistributionSystem>
+  <energy:distributionPerimeter>Building</energy:distributionPerimeter>
+  <energy:isCirculation>true</energy:isCirculation>
+  <energy:medium>Water</energy:medium>
+  <energy:nominalFlow uom="m/s">0.5</energy:nominalFlow>
+  <energy:returnTemperature uom="degC">40</energy:returnTemperature>
+  <energy:supplyTemperature uom="degC">60</energy:supplyTemperature>
+  <energy:thermalLossesFactor uom="W/(mK)">0.035</energy:thermalLossesFactor>
+ </energy:ThermalDistributionSystem>
+</energy:energyDistribution>
+```
+
 ### PowerDistributionSystem
+
+```xml
+<energy:energyDistribution>
+ <energy:PowerDistributionSystem>
+  <energy:distributionPerimeter>Building</energy:distributionPerimeter>
+  <energy:current uom="A">16</energy:current>
+  <energy:voltage uom="V">230</energy:voltage>
+ </energy:PowerDistributionSystem>
+</energy:energyDistribution>
+```
 
 Type for electrical distribution systems, described by `current` and `voltage`.
 
