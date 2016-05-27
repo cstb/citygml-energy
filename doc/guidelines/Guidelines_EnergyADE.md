@@ -1406,7 +1406,7 @@ related to the central object `EnergyDemand`, defined for different end-uses
 (e.g. space heating, electrical appliances) and acquisition methods (e.g.
 measurements, simulation).
 
-## Energy amounts and types
+## Energy demands
 
 ### EnergyDemand
 
@@ -1471,75 +1471,7 @@ The XML examples below detail the two end-uses of a same building.
 </bldg:Building>
 ```
 
-### EnergySource
-
-Final energy consumed (and sometimes produced) by the `EnergyConversionSystem`.
-It is defined by an `energyAmount`, a time series containing the amount of consumed or produced energy,
-and an `energyCarrier` of type `EnergyCarrier`.
-
-`FinalEnergy` is linked to `EnergyConversionSystem` via `produces` or `consumes`. Each `EnergyConversionSystem` can have multiple `FinalEnergies` that it consumes or produces. With `produces` and `consumes`, it is possible to link multiple `EnergyConversionSystem` if one consumes energy produced by another.
-
-The XML example below shows a typical use of `FinalEnergy`.
-
-```xml
-<!--Heat pump and CHP with EnergySource objects-->
-      <energy:HeatPump>
-       <energy:installedNominalPower uom="W">2000</energy:installedNominalPower>
-       <energy:nominalEfficiency uom="ratio">0.5</energy:nominalEfficiency>
-       <energy:consumes xlink:href="#Electricity_CHP"/>
-       <energy:carnotEfficiency>0.4</energy:carnotEfficiency>
-       <energy:heatSource>VerticalGroundCollector</energy:heatSource>
-       </energy:HeatPump>
-       
-       <energy:CombinedHeatPower>
-       <energy:installedNominalPower uom="W">2000</energy:installedNominalPower>
-       <energy:nominalEfficiency uom="ratio">0.5</energy:nominalEfficiency>
-       <energy:consumes>
-        <energy:EnergySource>
-         <energy:energyCarrier>
-          <energy:EnergyCarrier>
-           <energy:co2EmissionFactor uom="g/(kWh)">201.6</energy:co2EmissionFactor>
-           <energy:primaryEnergyFactor uom="">1.1</energy:primaryEnergyFactor>
-           <energy:type>Propane</energy:type>
-          </energy:EnergyCarrier>
-         </energy:energyCarrier>
-        </energy:EnergySource>
-       </energy:consumes>
-       <energy:produces>
-        <energy:EnergySource gml:id="Electricity_CHP">
-         <energy:energyCarrier>
-          <energy:EnergyCarrier>
-           <energy:co2EmissionFactor uom="g/(kWh)">100.8</energy:co2EmissionFactor>
-           <energy:primaryEnergyFactor uom="ratio">0.55</energy:primaryEnergyFactor>
-           <energy:type>Electricity</energy:type>
-          </energy:EnergyCarrier>
-         </energy:energyCarrier>
-        </energy:EnergySource>
-       </energy:produces>
-       <energy:technologyType>Gas</energy:technologyType>       
-      </energy:CombinedHeatPower>
-```
-
-### EnergyCarrier
-
-Energy carrier for `FinalEnergy`, described by `co2EmissionFactor` (with unit of measure), `primaryEnergyFactor` (with unit of measure and EnergyCarrierType`, see example.
-
-```xml
- <energy:energyCarrier>
-  <energy:EnergyCarrier>
-    <energy:co2EmissionFactor uom="g/(kWh)">201.6</energy:co2EmissionFactor>
-    <energy:primaryEnergyFactor uom="">1.1</energy:primaryEnergyFactor>
-    <energy:type>Propane</energy:type>
-   </energy:EnergyCarrier>
-  </energy:energyCarrier>
-```
-
-### EnergyCarrierType
-
-List of energy carriers as coal, chilled water or electricity.
-
-
-## Energy distribution
+## Energy distribution and storage
 
 ### EnergyDistributionSystem
 
@@ -1565,8 +1497,6 @@ Type for electrical distribution systems, described by current and voltage.
 ### MediumType
 
 This list is a collection of medium types as air and water.
-
-## Energy storage
 
 ### StorageSystem
 
@@ -1737,6 +1667,86 @@ The XML example below shows how to define a PV panel in a surface of a building.
 	</bldg:boundedBy>
 </bldg:Building>
 ```
+
+### FinalEnergy
+
+Final energy consumed (and sometimes produced) by the `EnergyConversionSystem`.
+It is defined by an `energyAmount`, a time series containing the amount of consumed or produced energy,
+and an `energyCarrier` of type `EnergyCarrier`.
+
+`FinalEnergy` is linked to `EnergyConversionSystem` via `produces` or `consumes`. Each `EnergyConversionSystem` can have multiple `FinalEnergies` that it consumes or produces. With `produces` and `consumes`, it is possible to link multiple `EnergyConversionSystem` if one consumes energy produced by another.
+
+The XML example below shows a typical use of `FinalEnergy`.
+
+```xml
+<!--Heat pump and CHP with EnergySource objects-->
+      <energy:HeatPump>
+       <energy:installedNominalPower uom="W">2000</energy:installedNominalPower>
+       <energy:nominalEfficiency uom="ratio">0.5</energy:nominalEfficiency>
+       <energy:consumes xlink:href="#Electricity_CHP"/>
+       <energy:carnotEfficiency>0.4</energy:carnotEfficiency>
+       <energy:heatSource>VerticalGroundCollector</energy:heatSource>
+       </energy:HeatPump>
+       
+       <energy:CombinedHeatPower>
+       <energy:installedNominalPower uom="W">2000</energy:installedNominalPower>
+       <energy:nominalEfficiency uom="ratio">0.5</energy:nominalEfficiency>
+       <energy:consumes>
+        <energy:EnergySource>
+         <energy:energyCarrier>
+          <energy:EnergyCarrier>
+           <energy:co2EmissionFactor uom="g/(kWh)">201.6</energy:co2EmissionFactor>
+           <energy:primaryEnergyFactor uom="">1.1</energy:primaryEnergyFactor>
+           <energy:type>Propane</energy:type>
+          </energy:EnergyCarrier>
+         </energy:energyCarrier>
+        </energy:EnergySource>
+       </energy:consumes>
+       <energy:produces>
+        <energy:EnergySource gml:id="Electricity_CHP">
+         <energy:energyCarrier>
+          <energy:EnergyCarrier>
+           <energy:co2EmissionFactor uom="g/(kWh)">100.8</energy:co2EmissionFactor>
+           <energy:primaryEnergyFactor uom="ratio">0.55</energy:primaryEnergyFactor>
+           <energy:type>Electricity</energy:type>
+          </energy:EnergyCarrier>
+         </energy:energyCarrier>
+        </energy:EnergySource>
+       </energy:produces>
+       <energy:technologyType>Gas</energy:technologyType>       
+      </energy:CombinedHeatPower>
+```
+
+### EnergyCarrier
+
+Energy carrier for `FinalEnergy`, described by `co2EmissionFactor` (with unit of measure), `primaryEnergyFactor` (with unit of measure and energy carrier `type`, see example.
+
+```xml
+ <energy:energyCarrier>
+  <energy:EnergyCarrier>
+    <energy:co2EmissionFactor uom="g/(kWh)">201.6</energy:co2EmissionFactor>
+    <energy:primaryEnergyFactor uom="">1.1</energy:primaryEnergyFactor>
+    <energy:type>Propane</energy:type>
+   </energy:EnergyCarrier>
+  </energy:energyCarrier>
+```
+
+### EnergyCarrierTypeValues
+
+Enumeration list of energy carriers for `type` of `EnergyCarrier`:
+
+- `ChilledAir`
+- `ChilledWater`
+- `Coal`
+- `Electricity`
+- `FuelOil`
+- `HotAir`
+- `HotWater`
+- `NaturalGas`
+- `Propane`
+- `Steam`
+- `WoodChips`
+- `WoodPellets`
 
 ### SystemOperation
 
