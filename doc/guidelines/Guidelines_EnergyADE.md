@@ -1392,7 +1392,7 @@ attributes of the ElectricalAppliances.
 The Energy System Module contains the energy forms (energy demand and sources)
 and energy systems (conversion, distribution and storage systems) to realize
 energy demand and supply analyses.
-It allows also to calculate $CO_2$ emissions or Primary energy balances.
+It allows also to calculate CO2 emissions or primary energy balances.
 
 It is related to the Energy ADE and CityGML model through the object
 `EnergyDemand`, which can be related to any `_CityObject`.
@@ -1477,9 +1477,9 @@ Final energy consumed (and sometimes produced) by the `EnergyConversionSystem`.
 It is defined by an `energyAmount`, a time series containing the amount of consumed or produced energy,
 and an `energyCarrier` of type `EnergyCarrier`.
 
-`EnergySource` is linked to `EnergyConversionSystem` via `produces` or `consumes`. Each `EnergyConversionSystem` can have multiple `EnergySources` that is consumes or produces. With `produces` and `consumes`, it is possible to link multiple `EnergyConversionSystem` if one consumes energy produced by another.
+`FinalEnergy` is linked to `EnergyConversionSystem` via `produces` or `consumes`. Each `EnergyConversionSystem` can have multiple `FinalEnergies` that it consumes or produces. With `produces` and `consumes`, it is possible to link multiple `EnergyConversionSystem` if one consumes energy produced by another.
 
-The XML example below shows a typical use of `EnergySource`.
+The XML example below shows a typical use of `FinalEnergy`.
 
 ```xml
 <!--Heat pump and CHP with EnergySource objects-->
@@ -1522,8 +1522,17 @@ The XML example below shows a typical use of `EnergySource`.
 
 ### EnergyCarrier
 
-Primary energy and $CO_2$ emission factors, energy density and energy carrier
-type characterize this data type for energy carriers.
+Energy carrier for `FinalEnergy`, described by `co2EmissionFactor` (with unit of measure), `primaryEnergyFactor` (with unit of measure and EnergyCarrierType`, see example.
+
+```xml
+ <energy:energyCarrier>
+  <energy:EnergyCarrier>
+    <energy:co2EmissionFactor uom="g/(kWh)">201.6</energy:co2EmissionFactor>
+    <energy:primaryEnergyFactor uom="">1.1</energy:primaryEnergyFactor>
+    <energy:type>Propane</energy:type>
+   </energy:EnergyCarrier>
+  </energy:energyCarrier>
+```
 
 ### EnergyCarrierType
 
