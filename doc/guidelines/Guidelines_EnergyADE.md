@@ -1548,9 +1548,29 @@ differentiated, all share a service life described by `ServiceLife` type. An `En
 Thermal storages with a `medium` of `MediumType`, `preparationTemperature`, `thermalLossesFactor`
 and a `volume`of type `Volume`.
 
+```xml
+<energy:storage>
+ <energy:ThermalStorageSystem>
+  <energy:preparationTemperature uom="degC">61</energy:preparationTemperature>
+  <energy:medium>Water</energy:medium>
+  <energy:thermalLossesFactor uom="W/(mK)">0.04</energy:thermalLossesFactor>
+  <energy:volume uom="m3">2</energy:volume>
+ </energy:ThermalStorageSystem>
+</energy:storage>
+```
+
 ### PowerStorageSystem
 
 Electrical storages with a string to describe the `batteryTechnology` and a `powerCapacity`.
+
+```xml
+<energy:storage>
+ <energy:PowerStorageSystem>
+  <energy:batteryTechnology>Lithium</energy:batteryTechnology>
+  <energy:powerCapacity uom="Wh">4000</energy:powerCapacity>
+ </energy:PowerStorageSystem>
+</energy:storage>
+```
 
 ## Energy conversion
 
