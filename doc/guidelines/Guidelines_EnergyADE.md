@@ -1477,18 +1477,24 @@ The XML examples below detail the two end-uses of a same building.
 
 System in charge of delivering the energy inside the building, from the place
 of energy production to the place of end-use. Power and Thermal distribution
-systems are differentiated. They all share a distribution perimeter that is
-described by the distribution type.
+systems are differentiated. They all share a `distributionPerimeter` that is
+described by the `DistributionType` and a `serviceLife` described by the `ServiceLife` type.
 
 ### Distribution Type
 
-A list of possible distribution perimeters, e.g. Building, Dwelling, Room.
+An enumeration list of dsitribution types that are supplied by `EnergyDistributionSystem`:
+
+- `Building`
+- `Dwelling`
+- `GroupOfBuildings`
+- `Room`
+- `Staircase`
+- `Storey`
 
 ### ThermalDistributionSystem
 
-Type for thermal distribution systems with attributes for circulation
-(circulating system or not), the used medium, nominal flow, return and supply
-temperatures and thermal losses factor.
+Type for thermal distribution systems with attributes for circulation `isCirculation`
+(circulating system or not), the used medium of `MediumType`, `nominalFlow`, `returnTemperature` and `supplyTemperature` and `thermalLossesFactor`.
 
 ### PowerDistributionSystem
 
