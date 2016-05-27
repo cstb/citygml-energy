@@ -1498,7 +1498,7 @@ Type for thermal distribution systems with attributes for circulation `isCircula
 
 ### PowerDistributionSystem
 
-Type for electrical distribution systems, described by current and voltage.
+Type for electrical distribution systems, described by `current` and `voltage`.
 
 ### MediumType
 
