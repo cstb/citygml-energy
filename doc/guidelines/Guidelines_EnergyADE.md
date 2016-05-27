@@ -1513,6 +1513,8 @@ Type for thermal distribution systems with attributes for circulation `isCircula
 
 ### PowerDistributionSystem
 
+Type for electrical distribution systems, described by `current` and `voltage`.
+
 ```xml
 <energy:energyDistribution>
  <energy:PowerDistributionSystem>
@@ -1522,8 +1524,6 @@ Type for thermal distribution systems with attributes for circulation `isCircula
  </energy:PowerDistributionSystem>
 </energy:energyDistribution>
 ```
-
-Type for electrical distribution systems, described by `current` and `voltage`.
 
 ### MediumType
 
