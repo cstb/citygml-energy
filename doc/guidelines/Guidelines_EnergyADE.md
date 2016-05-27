@@ -1479,6 +1479,7 @@ System in charge of delivering the energy inside the building, from the place
 of energy production to the place of end-use. Power and Thermal distribution
 systems are differentiated. They all share a `distributionPerimeter` that is
 described by the `DistributionType` and a `serviceLife` described by the `ServiceLife` type.
+Each `EnergyDemand` can have maximum one `EnergyDistributionSystem`.
 
 ### Distribution Type
 
@@ -1502,23 +1503,30 @@ Type for electrical distribution systems, described by `current` and `voltage`.
 
 ### MediumType
 
-This list is a collection of medium types as air and water.
+This enumeration list is a collection of medium types:
+
+- `Air`
+- `Steam`
+- `Water`
+
+### ServiceLife
+
+Type to describe the service life for lifecycle analysis. 
 
 ### StorageSystem
 
 System storing energy. A same storage may store the energy of different
 end-users and different end uses. Power and Thermal storage systems are
-differentiated.
+differentiated, all share a service life described by `ServiceLife` type. An `EnergyDemand` can have several `StorageSystems`. 
 
 ### ThermalStorageSystem
 
-Thermal storages with a medium, preparation temperature, thermal losses factor
-and a volume.
+Thermal storages with a `medium` of `MediumType`, `preparationTemperature`, `thermalLossesFactor`
+and a `volume`of type `Volume`.
 
 ### PowerStorageSystem
 
-Electrical storages with an electrical capacity and a string to describe the
-battery technology.
+Electrical storages with a string to describe the `batteryTechnology` and a `powerCapacity`.
 
 ## Energy conversion
 
