@@ -1511,7 +1511,7 @@ This enumeration list is a collection of medium types:
 
 ### ServiceLife
 
-Type to describe the service life for lifecycle analysis. 
+Type to describe the service life for lifecycle analysis. It contains of attributes to describe `lifeExpectancy`, `mainMaintenanceInterval` and `startOfLife`.
 
 ### StorageSystem
 
