@@ -32,6 +32,7 @@ This document is intended to explain the characteristics and purposes of each mo
 
 ![Class diagram of Building Physics Module](fig/BuildingPhysics_onlyFeature.png)
 
+...and its types and codelists
 ![Types and Codelists of Building Physics Module](fig/BuildingPhysics_onlyTypesAndCodelists.png)
 
 Main purpose of this module is building thermal modeling (e.g. calculation of space heating and space cooling demands).
@@ -1073,6 +1074,8 @@ comparison with `SolidMaterial`.
 # Occupancy Module
 
 ![Class diagram of Occupancy Module](fig/Occupancy_withoutCodelist.png)
+
+...and its enumeration and codelists
 ![Codelists of Occupancy Module](fig/Occupancy_OnlyCodelists.png)
 
 The Occupancy Module contains the detailed characterization of the building
