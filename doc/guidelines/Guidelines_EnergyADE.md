@@ -30,7 +30,9 @@ This document is intended to explain the characteristics and purposes of each mo
 
 ## Module overview and main relationships
 
-![Class diagram of Building Physics Module](fig/class_geometry.png)
+![Class diagram of Building Physics Module](fig/BuildingPhysics_onlyFeature.png)
+
+![Types and Codelists of Building Physics Module](fig/BuildingPhysics_onlyTypesAndCodelists.png)
 
 Main purpose of this module is building thermal modeling (e.g. calculation of space heating and space cooling demands).
 
@@ -597,7 +599,7 @@ come (as Dynamizer).
 
 ## Time Series
 
-![Class diagram of ADE Energy Core - Time Series](fig/class_time.png)
+![Class diagram of ADE Energy Core - Time Series](fig/TimeSeries.png)
 
 Time series are homogeneous lists of time-depending values. They are used in
 the Energy ADE to store energy amount or an occupancy schedule, for instance. 
@@ -729,7 +731,7 @@ Example of IrregularTimeSeriesFile object:
 
 ## Schedules
 
-![Class diagram of ADE Energy Core - Schedules](fig/class_schedules.png)
+![Class diagram of ADE Energy Core - Schedules](fig/Schedules.png)
 
 The type `_Schedule` is used in the Energy ADE for different kinds of schedules
 related to the building usage: heating and cooling schedules (set-point
@@ -841,7 +843,7 @@ consists of a unique time series, without patterns.
 
 # Construction and Material Module
 
-![Class diagram of Construction Module](fig/class_construction.png)
+![Class diagram of Construction Module](fig/Construction.png)
 
 The Construction and Material module of the ADE Energy characterizes physically
 the building construction parts, detailing their structure and specifiying
@@ -1070,7 +1072,8 @@ comparison with `SolidMaterial`.
 
 # Occupancy Module
 
-![Class diagram of Occupancy Module](fig/class_occupancy.png)
+![Class diagram of Occupancy Module](fig/Occupancy_withoutCodelist.png)
+![Codelists of Occupancy Module](fig/Occupancy_OnlyCodelists.png)
 
 The Occupancy Module contains the detailed characterization of the building
 usage, it means the people and the facilities. It is related to the rest of the
@@ -1387,7 +1390,7 @@ attributes of the ElectricalAppliances.
 
 # Energy System Module
 
-![Class diagram of Energy System Module](fig/class_EnergySystem.png)
+![Class diagram of Energy System Module](fig/Systems.png)
 
 The Energy System Module contains the energy forms (energy demand and sources)
 and energy systems (conversion, distribution and storage systems) to realize
