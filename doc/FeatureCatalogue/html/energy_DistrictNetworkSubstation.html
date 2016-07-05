@@ -119,18 +119,18 @@ h3 {
                <p>Year</p>
             </td>
          </tr>
-         <tr><a name="energy_EnergyConversionSystem_refurbishmentMeasureOnEnergySystem_A"></a><td width="600" height="20" bgcolor="#EEEEEE">
-               <p><a href="#energy_EnergyConversionSystem_refurbishmentMeasureOnEnergySystem">energy:refurbishmentMeasureOnEnergySystem</a></p>
+         <tr><a name="energy_EnergyConversionSystem_serviceLife_A"></a><td width="600" height="20" bgcolor="#EEEEEE">
+               <p><a href="#energy_EnergyConversionSystem_serviceLife">energy:serviceLife</a></p>
             </td>
             <td width="600" height="20" bgcolor="#EEEEEE">
-               <p>RefurbishmentMeasure</p>
+               <p>ServiceLife</p>
             </td>
          </tr>
          <tr><a name="energy_EnergyConversionSystem_installedIn_A"></a><td width="600" height="20" bgcolor="#EEEEEE">
                <p><a href="#energy_EnergyConversionSystem_installedIn">energy:installedIn</a></p>
             </td>
             <td width="600" height="20" bgcolor="#EEEEEE">
-               <p>_AbstractBuilding</p>
+               <p>_CityObject</p>
             </td>
          </tr>
          <tr><a name="energy_EnergyConversionSystem_has_A"></a><td width="600" height="20" bgcolor="#EEEEEE">
@@ -144,14 +144,14 @@ h3 {
                <p><a href="#energy_EnergyConversionSystem_consumes">energy:consumes</a></p>
             </td>
             <td width="600" height="20" bgcolor="#EEEEEE">
-               <p>EnergySource</p>
+               <p>FinalEnergy</p>
             </td>
          </tr>
          <tr><a name="energy_EnergyConversionSystem_produces_A"></a><td width="600" height="20" bgcolor="#EEEEEE">
                <p><a href="#energy_EnergyConversionSystem_produces">energy:produces</a></p>
             </td>
             <td width="600" height="20" bgcolor="#EEEEEE">
-               <p>EnergySource</p>
+               <p>FinalEnergy</p>
             </td>
          </tr>
          <tr><a name="energy_EnergyConversionSystem_provides_A"></a><td width="600" height="20" bgcolor="#EEEEEE">
@@ -280,22 +280,22 @@ h3 {
       <h3>Cardinality</h3>
       <p class="einzug10">0..1</p>
       <h3>Data type</h3>
-      <p class="einzug10">Year</p><br></br><a name="energy_EnergyConversionSystem_refurbishmentMeasureOnEnergySystem"></a><table width="800" border="0" cellspacing="3">
+      <p class="einzug10">Year</p><br></br><a name="energy_EnergyConversionSystem_serviceLife"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#EEEEEE">
-               <h2>Attribute type: energy:refurbishmentMeasureOnEnergySystem</h2>
+               <h2>Attribute type: energy:serviceLife</h2>
             </td>
             <td bgcolor="#EEEEEE">
-               <p><a href="#energy_EnergyConversionSystem_refurbishmentMeasureOnEnergySystem_A">back</a></p>
+               <p><a href="#energy_EnergyConversionSystem_serviceLife_A">back</a></p>
             </td>
          </tr>
       </table>
       <h3>Definition</h3>
       <p class="einzug10"></p>
       <h3>Cardinality</h3>
-      <p class="einzug10">0..*</p>
-      <h3>Data type</h3><a href="energy_RefurbishmentMeasure.html">
-         <p class="einzug10">RefurbishmentMeasure</p></a><br></br><a name="energy_EnergyConversionSystem_installedIn"></a><table width="800" border="0" cellspacing="3">
+      <p class="einzug10">0..1</p>
+      <h3>Data type</h3><a href="energy_ServiceLife.html">
+         <p class="einzug10">ServiceLife</p></a><br></br><a name="energy_EnergyConversionSystem_installedIn"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#EEEEEE">
                <h2>Attribute type: energy:installedIn</h2>
@@ -309,8 +309,8 @@ h3 {
       <p class="einzug10"></p>
       <h3>Cardinality</h3>
       <p class="einzug10">0..1</p>
-      <h3>Data type</h3><a href="bldg__AbstractBuilding.html">
-         <p class="einzug10">_AbstractBuilding</p></a><br></br><a name="energy_EnergyConversionSystem_has"></a><table width="800" border="0" cellspacing="3">
+      <h3>Data type</h3><a href="core__CityObject.html">
+         <p class="einzug10">_CityObject</p></a><br></br><a name="energy_EnergyConversionSystem_has"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#EEEEEE">
                <h2>Attribute type: energy:has</h2>
@@ -339,8 +339,8 @@ h3 {
       <p class="einzug10"></p>
       <h3>Cardinality</h3>
       <p class="einzug10">0..*</p>
-      <h3>Data type</h3><a href="energy_EnergySource.html">
-         <p class="einzug10">EnergySource</p></a><br></br><a name="energy_EnergyConversionSystem_produces"></a><table width="800" border="0" cellspacing="3">
+      <h3>Data type</h3><a href="energy_FinalEnergy.html">
+         <p class="einzug10">FinalEnergy</p></a><br></br><a name="energy_EnergyConversionSystem_produces"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#EEEEEE">
                <h2>Attribute type: energy:produces</h2>
@@ -354,8 +354,8 @@ h3 {
       <p class="einzug10"></p>
       <h3>Cardinality</h3>
       <p class="einzug10">0..*</p>
-      <h3>Data type</h3><a href="energy_EnergySource.html">
-         <p class="einzug10">EnergySource</p></a><br></br><a name="energy_EnergyConversionSystem_provides"></a><table width="800" border="0" cellspacing="3">
+      <h3>Data type</h3><a href="energy_FinalEnergy.html">
+         <p class="einzug10">FinalEnergy</p></a><br></br><a name="energy_EnergyConversionSystem_provides"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#EEEEEE">
                <h2>Attribute type: energy:provides</h2>

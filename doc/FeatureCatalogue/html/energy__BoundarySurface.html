@@ -78,32 +78,11 @@ h3 {
                <p>RefurbishmentMeasure</p>
             </td>
          </tr>
-         <tr><a name="energy__BoundarySurface_globalSolarIrradiance_A"></a><td width="600" height="20" bgcolor="FADB76">
-               <p><a href="#energy__BoundarySurface_globalSolarIrradiance">energy:globalSolarIrradiance</a></p>
+         <tr><a name="energy__BoundarySurface_boundarySurfaceConstruction_A"></a><td width="600" height="20" bgcolor="FADB76">
+               <p><a href="#energy__BoundarySurface_boundarySurfaceConstruction">energy:boundarySurfaceConstruction</a></p>
             </td>
             <td width="600" height="20" bgcolor="#FADB76">
-               <p>_TimeSeries</p>
-            </td>
-         </tr>
-         <tr><a name="energy__BoundarySurface_daylightIlluminance_A"></a><td width="600" height="20" bgcolor="FADB76">
-               <p><a href="#energy__BoundarySurface_daylightIlluminance">energy:daylightIlluminance</a></p>
-            </td>
-            <td width="600" height="20" bgcolor="#FADB76">
-               <p>_TimeSeries</p>
-            </td>
-         </tr>
-         <tr><a name="energy__BoundarySurface_equippedWith_A"></a><td width="600" height="20" bgcolor="FADB76">
-               <p><a href="#energy__BoundarySurface_equippedWith">energy:equippedWith</a></p>
-            </td>
-            <td width="600" height="20" bgcolor="#FADB76">
-               <p>_SolarEnergySystem</p>
-            </td>
-         </tr>
-         <tr><a name="energy__BoundarySurface_correspondsTo_A"></a><td width="600" height="20" bgcolor="FADB76">
-               <p><a href="#energy__BoundarySurface_correspondsTo">energy:correspondsTo</a></p>
-            </td>
-            <td width="600" height="20" bgcolor="#FADB76">
-               <p>ThermalBoundary</p>
+               <p>AbstractConstruction</p>
             </td>
          </tr>
       </table><br></br><a name="energy__BoundarySurface_refurbishmentMeasureOnBoundarySurface"></a><table width="800" border="0" cellspacing="3">
@@ -117,69 +96,26 @@ h3 {
          </tr>
       </table>
       <h3>Definition</h3>
-      <p class="einzug10"></p>
+      <p class="einzug10">Reference designation of the degree of refurbishment. This reference may be European (from the Tabula project) or local (used
+         for the Energy Action Plan of a city).
+      </p>
       <h3>Cardinality</h3>
       <p class="einzug10">0..*</p>
       <h3>Data type</h3><a href="energy_RefurbishmentMeasure.html">
-         <p class="einzug10">RefurbishmentMeasure</p></a><br></br><a name="energy__BoundarySurface_globalSolarIrradiance"></a><table width="800" border="0" cellspacing="3">
+         <p class="einzug10">RefurbishmentMeasure</p></a><br></br><a name="energy__BoundarySurface_boundarySurfaceConstruction"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#CCCCCC">
-               <h2>Attribute type: energy:globalSolarIrradiance</h2>
+               <h2>Attribute type: energy:boundarySurfaceConstruction</h2>
             </td>
             <td bgcolor="#CCCCCC">
-               <p><a href="#energy__BoundarySurface_globalSolarIrradiance_A">back</a></p>
+               <p><a href="#energy__BoundarySurface_boundarySurfaceConstruction_A">back</a></p>
             </td>
          </tr>
       </table>
       <h3>Definition</h3>
-      <p class="einzug10">Global solar irradiance (in W/m2) incident on an outside tilted surface.</p>
+      <p class="einzug10">Reference to material data</p>
       <h3>Cardinality</h3>
       <p class="einzug10">0..1</p>
-      <h3>Data type</h3><a href="energy__TimeSeries.html">
-         <p class="einzug10">_TimeSeries</p></a><br></br><a name="energy__BoundarySurface_daylightIlluminance"></a><table width="800" border="0" cellspacing="3">
-         <tr>
-            <td width="600" height="20" bgcolor="#CCCCCC">
-               <h2>Attribute type: energy:daylightIlluminance</h2>
-            </td>
-            <td bgcolor="#CCCCCC">
-               <p><a href="#energy__BoundarySurface_daylightIlluminance_A">back</a></p>
-            </td>
-         </tr>
-      </table>
-      <h3>Definition</h3>
-      <p class="einzug10">Daylight illuminance/intensity (in Lux) incident on an tilted surface.</p>
-      <h3>Cardinality</h3>
-      <p class="einzug10">0..1</p>
-      <h3>Data type</h3><a href="energy__TimeSeries.html">
-         <p class="einzug10">_TimeSeries</p></a><br></br><a name="energy__BoundarySurface_equippedWith"></a><table width="800" border="0" cellspacing="3">
-         <tr>
-            <td width="600" height="20" bgcolor="#CCCCCC">
-               <h2>Attribute type: energy:equippedWith</h2>
-            </td>
-            <td bgcolor="#CCCCCC">
-               <p><a href="#energy__BoundarySurface_equippedWith_A">back</a></p>
-            </td>
-         </tr>
-      </table>
-      <h3>Definition</h3>
-      <p class="einzug10"></p>
-      <h3>Cardinality</h3>
-      <p class="einzug10">0..*</p>
-      <h3>Data type</h3><a href="energy__SolarEnergySystem.html">
-         <p class="einzug10">_SolarEnergySystem</p></a><br></br><a name="energy__BoundarySurface_correspondsTo"></a><table width="800" border="0" cellspacing="3">
-         <tr>
-            <td width="600" height="20" bgcolor="#CCCCCC">
-               <h2>Attribute type: energy:correspondsTo</h2>
-            </td>
-            <td bgcolor="#CCCCCC">
-               <p><a href="#energy__BoundarySurface_correspondsTo_A">back</a></p>
-            </td>
-         </tr>
-      </table>
-      <h3>Definition</h3>
-      <p class="einzug10"></p>
-      <h3>Cardinality</h3>
-      <p class="einzug10">0..*</p>
-      <h3>Data type</h3><a href="energy_ThermalBoundary.html">
-         <p class="einzug10">ThermalBoundary</p></a></body>
+      <h3>Data type</h3><a href="energy_AbstractConstruction.html">
+         <p class="einzug10">AbstractConstruction</p></a></body>
 </html>

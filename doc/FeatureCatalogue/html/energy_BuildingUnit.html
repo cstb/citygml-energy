@@ -91,13 +91,6 @@ h3 {
                <p>ExternalReference</p>
             </td>
          </tr>
-         <tr><a name="core__CityObject_generalizesTo_A"></a><td width="600" height="20" bgcolor="#EEEEEE">
-               <p><a href="#core__CityObject_generalizesTo">core:generalizesTo</a></p>
-            </td>
-            <td width="600" height="20" bgcolor="#EEEEEE">
-               <p>_CityObject</p>
-            </td>
-         </tr>
          <tr><a name="core__CityObject_relativeToTerrain_A"></a><td width="600" height="20" bgcolor="#EEEEEE">
                <p><a href="#core__CityObject_relativeToTerrain">core:relativeToTerrain</a></p>
             </td>
@@ -144,7 +137,7 @@ h3 {
                <p><a href="#energy_BuildingUnit_ownershipType">energy:ownershipType</a></p>
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
-               <p>OwnershipType</p>
+               <p>OwnershipTypeValue</p>
             </td>
          </tr>
          <tr><a name="energy_BuildingUnit_floorArea_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
@@ -152,6 +145,13 @@ h3 {
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
                <p>FloorArea</p>
+            </td>
+         </tr>
+         <tr><a name="energy_BuildingUnit_energyPerformanceCertification_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_BuildingUnit_energyPerformanceCertification">energy:energyPerformanceCertification</a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>EnergyPerformanceCertification</p>
             </td>
          </tr>
          <tr><a name="energy_BuildingUnit_occupiedBy_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
@@ -168,8 +168,8 @@ h3 {
                <p>Address</p>
             </td>
          </tr>
-         <tr><a name="energy_BuildingUnit_has_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
-               <p><a href="#energy_BuildingUnit_has">energy:has</a></p>
+         <tr><a name="energy_BuildingUnit_equippedWith_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_BuildingUnit_equippedWith">energy:equippedWith</a></p>
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
                <p>Facilities</p>
@@ -222,22 +222,7 @@ h3 {
       <h3>Cardinality</h3>
       <p class="einzug10">0..*</p>
       <h3>Data type</h3>
-      <p class="einzug10">ExternalReference (DataType)</p><br></br><a name="core__CityObject_generalizesTo"></a><table width="800" border="0" cellspacing="3">
-         <tr>
-            <td width="600" height="20" bgcolor="#EEEEEE">
-               <h2>Attribute type: core:generalizesTo</h2>
-            </td>
-            <td bgcolor="#EEEEEE">
-               <p><a href="#core__CityObject_generalizesTo_A">back</a></p>
-            </td>
-         </tr>
-      </table>
-      <h3>Definition</h3>
-      <p class="einzug10"></p>
-      <h3>Cardinality</h3>
-      <p class="einzug10">0..*</p>
-      <h3>Data type</h3><a href="core__CityObject.html">
-         <p class="einzug10">_CityObject</p></a><br></br><a name="core__CityObject_relativeToTerrain"></a><table width="800" border="0" cellspacing="3">
+      <p class="einzug10">ExternalReference (DataType)</p><br></br><a name="core__CityObject_relativeToTerrain"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#EEEEEE">
                <h2>Attribute type: core:relativeToTerrain</h2>
@@ -483,7 +468,7 @@ h3 {
       <h3>Cardinality</h3>
       <p class="einzug10">0..1</p>
       <h3>Data type</h3>
-      <p class="einzug10">OwnershipType (CodeList)</p><br></br><table width="800" border="0" cellspacing="3">
+      <p class="einzug10">OwnershipTypeValue (CodeList)</p><br></br><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="70" height="20" bgcolor="#9DE5F7">
                <p><strong><em>Code</em></strong></p>
@@ -505,10 +490,10 @@ h3 {
          </tr>
          <tr>
             <td width="70" bgcolor="#EEEEEE">
-               <p>OccupantPublic</p>
+               <p>Government</p>
             </td>
             <td width="300" bgcolor="#EEEEEE">
-               <p>OccupantPublic</p>
+               <p>Government</p>
             </td>
             <td bgcolor="#EEEEEE">
                <h4></h4>
@@ -516,10 +501,10 @@ h3 {
          </tr>
          <tr>
             <td width="70" bgcolor="#EEEEEE">
-               <p>NonOccupantPrivate</p>
+               <p>Non Occupant Private Owner</p>
             </td>
             <td width="300" bgcolor="#EEEEEE">
-               <p>NonOccupantPrivate</p>
+               <p>Non Occupant Private Owner</p>
             </td>
             <td bgcolor="#EEEEEE">
                <h4></h4>
@@ -527,10 +512,10 @@ h3 {
          </tr>
          <tr>
             <td width="70" bgcolor="#EEEEEE">
-               <p>OccupantPrivate</p>
+               <p>Non Profit Organisation</p>
             </td>
             <td width="300" bgcolor="#EEEEEE">
-               <p>OccupantPrivate</p>
+               <p>Non Profit Organisation</p>
             </td>
             <td bgcolor="#EEEEEE">
                <h4></h4>
@@ -538,10 +523,10 @@ h3 {
          </tr>
          <tr>
             <td width="70" bgcolor="#EEEEEE">
-               <p>OtherOrCombination</p>
+               <p>Occupant Private Owner</p>
             </td>
             <td width="300" bgcolor="#EEEEEE">
-               <p>OtherOrCombination</p>
+               <p>Occupant Private Owner</p>
             </td>
             <td bgcolor="#EEEEEE">
                <h4></h4>
@@ -549,10 +534,21 @@ h3 {
          </tr>
          <tr>
             <td width="70" bgcolor="#EEEEEE">
-               <p>PropertyManagementCompany</p>
+               <p>Other Or Combination</p>
             </td>
             <td width="300" bgcolor="#EEEEEE">
-               <p>PropertyManagementCompany</p>
+               <p>Other Or Combination</p>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <h4></h4>
+            </td>
+         </tr>
+         <tr>
+            <td width="70" bgcolor="#EEEEEE">
+               <p>Property Management Company</p>
+            </td>
+            <td width="300" bgcolor="#EEEEEE">
+               <p>Property Management Company</p>
             </td>
             <td bgcolor="#EEEEEE">
                <h4></h4>
@@ -573,7 +569,24 @@ h3 {
       <h3>Cardinality</h3>
       <p class="einzug10">0..*</p>
       <h3>Data type</h3><a href="energy_FloorArea.html">
-         <p class="einzug10">FloorArea</p></a><br></br><a name="energy_BuildingUnit_occupiedBy"></a><table width="800" border="0" cellspacing="3">
+         <p class="einzug10">FloorArea</p></a><br></br><a name="energy_BuildingUnit_energyPerformanceCertification"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:energyPerformanceCertification</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_BuildingUnit_energyPerformanceCertification_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10">Energy Efficiency Rating according with a given certification or label (e.g. PassivHaus, LEED Platinium, KfW Effizienzhaus
+         100).
+      </p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..*</p>
+      <h3>Data type</h3><a href="energy_EnergyPerformanceCertification.html">
+         <p class="einzug10">EnergyPerformanceCertification</p></a><br></br><a name="energy_BuildingUnit_occupiedBy"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#CCCCCC">
                <h2>Attribute type: energy:occupiedBy</h2>
@@ -603,13 +616,13 @@ h3 {
       <h3>Cardinality</h3>
       <p class="einzug10">0..*</p>
       <h3>Data type</h3><a href="core_Address.html">
-         <p class="einzug10">Address</p></a><br></br><a name="energy_BuildingUnit_has"></a><table width="800" border="0" cellspacing="3">
+         <p class="einzug10">Address</p></a><br></br><a name="energy_BuildingUnit_equippedWith"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#CCCCCC">
-               <h2>Attribute type: energy:has</h2>
+               <h2>Attribute type: energy:equippedWith</h2>
             </td>
             <td bgcolor="#CCCCCC">
-               <p><a href="#energy_BuildingUnit_has_A">back</a></p>
+               <p><a href="#energy_BuildingUnit_equippedWith_A">back</a></p>
             </td>
          </tr>
       </table>

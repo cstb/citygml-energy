@@ -51,11 +51,11 @@ h3 {
 }      
       
     </style></head>
-   <body><a name=""></a><h1>energy:SystemOperation</h1>
+   <body><a name=""></a><h1>energy:WeatherData</h1>
       <h2>Type</h2>
-      <p class="einzug10">Feature Type</p>
+      <p class="einzug10">Object Type</p>
       <h2>Definition</h2>
-      <p class="einzug10">Operation mode details the operation of the energy conversion system for a specific end-use and operation time.</p>
+      <p class="einzug10">Data structure to model weather or climate data at the location of a building.</p>
       <h2>Belongs to module</h2>
       <p class="einzug10"><a href="Package_energy_Energy-ADE.html">energy:Energy-ADE</a></p>
       <h2>Attributes and associations</h2>
@@ -68,43 +68,43 @@ h3 {
                <p><strong><em>Type</em></strong></p>
             </td>
          </tr>
-         <tr><a name="energy_SystemOperation_endUse_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
-               <p><a href="#energy_SystemOperation_endUse">energy:endUse</a></p>
+         <tr><a name="energy_WeatherData_weatherDataType_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_WeatherData_weatherDataType">energy:weatherDataType</a></p>
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
-               <p>EndUseTypeValue</p>
+               <p>WeatherDataTypeValue</p>
             </td>
          </tr>
-         <tr><a name="energy_SystemOperation_operationTime_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
-               <p><a href="#energy_SystemOperation_operationTime">energy:operationTime</a></p>
+         <tr><a name="energy_WeatherData_values_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_WeatherData_values">energy:values</a></p>
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
-               <p>_Schedule</p>
+               <p>_TimeSeries</p>
             </td>
          </tr>
-         <tr><a name="energy_SystemOperation_yearlyGlobalEfficiency_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
-               <p><a href="#energy_SystemOperation_yearlyGlobalEfficiency">energy:yearlyGlobalEfficiency</a></p>
+         <tr><a name="energy_WeatherData_position_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_WeatherData_position">energy:position</a></p>
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
-               <p>Measure</p>
+               <p>GM_Point</p>
             </td>
          </tr>
-      </table><br></br><a name="energy_SystemOperation_endUse"></a><table width="800" border="0" cellspacing="3">
+      </table><br></br><a name="energy_WeatherData_weatherDataType"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#CCCCCC">
-               <h2>Attribute type: energy:endUse</h2>
+               <h2>Attribute type: energy:weatherDataType</h2>
             </td>
             <td bgcolor="#CCCCCC">
-               <p><a href="#energy_SystemOperation_endUse_A">back</a></p>
+               <p><a href="#energy_WeatherData_weatherDataType_A">back</a></p>
             </td>
          </tr>
       </table>
       <h3>Definition</h3>
-      <p class="einzug10">Category of end use related to an energy use.</p>
+      <p class="einzug10">Type of the meteorological or physical parameter.</p>
       <h3>Cardinality</h3>
       <p class="einzug10">1</p>
       <h3>Data type</h3>
-      <p class="einzug10">EndUseTypeValue (Enumeration)</p><br></br><table width="800" border="0" cellspacing="3">
+      <p class="einzug10">WeatherDataTypeValue (Enumeration)</p><br></br><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="70" height="20" bgcolor="#9DE5F7">
                <p><strong><em>Code</em></strong></p>
@@ -115,133 +115,144 @@ h3 {
          </tr>
          <tr>
             <td width="70" bgcolor="#EEEEEE">
-               <p>Cooking</p>
+               <p>AirTemperature</p>
             </td>
             <td width="300" bgcolor="#EEEEEE">
-               <p>Cooking</p>
+               <p>AirTemperature</p>
             </td>
             <td bgcolor="#EEEEEE">
-               <h4></h4>
+               <h4>Temparature of air</h4>
             </td>
          </tr>
          <tr>
             <td width="70" bgcolor="#EEEEEE">
-               <p>DomesticHotWater</p>
+               <p>Humidity</p>
             </td>
             <td width="300" bgcolor="#EEEEEE">
-               <p>DomesticHotWater</p>
+               <p>Humidity</p>
             </td>
             <td bgcolor="#EEEEEE">
-               <h4></h4>
+               <h4>Relative air humidity</h4>
             </td>
          </tr>
          <tr>
             <td width="70" bgcolor="#EEEEEE">
-               <p>ElectricalAppliances</p>
+               <p>WindSpeed</p>
             </td>
             <td width="300" bgcolor="#EEEEEE">
-               <p>ElectricalAppliances</p>
+               <p>WindSpeed</p>
             </td>
             <td bgcolor="#EEEEEE">
-               <h4></h4>
+               <h4>Speed of wind</h4>
             </td>
          </tr>
          <tr>
             <td width="70" bgcolor="#EEEEEE">
-               <p>Lighting</p>
+               <p>Cloudiness</p>
             </td>
             <td width="300" bgcolor="#EEEEEE">
-               <p>Lighting</p>
+               <p>Cloudiness</p>
             </td>
             <td bgcolor="#EEEEEE">
-               <h4></h4>
+               <h4>Cloud amount in eights.</h4>
             </td>
          </tr>
          <tr>
             <td width="70" bgcolor="#EEEEEE">
-               <p>OtherOrCombination</p>
+               <p>GlobalSolarIrradiance</p>
             </td>
             <td width="300" bgcolor="#EEEEEE">
-               <p>OtherOrCombination</p>
+               <p>GlobalSolarIrradiance</p>
             </td>
             <td bgcolor="#EEEEEE">
-               <h4></h4>
+               <h4>Total solar irradiance (Energy per area) on a horizontal area.</h4>
             </td>
          </tr>
          <tr>
             <td width="70" bgcolor="#EEEEEE">
-               <p>SpaceCooling</p>
+               <p>DirectSolarIrradiance</p>
             </td>
             <td width="300" bgcolor="#EEEEEE">
-               <p>SpaceCooling</p>
+               <p>DirectSolarIrradiance</p>
             </td>
             <td bgcolor="#EEEEEE">
-               <h4>Processes of cooling down the space.</h4>
+               <h4>Direct solar irradiance (energy per area) on a horizontal surface.</h4>
             </td>
          </tr>
          <tr>
             <td width="70" bgcolor="#EEEEEE">
-               <p>SpaceHeating</p>
+               <p>DiffuseSolarIrradiance</p>
             </td>
             <td width="300" bgcolor="#EEEEEE">
-               <p>SpaceHeating</p>
+               <p>DiffuseSolarIrradiance</p>
             </td>
             <td bgcolor="#EEEEEE">
-               <h4>Processes of heating up the space.</h4>
+               <h4>Diffuse solar irradiance (energy per area) on a horizontal surface.</h4>
             </td>
          </tr>
          <tr>
             <td width="70" bgcolor="#EEEEEE">
-               <p>Ventilation</p>
+               <p>TerrestrialEmission</p>
             </td>
             <td width="300" bgcolor="#EEEEEE">
-               <p>Ventilation</p>
+               <p>TerrestrialEmission</p>
             </td>
             <td bgcolor="#EEEEEE">
-               <h4></h4>
+               <h4>Long wave emission of the earth*s surface (energy per area).</h4>
             </td>
          </tr>
          <tr>
             <td width="70" bgcolor="#EEEEEE">
-               <p>Process</p>
+               <p>DownwardTerrestrialRadiation</p>
             </td>
             <td width="300" bgcolor="#EEEEEE">
-               <p>Process</p>
+               <p>DownwardTerrestrialRadiation</p>
             </td>
             <td bgcolor="#EEEEEE">
-               <h4></h4>
+               <h4>Downwards directed, long wave atmospheric re-emission.</h4>
             </td>
          </tr>
-      </table><br></br><a name="energy_SystemOperation_operationTime"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="70" bgcolor="#EEEEEE">
+               <p>DaylightIlluminance</p>
+            </td>
+            <td width="300" bgcolor="#EEEEEE">
+               <p>DaylightIlluminance</p>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <h4>Daylight illuminance</h4>
+            </td>
+         </tr>
+      </table><br></br><a name="energy_WeatherData_values"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#CCCCCC">
-               <h2>Attribute type: energy:operationTime</h2>
+               <h2>Attribute type: energy:values</h2>
             </td>
             <td bgcolor="#CCCCCC">
-               <p><a href="#energy_SystemOperation_operationTime_A">back</a></p>
+               <p><a href="#energy_WeatherData_values_A">back</a></p>
             </td>
          </tr>
       </table>
       <h3>Definition</h3>
-      <p class="einzug10"></p>
+      <p class="einzug10">Time series of data</p>
       <h3>Cardinality</h3>
-      <p class="einzug10">0..1</p>
-      <h3>Data type</h3><a href="energy__Schedule.html">
-         <p class="einzug10">_Schedule</p></a><br></br><a name="energy_SystemOperation_yearlyGlobalEfficiency"></a><table width="800" border="0" cellspacing="3">
+      <p class="einzug10">1</p>
+      <h3>Data type</h3><a href="energy__TimeSeries.html">
+         <p class="einzug10">_TimeSeries</p></a><br></br><a name="energy_WeatherData_position"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#CCCCCC">
-               <h2>Attribute type: energy:yearlyGlobalEfficiency</h2>
+               <h2>Attribute type: energy:position</h2>
             </td>
             <td bgcolor="#CCCCCC">
-               <p><a href="#energy_SystemOperation_yearlyGlobalEfficiency_A">back</a></p>
+               <p><a href="#energy_WeatherData_position_A">back</a></p>
             </td>
          </tr>
       </table>
       <h3>Definition</h3>
-      <p class="einzug10"></p>
+      <p class="einzug10">Measurement position.</p>
       <h3>Cardinality</h3>
       <p class="einzug10">0..1</p>
       <h3>Data type</h3>
-      <p class="einzug10">Measure</p>
+      <p class="einzug10">GM_Point (Type)</p>
    </body>
 </html>

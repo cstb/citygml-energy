@@ -72,7 +72,7 @@ h3 {
                <p><a href="#energy_DailySchedule_dayType">energy:dayType</a></p>
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
-               <p>DayType</p>
+               <p>DayTypeValue</p>
             </td>
          </tr>
          <tr><a name="energy_DailySchedule_schedule_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
@@ -97,7 +97,7 @@ h3 {
       <h3>Cardinality</h3>
       <p class="einzug10">1</p>
       <h3>Data type</h3>
-      <p class="einzug10">DayType (Enumeration)</p><br></br><table width="800" border="0" cellspacing="3">
+      <p class="einzug10">DayTypeValue (Enumeration)</p><br></br><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="70" height="20" bgcolor="#9DE5F7">
                <p><strong><em>Code</em></strong></p>
@@ -108,50 +108,6 @@ h3 {
          </tr>
          <tr>
             <td width="70" bgcolor="#EEEEEE">
-               <p>CustomDay1</p>
-            </td>
-            <td width="300" bgcolor="#EEEEEE">
-               <p>CustomDay1</p>
-            </td>
-            <td bgcolor="#EEEEEE">
-               <h4>Customized day type for a specific use - 1.</h4>
-            </td>
-         </tr>
-         <tr>
-            <td width="70" bgcolor="#EEEEEE">
-               <p>CustomDay2</p>
-            </td>
-            <td width="300" bgcolor="#EEEEEE">
-               <p>CustomDay2</p>
-            </td>
-            <td bgcolor="#EEEEEE">
-               <h4>Customized day type for a specific use - 2.</h4>
-            </td>
-         </tr>
-         <tr>
-            <td width="70" bgcolor="#EEEEEE">
-               <p>OtherDay</p>
-            </td>
-            <td width="300" bgcolor="#EEEEEE">
-               <p>OtherDay</p>
-            </td>
-            <td bgcolor="#EEEEEE">
-               <h4>All days other than those already specified in the ScheduleLoD3 object.</h4>
-            </td>
-         </tr>
-         <tr>
-            <td width="70" bgcolor="#EEEEEE">
-               <p>Holiday</p>
-            </td>
-            <td width="300" bgcolor="#EEEEEE">
-               <p>Holiday</p>
-            </td>
-            <td bgcolor="#EEEEEE">
-               <h4></h4>
-            </td>
-         </tr>
-         <tr>
-            <td width="70" bgcolor="#EEEEEE">
                <p>Monday</p>
             </td>
             <td width="300" bgcolor="#EEEEEE">
@@ -229,24 +185,13 @@ h3 {
          </tr>
          <tr>
             <td width="70" bgcolor="#EEEEEE">
-               <p>SummerDesignDay</p>
+               <p>DesignDay</p>
             </td>
             <td width="300" bgcolor="#EEEEEE">
-               <p>SummerDesignDay</p>
+               <p>DesignDay</p>
             </td>
             <td bgcolor="#EEEEEE">
                <h4>"Extrem summer" day used for the sizing and design of HVAC Systems in summer condition.</h4>
-            </td>
-         </tr>
-         <tr>
-            <td width="70" bgcolor="#EEEEEE">
-               <p>WinterDesignDay</p>
-            </td>
-            <td width="300" bgcolor="#EEEEEE">
-               <p>WinterDesignDay</p>
-            </td>
-            <td bgcolor="#EEEEEE">
-               <h4>"Extrem winter" day used for the sizing and design of HVAC Systems in winter condition.</h4>
             </td>
          </tr>
          <tr>
@@ -271,6 +216,17 @@ h3 {
                <h4>Saturday and Sunday.</h4>
             </td>
          </tr>
+         <tr>
+            <td width="70" bgcolor="#EEEEEE">
+               <p>TypicalDay</p>
+            </td>
+            <td width="300" bgcolor="#EEEEEE">
+               <p>TypicalDay</p>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <h4></h4>
+            </td>
+         </tr>
       </table><br></br><a name="energy_DailySchedule_schedule"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#CCCCCC">
@@ -282,7 +238,7 @@ h3 {
          </tr>
       </table>
       <h3>Definition</h3>
-      <p class="einzug10"></p>
+      <p class="einzug10">Time series of values for one day</p>
       <h3>Cardinality</h3>
       <p class="einzug10">1</p>
       <h3>Data type</h3><a href="energy__TimeSeries.html">

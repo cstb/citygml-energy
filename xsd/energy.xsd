@@ -1,87 +1,93 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<!--Erzeugt mit KIT (www.kit.edu) UmlToXmlTransformation-Software, Erstellungsdatum: 12.01.2016 10:00:46-->
-<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:energy="http://www.sig3d.org/citygml/2.0/energy/0.6.0" targetNamespace="http://www.sig3d.org/citygml/2.0/energy/0.6.0" xmlns:kit="http://www.kit.edu" xmlns:core="http://www.opengis.net/citygml/2.0" xmlns:bldg="http://www.opengis.net/citygml/building/2.0" xmlns:gml="http://www.opengis.net/gml" elementFormDefault="qualified" version="0.6.0">
+<!--Erzeugt mit KIT (www.kit.edu) UmlToXmlTransformation-Software, Erstellungsdatum: 29.06.2016 10:38:42-->
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:energy="http://www.sig3d.org/citygml/2.0/energy/0.7.0" targetNamespace="http://www.sig3d.org/citygml/2.0/energy/0.7.0" xmlns:kit="http://www.kit.edu" xmlns:core="http://www.opengis.net/citygml/2.0" xmlns:bldg="http://www.opengis.net/citygml/building/2.0" xmlns:gml="http://www.opengis.net/gml" elementFormDefault="qualified" version="0.7.0">
   <import namespace="http://www.opengis.net/citygml/2.0" schemaLocation="http://schemas.opengis.net/citygml/2.0/cityGMLBase.xsd" />
   <import namespace="http://www.opengis.net/citygml/building/2.0" schemaLocation="http://schemas.opengis.net/citygml/building/2.0/building.xsd" />
   <import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.1.1/base/gml.xsd" />
   <!--=========================================================================================-->
   <!--_AbstractBuilding-->
   <!--=========================================================================================-->
-  <element name="atticType" type="energy:ConditioningType" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" />
-  <element name="averageCeilingHeight" type="gml:LengthType" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" />
-  <element name="basementCeilingHeightAboveGroundSurface" type="gml:LengthType" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" />
-  <element name="basementType" type="energy:ConditioningType" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" />
   <element name="buildingType" type="gml:CodeType" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding">
     <annotation>
-      <appinfo>
-        <kit:referenzierteCodelist>energy:_AbstractBuilding</kit:referenzierteCodelist>
-      </appinfo>
+      <documentation>Classification of building according with their usage and form (e.g. single-family house, multi-family house, office building, industrial building).</documentation>
     </annotation>
   </element>
-  <element name="constructionStyle" type="string" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" />
-  <element name="eavesHeight" type="gml:LengthType" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" />
-  <element name="energyPerformanceCertification" type="energy:EnergyPerformanceCertificationPropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" />
-  <element name="grossVolume" type="gml:VolumeType" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" />
-  <element name="landmarked" type="boolean" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" />
-  <element name="referencePoint" type="gml:PointPropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" />
-  <element name="ridgeHeight" type="gml:LengthType" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" />
-  <element name="refurbishmentMeasureOnBuilding" type="energy:RefurbishmentMeasurePropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" />
-  <element name="has" type="energy:EnergyConversionSystemPropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding">
+  <element name="constructionWeight" type="energy:ConstructionWeightValue" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding">
     <annotation>
-      <appinfo>
-        <gml:targetElement>energy:EnergyConversionSystem</gml:targetElement>
-      </appinfo>
+      <documentation>Classification of building according with their construction structure.</documentation>
     </annotation>
   </element>
-  <element name="thermalZones" type="energy:ThermalZonePropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding">
+  <element name="energyPerformanceCertification" type="energy:EnergyPerformanceCertificationPropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding">
+    <annotation>
+      <documentation>Energy Efficiency Rating according with a given certification or label (e.g. PassivHaus, LEED Platinium, KfW Effizienzhaus 100).</documentation>
+    </annotation>
+  </element>
+  <element name="volume" type="energy:VolumeTypePropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding">
+    <annotation>
+      <documentation>Total volume delimited by the external building dimension.</documentation>
+    </annotation>
+  </element>
+  <element name="isLandmarked" type="boolean" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding">
+    <annotation>
+      <documentation>Landmark / heritage status of the building.</documentation>
+    </annotation>
+  </element>
+  <element name="referencePoint" type="gml:PointPropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding">
+    <annotation>
+      <documentation>Geographical location of the building.</documentation>
+    </annotation>
+  </element>
+  <element name="refurbishmentMeasureOnBuilding" type="energy:RefurbishmentMeasurePropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding">
+    <annotation>
+      <documentation>Reference designation of the degree of refurbishment. This reference may be European (from the Tabula project) or local (used for the Energy Action Plan of a city).</documentation>
+    </annotation>
+  </element>
+  <element name="thermalZone" type="energy:ThermalZonePropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding">
     <annotation>
       <appinfo>
         <gml:targetElement>energy:ThermalZone</gml:targetElement>
       </appinfo>
+      <documentation>Zone of a building considered as isothermal, which serves as space unit for the building heating/cooling calculation. This semantic object may be or not related to a geometric entity (Building, BuildingPart, Room etc.).</documentation>
     </annotation>
   </element>
-  <element name="usageZones" type="energy:UsageZonePropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding">
+  <element name="usageZone" type="energy:UsageZonePropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding">
     <annotation>
       <appinfo>
         <gml:targetElement>energy:UsageZone</gml:targetElement>
       </appinfo>
+      <documentation>Zone of a building with homogeneous usage type and indoor climate set-points</documentation>
     </annotation>
   </element>
-  <element name="floorArea" type="energy:FloorAreaPropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding" />
+  <element name="floorArea" type="energy:FloorAreaPropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding">
+    <annotation>
+      <documentation>Floor area considered for the normalization of the standard energy demands.</documentation>
+    </annotation>
+  </element>
+  <element name="heightAboveGround" type="energy:HeightAboveGroundPropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding">
+    <annotation>
+      <documentation>Building height above general ground. level. This elevation lies anywhere between between the lowest and the highest ground points of the construction.</documentation>
+    </annotation>
+  </element>
   <!--=========================================================================================-->
   <!--_BoundarySurface-->
   <!--=========================================================================================-->
-  <element name="refurbishmentMeasureOnBoundarySurface" type="energy:RefurbishmentMeasurePropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfBoundarySurface" />
-  <element name="globalSolarIrradiance" type="energy:_TimeSeriesPropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfBoundarySurface" />
-  <element name="daylightIlluminance" type="energy:_TimeSeriesPropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfBoundarySurface" />
-  <element name="equippedWith" type="energy:_SolarEnergySystemPropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfBoundarySurface">
+  <element name="refurbishmentMeasureOnBoundarySurface" type="energy:RefurbishmentMeasurePropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfBoundarySurface">
     <annotation>
-      <appinfo>
-        <gml:targetElement>energy:_SolarEnergySystem</gml:targetElement>
-      </appinfo>
+      <documentation>Reference designation of the degree of refurbishment. This reference may be European (from the Tabula project) or local (used for the Energy Action Plan of a city).</documentation>
     </annotation>
   </element>
-  <element name="correspondsTo" type="energy:ThermalBoundaryPropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfBoundarySurface">
+  <element name="boundarySurfaceConstruction" type="energy:AbstractConstructionPropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfBoundarySurface">
     <annotation>
-      <appinfo>
-        <gml:targetElement>energy:ThermalBoundary</gml:targetElement>
-      </appinfo>
+      <documentation>Reference to material data</documentation>
     </annotation>
   </element>
   <!--=========================================================================================-->
   <!--_CityObject-->
   <!--=========================================================================================-->
-  <element name="construction" type="energy:ConstructionPropertyType" substitutionGroup="core:_GenericApplicationPropertyOfCityObject">
+  <element name="energyConversionSystem" type="energy:EnergyConversionSystemPropertyType" substitutionGroup="core:_GenericApplicationPropertyOfCityObject">
     <annotation>
       <appinfo>
-        <gml:targetElement>energy:Construction</gml:targetElement>
-      </appinfo>
-    </annotation>
-  </element>
-  <element name="constructionOrientation" type="energy:ConstructionOrientationPropertyType" substitutionGroup="core:_GenericApplicationPropertyOfCityObject">
-    <annotation>
-      <appinfo>
-        <gml:targetElement>energy:ConstructionOrientation</gml:targetElement>
+        <gml:targetElement>energy:EnergyConversionSystem</gml:targetElement>
       </appinfo>
     </annotation>
   </element>
@@ -92,13 +98,36 @@
       </appinfo>
     </annotation>
   </element>
+  <element name="weatherData" type="energy:WeatherDataPropertyType" substitutionGroup="core:_GenericApplicationPropertyOfCityObject">
+    <annotation>
+      <appinfo>
+        <gml:targetElement>energy:WeatherData</gml:targetElement>
+      </appinfo>
+    </annotation>
+  </element>
   <!--=========================================================================================-->
   <!--_Opening-->
   <!--=========================================================================================-->
-  <element name="indoorShading" type="energy:ShadingTypePropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfOpening" />
-  <element name="openableRatio" type="gml:ScaleType" substitutionGroup="bldg:_GenericApplicationPropertyOfOpening" />
-  <element name="outdoorShading" type="energy:ShadingTypePropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfOpening" />
-  <element name="refurbishmentMeasureOnOpening" type="energy:RefurbishmentMeasurePropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfOpening" />
+  <element name="indoorShading" type="energy:ShadingTypePropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfOpening">
+    <annotation>
+      <documentation>Shading system installed on the interior surface of the opening.</documentation>
+    </annotation>
+  </element>
+  <element name="openableRatio" type="gml:ScaleType" substitutionGroup="bldg:_GenericApplicationPropertyOfOpening">
+    <annotation>
+      <documentation>Fraction of the opening area which can be opened.</documentation>
+    </annotation>
+  </element>
+  <element name="outdoorShading" type="energy:ShadingTypePropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfOpening">
+    <annotation>
+      <documentation>Shading system installed on the outside opening surface.</documentation>
+    </annotation>
+  </element>
+  <element name="openingConstruction" type="energy:AbstractConstructionPropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfOpening">
+    <annotation>
+      <documentation>Reference to material data</documentation>
+    </annotation>
+  </element>
   <!--=========================================================================================-->
   <!--_Schedule-->
   <!--=========================================================================================-->
@@ -125,13 +154,19 @@
     <complexContent>
       <extension base="energy:EnergyConversionSystemType">
         <sequence>
-          <element name="collectorSurface" type="gml:AreaType" />
-          <element name="panelAzimuth" type="gml:AngleType" />
-          <element name="panelInclination" type="gml:AngleType" />
-          <element name="installedOn" minOccurs="0" maxOccurs="unbounded" type="gml:ReferenceType">
+          <element name="surfaceGeometry" minOccurs="0" type="gml:MultiSurfacePropertyType" />
+          <element name="installedOnBoundarySurface" minOccurs="0" type="gml:ReferenceType">
             <annotation>
               <appinfo>
                 <gml:targetElement>bldg:_BoundarySurface</gml:targetElement>
+              </appinfo>
+              <documentation>Relation between the solar system and the building boundary surface on which it is installed</documentation>
+            </annotation>
+          </element>
+          <element name="installedOnBuildingInstallation" minOccurs="0" type="bldg:BuildingInstallationPropertyType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>bldg:BuildingInstallation</gml:targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -154,7 +189,17 @@
       <documentation>System storing energy. A same storage may store the energy of different end-users and different end-use.</documentation>
     </annotation>
     <complexContent>
-      <extension base="gml:AbstractFeatureType" />
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="serviceLife" minOccurs="0" type="energy:ServiceLifePropertyType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>energy:ServiceLife</gml:targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
     </complexContent>
   </complexType>
   <complexType name="_StorageSystemPropertyType">
@@ -174,7 +219,11 @@
     <complexContent>
       <extension base="gml:AbstractGMLType">
         <sequence>
-          <element name="variableProperties" minOccurs="0" type="energy:TimeValuesPropertiesPropertyType" />
+          <element name="variableProperties" type="energy:TimeValuesPropertiesPropertyType">
+            <annotation>
+              <documentation>Set of properties of the variable of the time series.</documentation>
+            </annotation>
+          </element>
         </sequence>
       </extension>
     </complexContent>
@@ -186,17 +235,42 @@
     <attributeGroup ref="gml:AssociationAttributeGroup" />
   </complexType>
   <!--=========================================================================================-->
+  <!--AbstractConstruction-->
+  <!--=========================================================================================-->
+  <element abstract="true" name="AbstractConstruction" type="energy:AbstractConstructionType" substitutionGroup="gml:_Feature" />
+  <complexType abstract="true" name="AbstractConstructionType">
+    <annotation>
+      <documentation>Abstract super class of Construction and ConstructionOrientation.</documentation>
+    </annotation>
+    <complexContent>
+      <extension base="gml:AbstractFeatureType" />
+    </complexContent>
+  </complexType>
+  <complexType name="AbstractConstructionPropertyType">
+    <sequence>
+      <element ref="energy:AbstractConstruction" minOccurs="0" />
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup" />
+  </complexType>
+  <!--=========================================================================================-->
   <!--AbstractMaterial-->
   <!--=========================================================================================-->
-  <element abstract="true" name="AbstractMaterial" type="energy:AbstractMaterialType" substitutionGroup="core:_CityObject" />
+  <element abstract="true" name="AbstractMaterial" type="energy:AbstractMaterialType" substitutionGroup="gml:_Feature" />
   <complexType abstract="true" name="AbstractMaterialType">
     <annotation>
       <documentation>Abstract superclass for all Material classes. A Material is a homogeneous substance that can be used to form elements.</documentation>
     </annotation>
     <complexContent>
-      <extension base="core:AbstractCityObjectType">
+      <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element name="imageTexture" minOccurs="0" type="energy:ImageTexturePropertyType" />
+          <element name="imageTexture" minOccurs="0" type="energy:ImageTexturePropertyType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>energy:ImageTexture</gml:targetElement>
+              </appinfo>
+              <documentation>Reference to a texture file</documentation>
+            </annotation>
+          </element>
         </sequence>
       </extension>
     </complexContent>
@@ -208,6 +282,41 @@
     <attributeGroup ref="gml:AssociationAttributeGroup" />
   </complexType>
   <!--=========================================================================================-->
+  <!--AcquisitionMethodValue-->
+  <!--=========================================================================================-->
+  <simpleType name="AcquisitionMethodValue">
+    <annotation>
+      <documentation>&lt;b&gt;Note&lt;/b&gt;: May be converted to CodeList in next version.</documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Measurement">
+        <annotation>
+          <documentation>Measured data</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Simulation">
+        <annotation>
+          <documentation>Simulated data</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="CalibratedSimulation">
+        <annotation>
+          <documentation>Data of a calibrated simulation</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Estimation">
+        <annotation>
+          <documentation>Estimated data</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Unknown">
+        <annotation>
+          <documentation>Unknown acquisition method</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <!--=========================================================================================-->
   <!--Boiler-->
   <!--=========================================================================================-->
   <element name="Boiler" type="energy:BoilerType" substitutionGroup="energy:EnergyConversionSystem" />
@@ -218,7 +327,11 @@
     <complexContent>
       <extension base="energy:EnergyConversionSystemType">
         <sequence>
-          <element name="condensation" type="boolean" />
+          <element name="condensation" type="boolean">
+            <annotation>
+              <documentation>True if the boiler use the condensing process, it means extract additional heat from the waste gases by condensing this water vapour to liquid water. False otherwise.</documentation>
+            </annotation>
+          </element>
         </sequence>
       </extension>
     </complexContent>
@@ -240,19 +353,52 @@
     <complexContent>
       <extension base="core:AbstractCityObjectType">
         <sequence>
-          <element name="numberOfRooms" minOccurs="0" type="integer" />
-          <element name="ownerName" minOccurs="0" type="string" />
+          <element name="numberOfRooms" minOccurs="0" type="int">
+            <annotation>
+              <documentation>Number of separated rooms other than a circulation space in the building unit.</documentation>
+            </annotation>
+          </element>
+          <element name="ownerName" minOccurs="0" type="string">
+            <annotation>
+              <documentation>Name of the owner.</documentation>
+            </annotation>
+          </element>
           <element name="ownershipType" minOccurs="0" type="gml:CodeType">
             <annotation>
+              <documentation>Type of organisations, associations, businesses etc. that owns the building (e.g. individual, public authority, property management company, non-profit organisation etc.).</documentation>
+            </annotation>
+          </element>
+          <element name="floorArea" minOccurs="0" maxOccurs="unbounded" type="energy:FloorAreaPropertyType">
+            <annotation>
+              <documentation>Usable floor area (or net internal area) of the building unit.</documentation>
+            </annotation>
+          </element>
+          <element name="energyPerformanceCertification" minOccurs="0" maxOccurs="unbounded" type="energy:EnergyPerformanceCertificationPropertyType">
+            <annotation>
+              <documentation>Energy Efficiency Rating according with a given certification or label (e.g. PassivHaus, LEED Platinium, KfW Effizienzhaus 100).</documentation>
+            </annotation>
+          </element>
+          <element name="occupiedBy" minOccurs="0" maxOccurs="unbounded" type="energy:OccupantsPropertyType">
+            <annotation>
               <appinfo>
-                <kit:referenzierteCodelist>energy:OwnershipType</kit:referenzierteCodelist>
+                <gml:targetElement>energy:Occupants</gml:targetElement>
               </appinfo>
             </annotation>
           </element>
-          <element name="floorArea" minOccurs="0" maxOccurs="unbounded" type="energy:FloorAreaPropertyType" />
-          <element name="occupiedBy" minOccurs="0" maxOccurs="unbounded" type="energy:OccupantsPropertyType" />
-          <element name="address" minOccurs="0" maxOccurs="unbounded" type="core:AddressPropertyType" />
-          <element name="has" minOccurs="0" maxOccurs="unbounded" type="energy:FacilitiesPropertyType" />
+          <element name="address" minOccurs="0" maxOccurs="unbounded" type="core:AddressPropertyType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>core:Address</gml:targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="equippedWith" minOccurs="0" maxOccurs="unbounded" type="energy:FacilitiesPropertyType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>energy:Facilities</gml:targetElement>
+              </appinfo>
+            </annotation>
+          </element>
         </sequence>
       </extension>
     </complexContent>
@@ -264,6 +410,25 @@
     <attributeGroup ref="gml:AssociationAttributeGroup" />
   </complexType>
   <!--=========================================================================================-->
+  <!--CellTypeValue-->
+  <!--=========================================================================================-->
+  <simpleType name="CellTypeValue">
+    <restriction base="string">
+      <enumeration value="Monocrystalline" />
+      <enumeration value="Polycrystalline" />
+      <enumeration value="Amorphous" />
+    </restriction>
+  </simpleType>
+  <!--=========================================================================================-->
+  <!--CollectorTypeValue-->
+  <!--=========================================================================================-->
+  <simpleType name="CollectorTypeValue">
+    <restriction base="string">
+      <enumeration value="FlatPlaneCollector" />
+      <enumeration value="EvacuatedTubeCollector" />
+    </restriction>
+  </simpleType>
+  <!--=========================================================================================-->
   <!--CombinedHeatPower-->
   <!--=========================================================================================-->
   <element name="CombinedHeatPower" type="energy:CombinedHeatPowerType" substitutionGroup="energy:EnergyConversionSystem" />
@@ -274,7 +439,21 @@
     <complexContent>
       <extension base="energy:EnergyConversionSystemType">
         <sequence>
-          <element name="technologyType" type="string" />
+          <element name="technologyType" type="string">
+            <annotation>
+              <documentation>Cogeneration technology (e.g. Stirling motor, engine motor, turbine).</documentation>
+            </annotation>
+          </element>
+          <element name="thermalEfficiency" minOccurs="0" type="gml:ScaleType">
+            <annotation>
+              <documentation>Efficiency of the heat production, corresponding to the quotient of the thermal output over the fuel input.</documentation>
+            </annotation>
+          </element>
+          <element name="electricalEfficiency" minOccurs="0" type="gml:ScaleType">
+            <annotation>
+              <documentation>Efficiency of the power production, corresponding to the quotient of the electrical output over the fuel input.</documentation>
+            </annotation>
+          </element>
         </sequence>
       </extension>
     </complexContent>
@@ -286,30 +465,21 @@
     <attributeGroup ref="gml:AssociationAttributeGroup" />
   </complexType>
   <!--=========================================================================================-->
-  <!--ConditioningType-->
-  <!--=========================================================================================-->
-  <simpleType name="ConditioningType">
-    <annotation>
-      <documentation>Conditioned status of a building part.</documentation>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="Conditioned" />
-      <enumeration value="Unconditioned" />
-      <enumeration value="None" />
-    </restriction>
-  </simpleType>
-  <!--=========================================================================================-->
   <!--ConstantValueSchedule-->
   <!--=========================================================================================-->
   <element name="ConstantValueSchedule" type="energy:ConstantValueScheduleType" substitutionGroup="energy:_Schedule" />
   <complexType name="ConstantValueScheduleType">
     <annotation>
-      <documentation>Lowest Level of Detail of the schedule representation, consisting in a constant value.</documentation>
+      <documentation>Schedule representation consisting of a constant value.</documentation>
     </annotation>
     <complexContent>
       <extension base="energy:_ScheduleType">
         <sequence>
-          <element name="averageValue" type="gml:MeasureType" />
+          <element name="averageValue" type="gml:MeasureType">
+            <annotation>
+              <documentation>Average variable value.</documentation>
+            </annotation>
+          </element>
         </sequence>
       </extension>
     </complexContent>
@@ -323,18 +493,40 @@
   <!--=========================================================================================-->
   <!--Construction-->
   <!--=========================================================================================-->
-  <element name="Construction" type="energy:ConstructionType" substitutionGroup="core:_CityObject" />
+  <element name="Construction" type="energy:ConstructionType" substitutionGroup="energy:AbstractConstruction" />
   <complexType name="ConstructionType">
     <annotation>
       <documentation>A Construction is a combination of layers, such as a wall or a roof.
 &amp;lt;p&amp;gt; &amp;lt;img src="../png/Construction-Layer-Illustration.png"&amp;gt;&amp;lt;/p&amp;gt;</documentation>
     </annotation>
     <complexContent>
-      <extension base="core:AbstractCityObjectType">
+      <extension base="energy:AbstractConstructionType">
         <sequence>
-          <element name="uValue" minOccurs="0" type="gml:MeasureType" />
-          <element name="opticalProperties" minOccurs="0" type="energy:OpticalPropertiesPropertyType" />
-          <element name="layer" minOccurs="0" maxOccurs="unbounded" type="energy:LayerPropertyType" />
+          <element name="uValue" minOccurs="0" type="gml:MeasureType">
+            <annotation>
+              <documentation>Overall heat transfer coefficient. It represents the heat flux transfer through a construction, normalized by the construction surface and the difference of temperature across the construction, at steady state.</documentation>
+            </annotation>
+          </element>
+          <element name="opticalProperties" minOccurs="0" type="energy:OpticalPropertiesPropertyType">
+            <annotation>
+              <documentation>Optical properties of a Construction</documentation>
+            </annotation>
+          </element>
+          <element name="serviceLife" minOccurs="0" type="energy:ServiceLifePropertyType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>energy:ServiceLife</gml:targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="layer" minOccurs="0" maxOccurs="unbounded" type="energy:LayerPropertyType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>energy:Layer</gml:targetElement>
+              </appinfo>
+              <documentation>Reference to layers that comprise this construction. Multiple LayerId's order is important and specifies the layering of the layer's referenced materials. The first Surface/AdjacentSpaceId entered will determine how the referenced construction layers are ordered with the first construction layer being in contact with the outside or 2nd Surface/AdjacentSpaceId listed and the last layer in contact with the first Surface/AdjacentSpaceId listed</documentation>
+            </annotation>
+          </element>
         </sequence>
       </extension>
     </complexContent>
@@ -346,40 +538,54 @@
     <attributeGroup ref="gml:AssociationAttributeGroup" />
   </complexType>
   <!--=========================================================================================-->
-  <!--ConstructionOrientation-->
+  <!--ConstructionWeightValue-->
   <!--=========================================================================================-->
-  <element name="ConstructionOrientation" type="energy:ConstructionOrientationType" substitutionGroup="core:_CityObject" />
-  <complexType name="ConstructionOrientationType">
+  <simpleType name="ConstructionWeightValue">
     <annotation>
-      <documentation>Determines the usage of Construction in terms of the Layer order.</documentation>
+      <documentation>Very light construction</documentation>
     </annotation>
-    <complexContent>
-      <extension base="core:AbstractCityObjectType">
-        <sequence>
-          <element name="orientation" type="boolean" />
-          <element name="baseConstruction" type="energy:ConstructionPropertyType" />
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="ConstructionOrientationPropertyType">
-    <sequence>
-      <element ref="energy:ConstructionOrientation" minOccurs="0" />
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup" />
-  </complexType>
+    <restriction base="string">
+      <enumeration value="VeryLight">
+        <annotation>
+          <documentation>Very light construction</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Light">
+        <annotation>
+          <documentation>Light construction</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Medium">
+        <annotation>
+          <documentation>Medium construction</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Heavy">
+        <annotation>
+          <documentation>Heavy construction</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
   <!--=========================================================================================-->
   <!--DailyPatternSchedule-->
   <!--=========================================================================================-->
   <element name="DailyPatternSchedule" type="energy:DailyPatternScheduleType" substitutionGroup="energy:_Schedule" />
   <complexType name="DailyPatternScheduleType">
     <annotation>
-      <documentation>Level of Detail 2 of the schedule representation, consisting in a set of daily schedules associated to recurrent day types (weekday, weekend etc.).</documentation>
+      <documentation>Schedule representation consisting iofa set of daily schedules associated to recurrent day types (weekday, weekend etc.). In different time periods within a year, different daily schedules may be associated to a day type.</documentation>
     </annotation>
     <complexContent>
       <extension base="energy:_ScheduleType">
         <sequence>
-          <element name="dailySchedule" maxOccurs="unbounded" type="energy:DailySchedulePropertyType" />
+          <element name="periodOfYear" maxOccurs="unbounded" type="energy:PeriodOfYearPropertyType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>energy:PeriodOfYear</gml:targetElement>
+              </appinfo>
+              <documentation>Schedule over a one day period (from 0:00 to 24:00).</documentation>
+            </annotation>
+          </element>
         </sequence>
       </extension>
     </complexContent>
@@ -399,8 +605,16 @@
       <documentation>Schedule over a one day period (from 0:00 to 24:00).</documentation>
     </annotation>
     <sequence>
-      <element name="dayType" type="energy:DayType" />
-      <element name="schedule" type="energy:_TimeSeriesPropertyType" />
+      <element name="dayType" type="energy:DayTypeValue">
+        <annotation>
+          <documentation>Type referring to a day categorization (e.g weekDay, weekEnd).</documentation>
+        </annotation>
+      </element>
+      <element name="schedule" type="energy:_TimeSeriesPropertyType">
+        <annotation>
+          <documentation>Time series of values for one day</documentation>
+        </annotation>
+      </element>
     </sequence>
   </complexType>
   <complexType name="DailySchedulePropertyType">
@@ -417,8 +631,16 @@
       <documentation>Specifies either an exact time instant or a time span</documentation>
     </annotation>
     <choice>
-      <element name="instant" type="gml:TimePositionType" />
-      <element name="period" type="gml:TimePeriodPropertyType" />
+      <element name="instant" type="gml:TimePositionType">
+        <annotation>
+          <documentation>Daten and/or time of the event</documentation>
+        </annotation>
+      </element>
+      <element name="period" type="gml:TimePeriodPropertyType">
+        <annotation>
+          <documentation>Begin and end of the event</documentation>
+        </annotation>
+      </element>
     </choice>
   </complexType>
   <complexType name="DateOfEventPropertyType">
@@ -427,17 +649,13 @@
     </sequence>
   </complexType>
   <!--=========================================================================================-->
-  <!--DayType-->
+  <!--DayTypeValue-->
   <!--=========================================================================================-->
-  <simpleType name="DayType">
+  <simpleType name="DayTypeValue">
     <annotation>
       <documentation>Type referring to a day categorization.</documentation>
     </annotation>
     <restriction base="string">
-      <enumeration value="CustomDay1" />
-      <enumeration value="CustomDay2" />
-      <enumeration value="OtherDay" />
-      <enumeration value="Holiday" />
       <enumeration value="Monday" />
       <enumeration value="Tuesday" />
       <enumeration value="Wednesday" />
@@ -445,10 +663,22 @@
       <enumeration value="Friday" />
       <enumeration value="Saturday" />
       <enumeration value="Sunday" />
-      <enumeration value="SummerDesignDay" />
-      <enumeration value="WinterDesignDay" />
-      <enumeration value="WeekDay" />
-      <enumeration value="WeekEnd" />
+      <enumeration value="DesignDay">
+        <annotation>
+          <documentation>"Extrem summer" day used for the sizing and design of HVAC Systems in summer condition.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="WeekDay">
+        <annotation>
+          <documentation>Monday to Friday.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="WeekEnd">
+        <annotation>
+          <documentation>Saturday and Sunday.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="TypicalDay" />
     </restriction>
   </simpleType>
   <!--=========================================================================================-->
@@ -462,9 +692,21 @@
     <complexContent>
       <extension base="energy:FacilitiesType">
         <sequence>
-          <element name="numberOfBaths" minOccurs="0" type="integer" />
-          <element name="numberOfShowers" minOccurs="0" type="integer" />
-          <element name="numberOfWashBasins" minOccurs="0" type="integer" />
+          <element name="numberOfBaths" minOccurs="0" type="int">
+            <annotation>
+              <documentation>Number of baths in a given building unit/zone.</documentation>
+            </annotation>
+          </element>
+          <element name="numberOfShowers" minOccurs="0" type="int">
+            <annotation>
+              <documentation>Number of showers in a given building unit/zone.</documentation>
+            </annotation>
+          </element>
+          <element name="numberOfWashBasins" minOccurs="0" type="int">
+            <annotation>
+              <documentation>Number of wash basin in a given building unit/zone.</documentation>
+            </annotation>
+          </element>
           <element name="waterStorageVolume" minOccurs="0" type="gml:VolumeType" />
         </sequence>
       </extension>
@@ -477,19 +719,43 @@
     <attributeGroup ref="gml:AssociationAttributeGroup" />
   </complexType>
   <!--=========================================================================================-->
-  <!--DistributionType-->
+  <!--DistributionTypeValue-->
   <!--=========================================================================================-->
-  <simpleType name="DistributionType">
+  <simpleType name="DistributionTypeValue">
     <annotation>
       <documentation>Classification referring to energy distribution art between the energy conversion system and the end-use place.</documentation>
     </annotation>
     <restriction base="string">
-      <enumeration value="Building" />
-      <enumeration value="Dwelling" />
-      <enumeration value="GroupOfBuildings" />
-      <enumeration value="Room" />
-      <enumeration value="Staircase" />
-      <enumeration value="Storey" />
+      <enumeration value="Building">
+        <annotation>
+          <documentation>Building with a unique energy conversion system.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Dwelling">
+        <annotation>
+          <documentation>One energy conversion system per dwelling.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="GroupOfBuildings">
+        <annotation>
+          <documentation>Group of Building with a unique energy conversion system.The energy distribution runs between the buildings.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Room">
+        <annotation>
+          <documentation>One energy conversion system per room.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Staircase">
+        <annotation>
+          <documentation>One energy conversion system per building stair-case, with a distribution system supplying vertically the premises of the different storeys.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Storey">
+        <annotation>
+          <documentation>One energy conversion system per storey, with a distribution system supplying horizontally the premises of whole storey.</documentation>
+        </annotation>
+      </enumeration>
     </restriction>
   </simpleType>
   <!--=========================================================================================-->
@@ -518,15 +784,27 @@
   <element name="DualValueSchedule" type="energy:DualValueScheduleType" substitutionGroup="energy:_Schedule" />
   <complexType name="DualValueScheduleType">
     <annotation>
-      <documentation>Level of Detail 1 of the schedule representation, consisting in a two-state schedule related to a usage time.</documentation>
+      <documentation>schedule representation consisting of a two-state schedule related to an amount of usage time.</documentation>
     </annotation>
     <complexContent>
       <extension base="energy:_ScheduleType">
         <sequence>
-          <element name="usageHoursPerDay" minOccurs="0" type="double" />
-          <element name="usageDaysPerYear" minOccurs="0" type="double" />
-          <element name="usageValue" type="gml:MeasureType" />
-          <element name="idleValue" type="gml:MeasureType" />
+          <element name="usageHoursPerDay" minOccurs="0" default="24" type="double" />
+          <element name="usageDaysPerYear" minOccurs="0" default="365" type="double">
+            <annotation>
+              <documentation>Number of days per year of usage.</documentation>
+            </annotation>
+          </element>
+          <element name="usageValue" type="gml:MeasureType">
+            <annotation>
+              <documentation>Variable value during usage time (e.g. set-point temperature).</documentation>
+            </annotation>
+          </element>
+          <element name="idleValue" type="gml:MeasureType">
+            <annotation>
+              <documentation>Variable value outside usage time (e.g. set-back temperature).</documentation>
+            </annotation>
+          </element>
         </sequence>
       </extension>
     </complexContent>
@@ -548,7 +826,11 @@
     <complexContent>
       <extension base="energy:FacilitiesType">
         <sequence>
-          <element name="electricalPower" minOccurs="0" type="gml:MeasureType" />
+          <element name="electricalPower" minOccurs="0" type="gml:MeasureType">
+            <annotation>
+              <documentation>Nominal electrical power of the electrical appliance.</documentation>
+            </annotation>
+          </element>
         </sequence>
       </extension>
     </complexContent>
@@ -575,6 +857,96 @@
     <attributeGroup ref="gml:AssociationAttributeGroup" />
   </complexType>
   <!--=========================================================================================-->
+  <!--ElevationReferenceValue-->
+  <!--=========================================================================================-->
+  <simpleType name="ElevationReferenceValue">
+    <annotation>
+      <documentation>&lt;b&gt;Note&lt;/b&gt;: May be converted to CodeList in next version.</documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="bottomOfConstruction">
+        <annotation>
+          <documentation>The elevation has been captured at the bottom of the usable part of the construction.
+
+NOTE: The bottom of usable part of a building is generally its lowest underground floor.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="entrancePoint">
+        <annotation>
+          <documentation>The elevation has been captured at the entrance of the construction, generally the bottom of entrance door.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="generalEave">
+        <annotation>
+          <documentation>The elevation has been captured at eave level, anywhere between the lowest and the highest eave levels of the construction.
+
+NOTE: in case of a roof having a symmetry axis, values generalEave, lowestEave and highestEave are equivalent.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="generalRoof">
+        <annotation>
+          <documentation>The elevation has been captured at roof level, anywhere between the lowest edge roof level and the top of the construction.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="generalRoofEdge">
+        <annotation>
+          <documentation>The elevation has been captured at roof edge level, anywhere between the lowest and the highest roof edges of the construction.
+
+NOTE: in case of a roof having a symmetry axis, values generalRoofEdge, lowestRoofEdge and highestRoofEdge are equivalent.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="highestEave">
+        <annotation>
+          <documentation>The elevation has been captured at the highest eave level of the construction.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="highestPoint">
+        <annotation>
+          <documentation>The elevation has been captured at the highest point of the construction, including the installations, such as chimneys and antennas.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="highestRoofEdge">
+        <annotation>
+          <documentation>The elevation has been captured at the highest roof edge level of the construction.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="lowestEave">
+        <annotation>
+          <documentation>The elevation has been captured at the lowest eave level of the construction.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="lowestFloorAboveGround">
+        <annotation>
+          <documentation>The elevation has been captured at the level of the lowest floor above ground.
+
+This value is of interest for over-hanging buildings or for buildings on pylons.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="lowestRoofEdge">
+        <annotation>
+          <documentation>The elevation has been captured at the lowest roof edge level of the construction.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="topOfConstruction">
+        <annotation>
+          <documentation>The elevation has been captured at the top level of the construction.
+
+NOTE: for buildings, it is generally top of the roof.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="topThermalBoundary">
+        <annotation>
+          <documentation>The elevation has been captured at the top of the highest Thermal Boundary.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="bottomThermalBoundary">
+        <annotation>
+          <documentation>The elevation has been captured at the bottom of the lowest Thermal Boundary.</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <!--=========================================================================================-->
   <!--Emissivity-->
   <!--=========================================================================================-->
   <element name="Emissivity" type="energy:EmissivityType" />
@@ -583,8 +955,16 @@
       <documentation>Percentaged infra-red emissivity</documentation>
     </annotation>
     <sequence>
-      <element name="fraction" type="gml:ScaleType" />
-      <element name="surface" type="energy:SurfaceSide" />
+      <element name="fraction" type="gml:ScaleType">
+        <annotation>
+          <documentation>Fraction (between 0 and 1) of energy emittance.</documentation>
+        </annotation>
+      </element>
+      <element name="surface" type="energy:SurfaceSide">
+        <annotation>
+          <documentation>Considered surface of the construction.</documentation>
+        </annotation>
+      </element>
     </sequence>
   </complexType>
   <complexType name="EmissivityPropertyType">
@@ -593,9 +973,9 @@
     </sequence>
   </complexType>
   <!--=========================================================================================-->
-  <!--EndUseType-->
+  <!--EndUseTypeValue-->
   <!--=========================================================================================-->
-  <simpleType name="EndUseType">
+  <simpleType name="EndUseTypeValue">
     <annotation>
       <documentation>Category of end use related to a building energy use.</documentation>
     </annotation>
@@ -605,8 +985,16 @@
       <enumeration value="ElectricalAppliances" />
       <enumeration value="Lighting" />
       <enumeration value="OtherOrCombination" />
-      <enumeration value="SpaceCooling" />
-      <enumeration value="SpaceHeating" />
+      <enumeration value="SpaceCooling">
+        <annotation>
+          <documentation>Processes of cooling down the space.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="SpaceHeating">
+        <annotation>
+          <documentation>Processes of heating up the space.</documentation>
+        </annotation>
+      </enumeration>
       <enumeration value="Ventilation" />
       <enumeration value="Process" />
     </restriction>
@@ -620,10 +1008,26 @@
       <documentation>Energy form containing the energy (e.g. fuel, renewable energy etc.)</documentation>
     </annotation>
     <sequence>
-      <element name="co2EmissionFactor" type="gml:MeasureType" />
-      <element name="energyDensity" minOccurs="0" type="gml:MeasureType" />
-      <element name="primaryEnergyFactor" type="gml:MeasureType" />
-      <element name="type" type="energy:EnergyCarrierTypeValues" />
+      <element name="co2EmissionFactor" type="gml:MeasureType">
+        <annotation>
+          <documentation>Equivalent carbon dioxide emitted by the combustion of 1 kWh energy carrier.</documentation>
+        </annotation>
+      </element>
+      <element name="energyDensity" minOccurs="0" type="gml:MeasureType">
+        <annotation>
+          <documentation>Amount of energy stored in a given volume of the energy carrier.</documentation>
+        </annotation>
+      </element>
+      <element name="primaryEnergyFactor" type="gml:MeasureType">
+        <annotation>
+          <documentation>Ratio of Final energy over Primary Energy.</documentation>
+        </annotation>
+      </element>
+      <element name="type" type="gml:CodeType">
+        <annotation>
+          <documentation>Name of Energy Carrier.</documentation>
+        </annotation>
+      </element>
     </sequence>
   </complexType>
   <complexType name="EnergyCarrierPropertyType">
@@ -631,29 +1035,6 @@
       <element ref="energy:EnergyCarrier" minOccurs="0" />
     </sequence>
   </complexType>
-  <!--=========================================================================================-->
-  <!--EnergyCarrierTypeValues-->
-  <!--=========================================================================================-->
-  <simpleType name="EnergyCarrierTypeValues">
-    <annotation>
-      <documentation>Name of energy form containing energy.</documentation>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="ChilledAir" />
-      <enumeration value="ChilledWater" />
-      <enumeration value="Coal" />
-      <enumeration value="Electricity" />
-      <enumeration value="FuelOil" />
-      <enumeration value="HotAir" />
-      <enumeration value="HotWater" />
-      <enumeration value="NaturalGas" />
-      <enumeration value="Propane" />
-      <enumeration value="Steam" />
-      <enumeration value="WoodChips" />
-      <enumeration value="WoodPellets" />
-      <enumeration value="SolarEnergy" />
-    </restriction>
-  </simpleType>
   <!--=========================================================================================-->
   <!--EnergyConversionSystem-->
   <!--=========================================================================================-->
@@ -665,25 +1046,86 @@
     <complexContent>
       <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element name="efficiencyIndicator" minOccurs="0" type="string" />
-          <element name="installedNominalPower" minOccurs="0" type="gml:MeasureType" />
-          <element name="model" minOccurs="0" type="string" />
-          <element name="nominalEfficiency" minOccurs="0" type="gml:MeasureType" />
-          <element name="number" minOccurs="0" type="integer" />
-          <element name="productAndInstallationDocument" minOccurs="0" type="core:ExternalReferenceType" />
-          <element name="yearOfManufacture" minOccurs="0" type="gYear" />
-          <element name="refurbishmentMeasureOnEnergySystem" minOccurs="0" maxOccurs="unbounded" type="energy:RefurbishmentMeasurePropertyType" />
-          <element name="installedIn" minOccurs="0" type="gml:ReferenceType">
+          <element name="efficiencyIndicator" minOccurs="0" type="string">
+            <annotation>
+              <documentation>Reference efficiency ratio used to quantify the system efficiency (e.g. COP, EER, W/(m3/h)).</documentation>
+            </annotation>
+          </element>
+          <element name="installedNominalPower" minOccurs="0" type="gml:MeasureType">
+            <annotation>
+              <documentation>Total nominal power of the energy conversion system.</documentation>
+            </annotation>
+          </element>
+          <element name="model" minOccurs="0" type="string">
+            <annotation>
+              <documentation>Model reference of the energy conversion system.</documentation>
+            </annotation>
+          </element>
+          <element name="nominalEfficiency" minOccurs="0" type="gml:MeasureType">
+            <annotation>
+              <documentation>Nominal ratio of energy output to input, according to manufacturer.</documentation>
+            </annotation>
+          </element>
+          <element name="number" minOccurs="0" type="int">
+            <annotation>
+              <documentation>Number of similar energy conversion units which constitutes the energy conversion system.</documentation>
+            </annotation>
+          </element>
+          <element name="productAndInstallationDocument" minOccurs="0" type="core:ExternalReferenceType">
+            <annotation>
+              <documentation>External documents adding information on the energy conversion system product and its installation.</documentation>
+            </annotation>
+          </element>
+          <element name="yearOfManufacture" minOccurs="0" type="gYear">
+            <annotation>
+              <documentation>Year of manufacture of the energy conversion system (its main equipments).</documentation>
+            </annotation>
+          </element>
+          <element name="serviceLife" minOccurs="0" type="energy:ServiceLifePropertyType">
             <annotation>
               <appinfo>
-                <gml:targetElement>bldg:_AbstractBuilding</gml:targetElement>
+                <gml:targetElement>energy:ServiceLife</gml:targetElement>
               </appinfo>
             </annotation>
           </element>
-          <element name="has" minOccurs="0" maxOccurs="unbounded" type="energy:SystemOperationPropertyType" />
-          <element name="consumes" minOccurs="0" maxOccurs="unbounded" type="energy:EnergySourcePropertyType" />
-          <element name="produces" minOccurs="0" maxOccurs="unbounded" type="energy:EnergySourcePropertyType" />
-          <element name="provides" minOccurs="0" maxOccurs="unbounded" type="energy:EnergyDemandPropertyType" />
+          <element name="installedIn" minOccurs="0" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>core:_CityObject</gml:targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="has" minOccurs="0" maxOccurs="unbounded" type="energy:SystemOperationPropertyType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>energy:SystemOperation</gml:targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="consumes" minOccurs="0" maxOccurs="unbounded" type="energy:FinalEnergyPropertyType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>energy:FinalEnergy</gml:targetElement>
+                <gml:reversePropertyName>energy:isConsumedBy</gml:reversePropertyName>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="produces" minOccurs="0" maxOccurs="unbounded" type="energy:FinalEnergyPropertyType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>energy:FinalEnergy</gml:targetElement>
+                <gml:reversePropertyName>energy:isProducedBy</gml:reversePropertyName>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="provides" minOccurs="0" maxOccurs="unbounded" type="energy:EnergyDemandPropertyType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>energy:EnergyDemand</gml:targetElement>
+                <gml:reversePropertyName>energy:isProvidedBy</gml:reversePropertyName>
+              </appinfo>
+            </annotation>
+          </element>
         </sequence>
       </extension>
     </complexContent>
@@ -705,12 +1147,39 @@
     <complexContent>
       <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element name="endUse" type="energy:EndUseType" />
-          <element name="energyAmount" minOccurs="0" type="energy:_TimeSeriesPropertyType" />
+          <element name="endUse" type="energy:EndUseTypeValue">
+            <annotation>
+              <documentation>Category of end use related to an energy use.</documentation>
+            </annotation>
+          </element>
+          <element name="energyAmount" minOccurs="0" type="energy:_TimeSeriesPropertyType">
+            <annotation>
+              <documentation>[TimeSeries] Time-depending amount of useful energy, corresponding to a specific end-use. It can be constituted of  simulated or monitored data, with different time resolutions (see TimeSeries model).</documentation>
+            </annotation>
+          </element>
           <element name="maximumLoad" minOccurs="0" type="gml:MeasureType" />
-          <element name="energyDistribution" minOccurs="0" maxOccurs="unbounded" type="energy:EnergyDistributionSystemPropertyType" />
-          <element name="storage" minOccurs="0" maxOccurs="unbounded" type="energy:_StorageSystemPropertyType" />
-          <element name="isProvidedBy" minOccurs="0" maxOccurs="unbounded" type="energy:EnergyConversionSystemPropertyType" />
+          <element name="energyDistribution" minOccurs="0" type="energy:EnergyDistributionSystemPropertyType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>energy:EnergyDistributionSystem</gml:targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="storage" minOccurs="0" maxOccurs="unbounded" type="energy:_StorageSystemPropertyType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>energy:_StorageSystem</gml:targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="isProvidedBy" minOccurs="0" maxOccurs="unbounded" type="energy:EnergyConversionSystemPropertyType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>energy:EnergyConversionSystem</gml:targetElement>
+                <gml:reversePropertyName>energy:provides</gml:reversePropertyName>
+              </appinfo>
+            </annotation>
+          </element>
         </sequence>
       </extension>
     </complexContent>
@@ -732,7 +1201,14 @@
     <complexContent>
       <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element name="distributionPerimeter" minOccurs="0" type="energy:DistributionType" />
+          <element name="serviceLife" minOccurs="0" type="energy:ServiceLifePropertyType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>energy:ServiceLife</gml:targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="distributionPerimeter" minOccurs="0" type="energy:DistributionTypeValue" />
         </sequence>
       </extension>
     </complexContent>
@@ -752,40 +1228,27 @@
       <documentation>Energy performance certification.</documentation>
     </annotation>
     <sequence>
-      <element name="certificationRating" type="string" />
-      <element name="certificationName" type="string" />
-      <element name="certificationId" minOccurs="0" type="string" />
+      <element name="certificationRating" type="string">
+        <annotation>
+          <documentation>Degree or value resulting from the certification assessment</documentation>
+        </annotation>
+      </element>
+      <element name="certificationName" type="string">
+        <annotation>
+          <documentation>Labeling system for the erengy certificate.</documentation>
+        </annotation>
+      </element>
+      <element name="certificationId" minOccurs="0" type="string">
+        <annotation>
+          <documentation>Identifier of the energy certificate.</documentation>
+        </annotation>
+      </element>
     </sequence>
   </complexType>
   <complexType name="EnergyPerformanceCertificationPropertyType">
     <sequence>
       <element ref="energy:EnergyPerformanceCertification" minOccurs="0" />
     </sequence>
-  </complexType>
-  <!--=========================================================================================-->
-  <!--EnergySource-->
-  <!--=========================================================================================-->
-  <element name="EnergySource" type="energy:EnergySourceType" substitutionGroup="gml:_Feature" />
-  <complexType name="EnergySourceType">
-    <annotation>
-      <documentation>Energy being consumed by an energy conversion system. It can be non-renewable (fuel) or renewable. It may be produced by another energy conversion system.The Energy produced by a conversion system and fed-in in the electrical grid or district network is also considered as EnergySource, since it also aims to be consumed by an energy conversion system, in another building (building block)</documentation>
-    </annotation>
-    <complexContent>
-      <extension base="gml:AbstractFeatureType">
-        <sequence>
-          <element name="energyAmount" minOccurs="0" type="energy:_TimeSeriesPropertyType" />
-          <element name="energyCarrier" type="energy:EnergyCarrierPropertyType" />
-          <element name="isConsumedBy" minOccurs="0" maxOccurs="unbounded" type="energy:EnergyConversionSystemPropertyType" />
-          <element name="isProducedBy" minOccurs="0" maxOccurs="unbounded" type="energy:EnergyConversionSystemPropertyType" />
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="EnergySourcePropertyType">
-    <sequence>
-      <element ref="energy:EnergySource" minOccurs="0" />
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup" />
   </complexType>
   <!--=========================================================================================-->
   <!--Facilities-->
@@ -798,8 +1261,19 @@
     <complexContent>
       <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element name="operationSchedule" minOccurs="0" type="energy:_SchedulePropertyType" />
-          <element name="heatDissipation" minOccurs="0" type="energy:HeatExchangeTypePropertyType" />
+          <element name="operationSchedule" minOccurs="0" type="energy:_SchedulePropertyType">
+            <annotation>
+              <documentation>Operational schedule of the facilities</documentation>
+            </annotation>
+          </element>
+          <element name="heatDissipation" minOccurs="0" type="energy:HeatExchangeTypePropertyType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>energy:HeatExchangeType</gml:targetElement>
+              </appinfo>
+              <documentation>Heat energy per year (in W) dissipated by the  facilities, in "nominal conditions",  when the facilities are fully operating. The constant totalValue of heatDissipation is weighted by the operationSchedule, to obtain the heat dissipation temporal variation.</documentation>
+            </annotation>
+          </element>
         </sequence>
       </extension>
     </complexContent>
@@ -811,19 +1285,71 @@
     <attributeGroup ref="gml:AssociationAttributeGroup" />
   </complexType>
   <!--=========================================================================================-->
+  <!--FinalEnergy-->
+  <!--=========================================================================================-->
+  <element name="FinalEnergy" type="energy:FinalEnergyType" substitutionGroup="gml:_Feature" />
+  <complexType name="FinalEnergyType">
+    <annotation>
+      <documentation>Energy form containing the energy, occuping intermediate steps in the energy-supply chain between primary energy sources and end-use demands</documentation>
+    </annotation>
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="energyAmount" minOccurs="0" type="energy:_TimeSeriesPropertyType">
+            <annotation>
+              <documentation>Time-depending amount of energy source, consumed by an energy conversion system. It can be constituted of simulated or monitored data, with different time resolutions (see TimeSeries model).</documentation>
+            </annotation>
+          </element>
+          <element name="energyCarrier" type="energy:EnergyCarrierPropertyType">
+            <annotation>
+              <documentation>Energy form containing energy.</documentation>
+            </annotation>
+          </element>
+          <element name="isConsumedBy" minOccurs="0" maxOccurs="unbounded" type="energy:EnergyConversionSystemPropertyType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>energy:EnergyConversionSystem</gml:targetElement>
+                <gml:reversePropertyName>energy:consumes</gml:reversePropertyName>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="isProducedBy" minOccurs="0" maxOccurs="unbounded" type="energy:EnergyConversionSystemPropertyType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>energy:EnergyConversionSystem</gml:targetElement>
+                <gml:reversePropertyName>energy:produces</gml:reversePropertyName>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="FinalEnergyPropertyType">
+    <sequence>
+      <element ref="energy:FinalEnergy" minOccurs="0" />
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup" />
+  </complexType>
+  <!--=========================================================================================-->
   <!--FloorArea-->
   <!--=========================================================================================-->
   <element name="FloorArea" type="energy:FloorAreaType" />
   <complexType name="FloorAreaType">
+    <annotation>
+      <documentation>Floor area</documentation>
+    </annotation>
     <sequence>
       <element name="type" type="gml:CodeType">
         <annotation>
-          <appinfo>
-            <kit:referenzierteCodelist>energy:FloorAreaType</kit:referenzierteCodelist>
-          </appinfo>
+          <documentation>Categorization of a method to calculate the floor area.</documentation>
         </annotation>
       </element>
-      <element name="value" type="gml:AreaType" />
+      <element name="value" type="gml:AreaType">
+        <annotation>
+          <documentation>Area value.</documentation>
+        </annotation>
+      </element>
     </sequence>
   </complexType>
   <complexType name="FloorAreaPropertyType">
@@ -842,8 +1368,16 @@
     <complexContent>
       <extension base="energy:AbstractMaterialType">
         <sequence>
-          <element name="isVentilated" minOccurs="0" type="boolean" />
-          <element name="rValue" minOccurs="0" type="gml:MeasureType" />
+          <element name="isVentilated" minOccurs="0" default="false" type="boolean">
+            <annotation>
+              <documentation>Indicates whether a gas-layer is ventilated</documentation>
+            </annotation>
+          </element>
+          <element name="rValue" minOccurs="0" type="gml:MeasureType">
+            <annotation>
+              <documentation>Resistance of material</documentation>
+            </annotation>
+          </element>
         </sequence>
       </extension>
     </complexContent>
@@ -863,10 +1397,26 @@
       <documentation>Contributions of the different types of heat or cool exchange (convective, radiant and latent)</documentation>
     </annotation>
     <sequence>
-      <element name="convectiveFraction" minOccurs="0" type="gml:ScaleType" />
-      <element name="latentFraction" minOccurs="0" type="gml:ScaleType" />
-      <element name="radiantFraction" minOccurs="0" type="gml:ScaleType" />
-      <element name="totalValue" type="gml:MeasureType" />
+      <element name="convectiveFraction" minOccurs="0" type="gml:ScaleType">
+        <annotation>
+          <documentation>Ratio of convective heat exchange over total heat exchange.</documentation>
+        </annotation>
+      </element>
+      <element name="latentFraction" minOccurs="0" type="gml:ScaleType">
+        <annotation>
+          <documentation>Ratio of latent heat exchange over total heat exchange.</documentation>
+        </annotation>
+      </element>
+      <element name="radiantFraction" minOccurs="0" type="gml:ScaleType">
+        <annotation>
+          <documentation>Ratio of radiant heat exchange over total heat exchange.</documentation>
+        </annotation>
+      </element>
+      <element name="totalValue" type="gml:MeasureType">
+        <annotation>
+          <documentation>Total heat exchange value (positve for heat source, negative for heat sink/cool source).</documentation>
+        </annotation>
+      </element>
     </sequence>
   </complexType>
   <complexType name="HeatExchangeTypePropertyType">
@@ -882,8 +1432,17 @@
     <complexContent>
       <extension base="energy:EnergyConversionSystemType">
         <sequence>
-          <element name="carnotEfficiency" minOccurs="0" type="double" />
-          <element name="heatSource" type="energy:HeatSourceType" />
+          <element name="heatSource" type="energy:HeatSourceTypeValue" />
+          <element name="copSourceTemperature" minOccurs="0" type="gml:MeasureType">
+            <annotation>
+              <documentation>Source temperature defining the Coefficient Of Performance of the heat pump.</documentation>
+            </annotation>
+          </element>
+          <element name="copOperationTemperature" minOccurs="0" type="gml:MeasureType">
+            <annotation>
+              <documentation>Operation or supply water temperature defining the Coefficient Of Performance of the heat pump.</documentation>
+            </annotation>
+          </element>
         </sequence>
       </extension>
     </complexContent>
@@ -895,9 +1454,12 @@
     <attributeGroup ref="gml:AssociationAttributeGroup" />
   </complexType>
   <!--=========================================================================================-->
-  <!--HeatSourceType-->
+  <!--HeatSourceTypeValue-->
   <!--=========================================================================================-->
-  <simpleType name="HeatSourceType">
+  <simpleType name="HeatSourceTypeValue">
+    <annotation>
+      <documentation>Note: May be converted to CodeList in next version.</documentation>
+    </annotation>
     <restriction base="string">
       <enumeration value="AmbientAir" />
       <enumeration value="Aquifer" />
@@ -906,6 +1468,32 @@
       <enumeration value="VerticalGroundCollector" />
     </restriction>
   </simpleType>
+  <!--=========================================================================================-->
+  <!--HeightAboveGround-->
+  <!--=========================================================================================-->
+  <element name="HeightAboveGround" type="energy:HeightAboveGroundType" />
+  <complexType name="HeightAboveGroundType">
+    <annotation>
+      <documentation>Different kinds of building height above general ground. level. The general ground level lies anywhere between the lowest and the highest ground points of the construction.</documentation>
+    </annotation>
+    <sequence>
+      <element name="heightReference" type="energy:ElevationReferenceValue">
+        <annotation>
+          <documentation>Specification of the building height reference, which is measured relative to general ground level.</documentation>
+        </annotation>
+      </element>
+      <element name="value" type="gml:LengthType">
+        <annotation>
+          <documentation>Height value</documentation>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="HeightAboveGroundPropertyType">
+    <sequence>
+      <element ref="energy:HeightAboveGround" minOccurs="0" />
+    </sequence>
+  </complexType>
   <!--=========================================================================================-->
   <!--Household-->
   <!--=========================================================================================-->
@@ -917,20 +1505,8 @@
     <complexContent>
       <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element name="residenceType" minOccurs="0" type="gml:CodeType">
-            <annotation>
-              <appinfo>
-                <kit:referenzierteCodelist>energy:ResidenceType</kit:referenzierteCodelist>
-              </appinfo>
-            </annotation>
-          </element>
-          <element name="householdType" minOccurs="0" type="gml:CodeType">
-            <annotation>
-              <appinfo>
-                <kit:referenzierteCodelist>energy:HouseholdType</kit:referenzierteCodelist>
-              </appinfo>
-            </annotation>
-          </element>
+          <element name="residenceType" minOccurs="0" type="energy:ResidenceTypeValue" />
+          <element name="householdType" minOccurs="0" type="energy:HouseholdTypeValue" />
         </sequence>
       </extension>
     </complexContent>
@@ -942,6 +1518,25 @@
     <attributeGroup ref="gml:AssociationAttributeGroup" />
   </complexType>
   <!--=========================================================================================-->
+  <!--HouseholdTypeValue-->
+  <!--=========================================================================================-->
+  <simpleType name="HouseholdTypeValue">
+    <annotation>
+      <documentation>Classification of Household, according with their family structure, person number and generation.
+
+&lt;b&gt;Note&lt;/b&gt;: May be converted to CodeList in next version.</documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="LoneAdult" />
+      <enumeration value="MultiFamily" />
+      <enumeration value="OneFamily" />
+      <enumeration value="PensionerCouple" />
+      <enumeration value="UnrelatedAdults" />
+      <enumeration value="Vacant" />
+      <enumeration value="WorkerCouple" />
+    </restriction>
+  </simpleType>
+  <!--=========================================================================================-->
   <!--ImageTexture-->
   <!--=========================================================================================-->
   <element name="ImageTexture" type="energy:ImageTextureType" substitutionGroup="gml:_Feature" />
@@ -952,9 +1547,21 @@
     <complexContent>
       <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element name="url" type="anyURI" />
-          <element name="repeatS" type="boolean" />
-          <element name="repeatT" type="boolean" />
+          <element name="url" type="anyURI">
+            <annotation>
+              <documentation>Specifies location of the image. From X3D specification: The texture is read from the URL specified by the url field. When the url field contains no values, texturing is disabled. Browsers shall support the JPEG and PNG image file formats. In addition, browsers may support other image formats (e.g. CGM) which can be rendered into a 2D image. Support for the GIF format is also recommended (including transparency).</documentation>
+            </annotation>
+          </element>
+          <element name="repeatS" type="boolean">
+            <annotation>
+              <documentation>From X3D specification: If repeatS is TRUE, the texture map is repeated outside the [0.0, 1.0] texture coordinate range in the S direction so that it fills the shape. If repeatS is FALSE, the texture coordinates are clamped in the S direction to lie within the [0.0, 1.0] range.</documentation>
+            </annotation>
+          </element>
+          <element name="repeatT" type="boolean">
+            <annotation>
+              <documentation>From X3D specification: If repeatT is TRUE, the texture map is repeated outside the [0.0, 1.0] texture coordinate range in the T direction so that it fills the shape. If repeatT is FALSE, the texture coordinates are clamped in the T direction to lie within the [0.0, 1.0] range.</documentation>
+            </annotation>
+          </element>
         </sequence>
       </extension>
     </complexContent>
@@ -966,26 +1573,78 @@
     <attributeGroup ref="gml:AssociationAttributeGroup" />
   </complexType>
   <!--=========================================================================================-->
-  <!--InterpolationType-->
+  <!--InterpolationTypeValue-->
   <!--=========================================================================================-->
-  <simpleType name="InterpolationType">
+  <simpleType name="InterpolationTypeValue">
     <annotation>
       <documentation>Mathematical rule required for the variable interpolation, defined in WaterML:http://def.seegrid.csiro.au/sissvoc/ogc-def/resource?uri=http://www.opengis.net/def/waterml/2.0/interpolationType/</documentation>
     </annotation>
     <restriction base="string">
-      <enumeration value="AverageInPrecedingInterval" />
-      <enumeration value="AverageInSucceedingInterval" />
-      <enumeration value="ConstantInPrecedingInterval" />
-      <enumeration value="ConstantInSucceedingInterval" />
-      <enumeration value="Continuous" />
-      <enumeration value="Discontinuous" />
-      <enumeration value="InstantaneousTotal" />
-      <enumeration value="MaximumInPrecedingInterval" />
-      <enumeration value="MaximumInSucceedingInterval" />
-      <enumeration value="MinimumInPrecedingInterval" />
-      <enumeration value="MinimumInSucceedingInterval" />
-      <enumeration value="PrecedingTotal" />
-      <enumeration value="SucceedingTotal" />
+      <enumeration value="AverageInPrecedingInterval">
+        <annotation>
+          <documentation>Value represents the average value over the preceding interval.	more like this</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="AverageInSucceedingInterval">
+        <annotation>
+          <documentation>Value represents the average value over the following interval.	more like this</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="ConstantInPrecedingInterval">
+        <annotation>
+          <documentation>Value is constant in the preceding interval.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="ConstantInSucceedingInterval">
+        <annotation>
+          <documentation>Value is constant in the succeeding interval.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Continuous">
+        <annotation>
+          <documentation>A continuous time series indicates the observation result is the value of a property at the indicated instant in time. The points are essentially connected and interpolation may occur between points in order to estimate the value of the property between points. The appropriate time spacing between successive points to minimise interpolation errors is related to rate of change (wrt time) of the property.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Discontinuous">
+        <annotation>
+          <documentation>The sampling of the property occurs such that it is not possible to regard the series as continuous. The time between samples is too large to classify the measurements as continuous.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="InstantaneousTotal">
+        <annotation>
+          <documentation>Value represents a total attributed to a specific time instant. This is normally generated from an event based measuring device such as a tipping bucket rain gauge.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="MaximumInPrecedingInterval">
+        <annotation>
+          <documentation>Value represents the maximum value that was measured during the preceding time interval.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="MaximumInSucceedingInterval">
+        <annotation>
+          <documentation>Value represents the maximum value for the following interval.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="MinimumInPrecedingInterval">
+        <annotation>
+          <documentation>Value represents the minimum value that was measured during the preceding time interval.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="MinimumInSucceedingInterval">
+        <annotation>
+          <documentation>Value represents the minimum value for the following interval.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="PrecedingTotal">
+        <annotation>
+          <documentation>Value represents the total of measurements taken within the previous time interval.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="SucceedingTotal">
+        <annotation>
+          <documentation>Value represents the average value over the following interval</documentation>
+        </annotation>
+      </enumeration>
     </restriction>
   </simpleType>
   <!--=========================================================================================-->
@@ -1000,8 +1659,18 @@ http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosp
     <complexContent>
       <extension base="energy:_TimeSeriesType">
         <sequence>
-          <element name="uom" type="gml:UnitOfMeasureType" />
-          <element name="contains" minOccurs="0" maxOccurs="unbounded" type="energy:MeasurementPointPropertyType" />
+          <element name="uom" type="gml:UnitOfMeasureType">
+            <annotation>
+              <documentation>Unit of measure of the time series values.</documentation>
+            </annotation>
+          </element>
+          <element name="contains" minOccurs="0" maxOccurs="unbounded" type="energy:MeasurementPointPropertyType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>energy:MeasurementPoint</gml:targetElement>
+              </appinfo>
+            </annotation>
+          </element>
         </sequence>
       </extension>
     </complexContent>
@@ -1017,17 +1686,52 @@ http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosp
   <!--=========================================================================================-->
   <element name="IrregularTimeSeriesFile" type="energy:IrregularTimeSeriesFileType" substitutionGroup="energy:_TimeSeries" />
   <complexType name="IrregularTimeSeriesFileType">
+    <annotation>
+      <documentation>Time series with a differing time increments, stored in textual format (e.g. CSV)  on an external device.</documentation>
+    </annotation>
     <complexContent>
       <extension base="energy:_TimeSeriesType">
         <sequence>
-          <element name="uom" type="gml:UnitOfMeasureType" />
-          <element name="file" type="anyURI" />
-          <element name="numberOfHeaderLines" minOccurs="0" type="integer" />
-          <element name="recordSeparator" minOccurs="0" type="string" />
-          <element name="decimalSymbol" minOccurs="0" type="string" />
-          <element name="valueColumnNumber" minOccurs="0" type="integer" />
-          <element name="timeColumnNumber" minOccurs="0" type="integer" />
-          <element name="fieldSeparator" type="string" />
+          <element name="uom" type="gml:UnitOfMeasureType">
+            <annotation>
+              <documentation>Unit of measure of the time series values.</documentation>
+            </annotation>
+          </element>
+          <element name="file" type="anyURI">
+            <annotation>
+              <documentation>URI of the external device containing the time series.</documentation>
+            </annotation>
+          </element>
+          <element name="numberOfHeaderLines" minOccurs="0" default="0" type="int">
+            <annotation>
+              <documentation>Number of header lines in the time series file which must not be interpreted.</documentation>
+            </annotation>
+          </element>
+          <element name="fieldSeparator" type="string">
+            <annotation>
+              <documentation>String (e.g. ';') delimiting different fields (e.g. columns in a CSV file) in the same record (e.g. lines in a CSV file).</documentation>
+            </annotation>
+          </element>
+          <element name="recordSeparator" minOccurs="0" default="\n" type="string">
+            <annotation>
+              <documentation>String (e.g. '\n') separating different records (e.g. lines in a CSV file).</documentation>
+            </annotation>
+          </element>
+          <element name="decimalSymbol" minOccurs="0" default="." type="string">
+            <annotation>
+              <documentation>Character used to represent the decimal symbol in floating point numbers.</documentation>
+            </annotation>
+          </element>
+          <element name="timeColumnNumber" minOccurs="0" default="1" type="int">
+            <annotation>
+              <documentation>For CSV files the column number containing the actually used date/time values of the time series.</documentation>
+            </annotation>
+          </element>
+          <element name="valueColumnNumber" minOccurs="0" default="2" type="int">
+            <annotation>
+              <documentation>For CSV files the column number containing the actually used time series values.</documentation>
+            </annotation>
+          </element>
         </sequence>
       </extension>
     </complexContent>
@@ -1041,15 +1745,22 @@ http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosp
   <!--=========================================================================================-->
   <!--Layer-->
   <!--=========================================================================================-->
-  <element name="Layer" type="energy:LayerType" substitutionGroup="core:_CityObject" />
+  <element name="Layer" type="energy:LayerType" substitutionGroup="gml:_Feature" />
   <complexType name="LayerType">
     <annotation>
       <documentation>A Layer is a combination of one of more materials, references via a LayerComponent.</documentation>
     </annotation>
     <complexContent>
-      <extension base="core:AbstractCityObjectType">
+      <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element name="layerComponent" maxOccurs="unbounded" type="energy:LayerComponentPropertyType" />
+          <element name="layerComponent" maxOccurs="unbounded" type="energy:LayerComponentPropertyType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>energy:LayerComponent</gml:targetElement>
+              </appinfo>
+              <documentation>Reference to one or more LayerComponent objects</documentation>
+            </annotation>
+          </element>
         </sequence>
       </extension>
     </complexContent>
@@ -1071,9 +1782,31 @@ http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosp
     <complexContent>
       <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element name="areaFraction" minOccurs="0" type="gml:ScaleType" />
-          <element name="thickness" minOccurs="0" type="gml:LengthType" />
-          <element name="material" type="energy:AbstractMaterialPropertyType" />
+          <element name="areaFraction" minOccurs="0" default="1.0" type="gml:ScaleType">
+            <annotation>
+              <documentation>Percentage (between 0 and 1) of the layer area that the referenced Material is made from.</documentation>
+            </annotation>
+          </element>
+          <element name="thickness" minOccurs="0" type="gml:LengthType">
+            <annotation>
+              <documentation>Thickness of a layer component.</documentation>
+            </annotation>
+          </element>
+          <element name="serviceLife" minOccurs="0" type="energy:ServiceLifePropertyType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>energy:ServiceLife</gml:targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="material" type="energy:AbstractMaterialPropertyType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>energy:AbstractMaterial</gml:targetElement>
+              </appinfo>
+              <documentation>Reference to the correspondinf Material</documentation>
+            </annotation>
+          </element>
         </sequence>
       </extension>
     </complexContent>
@@ -1084,15 +1817,6 @@ http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosp
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup" />
   </complexType>
-  <!--=========================================================================================-->
-  <!--LevelOfRefurbishment-->
-  <!--=========================================================================================-->
-  <simpleType name="LevelOfRefurbishment">
-    <restriction base="string">
-      <enumeration value="UsualRefurbishment" />
-      <enumeration value="AdvancedRefurbishment" />
-    </restriction>
-  </simpleType>
   <!--=========================================================================================-->
   <!--LightingFacilities-->
   <!--=========================================================================================-->
@@ -1117,9 +1841,20 @@ http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosp
   <!--=========================================================================================-->
   <element name="MeasurementPoint" type="energy:MeasurementPointType" />
   <complexType name="MeasurementPointType">
+    <annotation>
+      <documentation>Single pair of date/time and value in an irregular time series.</documentation>
+    </annotation>
     <sequence>
-      <element name="time" type="gml:TimePositionType" />
-      <element name="value" type="double" />
+      <element name="time" type="gml:TimePositionType">
+        <annotation>
+          <documentation>Time instant</documentation>
+        </annotation>
+      </element>
+      <element name="value" type="double">
+        <annotation>
+          <documentation>Value</documentation>
+        </annotation>
+      </element>
     </sequence>
   </complexType>
   <complexType name="MeasurementPointPropertyType">
@@ -1148,9 +1883,12 @@ http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosp
     <attributeGroup ref="gml:AssociationAttributeGroup" />
   </complexType>
   <!--=========================================================================================-->
-  <!--MediumType-->
+  <!--MediumTypeValue-->
   <!--=========================================================================================-->
-  <simpleType name="MediumType">
+  <simpleType name="MediumTypeValue">
+    <annotation>
+      <documentation>Note: May be converted to CodeList in next version.</documentation>
+    </annotation>
     <restriction base="string">
       <enumeration value="Air" />
       <enumeration value="Steam" />
@@ -1168,17 +1906,33 @@ http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosp
     <complexContent>
       <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element name="heatDissipation" minOccurs="0" type="energy:HeatExchangeTypePropertyType" />
-          <element name="numberOfOccupants" minOccurs="0" type="integer" />
-          <element name="occupancyRate" minOccurs="0" type="energy:_SchedulePropertyType" />
+          <element name="heatDissipation" minOccurs="0" type="energy:HeatExchangeTypePropertyType">
+            <annotation>
+              <documentation>Heat energy  per year (in W) dissipated by the occupants in "nominal conditions", when all occupants are present. The constant totalValue of heatDissipation is weighted by the occupancyRate,  to obtain the heat dissipation temporal variation.</documentation>
+            </annotation>
+          </element>
+          <element name="numberOfOccupants" minOccurs="0" type="int">
+            <annotation>
+              <documentation>Number of occupants of the considered zone/building unit.</documentation>
+            </annotation>
+          </element>
+          <element name="occupancyRate" minOccurs="0" type="energy:_SchedulePropertyType">
+            <annotation>
+              <documentation>Schedule of room/zone occupancy (0 while empty, 1 while occupied with the specified full number of occupant, between 0 and 1 during partial occupancy).</documentation>
+            </annotation>
+          </element>
           <element name="occupantType" minOccurs="0" type="gml:CodeType">
             <annotation>
+              <documentation>Type of occupants of a premises.</documentation>
+            </annotation>
+          </element>
+          <element name="household" minOccurs="0" maxOccurs="unbounded" type="energy:HouseholdPropertyType">
+            <annotation>
               <appinfo>
-                <kit:referenzierteCodelist>energy:OccupantType</kit:referenzierteCodelist>
+                <gml:targetElement>energy:Household</gml:targetElement>
               </appinfo>
             </annotation>
           </element>
-          <element name="consiststOf" minOccurs="0" maxOccurs="unbounded" type="energy:HouseholdPropertyType" />
         </sequence>
       </extension>
     </complexContent>
@@ -1198,15 +1952,53 @@ http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosp
       <documentation>Optical properties of a material</documentation>
     </annotation>
     <sequence>
-      <element name="emittance" minOccurs="0" maxOccurs="unbounded" type="energy:EmissivityPropertyType" />
-      <element name="reflectance" minOccurs="0" maxOccurs="unbounded" type="energy:ReflectancePropertyType" />
-      <element name="transmittance" minOccurs="0" maxOccurs="unbounded" type="energy:TransmittancePropertyType" />
-      <element name="glazingRatio" minOccurs="0" type="gml:ScaleType" />
+      <element name="emissivity" minOccurs="0" maxOccurs="unbounded" type="energy:EmissivityPropertyType">
+        <annotation>
+          <documentation>Hemispherical emissivity</documentation>
+        </annotation>
+      </element>
+      <element name="reflectance" minOccurs="0" maxOccurs="unbounded" type="energy:ReflectancePropertyType">
+        <annotation>
+          <documentation>Hemispherical reflectance. Effectiveness of a surface in reflecting radiant energy.</documentation>
+        </annotation>
+      </element>
+      <element name="transmittance" minOccurs="0" maxOccurs="unbounded" type="energy:TransmittancePropertyType">
+        <annotation>
+          <documentation>Hemispherical transmittance. Effectiveness of a construction in transmitting radiant energy.</documentation>
+        </annotation>
+      </element>
+      <element name="glazingRatio" minOccurs="0" type="gml:ScaleType">
+        <annotation>
+          <documentation>Ratio of the glazing surface over the total construction surface (value between 0 and 1).</documentation>
+        </annotation>
+      </element>
     </sequence>
   </complexType>
   <complexType name="OpticalPropertiesPropertyType">
     <sequence>
       <element ref="energy:OpticalProperties" minOccurs="0" />
+    </sequence>
+  </complexType>
+  <!--=========================================================================================-->
+  <!--PeriodOfYear-->
+  <!--=========================================================================================-->
+  <element name="PeriodOfYear" type="energy:PeriodOfYearType" />
+  <complexType name="PeriodOfYearType">
+    <annotation>
+      <documentation>Specification of a time period  (e.g. 1. January -30. June) within an arbitrary year.</documentation>
+    </annotation>
+    <sequence>
+      <element name="period" type="gml:TimePeriodPropertyType">
+        <annotation>
+          <documentation>Time period without specification of an explicit year.</documentation>
+        </annotation>
+      </element>
+      <element name="dailySchedule" maxOccurs="unbounded" type="energy:DailySchedulePropertyType" />
+    </sequence>
+  </complexType>
+  <complexType name="PeriodOfYearPropertyType">
+    <sequence>
+      <element ref="energy:PeriodOfYear" minOccurs="0" />
     </sequence>
   </complexType>
   <!--=========================================================================================-->
@@ -1217,7 +2009,8 @@ http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosp
     <complexContent>
       <extension base="energy:_SolarEnergySystemType">
         <sequence>
-          <element name="cellMaterialType" minOccurs="0" type="string" />
+          <element name="cellType" type="energy:CellTypeValue" />
+          <element name="moduleArea" minOccurs="0" type="gml:AreaType" />
         </sequence>
       </extension>
     </complexContent>
@@ -1225,6 +2018,34 @@ http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosp
   <complexType name="PhotovoltaicSystemPropertyType">
     <sequence>
       <element ref="energy:PhotovoltaicSystem" minOccurs="0" />
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup" />
+  </complexType>
+  <!--=========================================================================================-->
+  <!--PhotovoltaicThermalSystem-->
+  <!--=========================================================================================-->
+  <element name="PhotovoltaicThermalSystem" type="energy:PhotovoltaicThermalSystemType" substitutionGroup="energy:_SolarEnergySystem" />
+  <complexType name="PhotovoltaicThermalSystemType">
+    <annotation>
+      <documentation>Hybrid photovoltaic and solar thermal system</documentation>
+    </annotation>
+    <complexContent>
+      <extension base="energy:_SolarEnergySystemType">
+        <sequence>
+          <element name="cellType" type="energy:CellTypeValue" />
+          <element name="collectorType" type="energy:CollectorTypeValue" />
+          <element name="moduleArea" minOccurs="0" type="gml:AreaType" />
+          <element name="apertureArea" minOccurs="0" type="gml:AreaType" />
+          <element name="eta0" minOccurs="0" type="double" />
+          <element name="a1" minOccurs="0" type="double" />
+          <element name="a2" minOccurs="0" type="double" />
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="PhotovoltaicThermalSystemPropertyType">
+    <sequence>
+      <element ref="energy:PhotovoltaicThermalSystem" minOccurs="0" />
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup" />
   </complexType>
@@ -1277,9 +2098,17 @@ http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosp
       <documentation>Effectiveness of a material surface in reflectiing an incident radiant flux of a given wavelength range.</documentation>
     </annotation>
     <sequence>
-      <element name="fraction" type="gml:ScaleType" />
+      <element name="fraction" type="gml:ScaleType">
+        <annotation>
+          <documentation>Fraction (between 0 and 1) of energy reflectance.</documentation>
+        </annotation>
+      </element>
       <element name="surface" type="energy:SurfaceSide" />
-      <element name="wavelengthRange" type="energy:WavelengthRangeType" />
+      <element name="wavelengthRange" type="energy:WavelengthRangeType">
+        <annotation>
+          <documentation>Wavelength range of the incident radiant flux, for which the absorptance ratio is defined.</documentation>
+        </annotation>
+      </element>
     </sequence>
   </complexType>
   <complexType name="ReflectancePropertyType">
@@ -1296,8 +2125,12 @@ http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosp
       <documentation>Information on a refurbishment measure</documentation>
     </annotation>
     <sequence>
-      <element name="dateOfRefurbishment" type="energy:DateOfEventPropertyType" />
-      <element name="levelOfRefurbishment" type="energy:LevelOfRefurbishment" />
+      <element name="dateOfRefurbishment" type="energy:DateOfEventPropertyType">
+        <annotation>
+          <documentation>Date of the refurbishment measure</documentation>
+        </annotation>
+      </element>
+      <element name="levelOfRefurbishment" type="gml:CodeType" />
       <element name="descriptionOfRefurbishment" minOccurs="0" type="string" />
     </sequence>
   </complexType>
@@ -1317,9 +2150,21 @@ http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosp
     <complexContent>
       <extension base="energy:_TimeSeriesType">
         <sequence>
-          <element name="temporalExtent" type="gml:TimePeriodPropertyType" />
-          <element name="timeInterval" type="gml:TimeIntervalLengthType" />
-          <element name="values" type="gml:MeasureListType" />
+          <element name="temporalExtent" type="gml:TimePeriodPropertyType">
+            <annotation>
+              <documentation>Temporal extent (start data/time and end date/time) of the time series.</documentation>
+            </annotation>
+          </element>
+          <element name="timeInterval" type="gml:TimeIntervalLengthType">
+            <annotation>
+              <documentation>Interval of time between two consecutive time-depending values.</documentation>
+            </annotation>
+          </element>
+          <element name="values" type="gml:MeasureListType">
+            <annotation>
+              <documentation>Values of the time series.</documentation>
+            </annotation>
+          </element>
         </sequence>
       </extension>
     </complexContent>
@@ -1335,18 +2180,57 @@ http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosp
   <!--=========================================================================================-->
   <element name="RegularTimeSeriesFile" type="energy:RegularTimeSeriesFileType" substitutionGroup="energy:_TimeSeries" />
   <complexType name="RegularTimeSeriesFileType">
+    <annotation>
+      <documentation>Time series with a constant time increment, stored in textual format (e.g. CSV)  on an external device.</documentation>
+    </annotation>
     <complexContent>
       <extension base="energy:_TimeSeriesType">
         <sequence>
-          <element name="uom" type="gml:UnitOfMeasureType" />
-          <element name="file" type="anyURI" />
-          <element name="temporalExtent" type="gml:TimePeriodPropertyType" />
-          <element name="timeInterval" type="gml:TimeIntervalLengthType" />
-          <element name="numberOfHeaderLines" minOccurs="0" type="integer" />
-          <element name="recordSeparator" minOccurs="0" type="string" />
-          <element name="decimalSymbol" minOccurs="0" type="string" />
-          <element name="valueColumnNumber" minOccurs="0" type="integer" />
-          <element name="fieldSeparator" type="string" />
+          <element name="uom" type="gml:UnitOfMeasureType">
+            <annotation>
+              <documentation>Unit of measure of the time series values.</documentation>
+            </annotation>
+          </element>
+          <element name="file" type="anyURI">
+            <annotation>
+              <documentation>URI of the external device containing the time series values.</documentation>
+            </annotation>
+          </element>
+          <element name="temporalExtent" type="gml:TimePeriodPropertyType">
+            <annotation>
+              <documentation>Temporal extent (start date/time and end date/time) of the time series.</documentation>
+            </annotation>
+          </element>
+          <element name="timeInterval" type="gml:TimeIntervalLengthType">
+            <annotation>
+              <documentation>Time increment of the time series values.</documentation>
+            </annotation>
+          </element>
+          <element name="numberOfHeaderLines" minOccurs="0" default="0" type="int">
+            <annotation>
+              <documentation>Number of header lines in the time series file which must not be interpreted.</documentation>
+            </annotation>
+          </element>
+          <element name="fieldSeparator" type="string">
+            <annotation>
+              <documentation>String (e.g. ';') delimiting different fields (e.g. columns in a CSV file) in the same record (e.g. lines in a CSV file).</documentation>
+            </annotation>
+          </element>
+          <element name="recordSeparator" minOccurs="0" default="\n" type="string">
+            <annotation>
+              <documentation>String (e.g. '\n') separating different records (e.g. lines in a CSV file).</documentation>
+            </annotation>
+          </element>
+          <element name="decimalSymbol" minOccurs="0" default="." type="string">
+            <annotation>
+              <documentation>Character used to represent the decimal symbol in floating point numbers.</documentation>
+            </annotation>
+          </element>
+          <element name="valueColumnNumber" minOccurs="0" default="1" type="int">
+            <annotation>
+              <documentation>For CSV files the column number containing the actually used time series values.</documentation>
+            </annotation>
+          </element>
         </sequence>
       </extension>
     </complexContent>
@@ -1354,6 +2238,98 @@ http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosp
   <complexType name="RegularTimeSeriesFilePropertyType">
     <sequence>
       <element ref="energy:RegularTimeSeriesFile" minOccurs="0" />
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup" />
+  </complexType>
+  <!--=========================================================================================-->
+  <!--ResidenceTypeValue-->
+  <!--=========================================================================================-->
+  <simpleType name="ResidenceTypeValue">
+    <annotation>
+      <documentation>Designation related to the amount of time a household lives at a residence.
+
+&lt;b&gt;Note&lt;/b&gt;: May be converted to CodeList in next version.</documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="MainResidence">
+        <annotation>
+          <documentation>(or primary residence) Residence where a household lives for the greatest amount of time.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="SecondaryResidence">
+        <annotation>
+          <documentation>Residence where a household lives part time or less than the majority of the calendar year.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Vacant">
+        <annotation>
+          <documentation>Residence where nobody lives.</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <!--=========================================================================================-->
+  <!--ReverseConstruction-->
+  <!--=========================================================================================-->
+  <element name="ReverseConstruction" type="energy:ReverseConstructionType" substitutionGroup="energy:AbstractConstruction" />
+  <complexType name="ReverseConstructionType">
+    <annotation>
+      <documentation>Determines the usage of Construction in terms of the Layer order.</documentation>
+    </annotation>
+    <complexContent>
+      <extension base="energy:AbstractConstructionType">
+        <sequence>
+          <element name="baseConstruction" type="energy:ConstructionPropertyType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>energy:Construction</gml:targetElement>
+              </appinfo>
+              <documentation>Reference to the Construction being used.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="ReverseConstructionPropertyType">
+    <sequence>
+      <element ref="energy:ReverseConstruction" minOccurs="0" />
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup" />
+  </complexType>
+  <!--=========================================================================================-->
+  <!--ServiceLife-->
+  <!--=========================================================================================-->
+  <element name="ServiceLife" type="energy:ServiceLifeType" substitutionGroup="gml:_GML" />
+  <complexType name="ServiceLifeType">
+    <annotation>
+      <documentation>Information of product life time and maintenance intervals.</documentation>
+    </annotation>
+    <complexContent>
+      <extension base="gml:AbstractGMLType">
+        <sequence>
+          <element name="startOfLife" minOccurs="0" type="gml:TimePositionType">
+            <annotation>
+              <documentation>Date where a product has been put into service for the first time (e.g. installation, construction).</documentation>
+            </annotation>
+          </element>
+          <element name="lifeExpectancy" minOccurs="0" type="gml:TimeIntervalLengthType">
+            <annotation>
+              <documentation>Length of the service life of a product which is expected at its installation or construction.</documentation>
+            </annotation>
+          </element>
+          <element name="mainMaintenanceInterval" minOccurs="0" type="gml:TimeIntervalLengthType">
+            <annotation>
+              <documentation>Average period of time between two consecutive main maintenance operations</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="ServiceLifePropertyType">
+    <sequence>
+      <element ref="energy:ServiceLife" minOccurs="0" />
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup" />
   </complexType>
@@ -1366,9 +2342,21 @@ http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosp
       <documentation>Shading system of the considered opening</documentation>
     </annotation>
     <sequence>
-      <element name="maximumCoverRatio" type="gml:ScaleType" />
-      <element name="name" minOccurs="0" type="string" />
-      <element name="transmittance" type="energy:TransmittancePropertyType" />
+      <element name="maximumCoverRatio" type="gml:ScaleType">
+        <annotation>
+          <documentation>Maximum fraction of the related opening which can be covered with the shading device.</documentation>
+        </annotation>
+      </element>
+      <element name="name" minOccurs="0" type="string">
+        <annotation>
+          <documentation>Name of the Shading system.</documentation>
+        </annotation>
+      </element>
+      <element name="transmittance" type="energy:TransmittancePropertyType">
+        <annotation>
+          <documentation>Effectiveness of the shading device in transmitting an incident radiant flux of a given wavelength range.</documentation>
+        </annotation>
+      </element>
     </sequence>
   </complexType>
   <complexType name="ShadingTypePropertyType">
@@ -1387,7 +2375,11 @@ http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosp
     <complexContent>
       <extension base="energy:_SolarEnergySystemType">
         <sequence>
-          <element name="technologyType" minOccurs="0" type="string" />
+          <element name="collectorType" type="energy:CollectorTypeValue" />
+          <element name="apertureArea" minOccurs="0" type="gml:AreaType" />
+          <element name="eta0" minOccurs="0" type="double" />
+          <element name="a1" minOccurs="0" type="double" />
+          <element name="a2" minOccurs="0" type="double" />
         </sequence>
       </extension>
     </complexContent>
@@ -1409,11 +2401,41 @@ http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosp
     <complexContent>
       <extension base="energy:AbstractMaterialType">
         <sequence>
-          <element name="conductivity" minOccurs="0" type="gml:MeasureType" />
-          <element name="density" minOccurs="0" type="gml:MeasureType" />
-          <element name="permeance" minOccurs="0" type="gml:MeasureType" />
-          <element name="porosity" minOccurs="0" type="gml:ScaleType" />
-          <element name="specificHeat" minOccurs="0" type="gml:MeasureType" />
+          <element name="conductivity" minOccurs="0" type="gml:MeasureType">
+            <annotation>
+              <documentation>Conductivity of material</documentation>
+            </annotation>
+          </element>
+          <element name="density" minOccurs="0" type="gml:MeasureType">
+            <annotation>
+              <documentation>Density of material</documentation>
+            </annotation>
+          </element>
+          <element name="permeance" minOccurs="0" type="gml:MeasureType">
+            <annotation>
+              <documentation>The rate water vapor is allowed through a surface</documentation>
+            </annotation>
+          </element>
+          <element name="porosity" minOccurs="0" type="gml:ScaleType">
+            <annotation>
+              <documentation>The ratio of the total amount of void space in a material (due to poses, small channels, and so on) to the bulk volume occupied by the material.</documentation>
+            </annotation>
+          </element>
+          <element name="specificHeat" minOccurs="0" type="gml:MeasureType">
+            <annotation>
+              <documentation>Specific heat of material</documentation>
+            </annotation>
+          </element>
+          <element name="embodiedCarbon" minOccurs="0" type="gml:MeasureType">
+            <annotation>
+              <documentation>CO2 equivalent emissions (measured in kg of CO2 per cubic meter or kg of CO2 per kg material) caused by the fabrication and transportation on site of the material.</documentation>
+            </annotation>
+          </element>
+          <element name="embodiedEnergy" minOccurs="0" type="gml:MeasureType">
+            <annotation>
+              <documentation>Primary energy(measured in  Joule per cubic meter or Joule per kg material) consumed for the fabrication and transportation on site of the material</documentation>
+            </annotation>
+          </element>
         </sequence>
       </extension>
     </complexContent>
@@ -1432,8 +2454,16 @@ http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosp
       <documentation>Surface side of the construction</documentation>
     </annotation>
     <restriction base="string">
-      <enumeration value="Inside" />
-      <enumeration value="Outside" />
+      <enumeration value="Inside">
+        <annotation>
+          <documentation>Indoor surface.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Outside">
+        <annotation>
+          <documentation>Outdoor surface.</documentation>
+        </annotation>
+      </enumeration>
     </restriction>
   </simpleType>
   <!--=========================================================================================-->
@@ -1447,7 +2477,11 @@ http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosp
     <complexContent>
       <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element name="endUse" type="energy:EndUseType" />
+          <element name="endUse" type="energy:EndUseTypeValue">
+            <annotation>
+              <documentation>Category of end use related to an energy use.</documentation>
+            </annotation>
+          </element>
           <element name="operationTime" minOccurs="0" type="energy:_SchedulePropertyType" />
           <element name="yearlyGlobalEfficiency" minOccurs="0" type="gml:MeasureType" />
         </sequence>
@@ -1471,17 +2505,54 @@ http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosp
     <complexContent>
       <extension base="core:AbstractCityObjectType">
         <sequence>
-          <element name="azimuth" minOccurs="0" type="gml:AngleType" />
-          <element name="inclination" minOccurs="0" type="gml:AngleType" />
-          <element name="thermalBoundaryType" type="energy:ThermalBoundaryTypeValues" />
+          <element name="thermalBoundaryType" type="energy:ThermalBoundaryTypeValue">
+            <annotation>
+              <documentation>Topological classification of the thermal boundary.</documentation>
+            </annotation>
+          </element>
+          <element name="azimuth" minOccurs="0" type="gml:AngleType">
+            <annotation>
+              <documentation>Azimuth angle of the normal surface vector.
+By convention:
+- azimuth = 0 for north orientation.
+- Horizontal surface have a azimuth = 0.</documentation>
+            </annotation>
+          </element>
+          <element name="inclination" minOccurs="0" type="gml:AngleType">
+            <annotation>
+              <documentation>Inclination angle of the normal surface vector.
+By convention, inclination = 0 for horizontal plane.</documentation>
+            </annotation>
+          </element>
+          <element name="area" minOccurs="0" type="gml:AreaType" />
           <element name="surfaceGeometry" minOccurs="0" type="gml:MultiSurfacePropertyType" />
-          <element name="partOf" maxOccurs="2" type="energy:ThermalZonePropertyType" />
-          <element name="composedOf" maxOccurs="unbounded" type="energy:ThermalComponentPropertyType" />
-          <element name="correspondsTo" minOccurs="0" type="gml:ReferenceType">
+          <element name="composedOf" minOccurs="0" maxOccurs="unbounded" type="energy:ThermalComponentPropertyType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>energy:ThermalComponent</gml:targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="delimitsBy" maxOccurs="2" type="energy:ThermalZonePropertyType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>energy:ThermalZone</gml:targetElement>
+                <gml:reversePropertyName>energy:boundedBy</gml:reversePropertyName>
+              </appinfo>
+              <documentation>In case two ThermalZones are referenced via the relation "delimitsBy", the following rule concerning the order of the related objects applys:
+
+- For ThermalBoundary objects of type "intermediaryFloor!, the first related object is the upper ThermalZone, and the seconr related object is the lower ThermalZone
+-  For all other ThermalBoundary types, the first related ThermalZone is in contact with the last Layer of the corresponding AbstractConstruction, and the  second related ThermalZone is in contact with the first Layer of the corresponding AbstractConstruction, 
+
+Last layer is facing the first ThermalZone and First layer is facing the second ThermalZone of the relation "delimitsBy"</documentation>
+            </annotation>
+          </element>
+          <element name="relatesTo" minOccurs="0" maxOccurs="unbounded" type="gml:ReferenceType">
             <annotation>
               <appinfo>
                 <gml:targetElement>bldg:_BoundarySurface</gml:targetElement>
               </appinfo>
+              <documentation>Reference of a ThermalBoundary to the corresponding physical boundary surface of the building</documentation>
             </annotation>
           </element>
         </sequence>
@@ -1495,21 +2566,53 @@ http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosp
     <attributeGroup ref="gml:AssociationAttributeGroup" />
   </complexType>
   <!--=========================================================================================-->
-  <!--ThermalBoundaryTypeValues-->
+  <!--ThermalBoundaryTypeValue-->
   <!--=========================================================================================-->
-  <simpleType name="ThermalBoundaryTypeValues">
+  <simpleType name="ThermalBoundaryTypeValue">
     <annotation>
       <documentation>Topological classification of the thermal boundary</documentation>
     </annotation>
     <restriction base="string">
-      <enumeration value="InteriorWall" />
-      <enumeration value="IntermediaryFloor" />
-      <enumeration value="SharedWall" />
-      <enumeration value="OuterWall" />
-      <enumeration value="BasementFloor" />
-      <enumeration value="BasementCeiling" />
-      <enumeration value="AtticFloor" />
-      <enumeration value="Roof" />
+      <enumeration value="InteriorWall">
+        <annotation>
+          <documentation>Vertical partition separating two Thermal Zones of the same building.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="IntermediaryFloor">
+        <annotation>
+          <documentation>Horizontal partition separating two Thermal Zones of the same building.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="SharedWall">
+        <annotation>
+          <documentation>Vertical partition separating two different buildings.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="OuterWall">
+        <annotation>
+          <documentation>Vertical Thermal Boundary with one side facing outdoor.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="GroundSlab">
+        <annotation>
+          <documentation>Lower horizontal Thermal Boundary of the Thermal Zone, built ditectly on the ground.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="BasementCeiling">
+        <annotation>
+          <documentation>Horizontal partition separating the basement floor and the ground floor.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="AtticFloor">
+        <annotation>
+          <documentation>Horizontal partition separating the attic and the highest full storey.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Roof">
+        <annotation>
+          <documentation>Thermal Boundary corresponding to the CityGML RoofSurface.</documentation>
+        </annotation>
+      </enumeration>
     </restriction>
   </simpleType>
   <!--=========================================================================================-->
@@ -1523,14 +2626,28 @@ http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosp
     <complexContent>
       <extension base="core:AbstractCityObjectType">
         <sequence>
-          <element name="area" type="gml:AreaType" />
-          <element name="isGroundCoupled" type="boolean" />
-          <element name="isSunExposed" type="boolean" />
+          <element name="area" type="gml:AreaType">
+            <annotation>
+              <documentation>Area of the surface [m²], portion of the related thermal boundary surface.</documentation>
+            </annotation>
+          </element>
           <element name="relates" minOccurs="0" type="gml:ReferenceType">
             <annotation>
               <appinfo>
                 <gml:targetElement>bldg:_Opening</gml:targetElement>
               </appinfo>
+            </annotation>
+          </element>
+          <element name="construction" type="energy:AbstractConstructionPropertyType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>energy:AbstractConstruction</gml:targetElement>
+              </appinfo>
+              <documentation>Reference to material information. If the referenced Construction/ConstructionOrientation object has more than one layer, the following rules for the layer order apply:
+&lt;ul&gt;
+	&lt;li&gt;For &lt;b&gt;outer &lt;/b&gt;ThermalBoundaries, the first Construction Layer is facing outside, last Construction Layer is facing inside (or contrary if ConstructionOrientation is used and orientation is false)&lt;/li&gt;
+	&lt;li&gt;For ThermalBoundaries of type &lt;b&gt;intermediaryFloor&lt;/b&gt;, the first Construction Layer is facing the thermalZone below while the last Construction Layer is facing the ThermalZone above&lt;/li&gt;
+&lt;/ul&gt;</documentation>
             </annotation>
           </element>
         </sequence>
@@ -1552,11 +2669,15 @@ http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosp
       <extension base="energy:EnergyDistributionSystemType">
         <sequence>
           <element name="isCirculation" minOccurs="0" type="boolean" />
-          <element name="medium" minOccurs="0" type="energy:MediumType" />
+          <element name="medium" minOccurs="0" type="energy:MediumTypeValue" />
           <element name="nominalFlow" minOccurs="0" type="gml:MeasureType" />
           <element name="returnTemperature" minOccurs="0" type="gml:MeasureType" />
           <element name="supplyTemperature" minOccurs="0" type="gml:MeasureType" />
-          <element name="thermalLossesFactor" minOccurs="0" type="gml:MeasureType" />
+          <element name="thermalLossesFactor" minOccurs="0" type="gml:MeasureType">
+            <annotation>
+              <documentation>U*A</documentation>
+            </annotation>
+          </element>
         </sequence>
       </extension>
     </complexContent>
@@ -1576,8 +2697,12 @@ http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosp
       <extension base="energy:_StorageSystemType">
         <sequence>
           <element name="preparationTemperature" minOccurs="0" type="gml:MeasureType" />
-          <element name="medium" minOccurs="0" type="energy:MediumType" />
-          <element name="thermalLossesFactor" minOccurs="0" type="gml:MeasureType" />
+          <element name="medium" minOccurs="0" type="energy:MediumTypeValue" />
+          <element name="thermalLossesFactor" minOccurs="0" type="gml:MeasureType">
+            <annotation>
+              <documentation>U*A</documentation>
+            </annotation>
+          </element>
           <element name="volume" minOccurs="0" type="gml:VolumeType" />
         </sequence>
       </extension>
@@ -1601,19 +2726,75 @@ It is a semantic object, which may be or not related to a geometric entity. </do
     <complexContent>
       <extension base="core:AbstractCityObjectType">
         <sequence>
-          <element name="additionalThermalBridgeUValue" minOccurs="0" type="gml:MeasureType" />
-          <element name="effectiveThermalCapacity" minOccurs="0" type="gml:MeasureType" />
-          <element name="floorArea" minOccurs="0" maxOccurs="unbounded" type="energy:FloorAreaPropertyType" />
-          <element name="grossVolume" minOccurs="0" type="gml:VolumeType" />
-          <element name="relates" minOccurs="0" maxOccurs="unbounded" type="energy:UsageZonePropertyType" />
-          <element name="indirectlyHeatedAreaRatio" minOccurs="0" type="gml:ScaleType" />
-          <element name="infiltrationRate" minOccurs="0" type="gml:MeasureType" />
-          <element name="isCooled" type="boolean" />
-          <element name="isHeated" type="boolean" />
-          <element name="netVolume" minOccurs="0" type="gml:VolumeType" />
-          <element name="volumeGeometry" minOccurs="0" type="gml:SolidPropertyType" />
-          <element name="interiorRoom" minOccurs="0" maxOccurs="unbounded" type="bldg:InteriorRoomPropertyType" />
-          <element name="boundedBy" maxOccurs="unbounded" type="energy:ThermalBoundaryPropertyType" />
+          <element name="additionalThermalBridgeUValue" minOccurs="0" type="gml:MeasureType">
+            <annotation>
+              <documentation>Transmission heat loss contribution [W/m².K] of the thermal bridges of the thermal zone shell to the overall UValue.</documentation>
+            </annotation>
+          </element>
+          <element name="effectiveThermalCapacity" minOccurs="0" type="gml:MeasureType">
+            <annotation>
+              <documentation>Thermal capacity [Wh/K] of the zone including the contributing construction layers and zone fournitures.</documentation>
+            </annotation>
+          </element>
+          <element name="floorArea" minOccurs="0" maxOccurs="unbounded" type="energy:FloorAreaPropertyType">
+            <annotation>
+              <documentation>Floor area of the ThermalZone. Different calculation methods (e.g. gross area, net area) can be selected.</documentation>
+            </annotation>
+          </element>
+          <element name="volume" minOccurs="0" maxOccurs="unbounded" type="energy:VolumeTypePropertyType">
+            <annotation>
+              <documentation>Volume of a Thermal Zone. Different calculation methods (e.g. net volume, gross volume) can be selected.</documentation>
+            </annotation>
+          </element>
+          <element name="contains" minOccurs="0" maxOccurs="unbounded" type="energy:UsageZonePropertyType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>energy:UsageZone</gml:targetElement>
+              </appinfo>
+              <documentation>One thermal zone may include several usage zones. If a thermal zone is related to more than one usage zone, the UsageZone attribute floorArea is mantatory in order to enable the calculation of avarage heating / cooling schedules.
+A UsageZone object can only be referenced by one ThermalZone object.</documentation>
+            </annotation>
+          </element>
+          <element name="indirectlyHeatedAreaRatio" minOccurs="0" type="gml:ScaleType">
+            <annotation>
+              <documentation>[find precise definition]</documentation>
+            </annotation>
+          </element>
+          <element name="infiltrationRate" minOccurs="0" type="gml:MeasureType">
+            <annotation>
+              <documentation>Air change rate [1/h] due to air leakage of the zone shell.</documentation>
+            </annotation>
+          </element>
+          <element name="isCooled" default="true" type="boolean">
+            <annotation>
+              <documentation>true if the thermal zone has energy system for space cooling</documentation>
+            </annotation>
+          </element>
+          <element name="isHeated" default="true" type="boolean">
+            <annotation>
+              <documentation>true if the thermal zone has energy system for space heating</documentation>
+            </annotation>
+          </element>
+          <element name="volumeGeometry" minOccurs="0" type="gml:SolidPropertyType">
+            <annotation>
+              <documentation>Geometrical representation of the ThermalZone volume.</documentation>
+            </annotation>
+          </element>
+          <element name="interiorRoom" minOccurs="0" maxOccurs="unbounded" type="bldg:InteriorRoomPropertyType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>bldg:Room</gml:targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="boundedBy" maxOccurs="unbounded" type="energy:ThermalBoundaryPropertyType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>energy:ThermalBoundary</gml:targetElement>
+                <gml:reversePropertyName>energy:delimitsBy</gml:reversePropertyName>
+              </appinfo>
+            </annotation>
+          </element>
         </sequence>
       </extension>
     </complexContent>
@@ -1655,10 +2836,26 @@ It is a semantic object, which may be or not related to a geometric entity. </do
       <documentation>Information and properties of a given variable.</documentation>
     </annotation>
     <sequence>
-      <element name="acquisitionMethod" minOccurs="0" type="string" />
-      <element name="interpolationType" minOccurs="0" type="energy:InterpolationType" />
-      <element name="qualityDescription" minOccurs="0" type="string" />
-      <element name="source" minOccurs="0" type="string" />
+      <element name="acquisitionMethod" type="energy:AcquisitionMethodValue">
+        <annotation>
+          <documentation>The method for variable acquisition (e.g. simulation, measured).</documentation>
+        </annotation>
+      </element>
+      <element name="interpolationType" type="energy:InterpolationTypeValue">
+        <annotation>
+          <documentation>Mathematical rule required for the variable interpolation, defined in WaterML:http://def.seegrid.csiro.au/sissvoc/ogc-def/resource?uri=http://www.opengis.net/def/waterml/2.0/interpolationType/</documentation>
+        </annotation>
+      </element>
+      <element name="qualityDescription" minOccurs="0" type="string">
+        <annotation>
+          <documentation>Description of the data quality (e.g. bad, average, good, excellent).</documentation>
+        </annotation>
+      </element>
+      <element name="source" minOccurs="0" type="string">
+        <annotation>
+          <documentation>Designation of the data source.</documentation>
+        </annotation>
+      </element>
     </sequence>
   </complexType>
   <complexType name="TimeValuesPropertiesPropertyType">
@@ -1675,8 +2872,16 @@ It is a semantic object, which may be or not related to a geometric entity. </do
       <documentation>Percentaged  energy transmittance in different wavelength ranges. Effectiveness of a construction in transmitting an incident radiant flux of a given wavelength range.</documentation>
     </annotation>
     <sequence>
-      <element name="fraction" type="gml:ScaleType" />
-      <element name="wavelengthRange" type="energy:WavelengthRangeType" />
+      <element name="fraction" type="gml:ScaleType">
+        <annotation>
+          <documentation>Fraction (between 0 and 1) of energy transmittance</documentation>
+        </annotation>
+      </element>
+      <element name="wavelengthRange" type="energy:WavelengthRangeType">
+        <annotation>
+          <documentation>Wavelength range of the incident radiant flux, for which the absorptance ratio is defined.</documentation>
+        </annotation>
+      </element>
     </sequence>
   </complexType>
   <complexType name="TransmittancePropertyType">
@@ -1695,23 +2900,70 @@ It is a semantic object, which may be or not related to a geometric entity. </do
     <complexContent>
       <extension base="core:AbstractCityObjectType">
         <sequence>
-          <element name="coolingSchedule" minOccurs="0" type="energy:_SchedulePropertyType" />
-          <element name="heatingSchedule" minOccurs="0" type="energy:_SchedulePropertyType" />
-          <element name="usageZoneClass" type="gml:CodeType">
+          <element name="coolingSchedule" minOccurs="0" type="energy:_SchedulePropertyType">
+            <annotation>
+              <documentation>Temperature schedule [°C] of the active cooling inside the usage zone.</documentation>
+            </annotation>
+          </element>
+          <element name="heatingSchedule" minOccurs="0" type="energy:_SchedulePropertyType">
+            <annotation>
+              <documentation>Temperature schedule [°C] of the active heating inside the usage zone.</documentation>
+            </annotation>
+          </element>
+          <element name="usageZoneType" type="gml:CodeType">
+            <annotation>
+              <documentation>Usage class of the zone.</documentation>
+            </annotation>
+          </element>
+          <element name="usedFloors" minOccurs="0" type="gml:integerList">
+            <annotation>
+              <documentation>List of the number of floors part of the usage zone (0 = ground level).</documentation>
+            </annotation>
+          </element>
+          <element name="ventilationSchedule" minOccurs="0" type="energy:_SchedulePropertyType">
+            <annotation>
+              <documentation>Air change rate [1/h] schedule of the ventilation system inside the usage zone.</documentation>
+            </annotation>
+          </element>
+          <element name="floorArea" minOccurs="0" maxOccurs="unbounded" type="energy:FloorAreaPropertyType">
+            <annotation>
+              <documentation>Floor area of the UsageZone. Different calculation methods (e.g. gross area, net area) can be selected.</documentation>
+            </annotation>
+          </element>
+          <element name="volumeGeometry" minOccurs="0" type="gml:SolidPropertyType">
+            <annotation>
+              <documentation>Geometric representation of the UsageZone volume.</documentation>
+            </annotation>
+          </element>
+          <element name="averageInternalGains" minOccurs="0" type="energy:HeatExchangeTypePropertyType">
             <annotation>
               <appinfo>
-                <kit:referenzierteCodelist>bldg:BuildingClass</kit:referenzierteCodelist>
+                <gml:targetElement>energy:HeatExchangeType</gml:targetElement>
+              </appinfo>
+              <documentation>Aggregated average heat energy per year (in W) dissipated by the occupants and facilities in a usage zone over the whole year (positive for heat source, negative for heat sink/cool source).</documentation>
+            </annotation>
+          </element>
+          <element name="contains" minOccurs="0" maxOccurs="unbounded" type="energy:BuildingUnitPropertyType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>energy:BuildingUnit</gml:targetElement>
               </appinfo>
             </annotation>
           </element>
-          <element name="usedFloors" minOccurs="0" type="gml:integerList" />
-          <element name="ventilationSchedule" minOccurs="0" type="energy:_SchedulePropertyType" />
-          <element name="floorArea" minOccurs="0" maxOccurs="unbounded" type="energy:FloorAreaPropertyType" />
-          <element name="volumeGeometry" minOccurs="0" type="gml:SolidPropertyType" />
-          <element name="internalGains" minOccurs="0" type="energy:HeatExchangeTypePropertyType" />
-          <element name="contains" minOccurs="0" maxOccurs="unbounded" type="energy:BuildingUnitPropertyType" />
-          <element name="occupiedBy" minOccurs="0" maxOccurs="unbounded" type="energy:OccupantsPropertyType" />
-          <element name="has" minOccurs="0" maxOccurs="unbounded" type="energy:FacilitiesPropertyType" />
+          <element name="occupiedBy" minOccurs="0" maxOccurs="unbounded" type="energy:OccupantsPropertyType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>energy:Occupants</gml:targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="equippedWith" minOccurs="0" maxOccurs="unbounded" type="energy:FacilitiesPropertyType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>energy:Facilities</gml:targetElement>
+              </appinfo>
+            </annotation>
+          </element>
         </sequence>
       </extension>
     </complexContent>
@@ -1723,6 +2975,45 @@ It is a semantic object, which may be or not related to a geometric entity. </do
     <attributeGroup ref="gml:AssociationAttributeGroup" />
   </complexType>
   <!--=========================================================================================-->
+  <!--VolumeType-->
+  <!--=========================================================================================-->
+  <element name="VolumeType" type="energy:VolumeTypeType" />
+  <complexType name="VolumeTypeType">
+    <annotation>
+      <documentation>Volume of e.g. a ThermalZone or UsageZone</documentation>
+    </annotation>
+    <sequence>
+      <element name="type" type="energy:VolumeTypeValue">
+        <annotation>
+          <documentation>Categorization of a method the calculate the volume.</documentation>
+        </annotation>
+      </element>
+      <element name="value" type="gml:VolumeType">
+        <annotation>
+          <documentation>Volume value.</documentation>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="VolumeTypePropertyType">
+    <sequence>
+      <element ref="energy:VolumeType" minOccurs="0" />
+    </sequence>
+  </complexType>
+  <!--=========================================================================================-->
+  <!--VolumeTypeValue-->
+  <!--=========================================================================================-->
+  <simpleType name="VolumeTypeValue">
+    <annotation>
+      <documentation>&lt;b&gt;Note&lt;/b&gt;: May be converted to CodeList in next version.</documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="NetVolume" />
+      <enumeration value="GrossVolume" />
+      <enumeration value="EnergyReferenceVolume" />
+    </restriction>
+  </simpleType>
+  <!--=========================================================================================-->
   <!--WavelengthRangeType-->
   <!--=========================================================================================-->
   <simpleType name="WavelengthRangeType">
@@ -1730,10 +3021,122 @@ It is a semantic object, which may be or not related to a geometric entity. </do
       <documentation>Part of electromagnetic spectrum, corresponding to a range of radiation wavelength.</documentation>
     </annotation>
     <restriction base="string">
-      <enumeration value="Solar" />
-      <enumeration value="Infrared" />
-      <enumeration value="Visible" />
-      <enumeration value="Total" />
+      <enumeration value="Solar">
+        <annotation>
+          <documentation>Solar radiation spectrum (Wavelength range: mainly 300 nm – 2500 nm), also called short-wave radiation.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Infrared">
+        <annotation>
+          <documentation>Infrared spectrum (Wavelength range: 700 nm – 1000 mm), also called long-wave radiation. Range of thermal radiation exchanges close to ambient temperature.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Visible">
+        <annotation>
+          <documentation>Visible light spectrum (Wavelength range: 400 nm – 800 nm).</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Total">
+        <annotation>
+          <documentation>Total electromagnetic spectrum.</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <!--=========================================================================================-->
+  <!--WeatherData-->
+  <!--=========================================================================================-->
+  <element name="WeatherData" type="energy:WeatherDataType" substitutionGroup="gml:_GML" />
+  <complexType name="WeatherDataType">
+    <annotation>
+      <documentation>Data structure to model weather or climate data at the location of a building.</documentation>
+    </annotation>
+    <complexContent>
+      <extension base="gml:AbstractGMLType">
+        <sequence>
+          <element name="weatherDataType" type="energy:WeatherDataTypeValue">
+            <annotation>
+              <documentation>Type of the meteorological or physical parameter.</documentation>
+            </annotation>
+          </element>
+          <element name="values" type="energy:_TimeSeriesPropertyType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>energy:_TimeSeries</gml:targetElement>
+              </appinfo>
+              <documentation>Time series of data</documentation>
+            </annotation>
+          </element>
+          <element name="position" minOccurs="0" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>Measurement position.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="WeatherDataPropertyType">
+    <sequence>
+      <element ref="energy:WeatherData" minOccurs="0" />
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup" />
+  </complexType>
+  <!--=========================================================================================-->
+  <!--WeatherDataTypeValue-->
+  <!--=========================================================================================-->
+  <simpleType name="WeatherDataTypeValue">
+    <restriction base="string">
+      <enumeration value="AirTemperature">
+        <annotation>
+          <documentation>Temparature of air</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Humidity">
+        <annotation>
+          <documentation>Relative air humidity</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="WindSpeed">
+        <annotation>
+          <documentation>Speed of wind</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Cloudiness">
+        <annotation>
+          <documentation>Cloud amount in eights.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="GlobalSolarIrradiance">
+        <annotation>
+          <documentation>Total solar irradiance (Energy per area) on a horizontal area.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="DirectSolarIrradiance">
+        <annotation>
+          <documentation>Direct solar irradiance (energy per area) on a horizontal surface.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="DiffuseSolarIrradiance">
+        <annotation>
+          <documentation>Diffuse solar irradiance (energy per area) on a horizontal surface.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="TerrestrialEmission">
+        <annotation>
+          <documentation>Long wave emission of the earth*s surface (energy per area).</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="DownwardTerrestrialRadiation">
+        <annotation>
+          <documentation>Downwards directed, long wave atmospheric re-emission.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="DaylightIlluminance">
+        <annotation>
+          <documentation>Daylight illuminance</documentation>
+        </annotation>
+      </enumeration>
     </restriction>
   </simpleType>
 </schema>

@@ -51,15 +51,15 @@ h3 {
 }      
       
     </style></head>
-   <body><a name=""></a><h1>energy:Boiler</h1>
+   <body><a name=""></a><h1>energy:PhotovoltaicThermalSystem</h1>
       <h2>Type</h2>
       <p class="einzug10">Feature Type</p>
       <h2>Definition</h2>
-      <p class="einzug10">Closed vessel in which water is heated.</p>
+      <p class="einzug10">Hybrid photovoltaic and solar thermal system</p>
       <h2>Belongs to module</h2>
       <p class="einzug10"><a href="Package_energy_Energy-ADE.html">energy:Energy-ADE</a></p>
       <h2>Derived from</h2>
-      <p class="einzug10"><a href="energy_EnergyConversionSystem.html">energy:EnergyConversionSystem</a></p>
+      <p class="einzug10"><a href="energy__SolarEnergySystem.html">energy:_SolarEnergySystem</a></p>
       <h2>Attributes and associations</h2>
       <table width="800" border="0" cellspacing="3">
          <tr>
@@ -161,11 +161,74 @@ h3 {
                <p>EnergyDemand</p>
             </td>
          </tr>
-         <tr><a name="energy_Boiler_condensation_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
-               <p><a href="#energy_Boiler_condensation">energy:condensation</a></p>
+         <tr><a name="energy__SolarEnergySystem_surfaceGeometry_A"></a><td width="600" height="20" bgcolor="#EEEEEE">
+               <p><a href="#energy__SolarEnergySystem_surfaceGeometry">energy:surfaceGeometry</a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#EEEEEE">
+               <p>GM_MultiSurface</p>
+            </td>
+         </tr>
+         <tr><a name="energy__SolarEnergySystem_installedOnBoundarySurface_A"></a><td width="600" height="20" bgcolor="#EEEEEE">
+               <p><a href="#energy__SolarEnergySystem_installedOnBoundarySurface">energy:installedOnBoundarySurface</a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#EEEEEE">
+               <p>_BoundarySurface</p>
+            </td>
+         </tr>
+         <tr><a name="energy__SolarEnergySystem_installedOnBuildingInstallation_A"></a><td width="600" height="20" bgcolor="#EEEEEE">
+               <p><a href="#energy__SolarEnergySystem_installedOnBuildingInstallation">energy:installedOnBuildingInstallation</a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#EEEEEE">
+               <p>BuildingInstallation</p>
+            </td>
+         </tr>
+         <tr><a name="energy_PhotovoltaicThermalSystem_cellType_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_PhotovoltaicThermalSystem_cellType">energy:cellType</a></p>
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
-               <p>Boolean</p>
+               <p>CellTypeValue</p>
+            </td>
+         </tr>
+         <tr><a name="energy_PhotovoltaicThermalSystem_collectorType_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_PhotovoltaicThermalSystem_collectorType">energy:collectorType</a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>CollectorTypeValue</p>
+            </td>
+         </tr>
+         <tr><a name="energy_PhotovoltaicThermalSystem_moduleArea_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_PhotovoltaicThermalSystem_moduleArea">energy:moduleArea</a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>Area</p>
+            </td>
+         </tr>
+         <tr><a name="energy_PhotovoltaicThermalSystem_apertureArea_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_PhotovoltaicThermalSystem_apertureArea">energy:apertureArea</a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>Area</p>
+            </td>
+         </tr>
+         <tr><a name="energy_PhotovoltaicThermalSystem_eta0_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_PhotovoltaicThermalSystem_eta0">energy:eta0</a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>Decimal</p>
+            </td>
+         </tr>
+         <tr><a name="energy_PhotovoltaicThermalSystem_a1_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_PhotovoltaicThermalSystem_a1">energy:a1</a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>Decimal</p>
+            </td>
+         </tr>
+         <tr><a name="energy_PhotovoltaicThermalSystem_a2_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_PhotovoltaicThermalSystem_a2">energy:a2</a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>Decimal</p>
             </td>
          </tr>
       </table><br></br><a name="energy_EnergyConversionSystem_efficiencyIndicator"></a><table width="800" border="0" cellspacing="3">
@@ -363,23 +426,229 @@ h3 {
       <h3>Cardinality</h3>
       <p class="einzug10">0..*</p>
       <h3>Data type</h3><a href="energy_EnergyDemand.html">
-         <p class="einzug10">EnergyDemand</p></a><br></br><a name="energy_Boiler_condensation"></a><table width="800" border="0" cellspacing="3">
+         <p class="einzug10">EnergyDemand</p></a><br></br><a name="energy__SolarEnergySystem_surfaceGeometry"></a><table width="800" border="0" cellspacing="3">
          <tr>
-            <td width="600" height="20" bgcolor="#CCCCCC">
-               <h2>Attribute type: energy:condensation</h2>
+            <td width="600" height="20" bgcolor="#EEEEEE">
+               <h2>Attribute type: energy:surfaceGeometry</h2>
             </td>
-            <td bgcolor="#CCCCCC">
-               <p><a href="#energy_Boiler_condensation_A">back</a></p>
+            <td bgcolor="#EEEEEE">
+               <p><a href="#energy__SolarEnergySystem_surfaceGeometry_A">back</a></p>
             </td>
          </tr>
       </table>
       <h3>Definition</h3>
-      <p class="einzug10">True if the boiler use the condensing process, it means extract additional heat from the waste gases by condensing this water
-         vapour to liquid water. False otherwise.
-      </p>
+      <p class="einzug10"></p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..1</p>
+      <h3>Data type</h3>
+      <p class="einzug10">GM_MultiSurface (Type)</p><br></br><a name="energy__SolarEnergySystem_installedOnBoundarySurface"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#EEEEEE">
+               <h2>Attribute type: energy:installedOnBoundarySurface</h2>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <p><a href="#energy__SolarEnergySystem_installedOnBoundarySurface_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10">Relation between the solar system and the building boundary surface on which it is installed</p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..1</p>
+      <h3>Data type</h3><a href="bldg__BoundarySurface.html">
+         <p class="einzug10">_BoundarySurface</p></a><br></br><a name="energy__SolarEnergySystem_installedOnBuildingInstallation"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#EEEEEE">
+               <h2>Attribute type: energy:installedOnBuildingInstallation</h2>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <p><a href="#energy__SolarEnergySystem_installedOnBuildingInstallation_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10"></p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..1</p>
+      <h3>Data type</h3><a href="bldg_BuildingInstallation.html">
+         <p class="einzug10">BuildingInstallation</p></a><br></br><a name="energy_PhotovoltaicThermalSystem_cellType"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:cellType</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_PhotovoltaicThermalSystem_cellType_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10"></p>
       <h3>Cardinality</h3>
       <p class="einzug10">1</p>
       <h3>Data type</h3>
-      <p class="einzug10">Boolean</p>
+      <p class="einzug10">CellTypeValue (Enumeration)</p><br></br><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="70" height="20" bgcolor="#9DE5F7">
+               <p><strong><em>Code</em></strong></p>
+            </td>
+            <td colspan="2" width="700" bgcolor="#9DE5F7">
+               <p><strong><em>Text</em></strong></p>
+            </td>
+         </tr>
+         <tr>
+            <td width="70" bgcolor="#EEEEEE">
+               <p>Monocrystalline</p>
+            </td>
+            <td width="300" bgcolor="#EEEEEE">
+               <p>Monocrystalline</p>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <h4></h4>
+            </td>
+         </tr>
+         <tr>
+            <td width="70" bgcolor="#EEEEEE">
+               <p>Polycrystalline</p>
+            </td>
+            <td width="300" bgcolor="#EEEEEE">
+               <p>Polycrystalline</p>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <h4></h4>
+            </td>
+         </tr>
+         <tr>
+            <td width="70" bgcolor="#EEEEEE">
+               <p>Amorphous</p>
+            </td>
+            <td width="300" bgcolor="#EEEEEE">
+               <p>Amorphous</p>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <h4></h4>
+            </td>
+         </tr>
+      </table><br></br><a name="energy_PhotovoltaicThermalSystem_collectorType"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:collectorType</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_PhotovoltaicThermalSystem_collectorType_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10"></p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">1</p>
+      <h3>Data type</h3>
+      <p class="einzug10">CollectorTypeValue (Enumeration)</p><br></br><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="70" height="20" bgcolor="#9DE5F7">
+               <p><strong><em>Code</em></strong></p>
+            </td>
+            <td colspan="2" width="700" bgcolor="#9DE5F7">
+               <p><strong><em>Text</em></strong></p>
+            </td>
+         </tr>
+         <tr>
+            <td width="70" bgcolor="#EEEEEE">
+               <p>FlatPlaneCollector</p>
+            </td>
+            <td width="300" bgcolor="#EEEEEE">
+               <p>FlatPlaneCollector</p>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <h4></h4>
+            </td>
+         </tr>
+         <tr>
+            <td width="70" bgcolor="#EEEEEE">
+               <p>EvacuatedTubeCollector</p>
+            </td>
+            <td width="300" bgcolor="#EEEEEE">
+               <p>EvacuatedTubeCollector</p>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <h4></h4>
+            </td>
+         </tr>
+      </table><br></br><a name="energy_PhotovoltaicThermalSystem_moduleArea"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:moduleArea</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_PhotovoltaicThermalSystem_moduleArea_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10"></p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..1</p>
+      <h3>Data type</h3>
+      <p class="einzug10">Area (Type)</p><br></br><a name="energy_PhotovoltaicThermalSystem_apertureArea"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:apertureArea</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_PhotovoltaicThermalSystem_apertureArea_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10"></p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..1</p>
+      <h3>Data type</h3>
+      <p class="einzug10">Area (Type)</p><br></br><a name="energy_PhotovoltaicThermalSystem_eta0"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:eta0</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_PhotovoltaicThermalSystem_eta0_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10"></p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..1</p>
+      <h3>Data type</h3>
+      <p class="einzug10">Decimal (Type)</p><br></br><a name="energy_PhotovoltaicThermalSystem_a1"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:a1</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_PhotovoltaicThermalSystem_a1_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10"></p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..1</p>
+      <h3>Data type</h3>
+      <p class="einzug10">Decimal (Type)</p><br></br><a name="energy_PhotovoltaicThermalSystem_a2"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:a2</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_PhotovoltaicThermalSystem_a2_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10"></p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..1</p>
+      <h3>Data type</h3>
+      <p class="einzug10">Decimal (Type)</p>
    </body>
 </html>

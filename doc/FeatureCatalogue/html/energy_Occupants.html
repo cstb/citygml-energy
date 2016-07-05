@@ -95,11 +95,11 @@ h3 {
                <p><a href="#energy_Occupants_occupantType">energy:occupantType</a></p>
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
-               <p>OccupantType</p>
+               <p>OccupantTypeValue</p>
             </td>
          </tr>
-         <tr><a name="energy_Occupants_consiststOf_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
-               <p><a href="#energy_Occupants_consiststOf">energy:consiststOf</a></p>
+         <tr><a name="energy_Occupants_household_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_Occupants_household">energy:household</a></p>
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
                <p>Household</p>
@@ -116,7 +116,9 @@ h3 {
          </tr>
       </table>
       <h3>Definition</h3>
-      <p class="einzug10"></p>
+      <p class="einzug10">Heat energy  per year (in W) dissipated by the occupants in "nominal conditions", when all occupants are present. The constant
+         totalValue of heatDissipation is weighted by the occupancyRate,  to obtain the heat dissipation temporal variation.
+      </p>
       <h3>Cardinality</h3>
       <p class="einzug10">0..1</p>
       <h3>Data type</h3><a href="energy_HeatExchangeType.html">
@@ -167,7 +169,7 @@ h3 {
       <h3>Cardinality</h3>
       <p class="einzug10">0..1</p>
       <h3>Data type</h3>
-      <p class="einzug10">OccupantType (CodeList)</p><br></br><table width="800" border="0" cellspacing="3">
+      <p class="einzug10">OccupantTypeValue (CodeList)</p><br></br><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="70" height="20" bgcolor="#9DE5F7">
                <p><strong><em>Code</em></strong></p>
@@ -242,13 +244,13 @@ h3 {
                <h4></h4>
             </td>
          </tr>
-      </table><br></br><a name="energy_Occupants_consiststOf"></a><table width="800" border="0" cellspacing="3">
+      </table><br></br><a name="energy_Occupants_household"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#CCCCCC">
-               <h2>Attribute type: energy:consiststOf</h2>
+               <h2>Attribute type: energy:household</h2>
             </td>
             <td bgcolor="#CCCCCC">
-               <p><a href="#energy_Occupants_consiststOf_A">back</a></p>
+               <p><a href="#energy_Occupants_household_A">back</a></p>
             </td>
          </tr>
       </table>
