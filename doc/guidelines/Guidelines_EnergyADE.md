@@ -288,16 +288,16 @@ below).
 
 Time series of measured or processed meteorological or radiation parameters may be related with any feature class of the base standard (e.g. `_AbstractBuilding`, `_BoundarySurface`) or the extension (e.g. `ThermalBoundary`) via the property `weatherData`. The corresponding type `WeatherData` has three properties: The type of the weather data (`weatherDataType`), the time seris of values (`values`), and optionally the position of the sensor (`position`). The following types of meteorological and radiation data can be specified:
 
-`AirTemperature`
-`Humidity`
-`WindSpeed`
-`Cloudiness`
-`GlobalSolarIrradiance` (see \_BoundarySurface)
-`DirectSolarIrradiance`
-`DiffuseSolarIrradiance`
-`TerestrialEmission`
-`DownwardTerrestrialRadiation`
-`DaylightIlluminance` (see \_BoundarySurface)
+- `AirTemperature`
+- `Humidity`
+- `WindSpeed`
+- `Cloudiness`
+- `GlobalSolarIrradiance` (see \_BoundarySurface)
+- `DirectSolarIrradiance`
+- `DiffuseSolarIrradiance`
+- `TerestrialEmission`
+- `DownwardTerrestrialRadiation`
+- `DaylightIlluminance` (see \_BoundarySurface)
 
 ### \_Opening
 
@@ -356,12 +356,9 @@ Xlinks).
 ### \_BoundarySurface, globalSolarIrradiance and daylightIlluminance
 
 The CityGML abstract class `_BoundarySurface` is extended by a number of Energy
-ADE attributes, in order to store construction information (`boundarySurfaceConstruction`) and refurbishment data (`refurbishmentMeasureOnBoundarySurface`).   the incident global solar
-irradiances and the daylight illuminances available on each outside boundary
-surface of the building. Moreover,  information about refurbishment measures on
-roof or facade can characterised the `_BoundarySurface` objects, in the same
-way that the buildings and openings, through the attribute
-`refurbishmentMeasureOnBoundarySurface` of type `RefurbishmentMeasure`.
+ADE attributes, in order to store construction information (`boundarySurfaceConstruction`) and refurbishment data (`refurbishmentMeasureOnBoundarySurface`). Via the general mechanism of attaching time series of meteorological or radiation data to CityGML feature types, the incident global solar
+irradiances and the daylight illuminances can be related with each outside boundary
+surface of the building. 
 
 The `globalSolarIrradiance` is the sum of the direct, diffuse and reflected
 irradiance incident on a outside boundary surface and is generally expressed in
@@ -377,31 +374,42 @@ daylighting study, as well as the calculation of the energy consumptions of
 lighting systems required to reach the room illuminance threshold when the
 daylight illuminance is not enough.
 
-Both `globalSolarIrradiance` and `daylightIlluminance` attributes are
-`_Timeseries` data (see details in Temporal Data Module).  In the following, a
-XML example of a roof is given.
-
 ```xml
 <!--Example of a Roof object -->
 <bldg:RoofSurface gml:id="id_roof_1">
-	<gml:description>Description of Roof 1</gml:description>
-	<gml:name>Name of Roof 1</gml:name>
-
-	<energy:refurbishmentMeasureOnBoundarySurface>
-		<energy:RefurbishmentMeasure>
-			<!--Here come all attributes of a RefurbishmentMeasure object (omitted here)-->
-		</energy:RefurbishmentMeasure>
-	</energy:refurbishmentMeasureOnBoundarySurface>
-
-	<energy:globalSolarIrradiance>
-		<!--Add here the TimeSeries data -->
-	</energy:globalSolarIrradiance>
-
-	<energy:daylightIlliminance>
-		<!--Add here the TimeSeries data -->
-	</energy:daylightIlliminance>
-
-</bldg:RoofSurface>
+   <gml:description>Description of Roof 1</gml:description>
+   <gml:name>Name of Roof 1</gml:name>
+   
+   <energy:weatherData>
+    <energy:WeatherData>
+     <energy:weatherDataType>GlobalSolarIrradiance</energy:weatherDataType>
+     <energy:values>
+      <energy:RegularTimeSeries>
+       <!-- Specification of the time series temporal extent and values (omitted here) -->
+      </energy:RegularTimeSeries>
+     </energy:values>
+    </energy:WeatherData>    
+   </energy:weatherData>
+   
+   
+   <energy:weatherData>
+    <energy:WeatherData>
+     <energy:weatherDataType>DaylightIlluminance</energy:weatherDataType>
+     <energy:values>
+      <energy:RegularTimeSeries>
+       <!-- Specification of the time series temporal extent and values (omitted here) -->
+      </energy:RegularTimeSeries>
+     </energy:values>
+    </energy:WeatherData>    
+   </energy:weatherData>   
+   
+   <energy:refurbishmentMeasureOnBoundarySurface>
+    <energy:RefurbishmentMeasure>
+     <!--Here come all attributes of a RefurbishmentMeasure object (omitted here)-->
+    </energy:RefurbishmentMeasure>
+   </energy:refurbishmentMeasureOnBoundarySurface>
+    
+  </bldg:RoofSurface>
 ```
 
 ## Thermal zones, thermal boundaries and thermal components
