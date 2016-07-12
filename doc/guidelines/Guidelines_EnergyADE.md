@@ -143,20 +143,56 @@ Buildings (`_AbstractBuilding`) and building zones (`ThermalZone` and
 
 ```xml
 <!--Examples of three floor areas-->
-<energy:FloorArea>
+<energy:floorArea>
 	<energy:FloorArea>
 		<energy:type>GrossFloorArea</energy:type>
-		<energy:value uom="m^2">50.0</energy:value>
+		<energy:value uom="m2">50.0</energy:value>
 	</energy:FloorArea>
+</energy:floorArea>
+
+<energy:floorArea>
 	<energy:FloorArea>
 		<energy:type>NetFloorArea</energy:type>
-		<energy:value uom="m^2">40.0</energy:value>
+		<energy:value uom="m2">40.0</energy:value>
 	</energy:FloorArea>
+</energy:floorArea>
+
+<energy:floorArea>
 	<energy:FloorArea>
 		<energy:type>EnergyReferenceArea</energy:type>
-		<energy:value uom="m^2">43.0</energy:value>
+		<energy:value uom="m2">43.0</energy:value>
 	</energy:FloorArea>
 </energy:FloorArea>
+```
+
+#### VolumeType
+
+Buildings (`_AbstractBuilding`) and thermal zones (`ThermalZone`) may have several `volume`, related to several `VolumeType`
+(e.g. net volume, gross volume, energy reference volume).
+
+```
+xml
+
+<energy:volume>
+ <energy:VolumeType>
+  <energy:type>NetVolume</energy:type>
+  <energy:value uom="m3">900</energy:value>
+ </energy:VolumeType>
+</energy:volume> 
+ 
+<energy:volume>
+ <energy:VolumeType>
+  <energy:type>GrossVolume</energy:type>
+  <energy:value uom="m3">1050</energy:value>
+ </energy:VolumeType>
+</energy:volume> 
+  
+<energy:volume>
+ <energy:VolumeType>
+  <energy:type>EnergyReferenceVolume</energy:type>
+  <energy:value uom="m3">975</energy:value>
+ </energy:VolumeType>
+</energy:volume>   
 ```
 
 #### EnergyPerformanceCertification
