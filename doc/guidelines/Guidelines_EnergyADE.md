@@ -236,36 +236,38 @@ below).
 
 ```xml
 <!--Example of a Refurbishment Measure on a building with a very vague date ("before June 2010") -->
-<energy:refurbishmentMeasureOnBuilding>
-    <energy:RefurbishmentMeasure>
-        <energy:dateOfRefurbishment>
-            <energy:DateOfEvent>
-                <energy:instant indeterminatePosition="before">2010-06</energy:instant>
-            </energy:DateOfEvent>
-        </energy:dateOfRefurbishment>
-        <energy:levelOfRefurbishment>UsualRefurbishment</energy:levelOfRefurbishment>
-        <gml:description>Refurbishment consisting of an outside insulation of walls etc.</gml:description>
-    </energy:RefurbishmentMeasure>
-</energy:refurbishmentMeasureOnBuilding>
+ <bldg:Building>
+  <energy:refurbishmentMeasureOnBuilding>
+   <energy:RefurbishmentMeasure>
+    <energy:dateOfRefurbishment>
+     <energy:DateOfEvent>
+      <energy:instant indeterminatePosition="before">2010-06</energy:instant>
+     </energy:DateOfEvent>
+    </energy:dateOfRefurbishment>
+    <energy:levelOfRefurbishment>UsualRefurbishment</energy:levelOfRefurbishment>
+    <energy:descriptionOfRefurbishment>Refurbishment consisting of an outside insulation of walls etc.</energy:descriptionOfRefurbishment>
+   </energy:RefurbishmentMeasure>
+  </energy:refurbishmentMeasureOnBuilding>
+  </bldg:Building>
 ```
 
 ```xml
 <!--Example of an advanced Refurbishment Measure in the years 1998 and 1999 -->
 <energy:refurbishmentMeasureOnBuilding>
     <energy:RefurbishmentMeasure>
-        <energy:dateOfRefurbishment>
-            <energy:DateOfEvent>
-                <energy:period>
-                    <gml:TimePeriod>
-                        <gml:beginPosition>1998</gml:beginPosition>
-                        <gml:endPosition>2000</gml:endPosition>
-                    </gml:TimePeriod>
-                </energy:period>
-            </energy:DateOfEvent>
-        </energy:dateOfRefurbishment>
-        <energy:levelOfRefurbishment>AdvancedRefurbishment</energy:levelOfRefurbishment>
+     <energy:dateOfRefurbishment>
+      <energy:DateOfEvent>
+       <energy:period>
+        <gml:TimePeriod>
+         <gml:beginPosition>1998</gml:beginPosition>
+         <gml:endPosition>2000</gml:endPosition>
+        </gml:TimePeriod>
+       </energy:period>
+      </energy:DateOfEvent>
+     </energy:dateOfRefurbishment>
+     <energy:levelOfRefurbishment>AdvancedRefurbishment</energy:levelOfRefurbishment>
     </energy:RefurbishmentMeasure>
-</energy:refurbishmentMeasureOnBuilding>
+   </energy:refurbishmentMeasureOnBuilding>
 ```
 
 ```xml
@@ -292,10 +294,7 @@ First of all, an optional attribute `openableRatio` details the proportion of
 the opening area which may be opened. An indoor and an outdoor shading system
 may complement the opening, with a `ShadingType` characterized by a
 `transmittance` (see details in Module Materials and Constructions) and a
-`maximumCoverRatio`. Finally, information about possible refurbishment measures
-and operations may also be added at the level of the opening (e.g window
-exchange), through the attribute `refurbishmentMeasureOnOpening` of type
-`RefurbishmentMeasure`.
+`maximumCoverRatio`. Finally, material information (`AbstractConstruction`, see Module Materials and Constructions) may be specified for the opening via the `openingConstruction` attribute.
 
 As in the Building example shown before, the standard CityGML attributes have
 been omitted for better readability. The door example is simpler and contains
@@ -342,7 +341,7 @@ Xlinks).
 ### \_BoundarySurface, globalSolarIrradiance and daylightIlluminance
 
 The CityGML abstract class `_BoundarySurface` is extended by a number of Energy
-ADE attributes, in order in particular to store the incident global solar
+ADE attributes, in order to store construction information (`boundarySurfaceConstruction`) and refurbishment data (`refurbishmentMeasureOnBoundarySurface`).   the incident global solar
 irradiances and the daylight illuminances available on each outside boundary
 surface of the building. Moreover,  information about refurbishment measures on
 roof or facade can characterised the `_BoundarySurface` objects, in the same
