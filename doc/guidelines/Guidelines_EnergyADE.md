@@ -41,10 +41,9 @@ Thus, it extends the existing CityGML objects `_AbstractBuilding`, `_BoundarySur
 
 The `ThermalZone `is the unit volume for heating and cooling demand calculation. A Building may have several `ThermalZone`, for instance in the case of mixed-usage building, or to distinguish rooms or zones with different orientations (i.e. solar gains) and/or thermal behaviour.
 
-These `ThermalZone` objects are separated from each other and from the outside by `ThermalBoundary` objects. These `ThermalBoundary` objects may or not correspond to the CityGML `_BoundarySurface`. To count the `globalSolarIrradiance` incident on `_BoundarySurface` in the building energy balance, every `ThermalBoundary` delimiting the `ThermalZone` from outside should however be related (relation `correspondsTo`) with a `_BoundarySurface`.
+These `ThermalZone` objects are separated from each other and from the outside by `ThermalBoundary` objects. These `ThermalBoundary` objects may or not correspond to the CityGML `_BoundarySurface`.
 
-If occupied, a `ThermalZone` must be related to at less 1 `UsageZone`, which contains the usage boundary conditions required for the heating and cooling demand calculation (see Occupancy Module). One `ThermalZone` may be related to several `UsageZone` for simplified modelling of mixed-usage space, in which case the usage boundary conditions of the `UsageZone` should be aggregated or weighted
-according with their floorArea.
+If occupied, a `ThermalZone` must be related to at least 1 `UsageZone`, which contains the usage boundary conditions required for the heating and cooling demand calculation (see Occupancy Module). One `ThermalZone` may be related to several `UsageZone` for simplified modelling of mixed-usage space, in which case the usage boundary conditions of the `UsageZone` should be aggregated or weighted according with their floorArea.
 
 ## Extension of CityGML building objects
 
@@ -52,21 +51,19 @@ according with their floorArea.
 
 The Energy ADE extends the CityGML _AbstractBuilding by a number of
 energy-related attributes, e.g with regards to the geometrical characteristics
-(`referencePoint`, `averageCeilingHeight`, `eavesHeight`, `ridgeHeight`,
-`basementCeilingHeightAboveGrounSurface`, `floorArea`, `grossVolume`), to the
-conditioning of basement and attic (`basementType`, `atticType`), to the
+(`referencePoint`, `volume`, `floorArea`, `hightAboveGround`), to the
 available energy certificates (`energyPerformanceCertification`) and
 refurbishment measures (`RefurbishmentMeasureOnBuilding`), and other building
-information useful for building typology categorisations (`buildingType` and
-`constructionStyle`).
+information useful for building typology categorisations (`buildingType`,
+`constructionWeight`,`isLandmarked`).
 
-All these attributes are optional. Some of them, like `floorArea` and  
+All these attributes are optional. Some of them, like `volume`, `floorArea` and  
 `energyPerformanceCertification`, have a cardinality [0..*] and may
 consequently be attributed several times to a building, specifying different
-values for different `FloorAreaType`, respectively `certificationName`.
+values for different kinds of `VolumeType`, `FloorArea` and `ÈnergyPerformanceCertification`respectively.
 
 Finally, because `_AbstractBuilding` inherits from `_CityObject`, further
-objects may be assigned to it, like `EnergyDemand` in particular (see Module
+objects may be assigned to it, like `WeatherData`and `EnergyDemand`(see Module
 Energy and Systems).
 
 In the following, an extract of CityGML file for a building is given, included
@@ -75,50 +72,67 @@ some of its Energy ADE attributes.
 ```xml
 <!--Examples of Building with Energy ADE attributes-->
 <bldg:Building gml:id="id_building_1">
- <gml:description>Description of Building 1</gml:description>
- <gml:name>Name of Building 1</gml:name>
- <energy:referencePoint>
-  <gml:Point gml:id="id_building_referencepoint_1" srsName="EPSG:31256" srsDimension="3">
-   <gml:pos>2525.5 338567.5 162.6</gml:pos>
-  </gml:Point>
- </energy:referencePoint>
- <energy:basementType>Unconditioned</energy:basementType>
- <energy:energyPerformanceCertification>
-  <!--Here come the EnergyPerformanceCertification objects (see later) -->
- </energy:energyPerformanceCertification>
- <energy:basementCeilingHeightAboveGroundSurface uom="m">1</energy:basementCeilingHeightAboveGroundSurface>
- <energy:grossVolume uom="m^3">1050</energy:grossVolume>
- <energy:refurbishmentMeasureOnBuilding>
-  <energy:RefurbishmentMeasure>
-   <!--Here come all attributes of a RefurbishmentMeasure object (omitted here)-->
-  </energy:RefurbishmentMeasure>
- </energy:refurbishmentMeasureOnBuilding>
- <energy:averageCeilingHeight uom="m">2.7</energy:averageCeilingHeight>
- <energy:atticType>Conditioned</energy:atticType>
+  <gml:description>Description of Building 1</gml:description>
+  <gml:name>Name of Building 1</gml:name>
+  <energy:referencePoint>
+   <gml:Point gml:id="id_building_referencepoint_1" srsName="EPSG:31256" srsDimension="3">
+    <gml:pos>2525.5 338567.5 162.6</gml:pos>
+   </gml:Point>
+  </energy:referencePoint>
+  
+  <energy:energyPerformanceCertification>
+   <!--Here come the EnergyPerformanceCertification objects (see later) -->
+  </energy:energyPerformanceCertification>
+  
+  <energy:heightAboveGround>
+   <energy:HeightAboveGround>
+    <energy:heightReference>highestEave</energy:heightReference>
+    <energy:value uom="m">10.0</energy:value>
+   </energy:HeightAboveGround>
+  </energy:heightAboveGround>
+  
+  <energy:heightAboveGround>
+   <energy:HeightAboveGround>
+    <energy:heightReference>topOfConstruction</energy:heightReference>
+    <energy:value uom="m">13.0</energy:value>
+   </energy:HeightAboveGround>
+  </energy:heightAboveGround>
  
- <!--Here may come a list of UsageZone of the building (see Module Occupancy) -->
- 
- <energy:ridgeHeight uom="m">10.5</energy:ridgeHeight>
- <energy:landmarked>false</energy:landmarked>
- <energy:floorArea>
-  <!--Here come the floorArea objects (see later)-->
- </energy:floorArea>
- <energy:eavesHeight uom="m">8</energy:eavesHeight>
- <energy:constructionStyle>Massive</energy:constructionStyle>
- <energy:buildingType>MultiFamilyHouse</energy:buildingType>
- 
- <!--Here follow all ThermalZone objects, each inside a "thermalZones" tag-->
- <energy:thermalZones>
-  <energy:ThermalZone gml:id="id_thermalzone_1">
-   <!--Here come all attributes of the first ThermalZone (omitted here)-->
-  </energy:ThermalZone>
- </energy:thermalZones>
- <energy:thermalZones>
-  <energy:ThermalZone gml:id="id_thermalzone_2">
-   <!--Here come all attributes of the second ThermalZone (omitted here)-->
-  </energy:ThermalZone>
- </energy:thermalZones>
-</bldg:Building>
+<energy:volume>
+ <energy:VolumeType>
+  <energy:type>GrossVolume</energy:type>
+  <energy:value uom="m3">1050</energy:value>
+ </energy:VolumeType>
+</energy:volume> 
+  
+  <energy:refurbishmentMeasureOnBuilding>
+   <energy:RefurbishmentMeasure>
+    <!--Here come all attributes of a RefurbishmentMeasure object (omitted here)-->
+   </energy:RefurbishmentMeasure>
+  </energy:refurbishmentMeasureOnBuilding>
+    
+  <!--Here may come a list of UsageZone of the building (see Module Occupancy) -->
+  
+  <energy:isLandmarked>false</energy:isLandmarked>
+  <energy:floorArea>
+   <!--Here come the floorArea objects (see later)-->
+  </energy:floorArea>
+  
+  <energy:constructionWeight>Heavy</energy:constructionWeight>
+  <energy:buildingType>MultiFamilyHouse</energy:buildingType>
+  
+  <!--Here follow all ThermalZone objects, each inside a "thermalZones" tag-->
+  <energy:thermalZone>
+   <energy:ThermalZone gml:id="id_thermalzone_1">
+    <!--Here come all attributes of the first ThermalZone (omitted here)-->
+   </energy:ThermalZone>
+  </energy:thermalZone>
+  <energy:thermalZone>
+   <energy:ThermalZone gml:id="id_thermalzone_2">
+    <!--Here come all attributes of the second ThermalZone (omitted here)-->
+   </energy:ThermalZone>
+  </energy:thermalZone>
+ </bldg:Building>
 ```
 
 #### FloorArea
