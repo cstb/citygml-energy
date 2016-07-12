@@ -284,6 +284,21 @@ below).
 </energy:refurbishmentMeasureOnBuilding>
 ```
 
+### WeatherData
+
+Time series of measured or processed meteorological or radiation parameters may be related with any feature class of the base standard (e.g. `_AbstractBuilding`, `_BoundarySurface`) or the extension (e.g. `ThermalBoundary`) via the property `weatherData`. The corresponding type `WeatherData` has three properties: The type of the weather data (`weatherDataType`), the time seris of values (`values`), and optionally the position of the sensor (`position`). The following types of meteorological and radiation data can be specified:
+
+`AirTemperature`
+`Humidity`
+`WindSpeed`
+`Cloudiness`
+`GlobalSolarIrradiance` (see \_BoundarySurface)
+`DirectSolarIrradiance`
+`DiffuseSolarIrradiance`
+`TerestrialEmission`
+`DownwardTerrestrialRadiation`
+`DaylightIlluminance` (see \_BoundarySurface)
+
 ### \_Opening
 
 The CityGML abstract class `_Opening` (inherited by the objects `Window` and
