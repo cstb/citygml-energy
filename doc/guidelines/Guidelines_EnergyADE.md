@@ -668,49 +668,53 @@ explicit geometry are given.
 A `ThermalComponent` object is a part of the thermal boundary corresponding to
 a homogeneous construction component (e.g. windows, wall, insulated part of a
 wall etc.) and either entirely above or below the terrain. Each `ThermalComponent` 
-must be characterized with its `area`, its position relative to the Terrain 
+must be characterized with its `area`, its position relative to the terrain 
 (attribute `relativeToTerrain` which it inherits from `_CityObject`), and its
 related `AbstractConstruction`(see Construction and Material module), defining the 
-order of the `ThermalComponent`'s different construction layers. This may be done
+order of the `ThermalComponent's` different construction layers. This may be done
 either inline or by means of xlinks (see example below). In this way,
 `ThermalComponent` provides the physical properties of the building envelope to
 calculate the heating and cooling demand.
 
-The `ThermalComponent`objects thus define the construction layer order of a `ThermalBoundary`
-object. For simulating the energy transfer between two `ThermalZone` or between a 
-`ThermalZone` and the environment, it is essintial to know which `ThermalZone`is in 
-contact with with which layer. This information is represented by the oder
-of the `ThermalZone`objects related with a `ThermalBoundary`(relaton `delimitsBy`).
+The `ThermalComponent`objects thus define the construction layer order of a 
+`ThermalBoundary` object. For simulating the energy transfer between two `ThermalZones`
+or between a `ThermalZone` and the environment, it is essential to know which 
+`ThermalZone`is in contact with which layer. This information is represented by the
+order of the `ThermalZone` objects related with a `ThermalBoundary` (relation `delimitsBy`).
 The order of the layers in the `AbstractConstruction` of a `ThermalComponent`
-and the oder of the related `ThermalZone` objects must obey the following rules:
+and the order of the related `ThermalZone` objects must obey the following rules:
 
 - For exterior `ThermalBoundary` objects, the first layer is facing the exterior environment, and the last layer the building interior.
-- For `ThermalBoundary` objects of type `IntermediaryFloor` or `BasementCeiling`, the first construction layer is facing the lower `ThermalZone` and the last layer the upper `ThermalZone`. The first relation `delimitsBy` points to the upper `ThermalZone`, and the lasr relation `delimitsBy` points to the lower `ThermalZone`.
-- For all other interion `ThermalBoundary` objects, the first relation `delimitsBy` points to the `ThermalZone` facing the last construction layer, and the last relation `delimitsBy` points to the `ThermalZone` facing the first construction layer
+- For `ThermalBoundary` objects of type `IntermediaryFloor` or `BasementCeiling`, the first construction layer is facing the lower `ThermalZone` and the last layer the upper `ThermalZone`. The first relation `delimitsBy` points to the upper `ThermalZone`, and the last relation `delimitsBy` points to the lower `ThermalZone`.
+- For all other interior `ThermalBoundary` objects, the first relation `delimitsBy` points to the `ThermalZone` facing the last construction layer, and the last relation `delimitsBy` points to the `ThermalZone` facing the first construction layer.
 
 ```xml
 <!--Example of a Facade with 20% window to wall ratio -->
-<energy:ThermalBoundary gml:id="Id_Facade_1">
-	<energy:thermalBoundaryType>OuterWall</energy:thermalBoundaryType>
-	<energy:partOf xlink:href="ID_ZONE_1"/>
-	<energy:composedOf>
-		<energy:ThermalComponent gml:id="id_Wall_1">
-	  		<gml:description>Part of the facade of wall</gml:description>
-	  		<relativeToTerrain>entirelyAboveTerrain</relativeToTerrain>
-	  		<energy:construction xlink:href="#id_WallConstruction_1"/>
-	  		<energy:area uom="m^2">40.0</energy:area>
-    		</energy:ThermalComponent>
-  	</energy:composedOf>
-  	<energy:composedOf>
-		<energy:ThermalComponent gml:id="id_Window_1">
-	      		<gml:description>Part of the facade of windows</gml:description>
-	      		<relativeToTerrain>entirelyAboveTerrain</relativeToTerrain>
-	      		<energy:construction xlink:href="#id_WindowConstruction_1"/>
-	      		<energy:area uom="m^2">10.0</energy:area>
-	      		<energy:relates xlink:href="#opening_window_1"/>
-    		</energy:ThermalComponent>
-  	</energy:composedOf>				
-</energy:ThermalBoundary>
+ <energy:ThermalBoundary gml:id="Id_Facade_1">
+   <energy:thermalBoundaryType>OuterWall</energy:thermalBoundaryType>
+   
+   <energy:composedOf>
+    <energy:ThermalComponent gml:id="id_Wall_1">
+     <gml:description>Part of the facade of wall</gml:description>
+     <core:relativeToTerrain>entirelyAboveTerrain</core:relativeToTerrain>
+     <energy:area uom="m^2">120.0</energy:area>
+     <energy:construction xlink:href="#id_WallConstruction_1"/>    
+    </energy:ThermalComponent>
+   </energy:composedOf>
+   
+   <energy:composedOf>
+    <energy:ThermalComponent gml:id="id_Window_1">
+     <gml:description>Part of the facade of windows</gml:description>
+     <core:relativeToTerrain>entirelyAboveTerrain</core:relativeToTerrain>
+     <energy:area uom="m^2">10.0</energy:area>
+     <energy:relates xlink:href="#opening_window_1"/>
+     <energy:construction xlink:href="#id_WindowConstruction_1"/>     
+    </energy:ThermalComponent>
+   </energy:composedOf>		
+   
+   <energy:delimitsBy xlink:href="#thermalZone_1"/>
+   
+  </energy:ThermalBoundary>
 ```
 
 # Temporal Data Module
@@ -768,26 +772,26 @@ Example of RegularTimeSeries object:
 
 ```xml
 <!--Example of RegularTimeSeries object with daily values-->
-<energy:RegularTimeSeries gml:id="id_timeseries_electricity_demand_1">
-	<gml:description>Description of the time series id_timeseries_electricity_demand_1</gml:description>
-	<gml:name>Name of the  time series id_timeseries_electricity_demand_1</gml:name>
-	<energy:variableProperties>
-		<energy:TimeValuesProperties>
-			<energy:acquisitionMethod>Measured electronically with heat power</energy:acquisitionMethod>
-			<energy:interpolationType>AverageInSucceedingInterval</energy:interpolationType>
-			<energy:qualityDescription>Accurate (+/- 0.2 kWh)</energy:qualityDescription>
-			<energy:source>Subcontracting company X</energy:source>
-		</energy:TimeValuesProperties>
-	</energy:variableProperties>
-	<energy:temporalExtent>
-		<gml:TimePeriod>
-			<gml:beginPosition>2016-01-01</gml:beginPosition>
-			<gml:endPosition>2016-12-31</gml:endPosition>
-		</gml:TimePeriod>
-	</energy:temporalExtent>
-	<energy:timeInterval unit="day">1</energy:timeInterval>
-	<energy:values uom="kWh">11.2 11.4 10.2 9.6 6.3 11.5 12.7 ... (truncated, set of 365 values) </energy:values>
-</energy:RegularTimeSeries>
+ <energy:RegularTimeSeries gml:id="id_timeseries_electricity_demand_1">
+   <gml:description>Description of the time series id_timeseries_electricity_demand_1</gml:description>
+   <gml:name>Name of the  time series id_timeseries_electricity_demand_1</gml:name>
+   <energy:variableProperties>
+    <energy:TimeValuesProperties>
+     <energy:acquisitionMethod>Measurement</energy:acquisitionMethod>
+     <energy:interpolationType>AverageInSucceedingInterval</energy:interpolationType>
+     <energy:qualityDescription>Accurate (+/- 0.2 kWh)</energy:qualityDescription>
+     <energy:source>Subcontracting company X</energy:source>
+    </energy:TimeValuesProperties>
+   </energy:variableProperties>
+   <energy:temporalExtent>
+    <gml:TimePeriod>
+     <gml:beginPosition>2016-01-01</gml:beginPosition>
+     <gml:endPosition>2016-12-31</gml:endPosition>
+    </gml:TimePeriod>
+   </energy:temporalExtent>
+   <energy:timeInterval unit="day">1</energy:timeInterval>
+   <energy:values uom="kWh">11.2 11.4 10.2 9.6 6.3 11.5 12.7 ... (truncated, set of 365 values) </energy:values>
+  </energy:RegularTimeSeries>
 ```
 
 Example of IrregularTimeSeries object:
@@ -903,47 +907,74 @@ requirements of the codes and norms describing the monthly energy balance (DIN
 
 ### DailyPatternSchedule
 
-This more detailed schedule is composed of daily `schedule` associated to
-recurrent `dayType` (e.g. weekday, weekend). These daily schedules are of type`
-_TimeSeries`, as described above.
+This more detailed schedule is composed of one or more `periodOfYear`, being itself
+composed of `dailySchedule` associated to recurrent `dayType` (e.g. weekday, weekend). 
+These daily schedules are of type` _TimeSeries`, as described above.
 
 ```xml
 <!--Example of a daily pattern schedule for a standard week composed of weekday and weekend days-->
 <energy:DailyPatternSchedule gml:id="id_dailypattern_schedule_3">
-	<energy:dailySchedule>
-		<energy:DailySchedule>
-			<energy:dayType>WeekDay</energy:dayType>
-			<energy:schedule>
-				<energy:RegularTimeSeries gml:id="id_occupants_daily_timeseries_1">
-					<energy:temporalExtent>
-						<gml:TimePeriod>
-							<gml:beginPosition>00:00:00</gml:beginPosition>
-							<gml:endPosition>23:59:59</gml:endPosition>
-						</gml:TimePeriod>
-					</energy:temporalExtent>
-					<energy:timeInterval unit="hour">1</energy:timeInterval>
-					<energy:values uom="ratio">0 0 0 0.1 0.2 0.5 ... (truncated, set of 24 values)</energy:values>
-				</energy:RegularTimeSeries>
-			</energy:schedule>
-		</energy:DailySchedule>
-	</energy:dailySchedule>
-	<energy:dailySchedule>
-		<energy:DailySchedule>
-			<energy:dayType>WeenEnd</energy:dayType>
-			<energy:schedule>
-				<energy:RegularTimeSeries gml:id="id_occupants_daily_timeseries2">
-					<energy:temporalExtent>
-						<gml:TimePeriod>
-							<gml:beginPosition>00:00:00</gml:beginPosition>
-							<gml:endPosition>23:59:59</gml:endPosition>
-						</gml:TimePeriod>
-					</energy:temporalExtent>
-					<energy:timeInterval unit="hour">1</energy:timeInterval>
-					<energy:values uom="ratio">0 0 0 0.11 0.22 ... (truncated, set of 24 values)</energy:values>
-				</energy:RegularTimeSeries>
-			</energy:schedule>
-		</energy:DailySchedule>
-	</energy:dailySchedule>
+  <energy:periodOfYear>
+   <energy:PeriodOfYear>
+    <energy:period>
+     <gml:TimePeriod>
+      <gml:beginPosition>2015-01-01</gml:beginPosition>
+      <gml:endPosition>2015-12-31</gml:endPosition>
+     </gml:TimePeriod>
+    </energy:period>
+    
+    <energy:dailySchedule>
+     <energy:DailySchedule>
+      <energy:dayType>WeekDay</energy:dayType>
+      <energy:schedule>
+       <energy:RegularTimeSeries gml:id="id_cooling_daily_timeseries_1">
+        <energy:variableProperties>
+         <energy:TimeValuesProperties>
+          <energy:acquisitionMethod>Estimation</energy:acquisitionMethod>
+          <energy:interpolationType>Continuous</energy:interpolationType>
+         </energy:TimeValuesProperties>
+        </energy:variableProperties>
+        <energy:temporalExtent>
+         <gml:TimePeriod>
+          <gml:beginPosition>00:00:00</gml:beginPosition>
+          <gml:endPosition>23:59:59</gml:endPosition>
+         </gml:TimePeriod>
+        </energy:temporalExtent>
+        <energy:timeInterval unit="hour">1</energy:timeInterval>
+        <energy:values uom="C">25 25 25 25 25 25 25 20 20 20 20 20
+               20 20 20 20 20 20 20 25 25 25 25 25</energy:values>
+       </energy:RegularTimeSeries>
+      </energy:schedule>
+     </energy:DailySchedule>
+    </energy:dailySchedule>
+    
+    <energy:dailySchedule>
+     <energy:DailySchedule>
+      <energy:dayType>WeekEnd</energy:dayType>
+      <energy:schedule>
+       <energy:RegularTimeSeries gml:id="id_cooling_daily_timeseries2">
+        <energy:variableProperties>
+         <energy:TimeValuesProperties>
+          <energy:acquisitionMethod>Estimation</energy:acquisitionMethod>
+          <energy:interpolationType>Continuous</energy:interpolationType>
+         </energy:TimeValuesProperties>
+        </energy:variableProperties>
+        <energy:temporalExtent>
+         <gml:TimePeriod>
+          <gml:beginPosition>00:00:00</gml:beginPosition>
+          <gml:endPosition>23:59:59</gml:endPosition>
+         </gml:TimePeriod>
+        </energy:temporalExtent>
+        <energy:timeInterval unit="hour">1</energy:timeInterval>
+        <energy:values uom="C">25 25 25 25 25 25 25 25 25 20 20 20
+               20 20 20 20 20 20 20 20 20 20 25 25</energy:values>
+       </energy:RegularTimeSeries>
+      </energy:schedule>
+     </energy:DailySchedule>
+    </energy:dailySchedule>
+    
+   </energy:PeriodOfYear>
+  </energy:periodOfYear>       
 </energy:DailyPatternSchedule>
 ```
 
@@ -976,26 +1007,18 @@ The Construction and Material module of the ADE Energy characterizes physically
 the building construction parts, detailing their structure and specifiying
 their thermal and optical properties. 
 
-As its central object `Construction` inherits from class `_CityObject`, all
-similar objects, can be described by means of construction and materials.
-
-Given that the nature of this module is not domain-specific, it can be used
-beyond energy-related applications (e.g. in statics, acoustics etc.) 
+The central feature type of the module is `Construction`, which may either be used 
+directly or as `ReverseConstruction`, modelling a `baseConstruction` with 
+inverted order of layers. The abstract feature type `AbstracConstruction`, being
+used in `ThermalComponent` and in extended properties of `_BoundarySurface`and
+`_Opening`, is the common super class of `Construction`and `ReverseConstruction`.
 
 ## Construction
 
 This is the central object of this module, which holds the physical
 characterisation of building envelop or intern room partition (e.g. wall, roof,
-openings).
-In the Energy ADE, the object `Construction` is generally linked to the object
-`ThermalComponents` for space heating and cooling demand calculations, in order
-to specified in the building model the physical parameters of walls, roofs of
-windows etc. However, it may possibly be linked to any `_CityObject` for other
-purposes, in particular to `_BoundarySurface`, `_Opening` or even
-`_AbstractBuilding`.
-
-Each `Construction` object may be characterised by optical and/or physical
-properties.
+openings). Each `Construction` object may be characterised by optical and/or 
+physical properties.
 
 The `OpticalProperties` type specified the `emissivity`, `reflectance`,
 `transmittance` and `glazingRatio` of the construction and its surfaces:
@@ -1055,12 +1078,12 @@ visible transmittance.
 	<energy:uValue uom="W/(K*m^2)">1.9</energy:uValue>
 	<energy:opticalProperties>
 		<energy:OpticalProperties>
-			<energy:emittance>
+			<energy:emissivity>
 				<energy:Emissivity>
 					<energy:fraction uom="ratio">0.04</energy:fraction>
 					<energy:surface>Inside</energy:surface>
 				</energy:Emissivity>
-			</energy:emittance>
+			</energy:emissivity>
 			<!-- Here follows the g-value (or SHGC) characterization-->
 			<energy:transmittance>
 				<energy:Transmittance>
@@ -1081,22 +1104,19 @@ visible transmittance.
 </energy:Construction>
 ```
 
-### ConstructionOrientation
+### ReverseConstruction
 
-This class defines the orientation convention of the `Construction` object it
-is referred to. In other words, it indicates in which order the layers are to
-be considered (from inside to outside, or viceversa), because the same
-construction, if common to different zones or buildings, might be orientated in
-two different directions for instance.
+This class defines a `Construction` object with reverted layer order. This may be necesssary
+because the same construction, if common to different zones or buildings, might be orientated
+in two different directions.
 
 ```xml
 <!--Example of ConstructionOrientation object-->
-<energy:ConstructionOrientation gml:id="id_construction_orientation_ground_1">
-	<gml:description>Description of Construction Orientation 1 (from inside to outside)</gml:description>
-	<gml:name>Name of Construction Orientation 1</gml:name>
-	<energy:orientation>true</energy:orientation>
-	<energy:baseConstruction xlink:href="#id_construction_1"/>
-</energy:ConstructionOrientation>
+<energy:ReverseConstruction>
+   <gml:description>Description of a reverted Construction</gml:description>
+   <energy:baseConstruction xlink:href="#id_construction_1"/>
+  </energy:ReverseConstruction>
+ </gml:featureMember>
 ```
 
 ## Layers and layer components
