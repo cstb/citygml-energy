@@ -245,7 +245,7 @@ below).
      </energy:DateOfEvent>
     </energy:dateOfRefurbishment>
     <energy:levelOfRefurbishment>UsualRefurbishment</energy:levelOfRefurbishment>
-    <energy:descriptionOfRefurbishment>Refurbishment consisting of an outside insulation of walls etc.</energy:descriptionOfRefurbishment>
+    <energy:descriptionOfRefurbishment>...</energy:descriptionOfRefurbishment>
    </energy:RefurbishmentMeasure>
   </energy:refurbishmentMeasureOnBuilding>
   </bldg:Building>
@@ -286,7 +286,13 @@ below).
 
 ### WeatherData
 
-Time series of measured or processed meteorological or radiation parameters may be related with any feature class of the base standard (e.g. `_AbstractBuilding`, `_BoundarySurface`) or the extension (e.g. `ThermalBoundary`) via the property `weatherData`. The corresponding type `WeatherData` has three properties: The type of the weather data (`weatherDataType`), the time seris of values (`values`), and optionally the position of the sensor (`position`). The following types of meteorological and radiation data can be specified:
+Time series of measured or processed meteorological or radiation parameters may 
+be related with any feature class of the base standard (e.g. `_AbstractBuilding`,
+`_BoundarySurface`) or the extension (e.g. `ThermalBoundary`) via the property
+`weatherData`. The corresponding type `WeatherData` has three properties: The 
+type of the weather data (`weatherDataType`), the time seris of values (`values`),
+and optionally the position of the sensor (`position`). The following types of 
+meteorological and radiation data can be specified:
 
 - `AirTemperature`
 - `Humidity`
@@ -309,7 +315,9 @@ First of all, an optional attribute `openableRatio` details the proportion of
 the opening area which may be opened. An indoor and an outdoor shading system
 may complement the opening, with a `ShadingType` characterized by a
 `transmittance` (see details in Module Materials and Constructions) and a
-`maximumCoverRatio`. Finally, material information (`AbstractConstruction`, see Module Materials and Constructions) may be specified for the opening via the `openingConstruction` attribute.
+`maximumCoverRatio`. Finally, material information (`AbstractConstruction`, 
+see Module Materials and Constructions) may be specified for the opening via 
+the `openingConstruction` attribute.
 
 As in the Building example shown before, the standard CityGML attributes have
 been omitted for better readability. The door example is simpler and contains
@@ -356,9 +364,12 @@ Xlinks).
 ### \_BoundarySurface, globalSolarIrradiance and daylightIlluminance
 
 The CityGML abstract class `_BoundarySurface` is extended by a number of Energy
-ADE attributes, in order to store construction information (`boundarySurfaceConstruction`) and refurbishment data (`refurbishmentMeasureOnBoundarySurface`). Via the general mechanism of attaching time series of meteorological or radiation data to CityGML feature types, the incident global solar
-irradiances and the daylight illuminances can be related with each outside boundary
-surface of the building. 
+ADE attributes, in order to store construction information 
+(`boundarySurfaceConstruction`) and refurbishment data 
+(`refurbishmentMeasureOnBoundarySurface`). Via the general mechanism of attaching
+time series of meteorological or radiation data to CityGML feature types, the 
+incident global solar irradiances and the daylight illuminances can be related
+with each outside boundary surface of the building. 
 
 The `globalSolarIrradiance` is the sum of the direct, diffuse and reflected
 irradiance incident on a outside boundary surface and is generally expressed in
@@ -418,17 +429,16 @@ daylight illuminance is not enough.
 
 The `ThermalZone` is a new object introduced in the Energy ADE to realize
 building heating and cooling demand calculation. A `ThermalZone` is a zone of a
-`Building` (or of a `BuildingPart`) which serves as the smallest spatial zone
+`bldg:Building` (or of a `bldg:BuildingPart`) which serves as the smallest spatial zone
 for building heating and cooling demand calculation. It is generally a "thermal
 homogeneous" space considered as isothermal, but may also refer to several
 building rooms and zones with different usage boundary conditions for
 simplified building energy modelling.
 
 A `ThermalZone` contains a series of energy-related attributes which
-characterize its geometry (`floorArea`, `grossVolume`, `netVolume`,
-`volumeGeometry`), its conditioning status (`isCooled`, `isHeated`,
-`indirectlyHeatedAreaRatio`) and overall building physics properties
-(`additionalThermalBridgeUValue`, `infiltration rate`,
+characterize its geometry (`floorArea`, `volume`,`volumeGeometry`), its conditioning 
+status (`isCooled`, `isHeated`,`indirectlyHeatedAreaRatio`) and overall building 
+physics properties (`additionalThermalBridgeUValue`, `infiltration rate`,
 `effectiveThermalCapacity`).
 
 All these attributes are optional. Among those, `floorArea` may be attributed
@@ -436,7 +446,7 @@ several times to a building, specifying different values for different
 `FloorAreaType`. A `ThermalZone` may optionally contain an explicit volume
 geometry (specified by `volumeGeometry`), useful in particular for
 visualisation purposes, but not necessary for heating and cooling demand
-calculations. The `ThermalZone` may also be related to a room (`gml:Room`). The
+calculations. The `ThermalZone` may also be related to a room (`bldg:Room`). The
 actual surface boundaries of a `ThermalZone` are defined by means of
 `ThermalBoudary` objects (see later).
 
@@ -456,85 +466,108 @@ explicit volume geometry.
 ```xml
 <!--Example of a ThermalZone without explicit volume geometry-->
 <energy:ThermalZone gml:id="id_thermalzone_1">
-	<gml:description>Description of Thermal Zone 1</gml:description>
-	<gml:name>Name of Thermal Zone 1</gml:name>
-	<energy:additionalThermalBridgeUValue uom="W/(K*m^2)">0.5</energy:additionalThermalBridgeUValue>
-	<energy:effectiveThermalCapacity uom="J/K">500</energy:effectiveThermalCapacity>
-	<energy:floorArea>
-		<energy:FloorArea>
-			<energy:type>EnergyReferenceArea</energy:type>
-			<energy:value uom="m^2">55.0</energy:value>
-		</energy:FloorArea>
-	</energy:floorArea>
-	<energy:grossVolume uom="m^3">200.0</energy:grossVolume>
-
-	<!-- here follows a related usage zone -->
-	<energy:relates xlink:href="#id_usagezone_1"/>
-
-	<energy:indirectlyHeatedAreaRatio uom="ratio">0.15</energy:indirectlyHeatedAreaRatio>
-	<energy:infiltrationRate uom="1/h">1.2</energy:infiltrationRate>
-	<energy:isCooled>true</energy:isCooled>
-	<energy:isHeated>true</energy:isHeated>
-	<energy:netVolume uom="m^3">180.0</energy:netVolume>
-
-	<!--Here follow all ThermalBoundary objects, each inside a "boundedBy" tag-->
-	<energy:boundedBy>
-		<energy:ThermalBoundary gml:id="id_thermalboundary_1">
-			<!--Here come all attributes of the first ThermalBoundary (omitted here)-->
-		</energy:ThermalBoundary>
-	</energy:boundedBy>
-	<energy:boundedBy>
-		<energy:ThermalBoundary gml:id="id_thermalboundary_2">
-			<!--Here come all attributes of the second ThermalBoundary (omitted here)-->
-		</energy:ThermalBoundary>
-	</energy:boundedBy>
-
-</energy:ThermalZone>
+   <gml:description>Description of Thermal Zone 1</gml:description>
+   <gml:name>Name of Thermal Zone 1</gml:name>
+   <energy:additionalThermalBridgeUValue uom="W/(K*m^2)">0.5</energy:additionalThermalBridgeUValue>
+   <energy:effectiveThermalCapacity uom="J/K">500</energy:effectiveThermalCapacity>
+   <energy:floorArea>
+    <energy:FloorArea>
+     <energy:type>EnergyReferenceArea</energy:type>
+     <energy:value uom="m^2">55.0</energy:value>
+    </energy:FloorArea>
+   </energy:floorArea>
+   <energy:volume>
+    <energy:VolumeType>
+     <energy:type>GrossVolume</energy:type>
+     <energy:value uom="m^3">200.0</energy:value>
+    </energy:VolumeType>
+   </energy:volume>
+   
+   <energy:volume>
+    <energy:VolumeType>
+     <energy:type>NetVolume</energy:type>
+     <energy:value uom="m^3">180</energy:value>
+    </energy:VolumeType>
+   </energy:volume>
+   
+   <!-- here follows a related usage zone -->
+   <energy:contains xlink:href="#id_usagezone_1"/>
+   
+   <energy:indirectlyHeatedAreaRatio uom="ratio">0.15</energy:indirectlyHeatedAreaRatio>
+   <energy:infiltrationRate uom="1/h">1.2</energy:infiltrationRate>
+   <energy:isCooled>true</energy:isCooled>
+   <energy:isHeated>true</energy:isHeated>
+   
+   <!--Here follow all ThermalBoundary objects, each inside a "boundedBy" tag-->
+   <energy:boundedBy>
+    <energy:ThermalBoundary gml:id="id_thermalboundary_1">
+     <!--Here come all attributes of the first ThermalBoundary (omitted here)-->
+    </energy:ThermalBoundary>
+   </energy:boundedBy>
+   <energy:boundedBy>
+    <energy:ThermalBoundary gml:id="id_thermalboundary_2">
+     <!--Here come all attributes of the second ThermalBoundary (omitted here)-->
+    </energy:ThermalBoundary>
+   </energy:boundedBy>
+   
+  </energy:ThermalZone>
 ```
 
 ```xml
 <!--Example of a ThermalZone with explicit volume geometry-->
 <energy:ThermalZone gml:id="id_thermalzone_2">
-	<!--Additional attributes of the ThermalZone (omitted here)-->
-
-	<energy:volumeGeometry>
-		<gml:Solid gml:id="id_thermalzone_volume_geometry_1" srsName="EPSG:31256" srsDimension="3">
-			<gml:exterior>
-				<gml:CompositeSurface>
-					<gml:surfaceMember>
-						<gml:Polygon>
-							<gml:exterior>
-								<gml:LinearRing>
-									<gml:posList>0 0 0 0 10 0 5 10 0 5 0 0 0 0 0</gml:posList>
-								</gml:LinearRing>
-							</gml:exterior>
-						</gml:Polygon>
-					</gml:surfaceMember>
-					<gml:surfaceMember>
-						<gml:Polygon>
-							<gml:exterior>
-								<gml:LinearRing>
-									<gml:posList>0 0 4 5 0 4 5 10 4 0 10 4 0 0 4</gml:posList>
-								</gml:LinearRing>
-							</gml:exterior>
-						</gml:Polygon>
-					</gml:surfaceMember>
-					<!--Here come further surfaceMember objects-->
-					</gml:CompositeSurface>
-			</gml:exterior>
-		</gml:Solid>
-	</energy:volumeGeometry>
-</energy:ThermalZone>
+   <!--Additional attributes of the ThermalZone (omitted here)-->
+   
+   <energy:isCooled>false</energy:isCooled>
+   <energy:isHeated>true</energy:isHeated>
+ 
+   <energy:volumeGeometry>
+     <gml:Solid gml:id="id_thermalzone_volume_geometry_1" srsName="EPSG:31256" srsDimension="3">
+     <gml:exterior>
+      <gml:CompositeSurface>
+       <gml:surfaceMember>
+        <gml:Polygon>
+         <gml:exterior>
+          <gml:LinearRing>
+           <gml:posList>0 0 0 0 10 0 5 10 0 5 0 0 0 0 0</gml:posList>
+          </gml:LinearRing>
+         </gml:exterior>
+        </gml:Polygon>
+       </gml:surfaceMember>
+       <gml:surfaceMember>
+        <gml:Polygon>
+         <gml:exterior>
+          <gml:LinearRing>
+           <gml:posList>0 0 4 5 0 4 5 10 4 0 10 4 0 0 4</gml:posList>
+          </gml:LinearRing>
+         </gml:exterior>
+        </gml:Polygon>
+       </gml:surfaceMember>
+       <!--Here come further surfaceMember objects-->
+      </gml:CompositeSurface>
+     </gml:exterior>
+    </gml:Solid>
+   </energy:volumeGeometry>
+   
+   <energy:boundedBy xlink:href="#ThermalBoundary_1"/>
+  </energy:ThermalZone>
 ```
 
 ### ThermalBoundary
 
 A `ThermalBoundary` represent the physical relationship between two
 `ThermalZone`, or one `ThermalZone` and the building environment. Its
-geometrical representation is a coplanar, or quasi coplanar, surface.
+geometrical representation is a planar, or quasi planar, surface.
 
 Each `ThermalZone` is geometrically closed by its whole set of bounding
-`ThermalBoundary` (specificied in the relationship "boundedBy").
+`ThermalBoundary` (specificied in the relationship `boundedBy`).
+
+A `ThermalBoundary` object must refer to its one or two corresponding 
+`ThermalZone` objects via the relation `delimitsBy`. In case of an interior 
+`ThermalBoundary`, the order of the two related `ThermalZone`objects is
+significant. Because this order strongly depends on the order of the 
+different material layers of the `ThermalBoundary`construction (`ThermalComponent`),
+the rules determining the relation order are defined in the next section.
 
 In the case where the `ThermalBoundary` delimits one `ThermalZone` from the
 building environment, corresponding then to the external boundary of a
@@ -558,19 +591,20 @@ the CityGML objects `Room` and `_BoundarySurface`.
 ![Schema of adjacent thermal zones](fig/ThermalZoneAdjacency.png)
 
 `ThermalBoundary` may contain attributes characterizing their type  
-(`thermalBoundaryType`), orientation (`azimuth` and `inclination`) and explicit
-geometry (`surfaceGeometry`). All these attributes are optional. Thus, a
-`ThermalZone` may optionally contain an explicit surface geometry (specified by
-`surfaceGeometry`), useful in particular for visualisation purposes if the
-`ThermalBoundary` does not coincide with any `_BoundarySurface`, but not
+(`thermalBoundaryType`), orientation (`azimuth` and `inclination`), size (`area`) 
+and explicit geometry (`surfaceGeometry`). All these attributes are optional. 
+Thus, a `ThermalZone` may optionally contain an explicit surface geometry 
+(specified by `surfaceGeometry`), useful in particular for visualisation purposes 
+if the `ThermalBoundary` does not coincide with any `_BoundarySurface`, but not
 necessary for heating and cooling demand calculations.
 
 The `ThermalBoundaryType` type is slightly different to the types of
 `_BoundarySurface` from CityGML, integrating further thermal boundaries like
 AtticFloor, BasementCeiling, BasementFloor or SharedWall.
 
-Each `ThermalBoundaryType` is composed of `ThermalComponent` (e.g. wall
-construction, windows etc.) which holds the `Construction`.
+Each `ThermalBoundary` is composed of `ThermalComponent` (e.g. wall
+construction, windows etc.) which holds information on the corresponding material 
+layers .
 
 In the following, two XML examples of `ThermalBoundary`, with and without
 explicit geometry are given.
@@ -578,61 +612,81 @@ explicit geometry are given.
 ```xml
 <!--Example of a ThermalBoundary corresponding to a building roof, delimiting a thermal zone -->
 <energy:ThermalBoundary gml:id="id_thermalboundary_1">
-	<gml:description>Thermal Boundary 1</gml:description>
-	<gml:name>Thermal Boundary 1</gml:name>
-	<energy:azimuth uom="decimal degrees">135</energy:azimuth>
-	<energy:inclination uom="decimal degrees">55</energy:inclination>
-	<energy:thermalBoundaryType>Roof</energy:thermalBoundaryType>
-	<partOf xlink:href="#id_thermalzone_1"/>
-	<energy:composedOf>
-		<energy:ThermalComponent gml:id="id_thermalcomponent_1">
-			<!--Here come all attributes of the first ThermalComponent (omitted here)-->
-		</energy:ThermalComponent>
-	</energy:composedOf>
-	<energy:composedOf>
-		<energy:ThermalComponent gml:id="id_thermalcomponent_2">
-			<!--Here come all attributes of the second ThermalComponent (omitted here)-->
-		</energy:ThermalComponent>
-	</energy:composedOf>
-	<correspondsTo xlink:href="#id_RoofSurface_1"/>
+  <gml:description>Thermal Boundary 1</gml:description>
+  <gml:name>Thermal Boundary 1</gml:name>
+  <energy:thermalBoundaryType>Roof</energy:thermalBoundaryType>
+  <energy:azimuth uom="deg">135</energy:azimuth>
+  <energy:inclination uom="deg">55</energy:inclination> 
+   
+  <energy:composedOf>
+    <energy:ThermalComponent gml:id="Thermalcomponent_1">
+      <energy:area uom="m2">100</energy:area>
+       <energy:construction xlink:href="#RoofConstruction"/>
+    </energy:ThermalComponent>
+  </energy:composedOf>
+   
+  <energy:composedOf>
+    <energy:ThermalComponent gml:id="Thermalcomponent_2">
+      <energy:area uom="m2">20</energy:area>
+      <energy:construction xlink:href="#RoofWindowConstruction"/>
+    </energy:ThermalComponent>
+  </energy:composedOf>
+   
+  <energy:delimitsBy xlink:href="#AtticThermalZone"/>
+   
+ <energy:relatesTo xlink:href="#RoofSurface_1"/>
 </energy:ThermalBoundary>
 ```
 
 ```xml
 <!--Example of a ThermalBoundary with explicit surface geometry, separating two thermal zones -->
 <energy:ThermalBoundary gml:id="id_thermalboundary_2">
-	<!--Additional attributes of the ThermalBoundary class (omitted here)-->
+ <!--Additional attributes of the ThermalBoundary class (omitted here)-->
+   
+  <energy:surfaceGeometry>
+     <gml:MultiSurface gml:id="id_thermalboundary_2_surface_geometry" srsName="EPSG:31256" srsDimension="3">
+       <gml:surfaceMember>
+        <gml:Polygon>
+          <gml:exterior>
+            <gml:LinearRing>
+              <gml:posList>0 0 0 0 10 0 5 10 0 5 0 0 0 0 0</gml:posList>
+             </gml:LinearRing>
+           </gml:exterior>
+        </gml:Polygon>
+       </gml:surfaceMember>
+     </gml:MultiSurface>
+  </energy:surfaceGeometry>
+   
+   <partOf xlink:href="#id_thermalzone_1"/>
+   <partOf xlink:href="#id_thermalzone_2"/>
+</energy:ThermalBoundary>  
 
-	<energy:surfaceGeometry>
-		<gml:MultiSurface gml:id="id_thermalboundary_2_surface_geometry" srsName="EPSG:31256" srsDimension="3">
-			<gml:surfaceMember>
-				<gml:Polygon>
-					<gml:exterior>
-						<gml:LinearRing>
-							<gml:posList>0 0 0 0 10 0 5 10 0 5 0 0 0 0 0</gml:posList>
-						</gml:LinearRing>
-					</gml:exterior>
-				</gml:Polygon>
-			</gml:surfaceMember>
-		</gml:MultiSurface>
-	</energy:surfaceGeometry>
-	<partOf xlink:href="#id_thermalzone_1"/>
-	<partOf xlink:href="#id_thermalzone_2"/>
-</energy:ThermalBoundary>
 ```
 
 ### ThermalComponent
 
 A `ThermalComponent` object is a part of the thermal boundary corresponding to
 a homogeneous construction component (e.g. windows, wall, insulated part of a
-wall etc.) and either entirely above or below the terrain. 
-Each `ThermalComponent` must be characterized with its `Area`, and its position relative to the Terrain (attribute `relativeToTerrain` which it inherits from `_CityObject`).
-
-Since `ThermalComponent` inherits from `_CityObject`, it can also be associated to a
-`Construction` object (see module Construction and Material). This may be done
+wall etc.) and either entirely above or below the terrain. Each `ThermalComponent` 
+must be characterized with its `area`, its position relative to the Terrain 
+(attribute `relativeToTerrain` which it inherits from `_CityObject`), and its
+related `AbstractConstruction`(see Construction and Material module), defining the 
+order of the `ThermalComponent`'s different construction layers. This may be done
 either inline or by means of xlinks (see example below). In this way,
 `ThermalComponent` provides the physical properties of the building envelope to
 calculate the heating and cooling demand.
+
+The `ThermalComponent`objects thus define the construction layer order of a `ThermalBoundary`
+object. For simulating the energy transfer between two `ThermalZone` or between a 
+`ThermalZone` and the environment, it is essintial to know which `ThermalZone`is in 
+contact with with which layer. This information is represented by the oder
+of the `ThermalZone`objects related with a `ThermalBoundary`(relaton `delimitsBy`).
+The order of the layers in the `AbstractConstruction` of a `ThermalComponent`
+and the oder of the related `ThermalZone` objects must obey the following rules:
+
+- For exterior `ThermalBoundary` objects, the first layer is facing the exterior environment, and the last layer the building interior.
+- For `ThermalBoundary` objects of type `IntermediaryFloor` or `BasementCeiling`, the first construction layer is facing the lower `ThermalZone` and the last layer the upper `ThermalZone`. The first relation `delimitsBy` points to the upper `ThermalZone`, and the lasr relation `delimitsBy` points to the lower `ThermalZone`.
+- For all other interion `ThermalBoundary` objects, the first relation `delimitsBy` points to the `ThermalZone` facing the last construction layer, and the last relation `delimitsBy` points to the `ThermalZone` facing the first construction layer
 
 ```xml
 <!--Example of a Facade with 20% window to wall ratio -->
