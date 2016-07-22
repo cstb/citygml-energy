@@ -1221,13 +1221,26 @@ The following XML example describe the modeling of a mixed-usage building.
 </energy:UsageZone>
 ```
 
-TODO: Add examples of cooling, heating and ventilation schedules.
-
 ### BuildingUnit
 
-A `BuildingUnit` is a part of a `UsageZone` which can be defined as a subdivision of a Building with its own lockable access from the outside or from a common area (i.e. not from another BuildingUnit), which is atomic, functionally independent, and
-may be separately sold, rented out, inherited, etc (source: INSPIRE Data Specification Buildings, v3.0, p.29). 
-It inherits from class `_CityObject`.
+The `BuildingUnit` is an object introduced in the Energy ADE to define the ownership types
+of a single usage zone for building usage analyses or energy demand calculation.
+
+A `BuildingUnit` is a part of a single `UsageZone` which can be defined as a subdivision of
+a Building with its own lockable access from the outside or from a common area (i.e. not 
+from another BuildingUnit), which is atomic, functionally independent, and may be separately
+sold, rented out, inherited, etc (source: INSPIRE Data Specification Buildings, v3.0, p.29).
+A `BuildingUnit` is related to one or more occupant entities, such as a dwelling or a workplace.
+Owner information attributes (as ownerName and ownershipType) are specified in this class. It
+inherits from class `_CityObject`.
+
+The BuildingUnit may also be related to an address. If occupied, a BuildingUnit must be related
+to one Occupants object and/or a Facilities object. A BuildingUnit may even be related to 
+several Occupants and/or Facilities for simplified modelling of mixed status.
+
+The following XML example describes a `BuildingUnit` of 2 rooms of 40m² in total owned by 
+a private person (OccupantPrivate) called “Lilli’s Donuts” (Occupants and Facilities are
+not specified here).
 
 ```xml
 <!--Example of a BuildingUnit-->
@@ -1267,9 +1280,16 @@ It inherits from class `_CityObject`.
 
 ### Occupants
 
-An `Occupants` class identifies a homogeneous group of occupants of a usage
-zone or building unit, defined with an occupant type (e.g. residents, workers,
-visitors etc.). It can optionally contain one or more Household objects.
+An `Occupants` class identifies a homogeneous group of occupants of a usage zone
+or building unit, defined with an occupant type (e.g. residents, workers, visitors etc.). 
+An Occupants class contains attributes which characterize its occupancy status
+(numberOfOccupants, occupancyRate, occupancyType) and its heat production (heatDissipation). 
+Occupants are characterized by a specific number of persons occupying the corresponding zone 
+(numberOfOccupants) during a certain time schedule (occupancyRate). Occupants may contain 
+one or more Household objects.
+
+The following XML example describes occupants characterized by 3 persons living in 2 resident
+households, and dissipating 80W/person during a certain time schedule.
 
 ```xml
 <!--Example of a Occupants object-->
@@ -1311,10 +1331,13 @@ visitors etc.). It can optionally contain one or more Household objects.
 
 ### Household
 
-A `Household` class identifies a group of persons living in the same dwelling,
-in the case where occupants are residents. They are defined by a type (e.g. one
-family, worker couple, etc.) and a residence type (main/secondary residence or
-vacant).
+A `Household` class identifies a group of persons living in the same dwelling, in the case 
+where occupants are residents. They are defined by a type (householdType: one family, 
+a lonely adult, etc.) and a residence type (residenceType: main/secondary residence 
+or vacant).
+
+The following XML example describes a household characterized by a secondary residence 
+of unrelated adults.
 
 ```xml
 <!--Example of a Household object-->
@@ -1328,15 +1351,20 @@ vacant).
 
 ## Facilities
 
-Each `UsageZone` or `BuildingUnit` object can have one or multiple `Facilities`
-objects. Currently there are three types of facilities (DHWFacilities,
-ElectricalAppliances and LightingFacilities).
-Each of them is characterised by the heatDissipation and the operationSchedule
-attributes, plus some specific ones depending on the facility type.
-In the following, two XML examples are presented, one for domestic how water
-facilities and one for electrical applicances.
-Please note that the lighting facilities object shares the same structure and
-attributes of the ElectricalAppliances.
+`Facilities` objects are any kind of devices which dissipate heat and should be accounted
+in the energy demand calculation of a zone. Each `UsageZone` or `BuildingUnit` object can
+have one or more Facilities objects. 
+
+There are three types of facilities (domestic hot water: DHWFacilities, ElectricalAppliances
+and LightingFacilities). Each of them is characterised by a heat production ratio 
+(heatDissipation) and a period of use (operationSchedule), as well as some specific attributes
+depending on the facility type.
+
+In the following, two XML examples are presented: 
+- domestic how water facilities dissipating 40W/m² during a specific time schedule
+- electrical appliances of 1kW dissipating 10W/m² during a specific time schedule. 
+Please note that the lighting facilities object shares the same structure and attributes than
+the ElectricalAppliances.
 
 ```xml
 <!--Example of a DHWFacilities object-->
