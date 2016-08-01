@@ -1232,8 +1232,7 @@ from another `BuildingUnit`), which is atomic, functionally independent, and may
 sold, rented out, inherited, etc (source: INSPIRE Data Specification Buildings, v3.0, p.29).
 A `BuildingUnit` is related to one or more occupant entities, such as a dwelling or a workplace.
 Owner information attributes (as `ownerName` and `ownershipType`) are specified in this class. It
-inherits from class `_CityObject`. The `BuildingUnit` may also be related to an address. A `BuildingUnit`
-may be related to one or several `Occupants` and/or `Facilities` objects for simplified modelling of mixed status.
+inherits from class `_CityObject`. The `BuildingUnit` may also be related to an address.
 
 The following XML example describes a `BuildingUnit` of 2 rooms of 40m² in total owned by 
 a private person (`OccupantPrivate`) called “Lilli’s Donuts” (`Occupants` and `Facilities` are
