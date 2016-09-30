@@ -93,13 +93,6 @@ h3 {
                <p>ExternalReference</p>
             </td>
          </tr>
-         <tr><a name="core__CityObject_generalizesTo_A"></a><td width="600" height="20" bgcolor="#EEEEEE">
-               <p><a href="#core__CityObject_generalizesTo">core:generalizesTo</a></p>
-            </td>
-            <td width="600" height="20" bgcolor="#EEEEEE">
-               <p>_CityObject</p>
-            </td>
-         </tr>
          <tr><a name="core__CityObject_relativeToTerrain_A"></a><td width="600" height="20" bgcolor="#EEEEEE">
                <p><a href="#core__CityObject_relativeToTerrain">core:relativeToTerrain</a></p>
             </td>
@@ -128,6 +121,13 @@ h3 {
                <p>AbstractGenericAttribute</p>
             </td>
          </tr>
+         <tr><a name="energy_ThermalBoundary_thermalBoundaryType_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_ThermalBoundary_thermalBoundaryType">energy:thermalBoundaryType</a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>ThermalBoundaryTypeValue</p>
+            </td>
+         </tr>
          <tr><a name="energy_ThermalBoundary_azimuth_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
                <p><a href="#energy_ThermalBoundary_azimuth">energy:azimuth</a></p>
             </td>
@@ -142,11 +142,11 @@ h3 {
                <p>Angle</p>
             </td>
          </tr>
-         <tr><a name="energy_ThermalBoundary_thermalBoundaryType_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
-               <p><a href="#energy_ThermalBoundary_thermalBoundaryType">energy:thermalBoundaryType</a></p>
+         <tr><a name="energy_ThermalBoundary_area_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_ThermalBoundary_area">energy:area</a></p>
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
-               <p>ThermalBoundaryTypeValues</p>
+               <p>Area</p>
             </td>
          </tr>
          <tr><a name="energy_ThermalBoundary_surfaceGeometry_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
@@ -156,13 +156,6 @@ h3 {
                <p>GM_MultiSurface</p>
             </td>
          </tr>
-         <tr><a name="energy_ThermalBoundary_partOf_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
-               <p><a href="#energy_ThermalBoundary_partOf">energy:partOf</a></p>
-            </td>
-            <td width="600" height="20" bgcolor="#CCCCCC">
-               <p>ThermalZone</p>
-            </td>
-         </tr>
          <tr><a name="energy_ThermalBoundary_composedOf_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
                <p><a href="#energy_ThermalBoundary_composedOf">energy:composedOf</a></p>
             </td>
@@ -170,8 +163,15 @@ h3 {
                <p>ThermalComponent</p>
             </td>
          </tr>
-         <tr><a name="energy_ThermalBoundary_correspondsTo_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
-               <p><a href="#energy_ThermalBoundary_correspondsTo">energy:correspondsTo</a></p>
+         <tr><a name="energy_ThermalBoundary_delimitsBy_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_ThermalBoundary_delimitsBy">energy:delimitsBy</a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>ThermalZone</p>
+            </td>
+         </tr>
+         <tr><a name="energy_ThermalBoundary_relatesTo_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_ThermalBoundary_relatesTo">energy:relatesTo</a></p>
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
                <p>_BoundarySurface</p>
@@ -224,22 +224,7 @@ h3 {
       <h3>Cardinality</h3>
       <p class="einzug10">0..*</p>
       <h3>Data type</h3>
-      <p class="einzug10">ExternalReference (DataType)</p><br></br><a name="core__CityObject_generalizesTo"></a><table width="800" border="0" cellspacing="3">
-         <tr>
-            <td width="600" height="20" bgcolor="#EEEEEE">
-               <h2>Attribute type: core:generalizesTo</h2>
-            </td>
-            <td bgcolor="#EEEEEE">
-               <p><a href="#core__CityObject_generalizesTo_A">back</a></p>
-            </td>
-         </tr>
-      </table>
-      <h3>Definition</h3>
-      <p class="einzug10"></p>
-      <h3>Cardinality</h3>
-      <p class="einzug10">0..*</p>
-      <h3>Data type</h3><a href="core__CityObject.html">
-         <p class="einzug10">_CityObject</p></a><br></br><a name="core__CityObject_relativeToTerrain"></a><table width="800" border="0" cellspacing="3">
+      <p class="einzug10">ExternalReference (DataType)</p><br></br><a name="core__CityObject_relativeToTerrain"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#EEEEEE">
                <h2>Attribute type: core:relativeToTerrain</h2>
@@ -438,39 +423,7 @@ h3 {
       <h3>Cardinality</h3>
       <p class="einzug10">0..*</p>
       <h3>Data type</h3>
-      <p class="einzug10">AbstractGenericAttribute (DataType)</p><br></br><a name="energy_ThermalBoundary_azimuth"></a><table width="800" border="0" cellspacing="3">
-         <tr>
-            <td width="600" height="20" bgcolor="#CCCCCC">
-               <h2>Attribute type: energy:azimuth</h2>
-            </td>
-            <td bgcolor="#CCCCCC">
-               <p><a href="#energy_ThermalBoundary_azimuth_A">back</a></p>
-            </td>
-         </tr>
-      </table>
-      <h3>Definition</h3>
-      <p class="einzug10">Azimuth angle of the normal surface vector.<br>By convention:<br>- azimuth = 0 for north orientation.<br>- Horizontal surface
-         have a azimuth = 0.
-      </p>
-      <h3>Cardinality</h3>
-      <p class="einzug10">0..1</p>
-      <h3>Data type</h3>
-      <p class="einzug10">Angle</p><br></br><a name="energy_ThermalBoundary_inclination"></a><table width="800" border="0" cellspacing="3">
-         <tr>
-            <td width="600" height="20" bgcolor="#CCCCCC">
-               <h2>Attribute type: energy:inclination</h2>
-            </td>
-            <td bgcolor="#CCCCCC">
-               <p><a href="#energy_ThermalBoundary_inclination_A">back</a></p>
-            </td>
-         </tr>
-      </table>
-      <h3>Definition</h3>
-      <p class="einzug10">Inclination angle of the normal surface vector.<br>By convention, inclination = 0 for horizontal plane.</p>
-      <h3>Cardinality</h3>
-      <p class="einzug10">0..1</p>
-      <h3>Data type</h3>
-      <p class="einzug10">Angle</p><br></br><a name="energy_ThermalBoundary_thermalBoundaryType"></a><table width="800" border="0" cellspacing="3">
+      <p class="einzug10">AbstractGenericAttribute (DataType)</p><br></br><a name="energy_ThermalBoundary_thermalBoundaryType"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#CCCCCC">
                <h2>Attribute type: energy:thermalBoundaryType</h2>
@@ -485,7 +438,7 @@ h3 {
       <h3>Cardinality</h3>
       <p class="einzug10">1</p>
       <h3>Data type</h3>
-      <p class="einzug10">ThermalBoundaryTypeValues (Enumeration)</p><br></br><table width="800" border="0" cellspacing="3">
+      <p class="einzug10">ThermalBoundaryTypeValue (Enumeration)</p><br></br><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="70" height="20" bgcolor="#9DE5F7">
                <p><strong><em>Code</em></strong></p>
@@ -540,10 +493,10 @@ h3 {
          </tr>
          <tr>
             <td width="70" bgcolor="#EEEEEE">
-               <p>BasementFloor</p>
+               <p>GroundSlab</p>
             </td>
             <td width="300" bgcolor="#EEEEEE">
-               <p>BasementFloor</p>
+               <p>GroundSlab</p>
             </td>
             <td bgcolor="#EEEEEE">
                <h4>Lower horizontal Thermal Boundary of the Thermal Zone, built ditectly on the ground.</h4>
@@ -582,7 +535,54 @@ h3 {
                <h4>Thermal Boundary corresponding to the CityGML RoofSurface.</h4>
             </td>
          </tr>
-      </table><br></br><a name="energy_ThermalBoundary_surfaceGeometry"></a><table width="800" border="0" cellspacing="3">
+      </table><br></br><a name="energy_ThermalBoundary_azimuth"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:azimuth</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_ThermalBoundary_azimuth_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10">Azimuth angle of the normal surface vector.<br>By convention:<br>- azimuth = 0 for north orientation.<br>- Horizontal surface
+         have a azimuth = 0.
+      </p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..1</p>
+      <h3>Data type</h3>
+      <p class="einzug10">Angle</p><br></br><a name="energy_ThermalBoundary_inclination"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:inclination</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_ThermalBoundary_inclination_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10">Inclination angle of the normal surface vector.<br>By convention, inclination = 0 for horizontal plane.</p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..1</p>
+      <h3>Data type</h3>
+      <p class="einzug10">Angle</p><br></br><a name="energy_ThermalBoundary_area"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:area</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_ThermalBoundary_area_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10"></p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..1</p>
+      <h3>Data type</h3>
+      <p class="einzug10">Area (Type)</p><br></br><a name="energy_ThermalBoundary_surfaceGeometry"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#CCCCCC">
                <h2>Attribute type: energy:surfaceGeometry</h2>
@@ -597,22 +597,7 @@ h3 {
       <h3>Cardinality</h3>
       <p class="einzug10">0..1</p>
       <h3>Data type</h3>
-      <p class="einzug10">GM_MultiSurface (Type)</p><br></br><a name="energy_ThermalBoundary_partOf"></a><table width="800" border="0" cellspacing="3">
-         <tr>
-            <td width="600" height="20" bgcolor="#CCCCCC">
-               <h2>Attribute type: energy:partOf</h2>
-            </td>
-            <td bgcolor="#CCCCCC">
-               <p><a href="#energy_ThermalBoundary_partOf_A">back</a></p>
-            </td>
-         </tr>
-      </table>
-      <h3>Definition</h3>
-      <p class="einzug10"></p>
-      <h3>Cardinality</h3>
-      <p class="einzug10">1..2</p>
-      <h3>Data type</h3><a href="energy_ThermalZone.html">
-         <p class="einzug10">ThermalZone</p></a><br></br><a name="energy_ThermalBoundary_composedOf"></a><table width="800" border="0" cellspacing="3">
+      <p class="einzug10">GM_MultiSurface (Type)</p><br></br><a name="energy_ThermalBoundary_composedOf"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#CCCCCC">
                <h2>Attribute type: energy:composedOf</h2>
@@ -625,22 +610,43 @@ h3 {
       <h3>Definition</h3>
       <p class="einzug10"></p>
       <h3>Cardinality</h3>
-      <p class="einzug10">1..*</p>
+      <p class="einzug10">0..*</p>
       <h3>Data type</h3><a href="energy_ThermalComponent.html">
-         <p class="einzug10">ThermalComponent</p></a><br></br><a name="energy_ThermalBoundary_correspondsTo"></a><table width="800" border="0" cellspacing="3">
+         <p class="einzug10">ThermalComponent</p></a><br></br><a name="energy_ThermalBoundary_delimitsBy"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#CCCCCC">
-               <h2>Attribute type: energy:correspondsTo</h2>
+               <h2>Attribute type: energy:delimitsBy</h2>
             </td>
             <td bgcolor="#CCCCCC">
-               <p><a href="#energy_ThermalBoundary_correspondsTo_A">back</a></p>
+               <p><a href="#energy_ThermalBoundary_delimitsBy_A">back</a></p>
             </td>
          </tr>
       </table>
       <h3>Definition</h3>
-      <p class="einzug10"></p>
+      <p class="einzug10">In case two ThermalZones are referenced via the relation "delimitsBy", the following rule concerning the order of the related
+         objects applys:<br><br>- For ThermalBoundary objects of type "intermediaryFloor!, the first related object is the upper
+         ThermalZone, and the seconr related object is the lower ThermalZone<br>-  For all other ThermalBoundary types, the first
+         related ThermalZone is in contact with the last Layer of the corresponding AbstractConstruction, and the  second related ThermalZone
+         is in contact with the first Layer of the corresponding AbstractConstruction, <br><br>Last layer is facing the first ThermalZone
+         and First layer is facing the second ThermalZone of the relation "delimitsBy"
+      </p>
       <h3>Cardinality</h3>
-      <p class="einzug10">0..1</p>
+      <p class="einzug10">1..2</p>
+      <h3>Data type</h3><a href="energy_ThermalZone.html">
+         <p class="einzug10">ThermalZone</p></a><br></br><a name="energy_ThermalBoundary_relatesTo"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:relatesTo</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_ThermalBoundary_relatesTo_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10">Reference of a ThermalBoundary to the corresponding physical boundary surface of the building</p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..*</p>
       <h3>Data type</h3><a href="bldg__BoundarySurface.html">
          <p class="einzug10">_BoundarySurface</p></a></body>
 </html>

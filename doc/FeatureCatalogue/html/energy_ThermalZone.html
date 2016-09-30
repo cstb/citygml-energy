@@ -94,13 +94,6 @@ h3 {
                <p>ExternalReference</p>
             </td>
          </tr>
-         <tr><a name="core__CityObject_generalizesTo_A"></a><td width="600" height="20" bgcolor="#EEEEEE">
-               <p><a href="#core__CityObject_generalizesTo">core:generalizesTo</a></p>
-            </td>
-            <td width="600" height="20" bgcolor="#EEEEEE">
-               <p>_CityObject</p>
-            </td>
-         </tr>
          <tr><a name="core__CityObject_relativeToTerrain_A"></a><td width="600" height="20" bgcolor="#EEEEEE">
                <p><a href="#core__CityObject_relativeToTerrain">core:relativeToTerrain</a></p>
             </td>
@@ -150,15 +143,15 @@ h3 {
                <p>FloorArea</p>
             </td>
          </tr>
-         <tr><a name="energy_ThermalZone_grossVolume_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
-               <p><a href="#energy_ThermalZone_grossVolume">energy:grossVolume</a></p>
+         <tr><a name="energy_ThermalZone_volume_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_ThermalZone_volume">energy:volume</a></p>
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
-               <p>Volume</p>
+               <p>VolumeType</p>
             </td>
          </tr>
-         <tr><a name="energy_ThermalZone_relates_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
-               <p><a href="#energy_ThermalZone_relates">energy:relates</a></p>
+         <tr><a name="energy_ThermalZone_contains_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_ThermalZone_contains">energy:contains</a></p>
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
                <p>UsageZone</p>
@@ -190,13 +183,6 @@ h3 {
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
                <p>Boolean</p>
-            </td>
-         </tr>
-         <tr><a name="energy_ThermalZone_netVolume_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
-               <p><a href="#energy_ThermalZone_netVolume">energy:netVolume</a></p>
-            </td>
-            <td width="600" height="20" bgcolor="#CCCCCC">
-               <p>Volume</p>
             </td>
          </tr>
          <tr><a name="energy_ThermalZone_volumeGeometry_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
@@ -267,22 +253,7 @@ h3 {
       <h3>Cardinality</h3>
       <p class="einzug10">0..*</p>
       <h3>Data type</h3>
-      <p class="einzug10">ExternalReference (DataType)</p><br></br><a name="core__CityObject_generalizesTo"></a><table width="800" border="0" cellspacing="3">
-         <tr>
-            <td width="600" height="20" bgcolor="#EEEEEE">
-               <h2>Attribute type: core:generalizesTo</h2>
-            </td>
-            <td bgcolor="#EEEEEE">
-               <p><a href="#core__CityObject_generalizesTo_A">back</a></p>
-            </td>
-         </tr>
-      </table>
-      <h3>Definition</h3>
-      <p class="einzug10"></p>
-      <h3>Cardinality</h3>
-      <p class="einzug10">0..*</p>
-      <h3>Data type</h3><a href="core__CityObject.html">
-         <p class="einzug10">_CityObject</p></a><br></br><a name="core__CityObject_relativeToTerrain"></a><table width="800" border="0" cellspacing="3">
+      <p class="einzug10">ExternalReference (DataType)</p><br></br><a name="core__CityObject_relativeToTerrain"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#EEEEEE">
                <h2>Attribute type: core:relativeToTerrain</h2>
@@ -522,40 +493,40 @@ h3 {
          </tr>
       </table>
       <h3>Definition</h3>
-      <p class="einzug10"></p>
+      <p class="einzug10">Floor area of the ThermalZone. Different calculation methods (e.g. gross area, net area) can be selected.</p>
       <h3>Cardinality</h3>
       <p class="einzug10">0..*</p>
       <h3>Data type</h3><a href="energy_FloorArea.html">
-         <p class="einzug10">FloorArea</p></a><br></br><a name="energy_ThermalZone_grossVolume"></a><table width="800" border="0" cellspacing="3">
+         <p class="einzug10">FloorArea</p></a><br></br><a name="energy_ThermalZone_volume"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#CCCCCC">
-               <h2>Attribute type: energy:grossVolume</h2>
+               <h2>Attribute type: energy:volume</h2>
             </td>
             <td bgcolor="#CCCCCC">
-               <p><a href="#energy_ThermalZone_grossVolume_A">back</a></p>
+               <p><a href="#energy_ThermalZone_volume_A">back</a></p>
             </td>
          </tr>
       </table>
       <h3>Definition</h3>
-      <p class="einzug10">Volume of a Thermal Zone measured by its external dimensions. These external dimensions lies on the outside face of exterior
-         boundaries (e.g. wall, roof) and at the middle of boundaries shared by several Thermal Zone (e.g. shared wall, intermediary
-         floor), so that the sum of the Building Thermal Zone grossVolume equals the Building grossVolume.
-      </p>
+      <p class="einzug10">Volume of a Thermal Zone. Different calculation methods (e.g. net volume, gross volume) can be selected.</p>
       <h3>Cardinality</h3>
-      <p class="einzug10">0..1</p>
-      <h3>Data type</h3>
-      <p class="einzug10">Volume (Type)</p><br></br><a name="energy_ThermalZone_relates"></a><table width="800" border="0" cellspacing="3">
+      <p class="einzug10">0..*</p>
+      <h3>Data type</h3><a href="energy_VolumeType.html">
+         <p class="einzug10">VolumeType</p></a><br></br><a name="energy_ThermalZone_contains"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#CCCCCC">
-               <h2>Attribute type: energy:relates</h2>
+               <h2>Attribute type: energy:contains</h2>
             </td>
             <td bgcolor="#CCCCCC">
-               <p><a href="#energy_ThermalZone_relates_A">back</a></p>
+               <p><a href="#energy_ThermalZone_contains_A">back</a></p>
             </td>
          </tr>
       </table>
       <h3>Definition</h3>
-      <p class="einzug10"></p>
+      <p class="einzug10">One thermal zone may include several usage zones. If a thermal zone is related to more than one usage zone, the UsageZone
+         attribute floorArea is mantatory in order to enable the calculation of avarage heating / cooling schedules.<br>A UsageZone
+         object can only be referenced by one ThermalZone object.
+      </p>
       <h3>Cardinality</h3>
       <p class="einzug10">0..*</p>
       <h3>Data type</h3><a href="energy_UsageZone.html">
@@ -681,22 +652,7 @@ h3 {
                <h4></h4>
             </td>
          </tr>
-      </table><br></br><a name="energy_ThermalZone_netVolume"></a><table width="800" border="0" cellspacing="3">
-         <tr>
-            <td width="600" height="20" bgcolor="#CCCCCC">
-               <h2>Attribute type: energy:netVolume</h2>
-            </td>
-            <td bgcolor="#CCCCCC">
-               <p><a href="#energy_ThermalZone_netVolume_A">back</a></p>
-            </td>
-         </tr>
-      </table>
-      <h3>Definition</h3>
-      <p class="einzug10">Volume of the air space of a Thermal Zone.</p>
-      <h3>Cardinality</h3>
-      <p class="einzug10">0..1</p>
-      <h3>Data type</h3>
-      <p class="einzug10">Volume (Type)</p><br></br><a name="energy_ThermalZone_volumeGeometry"></a><table width="800" border="0" cellspacing="3">
+      </table><br></br><a name="energy_ThermalZone_volumeGeometry"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#CCCCCC">
                <h2>Attribute type: energy:volumeGeometry</h2>
@@ -707,7 +663,7 @@ h3 {
          </tr>
       </table>
       <h3>Definition</h3>
-      <p class="einzug10"></p>
+      <p class="einzug10">Geometrical representation of the ThermalZone volume.</p>
       <h3>Cardinality</h3>
       <p class="einzug10">0..1</p>
       <h3>Data type</h3>

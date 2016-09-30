@@ -5,12 +5,12 @@
 <!-- Jointly developed by the Special Interest Group 3D (SIG 3D) of GDI-DE, see http://www.sig3d.org               -->
 <!-- For further information see: http://www.citygml.org -->
 <CityModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://www.opengis.net/citygml/2.0 ../xsd/energy.xsd"
+ xsi:schemaLocation="http://www.opengis.net/citygml/2.0 ../Schema/EnergyADE_0_7_0.xsd"
  xmlns="http://www.opengis.net/citygml/2.0" xmlns:xAL="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"
- xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml"
- xmlns:dem="http://www.opengis.net/citygml/relief/2.0"
- xmlns:bldg="http://www.opengis.net/citygml/building/2.0"
- xmlns:energy="http://www.sig3d.org/citygml/2.0/energy/0.6.0">
+ xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:core="http://www.opengis.net/citygml/2.0"
+ xmlns:gml="http://www.opengis.net/gml" xmlns:dem="http://www.opengis.net/citygml/relief/2.0"
+ xmlns:energy="http://www.sig3d.org/citygml/2.0/energy/0.7.0"
+ xmlns:bldg="http://www.opengis.net/citygml/building/2.0">
 	<gml:name>Simple 3D city model LOD2 without Appearance</gml:name>
 	<gml:boundedBy>
 		<gml:Envelope srsDimension="3" srsName="urn:ogc:def:crs,crs:EPSG::25832,crs:EPSG::5783">
@@ -74,38 +74,7 @@
 				<bldg:WallSurface>
 					<gml:name>Wall South</gml:name>
 					
-					<!--  Example Wall material  -->
-					<energy:construction>
-						<energy:Construction>
-							<energy:uValue uom="wm-2k-1">1.0</energy:uValue>
-							<energy:opticalProperties>
-								<energy:OpticalProperties>
-									<energy:reflectance>
-										<energy:Reflectance>
-											<energy:fraction uom="scale">0.3</energy:fraction>
-											<energy:surface>Outside</energy:surface>
-											<energy:wavelengthRange>Solar</energy:wavelengthRange>
-										</energy:Reflectance>
-									</energy:reflectance>
-								</energy:OpticalProperties>
-							</energy:opticalProperties>
-							<energy:layer>
-								<energy:Layer>
-									<energy:layerComponent>
-										<energy:LayerComponent>
-											<energy:material>
-												<energy:SolidMaterial>
-													<energy:porosity uom="scale">0.50</energy:porosity>
-												</energy:SolidMaterial>
-											</energy:material>
-										</energy:LayerComponent>
-									</energy:layerComponent>
-								</energy:Layer>
-							</energy:layer>
-						</energy:Construction>					
-					</energy:construction>
-					
-					
+		
 					<bldg:lod2MultiSurface>
 						<gml:MultiSurface>
 							<gml:surfaceMember>
@@ -120,7 +89,38 @@
 							</gml:surfaceMember>
 						</gml:MultiSurface>
 					</bldg:lod2MultiSurface>
-					
+				 <!--  Example Wall material  -->
+				 <energy:boundarySurfaceConstruction>
+				  <energy:Construction gml:id="OuterWallConstruction">
+				   <energy:uValue uom="wm-2k-1">1.0</energy:uValue>
+				   <energy:opticalProperties>
+				    <energy:OpticalProperties>
+				     <energy:reflectance>
+				      <energy:Reflectance>
+				       <energy:fraction uom="scale">0.3</energy:fraction>
+				       <energy:surface>Outside</energy:surface>
+				       <energy:wavelengthRange>Solar</energy:wavelengthRange>
+				      </energy:Reflectance>
+				     </energy:reflectance>
+				    </energy:OpticalProperties>
+				   </energy:opticalProperties>
+				   <energy:layer>
+				    <energy:Layer>
+				     <energy:layerComponent>
+				      <energy:LayerComponent>
+				       <energy:material>
+				        <energy:SolidMaterial>
+				         <energy:porosity uom="scale">0.50</energy:porosity>
+				        </energy:SolidMaterial>
+				       </energy:material>
+				      </energy:LayerComponent>
+				     </energy:layerComponent>
+				    </energy:Layer>
+				   </energy:layer>
+				  </energy:Construction>					
+				 </energy:boundarySurfaceConstruction>
+				 
+				 
 				</bldg:WallSurface>
 			</bldg:boundedBy>
 			<bldg:boundedBy>
@@ -287,26 +287,33 @@
 				</energy:RefurbishmentMeasure>
 			</energy:refurbishmentMeasureOnBuilding>
 			
-			<energy:thermalZones>
+			<energy:thermalZone>
 				<energy:ThermalZone gml:id="ZONE_1">
+				 <energy:volume>
+				  <energy:VolumeType>
+				   <energy:type>NetVolume</energy:type>
+				   <energy:value uom="m3">1000</energy:value>
+				  </energy:VolumeType>
+				 </energy:volume>
 					<energy:isCooled>false</energy:isCooled>
-					<energy:isHeated>true</energy:isHeated>
-					<energy:netVolume uom="m3">1000</energy:netVolume>
+					<energy:isHeated>true</energy:isHeated>				 					
 					<energy:boundedBy>
 						<energy:ThermalBoundary>
-							<energy:thermalBoundaryType>OuterWall</energy:thermalBoundaryType>
-							<energy:partOf xlink:href="#ZONE_1"></energy:partOf>
-							<energy:composedOf>
+							<energy:thermalBoundaryType>OuterWall</energy:thermalBoundaryType>				
+							
+						 <energy:composedOf>
 								<energy:ThermalComponent>
+								 <relativeToTerrain>entirelyAboveTerrain</relativeToTerrain>
 									<energy:area uom="m2">100</energy:area>
-									<energy:isGroundCoupled>false</energy:isGroundCoupled>
-									<energy:isSunExposed>true</energy:isSunExposed>
+								 <energy:construction xlink:href="#OuterWallConstruction"/>									
 								</energy:ThermalComponent>
-							</energy:composedOf>							
+							</energy:composedOf>
+						 
+						 <energy:delimitsBy xlink:href="#ZONE_1"></energy:delimitsBy>
 						</energy:ThermalBoundary>
 					</energy:boundedBy>					
 				</energy:ThermalZone>
-			</energy:thermalZones>					
+			</energy:thermalZone>					
 		</bldg:Building>
 	</cityObjectMember>
 </CityModel>

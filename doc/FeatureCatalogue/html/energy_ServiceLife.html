@@ -1,0 +1,139 @@
+<html xmlns:doc="http://www.kit.edu/FeatureCatalogue/1.0" xmlns="http://www.kit.edu/FeatureCatalogue/1.0">
+   <head>
+      <title>Feature type</title><style type="text/css">
+                        
+tr {
+     vertical-align: middle;
+     margin-bottom: 0px;
+}
+
+table {
+
+}
+td {
+    vertical-align: middle;
+    margin-bottom: 0px;
+    margin-top: 0px;
+ }
+  h1 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 24px;
+ }
+h2 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        margin-bottom: 0px;
+ }
+ 
+h3 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        margin-bottom: 0px;
+ }
+
+ h4 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 10px;
+ }
+
+ p {
+     font-family: Arial, Helvetica, sans-serif;
+     font-size: 15px;
+     margin-bottom: 0px;
+     margin-top: 0px;
+  }
+
+.grau { background-color:#CCCCCC; }
+.einzug10 {  margin-left: 10px;
+}      
+      
+    </style></head>
+   <body><a name=""></a><h1>energy:ServiceLife</h1>
+      <h2>Type</h2>
+      <p class="einzug10">Object Type</p>
+      <h2>Definition</h2>
+      <p class="einzug10">Information of product life time and maintenance intervals.</p>
+      <h2>Belongs to module</h2>
+      <p class="einzug10"><a href="Package_energy_Energy-ADE.html">energy:Energy-ADE</a></p>
+      <h2>Attributes and associations</h2>
+      <table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#9DE5F7">
+               <p><strong><em>Name</em></strong></p>
+            </td>
+            <td bgcolor="#9DE5F7">
+               <p><strong><em>Type</em></strong></p>
+            </td>
+         </tr>
+         <tr><a name="energy_ServiceLife_startOfLife_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_ServiceLife_startOfLife">energy:startOfLife</a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>TM_Position</p>
+            </td>
+         </tr>
+         <tr><a name="energy_ServiceLife_lifeExpectancy_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_ServiceLife_lifeExpectancy">energy:lifeExpectancy</a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>TM_IntervalLength</p>
+            </td>
+         </tr>
+         <tr><a name="energy_ServiceLife_mainMaintenanceInterval_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_ServiceLife_mainMaintenanceInterval">energy:mainMaintenanceInterval</a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>TM_IntervalLength</p>
+            </td>
+         </tr>
+      </table><br></br><a name="energy_ServiceLife_startOfLife"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:startOfLife</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_ServiceLife_startOfLife_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10">Date where a product has been put into service for the first time (e.g. installation, construction).</p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..1</p>
+      <h3>Data type</h3>
+      <p class="einzug10">TM_Position (Union)</p><br></br><a name="energy_ServiceLife_lifeExpectancy"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:lifeExpectancy</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_ServiceLife_lifeExpectancy_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10">Length of the service life of a product which is expected at its installation or construction.</p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..1</p>
+      <h3>Data type</h3>
+      <p class="einzug10">TM_IntervalLength</p><br></br><a name="energy_ServiceLife_mainMaintenanceInterval"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:mainMaintenanceInterval</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_ServiceLife_mainMaintenanceInterval_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10">Average period of time between two consecutive main maintenance operations</p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..1</p>
+      <h3>Data type</h3>
+      <p class="einzug10">TM_IntervalLength</p>
+   </body>
+</html>

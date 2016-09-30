@@ -93,13 +93,6 @@ h3 {
                <p>ExternalReference</p>
             </td>
          </tr>
-         <tr><a name="core__CityObject_generalizesTo_A"></a><td width="600" height="20" bgcolor="#EEEEEE">
-               <p><a href="#core__CityObject_generalizesTo">core:generalizesTo</a></p>
-            </td>
-            <td width="600" height="20" bgcolor="#EEEEEE">
-               <p>_CityObject</p>
-            </td>
-         </tr>
          <tr><a name="core__CityObject_relativeToTerrain_A"></a><td width="600" height="20" bgcolor="#EEEEEE">
                <p><a href="#core__CityObject_relativeToTerrain">core:relativeToTerrain</a></p>
             </td>
@@ -135,25 +128,18 @@ h3 {
                <p>Area</p>
             </td>
          </tr>
-         <tr><a name="energy_ThermalComponent_isGroundCoupled_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
-               <p><a href="#energy_ThermalComponent_isGroundCoupled">energy:isGroundCoupled</a></p>
-            </td>
-            <td width="600" height="20" bgcolor="#CCCCCC">
-               <p>Boolean</p>
-            </td>
-         </tr>
-         <tr><a name="energy_ThermalComponent_isSunExposed_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
-               <p><a href="#energy_ThermalComponent_isSunExposed">energy:isSunExposed</a></p>
-            </td>
-            <td width="600" height="20" bgcolor="#CCCCCC">
-               <p>Boolean</p>
-            </td>
-         </tr>
          <tr><a name="energy_ThermalComponent_relates_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
                <p><a href="#energy_ThermalComponent_relates">energy:relates</a></p>
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
                <p>_Opening</p>
+            </td>
+         </tr>
+         <tr><a name="energy_ThermalComponent_construction_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_ThermalComponent_construction">energy:construction</a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>AbstractConstruction</p>
             </td>
          </tr>
       </table><br></br><a name="core__CityObject_creationDate"></a><table width="800" border="0" cellspacing="3">
@@ -203,22 +189,7 @@ h3 {
       <h3>Cardinality</h3>
       <p class="einzug10">0..*</p>
       <h3>Data type</h3>
-      <p class="einzug10">ExternalReference (DataType)</p><br></br><a name="core__CityObject_generalizesTo"></a><table width="800" border="0" cellspacing="3">
-         <tr>
-            <td width="600" height="20" bgcolor="#EEEEEE">
-               <h2>Attribute type: core:generalizesTo</h2>
-            </td>
-            <td bgcolor="#EEEEEE">
-               <p><a href="#core__CityObject_generalizesTo_A">back</a></p>
-            </td>
-         </tr>
-      </table>
-      <h3>Definition</h3>
-      <p class="einzug10"></p>
-      <h3>Cardinality</h3>
-      <p class="einzug10">0..*</p>
-      <h3>Data type</h3><a href="core__CityObject.html">
-         <p class="einzug10">_CityObject</p></a><br></br><a name="core__CityObject_relativeToTerrain"></a><table width="800" border="0" cellspacing="3">
+      <p class="einzug10">ExternalReference (DataType)</p><br></br><a name="core__CityObject_relativeToTerrain"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#EEEEEE">
                <h2>Attribute type: core:relativeToTerrain</h2>
@@ -432,37 +403,7 @@ h3 {
       <h3>Cardinality</h3>
       <p class="einzug10">1</p>
       <h3>Data type</h3>
-      <p class="einzug10">Area</p><br></br><a name="energy_ThermalComponent_isGroundCoupled"></a><table width="800" border="0" cellspacing="3">
-         <tr>
-            <td width="600" height="20" bgcolor="#CCCCCC">
-               <h2>Attribute type: energy:isGroundCoupled</h2>
-            </td>
-            <td bgcolor="#CCCCCC">
-               <p><a href="#energy_ThermalComponent_isGroundCoupled_A">back</a></p>
-            </td>
-         </tr>
-      </table>
-      <h3>Definition</h3>
-      <p class="einzug10">True if one side of the surface component is against the ground.</p>
-      <h3>Cardinality</h3>
-      <p class="einzug10">1</p>
-      <h3>Data type</h3>
-      <p class="einzug10">Boolean</p><br></br><a name="energy_ThermalComponent_isSunExposed"></a><table width="800" border="0" cellspacing="3">
-         <tr>
-            <td width="600" height="20" bgcolor="#CCCCCC">
-               <h2>Attribute type: energy:isSunExposed</h2>
-            </td>
-            <td bgcolor="#CCCCCC">
-               <p><a href="#energy_ThermalComponent_isSunExposed_A">back</a></p>
-            </td>
-         </tr>
-      </table>
-      <h3>Definition</h3>
-      <p class="einzug10">True if one side of the surface component is outdoor, with a non-null sky view factor.</p>
-      <h3>Cardinality</h3>
-      <p class="einzug10">1</p>
-      <h3>Data type</h3>
-      <p class="einzug10">Boolean</p><br></br><a name="energy_ThermalComponent_relates"></a><table width="800" border="0" cellspacing="3">
+      <p class="einzug10">Area</p><br></br><a name="energy_ThermalComponent_relates"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#CCCCCC">
                <h2>Attribute type: energy:relates</h2>
@@ -477,5 +418,25 @@ h3 {
       <h3>Cardinality</h3>
       <p class="einzug10">0..1</p>
       <h3>Data type</h3><a href="bldg__Opening.html">
-         <p class="einzug10">_Opening</p></a></body>
+         <p class="einzug10">_Opening</p></a><br></br><a name="energy_ThermalComponent_construction"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:construction</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_ThermalComponent_construction_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10">Reference to material information. If the referenced Construction/ConstructionOrientation object has more than one layer,
+         the following rules for the layer order apply:<br><ul><br>	<li>For <b>outer </b>ThermalBoundaries, the first Construction
+         Layer is facing outside, last Construction Layer is facing inside (or contrary if ConstructionOrientation is used and orientation
+         is false)</li><br>	<li>For ThermalBoundaries of type <b>intermediaryFloor</b>, the first Construction Layer is facing the
+         thermalZone below while the last Construction Layer is facing the ThermalZone above</li><br></ul>
+      </p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">1</p>
+      <h3>Data type</h3><a href="energy_AbstractConstruction.html">
+         <p class="einzug10">AbstractConstruction</p></a></body>
 </html>

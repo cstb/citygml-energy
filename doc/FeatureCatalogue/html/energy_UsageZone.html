@@ -91,13 +91,6 @@ h3 {
                <p>ExternalReference</p>
             </td>
          </tr>
-         <tr><a name="core__CityObject_generalizesTo_A"></a><td width="600" height="20" bgcolor="#EEEEEE">
-               <p><a href="#core__CityObject_generalizesTo">core:generalizesTo</a></p>
-            </td>
-            <td width="600" height="20" bgcolor="#EEEEEE">
-               <p>_CityObject</p>
-            </td>
-         </tr>
          <tr><a name="core__CityObject_relativeToTerrain_A"></a><td width="600" height="20" bgcolor="#EEEEEE">
                <p><a href="#core__CityObject_relativeToTerrain">core:relativeToTerrain</a></p>
             </td>
@@ -140,11 +133,11 @@ h3 {
                <p>_Schedule</p>
             </td>
          </tr>
-         <tr><a name="energy_UsageZone_usageZoneClass_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
-               <p><a href="#energy_UsageZone_usageZoneClass">energy:usageZoneClass</a></p>
+         <tr><a name="energy_UsageZone_usageZoneType_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_UsageZone_usageZoneType">energy:usageZoneType</a></p>
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
-               <p>BuildingClass</p>
+               <p>CurrentUseValue</p>
             </td>
          </tr>
          <tr><a name="energy_UsageZone_usedFloors_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
@@ -175,8 +168,8 @@ h3 {
                <p>GM_Solid</p>
             </td>
          </tr>
-         <tr><a name="energy_UsageZone_internalGains_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
-               <p><a href="#energy_UsageZone_internalGains">energy:internalGains</a></p>
+         <tr><a name="energy_UsageZone_averageInternalGains_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_UsageZone_averageInternalGains">energy:averageInternalGains</a></p>
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
                <p>HeatExchangeType</p>
@@ -196,8 +189,8 @@ h3 {
                <p>Occupants</p>
             </td>
          </tr>
-         <tr><a name="energy_UsageZone_has_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
-               <p><a href="#energy_UsageZone_has">energy:has</a></p>
+         <tr><a name="energy_UsageZone_equippedWith_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_UsageZone_equippedWith">energy:equippedWith</a></p>
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
                <p>Facilities</p>
@@ -250,22 +243,7 @@ h3 {
       <h3>Cardinality</h3>
       <p class="einzug10">0..*</p>
       <h3>Data type</h3>
-      <p class="einzug10">ExternalReference (DataType)</p><br></br><a name="core__CityObject_generalizesTo"></a><table width="800" border="0" cellspacing="3">
-         <tr>
-            <td width="600" height="20" bgcolor="#EEEEEE">
-               <h2>Attribute type: core:generalizesTo</h2>
-            </td>
-            <td bgcolor="#EEEEEE">
-               <p><a href="#core__CityObject_generalizesTo_A">back</a></p>
-            </td>
-         </tr>
-      </table>
-      <h3>Definition</h3>
-      <p class="einzug10"></p>
-      <h3>Cardinality</h3>
-      <p class="einzug10">0..*</p>
-      <h3>Data type</h3><a href="core__CityObject.html">
-         <p class="einzug10">_CityObject</p></a><br></br><a name="core__CityObject_relativeToTerrain"></a><table width="800" border="0" cellspacing="3">
+      <p class="einzug10">ExternalReference (DataType)</p><br></br><a name="core__CityObject_relativeToTerrain"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#EEEEEE">
                <h2>Attribute type: core:relativeToTerrain</h2>
@@ -494,13 +472,13 @@ h3 {
       <h3>Cardinality</h3>
       <p class="einzug10">0..1</p>
       <h3>Data type</h3><a href="energy__Schedule.html">
-         <p class="einzug10">_Schedule</p></a><br></br><a name="energy_UsageZone_usageZoneClass"></a><table width="800" border="0" cellspacing="3">
+         <p class="einzug10">_Schedule</p></a><br></br><a name="energy_UsageZone_usageZoneType"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#CCCCCC">
-               <h2>Attribute type: energy:usageZoneClass</h2>
+               <h2>Attribute type: energy:usageZoneType</h2>
             </td>
             <td bgcolor="#CCCCCC">
-               <p><a href="#energy_UsageZone_usageZoneClass_A">back</a></p>
+               <p><a href="#energy_UsageZone_usageZoneType_A">back</a></p>
             </td>
          </tr>
       </table>
@@ -509,7 +487,7 @@ h3 {
       <h3>Cardinality</h3>
       <p class="einzug10">1</p>
       <h3>Data type</h3>
-      <p class="einzug10">BuildingClass (CodeList)</p><br></br><a name="energy_UsageZone_usedFloors"></a><table width="800" border="0" cellspacing="3">
+      <p class="einzug10">CurrentUseValue (CodeList)</p><br></br><a name="energy_UsageZone_usedFloors"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#CCCCCC">
                <h2>Attribute type: energy:usedFloors</h2>
@@ -550,7 +528,7 @@ h3 {
          </tr>
       </table>
       <h3>Definition</h3>
-      <p class="einzug10"></p>
+      <p class="einzug10">Floor area of the UsageZone. Different calculation methods (e.g. gross area, net area) can be selected.</p>
       <h3>Cardinality</h3>
       <p class="einzug10">0..*</p>
       <h3>Data type</h3><a href="energy_FloorArea.html">
@@ -565,23 +543,23 @@ h3 {
          </tr>
       </table>
       <h3>Definition</h3>
-      <p class="einzug10"></p>
+      <p class="einzug10">Geometric representation of the UsageZone volume.</p>
       <h3>Cardinality</h3>
       <p class="einzug10">0..1</p>
       <h3>Data type</h3>
-      <p class="einzug10">GM_Solid (Type)</p><br></br><a name="energy_UsageZone_internalGains"></a><table width="800" border="0" cellspacing="3">
+      <p class="einzug10">GM_Solid (Type)</p><br></br><a name="energy_UsageZone_averageInternalGains"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#CCCCCC">
-               <h2>Attribute type: energy:internalGains</h2>
+               <h2>Attribute type: energy:averageInternalGains</h2>
             </td>
             <td bgcolor="#CCCCCC">
-               <p><a href="#energy_UsageZone_internalGains_A">back</a></p>
+               <p><a href="#energy_UsageZone_averageInternalGains_A">back</a></p>
             </td>
          </tr>
       </table>
       <h3>Definition</h3>
-      <p class="einzug10">Heat power exchanged by the room occupants and non-HVAC devices to the room (positive for heat source, negative for heat sink/cool
-         source).
+      <p class="einzug10">Aggregated average heat energy per year (in W) dissipated by the occupants and facilities in a usage zone over the whole year
+         (positive for heat source, negative for heat sink/cool source).
       </p>
       <h3>Cardinality</h3>
       <p class="einzug10">0..1</p>
@@ -616,13 +594,13 @@ h3 {
       <h3>Cardinality</h3>
       <p class="einzug10">0..*</p>
       <h3>Data type</h3><a href="energy_Occupants.html">
-         <p class="einzug10">Occupants</p></a><br></br><a name="energy_UsageZone_has"></a><table width="800" border="0" cellspacing="3">
+         <p class="einzug10">Occupants</p></a><br></br><a name="energy_UsageZone_equippedWith"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#CCCCCC">
-               <h2>Attribute type: energy:has</h2>
+               <h2>Attribute type: energy:equippedWith</h2>
             </td>
             <td bgcolor="#CCCCCC">
-               <p><a href="#energy_UsageZone_has_A">back</a></p>
+               <p><a href="#energy_UsageZone_equippedWith_A">back</a></p>
             </td>
          </tr>
       </table>

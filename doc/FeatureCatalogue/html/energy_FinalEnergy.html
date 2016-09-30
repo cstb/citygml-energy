@@ -51,14 +51,12 @@ h3 {
 }      
       
     </style></head>
-   <body><a name=""></a><h1>energy:EnergySource</h1>
+   <body><a name=""></a><h1>energy:FinalEnergy</h1>
       <h2>Type</h2>
       <p class="einzug10">Feature Type</p>
       <h2>Definition</h2>
-      <p class="einzug10">Energy being consumed by an energy conversion system. It can be non-renewable (fuel) or renewable. It may be produced by another
-         energy conversion system.The Energy produced by a conversion system and fed-in in the electrical grid or district network
-         is also considered as EnergySource, since it also aims to be consumed by an energy conversion system, in another building
-         (building block)
+      <p class="einzug10">Energy form containing the energy, occuping intermediate steps in the energy-supply chain between primary energy sources and
+         end-use demands
       </p>
       <h2>Belongs to module</h2>
       <p class="einzug10"><a href="Package_energy_Energy-ADE.html">energy:Energy-ADE</a></p>
@@ -72,41 +70,41 @@ h3 {
                <p><strong><em>Type</em></strong></p>
             </td>
          </tr>
-         <tr><a name="energy_EnergySource_energyAmount_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
-               <p><a href="#energy_EnergySource_energyAmount">energy:energyAmount</a></p>
+         <tr><a name="energy_FinalEnergy_energyAmount_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_FinalEnergy_energyAmount">energy:energyAmount</a></p>
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
                <p>_TimeSeries</p>
             </td>
          </tr>
-         <tr><a name="energy_EnergySource_energyCarrier_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
-               <p><a href="#energy_EnergySource_energyCarrier">energy:energyCarrier</a></p>
+         <tr><a name="energy_FinalEnergy_energyCarrier_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_FinalEnergy_energyCarrier">energy:energyCarrier</a></p>
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
                <p>EnergyCarrier</p>
             </td>
          </tr>
-         <tr><a name="energy_EnergySource_isConsumedBy_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
-               <p><a href="#energy_EnergySource_isConsumedBy">energy:isConsumedBy</a></p>
+         <tr><a name="energy_FinalEnergy_isConsumedBy_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_FinalEnergy_isConsumedBy">energy:isConsumedBy</a></p>
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
                <p>EnergyConversionSystem</p>
             </td>
          </tr>
-         <tr><a name="energy_EnergySource_isProducedBy_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
-               <p><a href="#energy_EnergySource_isProducedBy">energy:isProducedBy</a></p>
+         <tr><a name="energy_FinalEnergy_isProducedBy_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_FinalEnergy_isProducedBy">energy:isProducedBy</a></p>
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
                <p>EnergyConversionSystem</p>
             </td>
          </tr>
-      </table><br></br><a name="energy_EnergySource_energyAmount"></a><table width="800" border="0" cellspacing="3">
+      </table><br></br><a name="energy_FinalEnergy_energyAmount"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#CCCCCC">
                <h2>Attribute type: energy:energyAmount</h2>
             </td>
             <td bgcolor="#CCCCCC">
-               <p><a href="#energy_EnergySource_energyAmount_A">back</a></p>
+               <p><a href="#energy_FinalEnergy_energyAmount_A">back</a></p>
             </td>
          </tr>
       </table>
@@ -117,13 +115,13 @@ h3 {
       <h3>Cardinality</h3>
       <p class="einzug10">0..1</p>
       <h3>Data type</h3><a href="energy__TimeSeries.html">
-         <p class="einzug10">_TimeSeries</p></a><br></br><a name="energy_EnergySource_energyCarrier"></a><table width="800" border="0" cellspacing="3">
+         <p class="einzug10">_TimeSeries</p></a><br></br><a name="energy_FinalEnergy_energyCarrier"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#CCCCCC">
                <h2>Attribute type: energy:energyCarrier</h2>
             </td>
             <td bgcolor="#CCCCCC">
-               <p><a href="#energy_EnergySource_energyCarrier_A">back</a></p>
+               <p><a href="#energy_FinalEnergy_energyCarrier_A">back</a></p>
             </td>
          </tr>
       </table>
@@ -132,13 +130,13 @@ h3 {
       <h3>Cardinality</h3>
       <p class="einzug10">1</p>
       <h3>Data type</h3><a href="energy_EnergyCarrier.html">
-         <p class="einzug10">EnergyCarrier</p></a><br></br><a name="energy_EnergySource_isConsumedBy"></a><table width="800" border="0" cellspacing="3">
+         <p class="einzug10">EnergyCarrier</p></a><br></br><a name="energy_FinalEnergy_isConsumedBy"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#CCCCCC">
                <h2>Attribute type: energy:isConsumedBy</h2>
             </td>
             <td bgcolor="#CCCCCC">
-               <p><a href="#energy_EnergySource_isConsumedBy_A">back</a></p>
+               <p><a href="#energy_FinalEnergy_isConsumedBy_A">back</a></p>
             </td>
          </tr>
       </table>
@@ -147,13 +145,13 @@ h3 {
       <h3>Cardinality</h3>
       <p class="einzug10">0..*</p>
       <h3>Data type</h3><a href="energy_EnergyConversionSystem.html">
-         <p class="einzug10">EnergyConversionSystem</p></a><br></br><a name="energy_EnergySource_isProducedBy"></a><table width="800" border="0" cellspacing="3">
+         <p class="einzug10">EnergyConversionSystem</p></a><br></br><a name="energy_FinalEnergy_isProducedBy"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#CCCCCC">
                <h2>Attribute type: energy:isProducedBy</h2>
             </td>
             <td bgcolor="#CCCCCC">
-               <p><a href="#energy_EnergySource_isProducedBy_A">back</a></p>
+               <p><a href="#energy_FinalEnergy_isProducedBy_A">back</a></p>
             </td>
          </tr>
       </table>

@@ -5,12 +5,12 @@
 <!-- Jointly developed by the Special Interest Group 3D (SIG 3D) of GDI-DE, see http://www.sig3d.org               -->
 <!-- For further information see: http://www.citygml.org -->
 <CityModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://www.opengis.net/citygml/2.0 ../xsd/energy.xsd"
+ xsi:schemaLocation="http://www.opengis.net/citygml/2.0 ../Schema/EnergyADE_0_7_0.xsd"
  xmlns="http://www.opengis.net/citygml/2.0" xmlns:xAL="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"
  xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml"
  xmlns:dem="http://www.opengis.net/citygml/relief/2.0"
- xmlns:bldg="http://www.opengis.net/citygml/building/2.0"
- xmlns:energy="http://www.sig3d.org/citygml/2.0/energy/0.6.0">
+ xmlns:energy="http://www.sig3d.org/citygml/2.0/energy/0.7.0"
+ xmlns:bldg="http://www.opengis.net/citygml/building/2.0">
 	<gml:name>Simple 3D city model LOD3 without Appearance</gml:name>
 	<gml:boundedBy>
 		<gml:Envelope srsDimension="3" srsName="urn:ogc:def:crs,crs:EPSG::25832,crs:EPSG::5783">
@@ -163,23 +163,6 @@
 						<bldg:Window gml:id="GML_3b09d6a5-4c24-4847-a8a2-e97475e3de47">
 							<gml:name>Window South 1</gml:name>
 							
-							<!-- Example Window material -->
-							<energy:construction>
-								<energy:Construction>
-									<energy:uValue uom="wm-2k-1">1.3</energy:uValue>
-									<energy:opticalProperties>
-										<energy:OpticalProperties>
-											<energy:transmittance>
-												<energy:Transmittance>
-													<energy:fraction uom="scale">0.6</energy:fraction>
-													<energy:wavelengthRange>Solar</energy:wavelengthRange>
-												</energy:Transmittance>
-											</energy:transmittance>
-											<energy:glazingRatio uom="scale">0.3</energy:glazingRatio>
-										</energy:OpticalProperties>
-									</energy:opticalProperties>
-								</energy:Construction>
-							</energy:construction>
 							
 							<bldg:lod3MultiSurface>
 								<gml:MultiSurface>
@@ -195,6 +178,24 @@
 									</gml:surfaceMember>
 								</gml:MultiSurface>
 							</bldg:lod3MultiSurface>							
+						 <!-- Example Window material -->
+						 <energy:openingConstruction>
+						  <energy:Construction>
+						   <energy:uValue uom="wm-2k-1">1.3</energy:uValue>
+						   <energy:opticalProperties>
+						    <energy:OpticalProperties>
+						     <energy:transmittance>
+						      <energy:Transmittance>
+						       <energy:fraction uom="scale">0.6</energy:fraction>
+						       <energy:wavelengthRange>Solar</energy:wavelengthRange>
+						      </energy:Transmittance>
+						     </energy:transmittance>
+						     <energy:glazingRatio uom="scale">0.3</energy:glazingRatio>
+						    </energy:OpticalProperties>
+						   </energy:opticalProperties>
+						  </energy:Construction>
+						 </energy:openingConstruction>
+						 
 						</bldg:Window>
 					</bldg:opening>
 					<bldg:opening>

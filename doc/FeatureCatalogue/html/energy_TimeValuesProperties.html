@@ -72,14 +72,14 @@ h3 {
                <p><a href="#energy_TimeValuesProperties_acquisitionMethod">energy:acquisitionMethod</a></p>
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
-               <p>CharacterString</p>
+               <p>AcquisitionMethodValue</p>
             </td>
          </tr>
          <tr><a name="energy_TimeValuesProperties_interpolationType_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
                <p><a href="#energy_TimeValuesProperties_interpolationType">energy:interpolationType</a></p>
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
-               <p>InterpolationType</p>
+               <p>InterpolationTypeValue</p>
             </td>
          </tr>
          <tr><a name="energy_TimeValuesProperties_qualityDescription_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
@@ -109,9 +109,73 @@ h3 {
       <h3>Definition</h3>
       <p class="einzug10">The method for variable acquisition (e.g. simulation, measured).</p>
       <h3>Cardinality</h3>
-      <p class="einzug10">0..1</p>
+      <p class="einzug10">1</p>
       <h3>Data type</h3>
-      <p class="einzug10">CharacterString</p><br></br><a name="energy_TimeValuesProperties_interpolationType"></a><table width="800" border="0" cellspacing="3">
+      <p class="einzug10">AcquisitionMethodValue (Enumeration)</p><br></br><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="70" height="20" bgcolor="#9DE5F7">
+               <p><strong><em>Code</em></strong></p>
+            </td>
+            <td colspan="2" width="700" bgcolor="#9DE5F7">
+               <p><strong><em>Text</em></strong></p>
+            </td>
+         </tr>
+         <tr>
+            <td width="70" bgcolor="#EEEEEE">
+               <p>Measurement</p>
+            </td>
+            <td width="300" bgcolor="#EEEEEE">
+               <p>Measurement</p>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <h4>Measured data</h4>
+            </td>
+         </tr>
+         <tr>
+            <td width="70" bgcolor="#EEEEEE">
+               <p>Simulation</p>
+            </td>
+            <td width="300" bgcolor="#EEEEEE">
+               <p>Simulation</p>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <h4>Simulated data</h4>
+            </td>
+         </tr>
+         <tr>
+            <td width="70" bgcolor="#EEEEEE">
+               <p>CalibratedSimulation</p>
+            </td>
+            <td width="300" bgcolor="#EEEEEE">
+               <p>CalibratedSimulation</p>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <h4>Data of a calibrated simulation</h4>
+            </td>
+         </tr>
+         <tr>
+            <td width="70" bgcolor="#EEEEEE">
+               <p>Estimation</p>
+            </td>
+            <td width="300" bgcolor="#EEEEEE">
+               <p>Estimation</p>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <h4>Estimated data</h4>
+            </td>
+         </tr>
+         <tr>
+            <td width="70" bgcolor="#EEEEEE">
+               <p>Unknown</p>
+            </td>
+            <td width="300" bgcolor="#EEEEEE">
+               <p>Unknown</p>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <h4>Unknown acquisition method</h4>
+            </td>
+         </tr>
+      </table><br></br><a name="energy_TimeValuesProperties_interpolationType"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#CCCCCC">
                <h2>Attribute type: energy:interpolationType</h2>
@@ -124,9 +188,9 @@ h3 {
       <h3>Definition</h3>
       <p class="einzug10">Mathematical rule required for the variable interpolation, defined in WaterML:http://def.seegrid.csiro.au/sissvoc/ogc-def/resource?uri=http://www.opengis.net/def/waterml/2.0/interpolationType/</p>
       <h3>Cardinality</h3>
-      <p class="einzug10">0..1</p>
+      <p class="einzug10">1</p>
       <h3>Data type</h3>
-      <p class="einzug10">InterpolationType (Enumeration)</p><br></br><table width="800" border="0" cellspacing="3">
+      <p class="einzug10">InterpolationTypeValue (Enumeration)</p><br></br><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="70" height="20" bgcolor="#9DE5F7">
                <p><strong><em>Code</em></strong></p>
@@ -143,7 +207,7 @@ h3 {
                <p>AverageInPrecedingInterval</p>
             </td>
             <td bgcolor="#EEEEEE">
-               <h4></h4>
+               <h4>Value represents the average value over the preceding interval.	more like this</h4>
             </td>
          </tr>
          <tr>
@@ -154,7 +218,7 @@ h3 {
                <p>AverageInSucceedingInterval</p>
             </td>
             <td bgcolor="#EEEEEE">
-               <h4></h4>
+               <h4>Value represents the average value over the following interval.	more like this</h4>
             </td>
          </tr>
          <tr>
@@ -165,7 +229,7 @@ h3 {
                <p>ConstantInPrecedingInterval</p>
             </td>
             <td bgcolor="#EEEEEE">
-               <h4></h4>
+               <h4>Value is constant in the preceding interval.</h4>
             </td>
          </tr>
          <tr>
@@ -176,7 +240,7 @@ h3 {
                <p>ConstantInSucceedingInterval</p>
             </td>
             <td bgcolor="#EEEEEE">
-               <h4></h4>
+               <h4>Value is constant in the succeeding interval.</h4>
             </td>
          </tr>
          <tr>
@@ -187,7 +251,11 @@ h3 {
                <p>Continuous</p>
             </td>
             <td bgcolor="#EEEEEE">
-               <h4></h4>
+               <h4>A continuous time series indicates the observation result is the value of a property at the indicated instant in time. The
+                  points are essentially connected and interpolation may occur between points in order to estimate the value of the property
+                  between points. The appropriate time spacing between successive points to minimise interpolation errors is related to rate
+                  of change (wrt time) of the property.
+               </h4>
             </td>
          </tr>
          <tr>
@@ -198,7 +266,9 @@ h3 {
                <p>Discontinuous</p>
             </td>
             <td bgcolor="#EEEEEE">
-               <h4></h4>
+               <h4>The sampling of the property occurs such that it is not possible to regard the series as continuous. The time between samples
+                  is too large to classify the measurements as continuous.
+               </h4>
             </td>
          </tr>
          <tr>
@@ -209,7 +279,9 @@ h3 {
                <p>InstantaneousTotal</p>
             </td>
             <td bgcolor="#EEEEEE">
-               <h4></h4>
+               <h4>Value represents a total attributed to a specific time instant. This is normally generated from an event based measuring device
+                  such as a tipping bucket rain gauge.
+               </h4>
             </td>
          </tr>
          <tr>
@@ -220,7 +292,7 @@ h3 {
                <p>MaximumInPrecedingInterval</p>
             </td>
             <td bgcolor="#EEEEEE">
-               <h4></h4>
+               <h4>Value represents the maximum value that was measured during the preceding time interval.</h4>
             </td>
          </tr>
          <tr>
@@ -231,7 +303,7 @@ h3 {
                <p>MaximumInSucceedingInterval</p>
             </td>
             <td bgcolor="#EEEEEE">
-               <h4></h4>
+               <h4>Value represents the maximum value for the following interval.</h4>
             </td>
          </tr>
          <tr>
@@ -242,7 +314,7 @@ h3 {
                <p>MinimumInPrecedingInterval</p>
             </td>
             <td bgcolor="#EEEEEE">
-               <h4></h4>
+               <h4>Value represents the minimum value that was measured during the preceding time interval.</h4>
             </td>
          </tr>
          <tr>
@@ -253,7 +325,7 @@ h3 {
                <p>MinimumInSucceedingInterval</p>
             </td>
             <td bgcolor="#EEEEEE">
-               <h4></h4>
+               <h4>Value represents the minimum value for the following interval.</h4>
             </td>
          </tr>
          <tr>
@@ -264,7 +336,7 @@ h3 {
                <p>PrecedingTotal</p>
             </td>
             <td bgcolor="#EEEEEE">
-               <h4></h4>
+               <h4>Value represents the total of measurements taken within the previous time interval.</h4>
             </td>
          </tr>
          <tr>
@@ -275,7 +347,7 @@ h3 {
                <p>SucceedingTotal</p>
             </td>
             <td bgcolor="#EEEEEE">
-               <h4></h4>
+               <h4>Value represents the average value over the following interval</h4>
             </td>
          </tr>
       </table><br></br><a name="energy_TimeValuesProperties_qualityDescription"></a><table width="800" border="0" cellspacing="3">
