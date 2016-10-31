@@ -52,6 +52,37 @@ module, their entities and attributes. It provides also a number of XML examples
 illustrating how and where the Energy ADE entities and attributes may be embedded
 into CityGML.
 
+## Units of Measure
+
+All values within this ADE need to be specified with units of measure. To unify
+the definitions (based on SI units), the following table gives an overview of so
+far defined units of measure. Wherever Si units are applicable, please use SI
+units. Please stick to the given styles as this simplifies evaluating units and
+perform automatic conversions.
+
+| Type | Unit |
+|------|------|
+| Angle | deg |
+| Area | m^2  |
+| Area Specific Power | W/m^2 |
+| CO2 Emission Factor | g/(kWh) |
+| Density | kg/m^3
+| Energy Amount | kWh |
+| Flow Velocity | m/s |
+| Heat Capacity | J/K |
+| Infiltration Rate | 1/h |
+| Power | W |
+| Power Capacity | Wh |
+| Ratio | 1 |
+| Specific Heat Capacity | J/(K*kg) |
+| Temperature | K |
+| Thermal Conductivity | W/(K*m^2) |
+| Thermal Loss Coefficient (linear) | W/(K*m) |
+| Thermal Resistance | (K*m^2)/W |
+| Time | s |
+| Volume | m^3 |
+|   |   |
+
 # Building Physics Module
 
 ## Module overview and main relationships
