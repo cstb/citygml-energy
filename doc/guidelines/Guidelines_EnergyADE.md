@@ -56,9 +56,11 @@ into CityGML.
 
 All values within this ADE need to be specified with units of measure. To unify
 the definitions (based on SI units), the following table gives an overview of so
-far defined units of measure. Wherever Si units are applicable, please use SI
-units. Please stick to the given styles as this simplifies evaluating units and
-perform automatic conversions.
+far defined units of measure. Wherever SI units are applicable, please use them.
+Please stick to the given styles (alphabetical order, / for divison, * for
+multiplication, brackets for multiple units in numerator or denominator,
+avoid negative exponents) as this simplifies evaluating units and perform
+automatic conversions.
 
 | Type | Unit |
 |------|------|
