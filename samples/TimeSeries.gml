@@ -18,7 +18,7 @@
                         <energy:RegularTimeSeries gml:id="TS_1">
                             <energy:variableProperties>
                                 <energy:TimeValuesProperties>
-                                    <energy:acquisitionMethod>Manual meter reading and some calculation</energy:acquisitionMethod>
+                                    <energy:acquisitionMethod>Measurement</energy:acquisitionMethod>
                                     <energy:interpolationType>SucceedingTotal</energy:interpolationType>
                                  <energy:qualityDescription>Very good quality</energy:qualityDescription>
                                  <energy:source>Unknown</energy:source>
@@ -56,7 +56,7 @@
                 <energy:IrregularTimeSeries>
                     <energy:variableProperties>
                         <energy:TimeValuesProperties>
-                            <energy:acquisitionMethod>Manual meter reading and some calculation</energy:acquisitionMethod>
+                            <energy:acquisitionMethod>Estimation</energy:acquisitionMethod>
                             <energy:interpolationType>AverageInPrecedingInterval</energy:interpolationType>
                         </energy:TimeValuesProperties>
                     </energy:variableProperties>
@@ -86,7 +86,7 @@
                 <energy:RegularTimeSeriesFile>                   
                     <energy:variableProperties>
                         <energy:TimeValuesProperties>
-                            <energy:acquisitionMethod>Manual meter reading and some calculation</energy:acquisitionMethod>
+                            <energy:acquisitionMethod>Measurement</energy:acquisitionMethod>
                             <energy:interpolationType>SucceedingTotal</energy:interpolationType>
                          <energy:qualityDescription>Very good quality</energy:qualityDescription>
                          <energy:source>Unknown</energy:source>
@@ -117,7 +117,7 @@
     <energy:IrregularTimeSeriesFile>                   
      <energy:variableProperties>
       <energy:TimeValuesProperties>
-       <energy:acquisitionMethod>Manual meter reading and some calculation</energy:acquisitionMethod>
+       <energy:acquisitionMethod>Measurement</energy:acquisitionMethod>
        <energy:interpolationType>SucceedingTotal</energy:interpolationType>
        <energy:qualityDescription>Very good quality</energy:qualityDescription>
        <energy:source>Unknown</energy:source>
