@@ -204,7 +204,7 @@ Buildings (`_AbstractBuilding`) and building zones (`ThermalZone` and
 		<energy:type>EnergyReferenceArea</energy:type>
 		<energy:value uom="m2">43.0</energy:value>
 	</energy:FloorArea>
-</energy:FloorArea>
+</energy:floorArea>
 ```
 
 #### VolumeType
@@ -899,7 +899,7 @@ Example of IrregularTimeSeries object:
 			<energy:value>16245</energy:value>
 		</energy:MeasurementPoint>
 	</energy:contains>
-</energy:RegularTimeSeries>
+</energy:IrregularTimeSeries>
 ```
 
 Example of RegularTimeSeriesFile object:
@@ -977,7 +977,7 @@ requirements of the codes and norms describing the monthly energy balance (DIN
 	<energy:usageValue uom="degree Celsius">20</energy:usageValue>
 	<energy:idleValue uom="degree Celsius">16</energy:idleValue>
 	<energy:usageHoursPerDay uom="hour">17</energy:usageHoursPerDay>
-	<energy:usageDaysPerYear uom="day">365</energy:usageDaysPerYeary>
+	<energy:usageDaysPerYear uom="day">365</energy:usageDaysPerYear>
 </energy:DualValueSchedule>
 ```
 
@@ -1062,7 +1062,7 @@ consists of a unique time series, without patterns.
 ```xml
 <!--Example of a time series based schedule with hourly values for one year-->
 <energy:TimeSeriesSchedule gml:id="id_timeseries_schedule_4">
-	<energy:RegularTimeSeries "id_occupants_timeseries4">
+	<energy:RegularTimeSeries gml:id="id_occupants_timeseries4">
 			<energy:temporalExtent>
 				<gml:TimePeriod>
 					<gml:beginPosition>2000-01-01</gml:beginPosition>
@@ -1333,13 +1333,13 @@ The CityGML+Energy ADE model of this example is detailed below:
 <bldg:Building gml:id="ExampleMixedUseBuilding">
 	<energy:usageZones>
 		<energy:UsageZone gml:id="Post">
-			<energy:usageZoneClass>Post office</energy:usageZoneClass>
+			<energy:usageZoneType>Post office</energy:usageZoneType>
 			<!-- Further attributes of usage zone "Post-Office" -->
 		</energy:UsageZone>
 	</energy:usageZones>
 	<energy:usageZones>
 		<energy:UsageZone gml:id="Offices">
-			<energy:usageZoneClass>Company office</energy:usageZoneClass>
+			<energy:usageZoneType>Company office</energy:usageZoneType>
 			<!-- Further attributes of usage zone "Offices" -->
 			<energy:contains>
 				<energy:BuildingUnit gml:id="O1">
@@ -1355,7 +1355,7 @@ The CityGML+Energy ADE model of this example is detailed below:
 	</energy:usageZones>
 	<energy:usageZones>
 		<energy:UsageZone gml:id="Dwellings">
-			<energy:usageZoneClass>residential</energy:usageZoneClass>
+			<energy:usageZoneType>residential</energy:usageZoneType>
 			<!-- Further attributes of usage zone "Dwellings" -->
 			<energy:contains>
 				<energy:BuildingUnit gml:id="D1">
@@ -1382,23 +1382,25 @@ provide the zone usage conditions (e.g. internal gains, HVAC schedules) for the
 space heating and cooling demand calculations.
 
 `UsageZone` is a zone of a `Building` (or of a `BuildingPart`) with homogeneous
-usage conditions and indoor climate control settings. It is a semantic object,
+usage conditions and indoor climate control settings.
+Minimally defined by the mandatory attribute `usageZoneType` of type `CurrentUseValue`, it is a semantic object,
 with an optional geometry (`volumeGeometry`), which may be or not related to a
 geometric entity (Building, BuildingPart, Room etc.).
 
-`UsageZone` is minimally defined by the two mandatory attributes
-`usageZoneClass` (its usage type according to the CityGML Code list of the
-`_AbstractBuilding` attribute `class`) and `floorArea`. The latter may be
-attributed several times to a building, specifying different values for
-different `FloorAreaType`.
+Beside the `volumeGeometry` attribute, the
+building storeys occupied by this `UsageZone` may be also indicated by means of
+the attribute `usedFloors` (0 corresponding to the ground floor).
+As for `_AbstractBuilding` and `ThermalZone`, `UsageZone` may be characterized by several `floorArea`
+attributes of different types (e.g. net floor area, brutto floor area).
+
 Its HVAC schedules are characterized by the optional attributes
 `heatingSchedule`, `coolingSchedule` and `ventilationSchedule` (respectively
 for the heating and cooling set-point temperature schedules, and air
-ventilation schedules). Alternatively to the `volumeGeometry` attribute, the
-building storeys occupied by this `UsageZone` may be also indicated by means of
-the attribute `usedFloors` (0 corresponding to the ground floor).
-Its optional `internalGains` attribute corresponds to the sum of the energy
+ventilation schedules).
+
+Its optional `averageInternalGains` attribute corresponds to the sum of the energy
 dissipated from the occupants and the facilities inside the zone.
+Its type `HeatExchangeType` allows to detail the proportion of the different heat exchanges.
 
 The following XML example describe the modeling of a mixed-usage building.
 
@@ -1407,7 +1409,7 @@ The following XML example describe the modeling of a mixed-usage building.
 <energy:UsageZone gml:id="id_usagezone_1">
 	<gml:description>Description of UsageZone 1</gml:description>
 	<gml:name>Name of UsageZone 1</gml:name>
-	<energy:usageZoneClass>Commercial</energy:usageZoneClass>
+	<energy:usageZoneType>Commercial</energy:usageZoneType>
 	<energy:usedFloors>1</energy:usedFloors>
 	<energy:floorArea>
 		<energy:FloorArea>
@@ -1443,7 +1445,7 @@ The following XML example describe the modeling of a mixed-usage building.
 	<energy:has>
 		<energy:DHWFacilities gml:id="id_dhwfacilities_1">
 			<!--Here come all attributes of a Facility object -->
-		</energy:ElectricalAppliances>
+		</energy:DHWFacilities>
 	</energy:has>
 	<energy:has>
 		<energy:ElectricalAppliances gml:id="id_electricalappliance_1">
@@ -1458,19 +1460,45 @@ The following XML example describe the modeling of a mixed-usage building.
 
 </energy:UsageZone>
 ```
+#### UsageZoneType and CurrentUseValue
+The attribute `UsageZoneType` allows the categorization of the `UsageZone` in different single usages, related to occupancy profile and the associated hvac operation requirements.
+
+Its type `CurrentUseValue` is a extendable hierarchical CodeList which is online available ([CurrentUse online registrery][]).
+Its first and second level elements are:
+
+- commerce and services
+	- Office
+	- Institutional
+	- Private Services
+	- trade
+- industrial
+	- Factory
+	- Laboratory
+- residential
+	- residence for communities
+
+#### HeatExchangeType
+The type `HeatExchangeType` characterizes the contributions of the different types
+of heat or cool exchange (convective, radiant and latent) through its attributes `convectiveFraction`, 
+`radiantFraction`, `latentFraction` and the total emitted energy value `totalValue` at nominal conditions.
+
+For cool exchanges, the `totalValue` will be a negative number.
 
 ### BuildingUnit
 
-The `BuildingUnit` is an object introduced in the Energy ADE to define the ownership types
+The `BuildingUnit` is an object introduced in the Energy ADE mainly to hold ownership information
 of a single usage zone for building usage analyses or energy demand calculation.
 
 A `BuildingUnit` is a part of a single `UsageZone` which can be defined as a subdivision of
 a `Building` with its own lockable access from the outside or from a common area (i.e. not
 from another `BuildingUnit`), which is atomic, functionally independent, and may be separately
 sold, rented out, inherited, etc (source: INSPIRE Data Specification Buildings, v3.0, p.29).
+
 A `BuildingUnit` is related to one or more occupant entities, such as a dwelling or a workplace.
-Owner information attributes (as `ownerName` and `ownershipType`) are specified in this class. It
-inherits from class `_CityObject`. The `BuildingUnit` may also be related to an address.
+Owner information attributes (as `ownerName` and `ownershipType`) are specified in this class.
+Its further optional attributes are `numberOfRooms`, `floorArea` and `energyPerformanceCertification`.
+The `BuildingUnit` may also be related to one or more addresses.
+It inherits from class `_CityObject`.
 
 The following XML example describes a `BuildingUnit` of 2 rooms of 40m² in total owned by
 a private person (`OccupantPrivate`) called “Lilli’s Donuts” (`Occupants` and `Facilities` are
@@ -1514,13 +1542,13 @@ not specified here).
 
 ### Occupants
 
-An `Occupants` class identifies a homogeneous group of occupants of a `UsageZone`
-or `BuildingUnit`, defined with an occupant type (e.g. residents, workers, visitors etc.).
-An `Occupants` class contains attributes which characterize its occupancy status
-(`numberOfOccupants`, `occupancyRate`, `occupancyType`) and its heat dissipation (`heatDissipation`).
-`Occupants` are characterized by a specific number of persons occupying the corresponding zone
-(`numberOfOccupants`) during a certain time schedule (`occupancyRate`). `Occupants` may contain
-one or more `Household` objects.
+An `Occupants` class identifies a homogeneous group of occupants of a `UsageZone` or `BuildingUnit`, 
+categorized in one `occupancyType` (e.g. residents, workers, visitors etc.).
+
+`Occupants` are characterized by a given number of persons (`numberOfOccupants`) which occupied the corresponding zone
+ following a certain time schedule (`occupancyRate`). For the zone thermal modelling, heat dissipation (`heatDissipation`) of this occupant group is also specified. 
+
+For residential occupants (`occupancyType` = residents), `Occupants` may contain one or more `Household` objects.
 
 The following XML example describes occupants characterized by 3 persons living in 2 resident
 households, and dissipating 80W/person during a certain time schedule.
@@ -1563,11 +1591,23 @@ households, and dissipating 80W/person during a certain time schedule.
 </energy:Occupants>
 ```
 
+#### OccupantType and OccupantTypeValue
+The attribute `OccupantType` allows the categorization of the `Occupants` in different occupant profiles, related to different occupancy schedules (`OccupantRate`).
+
+Its type `OccupantTypeValue` is an extendable CodeList:
+
+- Patients
+- Residents
+- Students
+- Visitors
+- Workers
+- OthersOrCombination
+
 ### Household
 
 A `Household` class identifies a group of persons living in the same dwelling, in the case
 where occupants are residents. They are defined by a type (`householdType`: one family,
-a lonely adult, etc.) and a residence type (`residenceType`: main/secondary residence
+a lonely adult, etc.) and a residence type (`residenceType`: main residence, secondary residence
 or vacant).
 
 The following XML example describes a household characterized by a secondary residence
@@ -1583,16 +1623,29 @@ of unrelated adults.
 </energy:Household>
 ```
 
+#### HouseholdType and HouseholdTypeValue
+The attribute `HouseholdType` allows the categorization of the `Household` in different categories, related to the age, number, relationship and possibly family link between the different members of the household.
+
+Its type `HouseholdTypeValue` is an enumeration:
+
+- LoneAdult
+- MultiFamily
+- OneFamily
+- PensionerCouple
+- UnrelatedAdults
+- Vacant
+- WorkerCouple
+
+This categorization might be useful to model the occupancy profiles and occupant interactions.
+
 ## Facilities
 
-`Facilities` objects are any kind of devices which dissipate heat and should be accounted
-in the energy demand calculation of a zone. Each `UsageZone` or `BuildingUnit` object can
-have one or more `Facilities` objects.
+`Facilities` objects are any kind of devices, except HVAC systems (which are modelled in the Energy Use and System module), which consume and dissipate energy.
+Each `UsageZone` or `BuildingUnit` object can have one or more `Facilities` objects.
 
 There are three types of facilities (domestic hot water: `DHWFacilities`, `ElectricalAppliances`
-and `LightingFacilities`). Each of them is characterised by a heat production ratio
-(`heatDissipation`) and a period of use (`operationSchedule`), as well as some specific attributes
-depending on the facility type.
+and `LightingFacilities`). Each of them is characterised by a period of use (`operationSchedule`) and a emitted heat
+(`heatDissipation`), as well as some specific attributes depending on the facility type.
 
 In the following, two XML examples are presented:
 - domestic how water facilities dissipating 40W/m² during a specific time schedule
@@ -1725,7 +1778,7 @@ The XML examples below detail the two end-uses of a same building.
 						</energy:TimeValuesProperties>
 					</energy:variableProperties>
 					<!-- here come the file reading information -->
-				</energy:IrregularTimeSeries>
+				</energy:RegularTimeSeriesFile>
 			</energy:energyAmount>
 			<energy:maximumLoad uom="kW">5.2</energy:maximumLoad>
 		</energy:EnergyDemand>
@@ -1991,7 +2044,7 @@ The Roof surface 'Roof_57' is equipped with a Photovoltaic system 'PV_1'.
 					<energy:collectorSurface uom="m2">1843.81055</energy:collectorSurface>
 					<energy:panelAzimuth uom="deg">180</energy:panelAzimuth>
 					<energy:panelInclination uom="deg">88.3794785</energy:panelInclination>
-					<energy:installedOn xlink:href="#Roof_57">
+					<energy:installedOn xlink:href="#Roof_57"/>
 				</energy:PhotovoltaicSystem>
 			</energy:equippedWith>
 		</bldg:RoofSurface>
@@ -2097,3 +2150,5 @@ for operation time and yearly global efficiency.
 [WaterML ADE]: http://def.seegrid.csiro.au/sissvoc/ogc-def/resource?uri=http://www.opengis.net/def/waterml/2.0/interpolationType/ "WaterML ADE"
 
 [IBM knowledge Center]: http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosphere.streams.timeseries-toolkit.doc/doc/timeseries-regular.html "IBM knowledge Center"
+
+[CurrentUse online registrery]: http://hub.geosmartcity.eu/registry/codelist/CurrentUseValue/ "CurrentUse online registrery"
