@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<!--Erzeugt mit KIT (www.kit.edu) UmlToXmlTransformation-Software, Erstellungsdatum: 29.06.2016 10:38:42-->
-<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:energy="http://www.sig3d.org/citygml/2.0/energy/0.7.0" targetNamespace="http://www.sig3d.org/citygml/2.0/energy/0.7.0" xmlns:kit="http://www.kit.edu" xmlns:core="http://www.opengis.net/citygml/2.0" xmlns:bldg="http://www.opengis.net/citygml/building/2.0" xmlns:gml="http://www.opengis.net/gml" elementFormDefault="qualified" version="0.7.0">
+<!--Erzeugt mit KIT (www.kit.edu) UmlToXmlTransformation-Software, Erstellungsdatum: 17.01.2017 08:46:03-->
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:energy="http://www.sig3d.org/citygml/2.0/energy/0.8.0" targetNamespace="http://www.sig3d.org/citygml/2.0/energy/0.8.0" xmlns:kit="http://www.kit.edu" xmlns:core="http://www.opengis.net/citygml/2.0" xmlns:bldg="http://www.opengis.net/citygml/building/2.0" xmlns:gml="http://www.opengis.net/gml" elementFormDefault="qualified" version="0.8.0">
   <import namespace="http://www.opengis.net/citygml/2.0" schemaLocation="http://schemas.opengis.net/citygml/2.0/cityGMLBase.xsd" />
   <import namespace="http://www.opengis.net/citygml/building/2.0" schemaLocation="http://schemas.opengis.net/citygml/building/2.0/building.xsd" />
   <import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.1.1/base/gml.xsd" />
@@ -68,17 +68,9 @@
       <documentation>Building height above general ground. level. This elevation lies anywhere between between the lowest and the highest ground points of the construction.</documentation>
     </annotation>
   </element>
-  <!--=========================================================================================-->
-  <!--_BoundarySurface-->
-  <!--=========================================================================================-->
-  <element name="refurbishmentMeasureOnBoundarySurface" type="energy:RefurbishmentMeasurePropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfBoundarySurface">
+  <element name="buildingMainConstruction" type="energy:AbstractConstructionPropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding">
     <annotation>
-      <documentation>Reference designation of the degree of refurbishment. This reference may be European (from the Tabula project) or local (used for the Energy Action Plan of a city).</documentation>
-    </annotation>
-  </element>
-  <element name="boundarySurfaceConstruction" type="energy:AbstractConstructionPropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfBoundarySurface">
-    <annotation>
-      <documentation>Reference to material data</documentation>
+      <documentation>Average material properties of the complete building.</documentation>
     </annotation>
   </element>
   <!--=========================================================================================-->
@@ -91,7 +83,7 @@
       </appinfo>
     </annotation>
   </element>
-  <element name="energyDemands" type="energy:EnergyDemandPropertyType" substitutionGroup="core:_GenericApplicationPropertyOfCityObject">
+  <element name="energyDemand" type="energy:EnergyDemandPropertyType" substitutionGroup="core:_GenericApplicationPropertyOfCityObject">
     <annotation>
       <appinfo>
         <gml:targetElement>energy:EnergyDemand</gml:targetElement>
@@ -103,29 +95,6 @@
       <appinfo>
         <gml:targetElement>energy:WeatherData</gml:targetElement>
       </appinfo>
-    </annotation>
-  </element>
-  <!--=========================================================================================-->
-  <!--_Opening-->
-  <!--=========================================================================================-->
-  <element name="indoorShading" type="energy:ShadingTypePropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfOpening">
-    <annotation>
-      <documentation>Shading system installed on the interior surface of the opening.</documentation>
-    </annotation>
-  </element>
-  <element name="openableRatio" type="gml:ScaleType" substitutionGroup="bldg:_GenericApplicationPropertyOfOpening">
-    <annotation>
-      <documentation>Fraction of the opening area which can be opened.</documentation>
-    </annotation>
-  </element>
-  <element name="outdoorShading" type="energy:ShadingTypePropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfOpening">
-    <annotation>
-      <documentation>Shading system installed on the outside opening surface.</documentation>
-    </annotation>
-  </element>
-  <element name="openingConstruction" type="energy:AbstractConstructionPropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfOpening">
-    <annotation>
-      <documentation>Reference to material data</documentation>
     </annotation>
   </element>
   <!--=========================================================================================-->
@@ -317,6 +286,26 @@
     </restriction>
   </simpleType>
   <!--=========================================================================================-->
+  <!--AirCompressor-->
+  <!--=========================================================================================-->
+  <element name="AirCompressor" type="energy:AirCompressorType" substitutionGroup="energy:EnergyConversionSystem" />
+  <complexType name="AirCompressorType">
+    <complexContent>
+      <extension base="energy:EnergyConversionSystemType">
+        <sequence>
+          <element name="compressorType" type="energy:CompressorTypeValue" />
+          <element name="pressure" minOccurs="0" type="gml:MeasureType" />
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="AirCompressorPropertyType">
+    <sequence>
+      <element ref="energy:AirCompressor" minOccurs="0" />
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup" />
+  </complexType>
+  <!--=========================================================================================-->
   <!--Boiler-->
   <!--=========================================================================================-->
   <element name="Boiler" type="energy:BoilerType" substitutionGroup="energy:EnergyConversionSystem" />
@@ -419,6 +408,27 @@
       <enumeration value="Amorphous" />
     </restriction>
   </simpleType>
+  <!--=========================================================================================-->
+  <!--Chiller-->
+  <!--=========================================================================================-->
+  <element name="Chiller" type="energy:ChillerType" substitutionGroup="energy:EnergyConversionSystem" />
+  <complexType name="ChillerType">
+    <complexContent>
+      <extension base="energy:EnergyConversionSystemType">
+        <sequence>
+          <element name="condensationType" type="energy:CondensationTypeValue" />
+          <element name="compressorType" type="energy:CompressorTypeValue" />
+          <element name="refrigerant" minOccurs="0" type="string" />
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="ChillerPropertyType">
+    <sequence>
+      <element ref="energy:Chiller" minOccurs="0" />
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup" />
+  </complexType>
   <!--=========================================================================================-->
   <!--CollectorTypeValue-->
   <!--=========================================================================================-->
@@ -759,26 +769,6 @@
     </restriction>
   </simpleType>
   <!--=========================================================================================-->
-  <!--DistrictNetworkSubstation-->
-  <!--=========================================================================================-->
-  <element name="DistrictNetworkSubstation" type="energy:DistrictNetworkSubstationType" substitutionGroup="energy:EnergyConversionSystem" />
-  <complexType name="DistrictNetworkSubstationType">
-    <complexContent>
-      <extension base="energy:EnergyConversionSystemType">
-        <sequence>
-          <element name="networkId" type="string" />
-          <element name="networkNodeId" type="string" />
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="DistrictNetworkSubstationPropertyType">
-    <sequence>
-      <element ref="energy:DistrictNetworkSubstation" minOccurs="0" />
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup" />
-  </complexType>
-  <!--=========================================================================================-->
   <!--DualValueSchedule-->
   <!--=========================================================================================-->
   <element name="DualValueSchedule" type="energy:DualValueScheduleType" substitutionGroup="energy:_Schedule" />
@@ -973,6 +963,47 @@ NOTE: for buildings, it is generally top of the roof.</documentation>
     </sequence>
   </complexType>
   <!--=========================================================================================-->
+  <!--Emitter-->
+  <!--=========================================================================================-->
+  <element name="Emitter" type="energy:EmitterType" substitutionGroup="gml:_Feature" />
+  <complexType name="EmitterType">
+    <annotation>
+      <documentation>End unit which emits useful energy (e.g. heat, cool) in the zone where it is required.</documentation>
+    </annotation>
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="emitterType" minOccurs="0" type="energy:EmitterTypeValue">
+            <annotation>
+              <documentation>Type of the energy emitter (e.g. radiators, radiant floor etc.).</documentation>
+            </annotation>
+          </element>
+          <element name="unitNumber" minOccurs="0" type="int">
+            <annotation>
+              <documentation>Number of emitter units.</documentation>
+            </annotation>
+          </element>
+          <element name="installedPower" minOccurs="0" type="gml:MeasureType">
+            <annotation>
+              <documentation>Total nominal power of the emitter units.</documentation>
+            </annotation>
+          </element>
+          <element name="thermalExchange" minOccurs="0" type="energy:HeatExchangeTypePropertyType">
+            <annotation>
+              <documentation>Proportion of the different thermal exchanges (e.g. convection, radiative etc.).</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="EmitterPropertyType">
+    <sequence>
+      <element ref="energy:Emitter" minOccurs="0" />
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup" />
+  </complexType>
+  <!--=========================================================================================-->
   <!--EndUseTypeValue-->
   <!--=========================================================================================-->
   <simpleType name="EndUseTypeValue">
@@ -1051,7 +1082,7 @@ NOTE: for buildings, it is generally top of the roof.</documentation>
               <documentation>Reference efficiency ratio used to quantify the system efficiency (e.g. COP, EER, W/(m3/h)).</documentation>
             </annotation>
           </element>
-          <element name="installedNominalPower" minOccurs="0" type="gml:MeasureType">
+          <element name="installedNominalPower" minOccurs="0" type="double">
             <annotation>
               <documentation>Total nominal power of the energy conversion system.</documentation>
             </annotation>
@@ -1385,6 +1416,27 @@ NOTE: for buildings, it is generally top of the roof.</documentation>
   <complexType name="GasPropertyType">
     <sequence>
       <element ref="energy:Gas" minOccurs="0" />
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup" />
+  </complexType>
+  <!--=========================================================================================-->
+  <!--HeatExchanger-->
+  <!--=========================================================================================-->
+  <element name="HeatExchanger" type="energy:HeatExchangerType" substitutionGroup="energy:EnergyConversionSystem" />
+  <complexType name="HeatExchangerType">
+    <complexContent>
+      <extension base="energy:EnergyConversionSystemType">
+        <sequence>
+          <element name="networkId" type="string" />
+          <element name="networkNodeId" type="string" />
+          <element name="primaryHeatSupplier" minOccurs="0" type="string" />
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="HeatExchangerPropertyType">
+    <sequence>
+      <element ref="energy:HeatExchanger" minOccurs="0" />
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup" />
   </complexType>
@@ -2483,7 +2535,7 @@ http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosp
             </annotation>
           </element>
           <element name="operationTime" minOccurs="0" type="energy:_SchedulePropertyType" />
-          <element name="yearlyGlobalEfficiency" minOccurs="0" type="gml:MeasureType" />
+          <element name="yearlyGlobalEfficiency" minOccurs="0" type="double" />
         </sequence>
       </extension>
     </complexContent>
@@ -2500,7 +2552,7 @@ http://www-01.ibm.com/support/knowledgecenter/SSCRJU_3.0.0/com.ibm.swg.im.infosp
   <element name="ThermalBoundary" type="energy:ThermalBoundaryType" substitutionGroup="core:_CityObject" />
   <complexType name="ThermalBoundaryType">
     <annotation>
-      <documentation>Thermal Boundaries delimit Thermal Zones. Thermal Boundaries represent physical relationships between two Thermal Zones or a Thermal Zone and the building environment.</documentation>
+      <documentation>Thermal Boundaries delimit Thermal Zones. Thermal Boundaries represent physical relationships between two Thermal Zones, or a Thermal Zone and the outside environment, or a Thermal Zone and the ground. Their non-opening construction must be homogeneous.</documentation>
     </annotation>
     <complexContent>
       <extension base="core:AbstractCityObjectType">
@@ -2524,27 +2576,49 @@ By convention:
 By convention, inclination = 0 for horizontal plane.</documentation>
             </annotation>
           </element>
-          <element name="area" minOccurs="0" type="gml:AreaType" />
+          <element name="area" minOccurs="0" type="gml:AreaType">
+            <annotation>
+              <documentation>Total area of the Thermal Boundary, inclusive the included opening area</documentation>
+            </annotation>
+          </element>
           <element name="surfaceGeometry" minOccurs="0" type="gml:MultiSurfacePropertyType" />
-          <element name="composedOf" minOccurs="0" maxOccurs="unbounded" type="energy:ThermalComponentPropertyType">
+          <element name="refurbishmentMeasureOnThermalBoundary" minOccurs="0" maxOccurs="unbounded" type="energy:RefurbishmentMeasurePropertyType">
             <annotation>
               <appinfo>
-                <gml:targetElement>energy:ThermalComponent</gml:targetElement>
+                <gml:targetElement>energy:RefurbishmentMeasure</gml:targetElement>
+              </appinfo>
+              <documentation>Reference designation of the degree of refurbishment. This reference may be European (from the Tabula project) or local (used for the Energy Action Plan of a city).</documentation>
+            </annotation>
+          </element>
+          <element name="staticConstruction" minOccurs="0" type="energy:AbstractConstructionPropertyType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>energy:AbstractConstruction</gml:targetElement>
+              </appinfo>
+              <documentation>Construction of the static part of the Thermal Boundary (i.e. the non-opening building elements),  If the referenced Construction/ConstructionOrientation object has more than one layer, the following rules for the layer order apply:
+&lt;ul&gt;
+	&lt;li&gt;For &lt;b&gt;outer &lt;/b&gt;ThermalBoundaries, the first Construction Layer is facing outside, last Construction Layer is facing inside (or contrary if ConstructionOrientation is used and orientation is false)&lt;/li&gt;
+	&lt;li&gt;For ThermalBoundaries of type &lt;b&gt;intermediaryFloor&lt;/b&gt;, the first Construction Layer is facing the thermalZone below while the last Construction Layer is facing the ThermalZone above&lt;/li&gt;
+&lt;/ul&gt;</documentation>
+            </annotation>
+          </element>
+          <element name="contains" minOccurs="0" maxOccurs="unbounded" type="energy:ThermalOpeningPropertyType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>energy:ThermalOpening</gml:targetElement>
               </appinfo>
             </annotation>
           </element>
-          <element name="delimitsBy" maxOccurs="2" type="energy:ThermalZonePropertyType">
+          <element name="delimits" maxOccurs="2" type="energy:ThermalZonePropertyType">
             <annotation>
               <appinfo>
                 <gml:targetElement>energy:ThermalZone</gml:targetElement>
                 <gml:reversePropertyName>energy:boundedBy</gml:reversePropertyName>
               </appinfo>
-              <documentation>In case two ThermalZones are referenced via the relation "delimitsBy", the following rule concerning the order of the related objects applys:
+              <documentation>In case two ThermalZones are referenced via the relation "delimits", the following rule concerning the order of the related objects applys:
 
 - For ThermalBoundary objects of type "intermediaryFloor!, the first related object is the upper ThermalZone, and the seconr related object is the lower ThermalZone
--  For all other ThermalBoundary types, the first related ThermalZone is in contact with the last Layer of the corresponding AbstractConstruction, and the  second related ThermalZone is in contact with the first Layer of the corresponding AbstractConstruction, 
-
-Last layer is facing the first ThermalZone and First layer is facing the second ThermalZone of the relation "delimitsBy"</documentation>
+-  For all other ThermalBoundary types, the first related ThermalZone is in contact with the last Layer of the corresponding AbstractConstruction, and the  second related ThermalZone is in contact with the first Layer of the corresponding AbstractConstruction,</documentation>
             </annotation>
           </element>
           <element name="relatesTo" minOccurs="0" maxOccurs="unbounded" type="gml:ReferenceType">
@@ -2616,51 +2690,6 @@ Last layer is facing the first ThermalZone and First layer is facing the second 
     </restriction>
   </simpleType>
   <!--=========================================================================================-->
-  <!--ThermalComponent-->
-  <!--=========================================================================================-->
-  <element name="ThermalComponent" type="energy:ThermalComponentType" substitutionGroup="core:_CityObject" />
-  <complexType name="ThermalComponentType">
-    <annotation>
-      <documentation>Part of the thermal boundary surface corresponding to an homogeneous construction component (e.g. windows, wall, insulated part of a wall etc.)</documentation>
-    </annotation>
-    <complexContent>
-      <extension base="core:AbstractCityObjectType">
-        <sequence>
-          <element name="area" type="gml:AreaType">
-            <annotation>
-              <documentation>Area of the surface [m²], portion of the related thermal boundary surface.</documentation>
-            </annotation>
-          </element>
-          <element name="relates" minOccurs="0" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <gml:targetElement>bldg:_Opening</gml:targetElement>
-              </appinfo>
-            </annotation>
-          </element>
-          <element name="construction" type="energy:AbstractConstructionPropertyType">
-            <annotation>
-              <appinfo>
-                <gml:targetElement>energy:AbstractConstruction</gml:targetElement>
-              </appinfo>
-              <documentation>Reference to material information. If the referenced Construction/ConstructionOrientation object has more than one layer, the following rules for the layer order apply:
-&lt;ul&gt;
-	&lt;li&gt;For &lt;b&gt;outer &lt;/b&gt;ThermalBoundaries, the first Construction Layer is facing outside, last Construction Layer is facing inside (or contrary if ConstructionOrientation is used and orientation is false)&lt;/li&gt;
-	&lt;li&gt;For ThermalBoundaries of type &lt;b&gt;intermediaryFloor&lt;/b&gt;, the first Construction Layer is facing the thermalZone below while the last Construction Layer is facing the ThermalZone above&lt;/li&gt;
-&lt;/ul&gt;</documentation>
-            </annotation>
-          </element>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="ThermalComponentPropertyType">
-    <sequence>
-      <element ref="energy:ThermalComponent" minOccurs="0" />
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup" />
-  </complexType>
-  <!--=========================================================================================-->
   <!--ThermalDistributionSystem-->
   <!--=========================================================================================-->
   <element name="ThermalDistributionSystem" type="energy:ThermalDistributionSystemType" substitutionGroup="energy:EnergyDistributionSystem" />
@@ -2685,6 +2714,67 @@ Last layer is facing the first ThermalZone and First layer is facing the second 
   <complexType name="ThermalDistributionSystemPropertyType">
     <sequence>
       <element ref="energy:ThermalDistributionSystem" minOccurs="0" />
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup" />
+  </complexType>
+  <!--=========================================================================================-->
+  <!--ThermalOpening-->
+  <!--=========================================================================================-->
+  <element name="ThermalOpening" type="energy:ThermalOpeningType" substitutionGroup="core:_CityObject" />
+  <complexType name="ThermalOpeningType">
+    <annotation>
+      <documentation>Group of openings, possibly related to a ThermalBoundary and _Opening, sharing common thermal and optical characteristics.</documentation>
+    </annotation>
+    <complexContent>
+      <extension base="core:AbstractCityObjectType">
+        <sequence>
+          <element name="area" type="gml:AreaType">
+            <annotation>
+              <documentation>Area of the surface [m²], portion of the related thermal boundary surface.</documentation>
+            </annotation>
+          </element>
+          <element name="openingConstruction" type="energy:AbstractConstructionPropertyType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>energy:AbstractConstruction</gml:targetElement>
+              </appinfo>
+              <documentation>Reference to material information. If the referenced Construction/ConstructionOrientation object has more than one layer, the following rules for the layer order apply:
+&lt;ul&gt;
+	&lt;li&gt;For &lt;b&gt;outer &lt;/b&gt;ThermalBoundaries, the first Construction Layer is facing outside, last Construction Layer is facing inside (or contrary if ConstructionOrientation is used and orientation is false)&lt;/li&gt;
+	&lt;li&gt;For ThermalBoundaries of type &lt;b&gt;intermediaryFloor&lt;/b&gt;, the first Construction Layer is facing the thermalZone below while the last Construction Layer is facing the ThermalZone above&lt;/li&gt;
+&lt;/ul&gt;</documentation>
+            </annotation>
+          </element>
+          <element name="indoorShading" minOccurs="0" type="energy:ShadingTypePropertyType">
+            <annotation>
+              <documentation>Shading system installed on the interior surface of the opening.</documentation>
+            </annotation>
+          </element>
+          <element name="outdoorShading" minOccurs="0" type="energy:ShadingTypePropertyType">
+            <annotation>
+              <documentation>Shading system installed on the outside opening surface.</documentation>
+            </annotation>
+          </element>
+          <element name="openableRatio" minOccurs="0" type="gml:ScaleType">
+            <annotation>
+              <documentation>Shading system installed on the outside opening surface.</documentation>
+            </annotation>
+          </element>
+          <element name="surfaceGeometry" minOccurs="0" type="gml:MultiSurfacePropertyType" />
+          <element name="relatesTo" minOccurs="0" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <gml:targetElement>bldg:_Opening</gml:targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="ThermalOpeningPropertyType">
+    <sequence>
+      <element ref="energy:ThermalOpening" minOccurs="0" />
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup" />
   </complexType>
@@ -2791,7 +2881,7 @@ A UsageZone object can only be referenced by one ThermalZone object.</documentat
             <annotation>
               <appinfo>
                 <gml:targetElement>energy:ThermalBoundary</gml:targetElement>
-                <gml:reversePropertyName>energy:delimitsBy</gml:reversePropertyName>
+                <gml:reversePropertyName>energy:delimits</gml:reversePropertyName>
               </appinfo>
             </annotation>
           </element>
@@ -3082,6 +3172,47 @@ A UsageZone object can only be referenced by one ThermalZone object.</documentat
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup" />
   </complexType>
+  <!--=========================================================================================-->
+  <!--CompressorTypeValue-->
+  <!--=========================================================================================-->
+  <simpleType name="CompressorTypeValue">
+    <restriction base="string">
+      <enumeration value="ReciprocatingCompressorHermetic" />
+      <enumeration value="ReciprocatingCompressorSemiHermetic" />
+      <enumeration value="ReciprocatingCompressorOpen" />
+      <enumeration value="RotaryVaneCompressor" />
+      <enumeration value="ScrollCompressor" />
+      <enumeration value="ScrewCompressor" />
+      <enumeration value="CentrifugalCompressor" />
+    </restriction>
+  </simpleType>
+  <!--=========================================================================================-->
+  <!--CondensationTypeValue-->
+  <!--=========================================================================================-->
+  <simpleType name="CondensationTypeValue">
+    <restriction base="string">
+      <enumeration value="DryCooling" />
+      <enumeration value="EvaporativeCooling" />
+      <enumeration value="HybridCooling" />
+      <enumeration value="AdiabaticCooling" />
+      <enumeration value="FreeCooling" />
+    </restriction>
+  </simpleType>
+  <!--=========================================================================================-->
+  <!--EmitterTypeValue-->
+  <!--=========================================================================================-->
+  <simpleType name="EmitterTypeValue">
+    <restriction base="string">
+      <enumeration value="Radiator" />
+      <enumeration value="Convector" />
+      <enumeration value="RadiantFloor" />
+      <enumeration value="RadiantCeiling" />
+      <enumeration value="RadiantWall" />
+      <enumeration value="SplitUnit" />
+      <enumeration value="2PipesFanCoilUnit" />
+      <enumeration value="4PipesFanCoilUnit" />
+    </restriction>
+  </simpleType>
   <!--=========================================================================================-->
   <!--WeatherDataTypeValue-->
   <!--=========================================================================================-->

@@ -51,13 +51,11 @@ h3 {
 }      
       
     </style></head>
-   <body><a name=""></a><h1>energy:ThermalComponent</h1>
+   <body><a name=""></a><h1>energy:ThermalOpening</h1>
       <h2>Type</h2>
       <p class="einzug10">Feature Type</p>
       <h2>Definition</h2>
-      <p class="einzug10">Part of the thermal boundary surface corresponding to an homogeneous construction component (e.g. windows, wall, insulated
-         part of a wall etc.)
-      </p>
+      <p class="einzug10">Group of openings, possibly related to a ThermalBoundary and _Opening, sharing common thermal and optical characteristics.</p>
       <h2>Belongs to module</h2>
       <p class="einzug10"><a href="Package_energy_Energy-ADE.html">energy:Energy-ADE</a></p>
       <h2>Derived from</h2>
@@ -73,73 +71,115 @@ h3 {
             </td>
          </tr>
          <tr><a name="core__CityObject_creationDate_A"></a><td width="600" height="20" bgcolor="#EEEEEE">
-               <p><a href="#core__CityObject_creationDate">core:creationDate</a></p>
+               <p><a href="#core__CityObject_creationDate">core:creationDate  [0..1]&#xD;
+                     </a></p>
             </td>
             <td width="600" height="20" bgcolor="#EEEEEE">
                <p>Date</p>
             </td>
          </tr>
          <tr><a name="core__CityObject_terminationDate_A"></a><td width="600" height="20" bgcolor="#EEEEEE">
-               <p><a href="#core__CityObject_terminationDate">core:terminationDate</a></p>
+               <p><a href="#core__CityObject_terminationDate">core:terminationDate  [0..1]&#xD;
+                     </a></p>
             </td>
             <td width="600" height="20" bgcolor="#EEEEEE">
                <p>Date</p>
             </td>
          </tr>
          <tr><a name="core__CityObject_externalReference_A"></a><td width="600" height="20" bgcolor="#EEEEEE">
-               <p><a href="#core__CityObject_externalReference">core:externalReference</a></p>
+               <p><a href="#core__CityObject_externalReference">core:externalReference  [0..*]&#xD;
+                     </a></p>
             </td>
             <td width="600" height="20" bgcolor="#EEEEEE">
                <p>ExternalReference</p>
             </td>
          </tr>
          <tr><a name="core__CityObject_relativeToTerrain_A"></a><td width="600" height="20" bgcolor="#EEEEEE">
-               <p><a href="#core__CityObject_relativeToTerrain">core:relativeToTerrain</a></p>
+               <p><a href="#core__CityObject_relativeToTerrain">core:relativeToTerrain  [0..1]&#xD;
+                     </a></p>
             </td>
             <td width="600" height="20" bgcolor="#EEEEEE">
                <p>RelativeToTerrain</p>
             </td>
          </tr>
          <tr><a name="core__CityObject_relativeToWater_A"></a><td width="600" height="20" bgcolor="#EEEEEE">
-               <p><a href="#core__CityObject_relativeToWater">core:relativeToWater</a></p>
+               <p><a href="#core__CityObject_relativeToWater">core:relativeToWater  [0..1]&#xD;
+                     </a></p>
             </td>
             <td width="600" height="20" bgcolor="#EEEEEE">
                <p>RelativeToWater</p>
             </td>
          </tr>
          <tr><a name="core__CityObject_appearance_A"></a><td width="600" height="20" bgcolor="#EEEEEE">
-               <p><a href="#core__CityObject_appearance">core:appearance</a></p>
+               <p><a href="#core__CityObject_appearance">core:appearance  [0..*]&#xD;
+                     </a></p>
             </td>
             <td width="600" height="20" bgcolor="#EEEEEE">
                <p>AbstractAppearance</p>
             </td>
          </tr>
          <tr><a name="core__CityObject_genericAttribute_A"></a><td width="600" height="20" bgcolor="#EEEEEE">
-               <p><a href="#core__CityObject_genericAttribute">core:genericAttribute</a></p>
+               <p><a href="#core__CityObject_genericAttribute">core:genericAttribute  [0..*]&#xD;
+                     </a></p>
             </td>
             <td width="600" height="20" bgcolor="#EEEEEE">
                <p>AbstractGenericAttribute</p>
             </td>
          </tr>
-         <tr><a name="energy_ThermalComponent_area_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
-               <p><a href="#energy_ThermalComponent_area">energy:area</a></p>
+         <tr><a name="energy_ThermalOpening_area_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_ThermalOpening_area">energy:area  [1]&#xD;
+                     </a></p>
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
                <p>Area</p>
             </td>
          </tr>
-         <tr><a name="energy_ThermalComponent_relates_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
-               <p><a href="#energy_ThermalComponent_relates">energy:relates</a></p>
-            </td>
-            <td width="600" height="20" bgcolor="#CCCCCC">
-               <p>_Opening</p>
-            </td>
-         </tr>
-         <tr><a name="energy_ThermalComponent_construction_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
-               <p><a href="#energy_ThermalComponent_construction">energy:construction</a></p>
+         <tr><a name="energy_ThermalOpening_openingConstruction_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_ThermalOpening_openingConstruction">energy:openingConstruction  [1]&#xD;
+                     </a></p>
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
                <p>AbstractConstruction</p>
+            </td>
+         </tr>
+         <tr><a name="energy_ThermalOpening_indoorShading_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_ThermalOpening_indoorShading">energy:indoorShading  [0..1]&#xD;
+                     </a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>ShadingType</p>
+            </td>
+         </tr>
+         <tr><a name="energy_ThermalOpening_outdoorShading_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_ThermalOpening_outdoorShading">energy:outdoorShading  [0..1]&#xD;
+                     </a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>ShadingType</p>
+            </td>
+         </tr>
+         <tr><a name="energy_ThermalOpening_openableRatio_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_ThermalOpening_openableRatio">energy:openableRatio  [0..1]&#xD;
+                     </a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>Scale</p>
+            </td>
+         </tr>
+         <tr><a name="energy_ThermalOpening_surfaceGeometry_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_ThermalOpening_surfaceGeometry">energy:surfaceGeometry  [0..1]&#xD;
+                     </a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>GM_MultiSurface</p>
+            </td>
+         </tr>
+         <tr><a name="energy_ThermalOpening_relatesTo_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_ThermalOpening_relatesTo">energy:relatesTo  [0..1]&#xD;
+                     </a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>_Opening</p>
             </td>
          </tr>
       </table><br></br><a name="core__CityObject_creationDate"></a><table width="800" border="0" cellspacing="3">
@@ -388,13 +428,13 @@ h3 {
       <h3>Cardinality</h3>
       <p class="einzug10">0..*</p>
       <h3>Data type</h3>
-      <p class="einzug10">AbstractGenericAttribute (DataType)</p><br></br><a name="energy_ThermalComponent_area"></a><table width="800" border="0" cellspacing="3">
+      <p class="einzug10">AbstractGenericAttribute (DataType)</p><br></br><a name="energy_ThermalOpening_area"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#CCCCCC">
                <h2>Attribute type: energy:area</h2>
             </td>
             <td bgcolor="#CCCCCC">
-               <p><a href="#energy_ThermalComponent_area_A">back</a></p>
+               <p><a href="#energy_ThermalOpening_area_A">back</a></p>
             </td>
          </tr>
       </table>
@@ -403,28 +443,13 @@ h3 {
       <h3>Cardinality</h3>
       <p class="einzug10">1</p>
       <h3>Data type</h3>
-      <p class="einzug10">Area</p><br></br><a name="energy_ThermalComponent_relates"></a><table width="800" border="0" cellspacing="3">
+      <p class="einzug10">Area</p><br></br><a name="energy_ThermalOpening_openingConstruction"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#CCCCCC">
-               <h2>Attribute type: energy:relates</h2>
+               <h2>Attribute type: energy:openingConstruction</h2>
             </td>
             <td bgcolor="#CCCCCC">
-               <p><a href="#energy_ThermalComponent_relates_A">back</a></p>
-            </td>
-         </tr>
-      </table>
-      <h3>Definition</h3>
-      <p class="einzug10"></p>
-      <h3>Cardinality</h3>
-      <p class="einzug10">0..1</p>
-      <h3>Data type</h3><a href="bldg__Opening.html">
-         <p class="einzug10">_Opening</p></a><br></br><a name="energy_ThermalComponent_construction"></a><table width="800" border="0" cellspacing="3">
-         <tr>
-            <td width="600" height="20" bgcolor="#CCCCCC">
-               <h2>Attribute type: energy:construction</h2>
-            </td>
-            <td bgcolor="#CCCCCC">
-               <p><a href="#energy_ThermalComponent_construction_A">back</a></p>
+               <p><a href="#energy_ThermalOpening_openingConstruction_A">back</a></p>
             </td>
          </tr>
       </table>
@@ -438,5 +463,80 @@ h3 {
       <h3>Cardinality</h3>
       <p class="einzug10">1</p>
       <h3>Data type</h3><a href="energy_AbstractConstruction.html">
-         <p class="einzug10">AbstractConstruction</p></a></body>
+         <p class="einzug10">AbstractConstruction</p></a><br></br><a name="energy_ThermalOpening_indoorShading"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:indoorShading</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_ThermalOpening_indoorShading_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10">Shading system installed on the interior surface of the opening.</p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..1</p>
+      <h3>Data type</h3><a href="energy_ShadingType.html">
+         <p class="einzug10">ShadingType</p></a><br></br><a name="energy_ThermalOpening_outdoorShading"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:outdoorShading</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_ThermalOpening_outdoorShading_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10">Shading system installed on the outside opening surface.</p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..1</p>
+      <h3>Data type</h3><a href="energy_ShadingType.html">
+         <p class="einzug10">ShadingType</p></a><br></br><a name="energy_ThermalOpening_openableRatio"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:openableRatio</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_ThermalOpening_openableRatio_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10">Shading system installed on the outside opening surface.</p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..1</p>
+      <h3>Data type</h3>
+      <p class="einzug10">Scale (Type)</p><br></br><a name="energy_ThermalOpening_surfaceGeometry"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:surfaceGeometry</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_ThermalOpening_surfaceGeometry_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10"></p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..1</p>
+      <h3>Data type</h3>
+      <p class="einzug10">GM_MultiSurface (Type)</p><br></br><a name="energy_ThermalOpening_relatesTo"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:relatesTo</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_ThermalOpening_relatesTo_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10"></p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..1</p>
+      <h3>Data type</h3><a href="bldg__Opening.html">
+         <p class="einzug10">_Opening</p></a></body>
 </html>
