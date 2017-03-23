@@ -148,6 +148,13 @@ h3 {
                <p>HeightAboveGround</p>
             </td>
          </tr>
+         <tr><a name="energy__AbstractBuilding_buildingMainConstruction_A"></a><td width="600" height="20" bgcolor="FADB76">
+               <p><a href="#energy__AbstractBuilding_buildingMainConstruction">energy:buildingMainConstruction</a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#FADB76">
+               <p>AbstractConstruction</p>
+            </td>
+         </tr>
       </table><br></br><a name="energy__AbstractBuilding_buildingType"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#CCCCCC">
@@ -216,19 +223,6 @@ h3 {
             </td>
             <td bgcolor="#EEEEEE">
                <h4></h4>
-            </td>
-         </tr>
-         <tr>
-            <td width="70" bgcolor="#EEEEEE">
-               <p>Row House</p>
-            </td>
-            <td width="300" bgcolor="#EEEEEE">
-               <p>Row House</p>
-            </td>
-            <td bgcolor="#EEEEEE">
-               <h4>(also called terraced house) Building made for one household, part of a row of identical or mirror-image houses sharing side
-                  walls.
-               </h4>
             </td>
          </tr>
       </table><br></br><a name="energy__AbstractBuilding_constructionWeight"></a><table width="800" border="0" cellspacing="3">
@@ -346,38 +340,7 @@ h3 {
       <h3>Cardinality</h3>
       <p class="einzug10">0..1</p>
       <h3>Data type</h3>
-      <p class="einzug10">Boolean (Enumeration)</p><br></br><table width="800" border="0" cellspacing="3">
-         <tr>
-            <td width="70" height="20" bgcolor="#9DE5F7">
-               <p><strong><em>Code</em></strong></p>
-            </td>
-            <td colspan="2" width="700" bgcolor="#9DE5F7">
-               <p><strong><em>Text</em></strong></p>
-            </td>
-         </tr>
-         <tr>
-            <td width="70" bgcolor="#EEEEEE">
-               <p>1</p>
-            </td>
-            <td width="300" bgcolor="#EEEEEE">
-               <p>TRUE</p>
-            </td>
-            <td bgcolor="#EEEEEE">
-               <h4></h4>
-            </td>
-         </tr>
-         <tr>
-            <td width="70" bgcolor="#EEEEEE">
-               <p>0</p>
-            </td>
-            <td width="300" bgcolor="#EEEEEE">
-               <p>FALSE</p>
-            </td>
-            <td bgcolor="#EEEEEE">
-               <h4></h4>
-            </td>
-         </tr>
-      </table><br></br><a name="energy__AbstractBuilding_referencePoint"></a><table width="800" border="0" cellspacing="3">
+      <p class="einzug10">Boolean (Enumeration)</p><br></br><a name="energy__AbstractBuilding_referencePoint"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#CCCCCC">
                <h2>Attribute type: energy:referencePoint</h2>
@@ -473,5 +436,20 @@ h3 {
       <h3>Cardinality</h3>
       <p class="einzug10">0..*</p>
       <h3>Data type</h3><a href="energy_HeightAboveGround.html">
-         <p class="einzug10">HeightAboveGround</p></a></body>
+         <p class="einzug10">HeightAboveGround</p></a><br></br><a name="energy__AbstractBuilding_buildingMainConstruction"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:buildingMainConstruction</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy__AbstractBuilding_buildingMainConstruction_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10">Average material properties of the complete building.</p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..1</p>
+      <h3>Data type</h3><a href="energy_AbstractConstruction.html">
+         <p class="einzug10">AbstractConstruction</p></a></body>
 </html>

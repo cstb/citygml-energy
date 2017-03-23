@@ -51,15 +51,13 @@ h3 {
 }      
       
     </style></head>
-   <body><a name=""></a><h1>energy:PowerDistributionSystem</h1>
+   <body><a name=""></a><h1>energy:Emitter</h1>
       <h2>Type</h2>
       <p class="einzug10">Feature Type</p>
       <h2>Definition</h2>
-      <p class="einzug10"></p>
+      <p class="einzug10">End unit which emits useful energy (e.g. heat, cool) in the zone where it is required.</p>
       <h2>Belongs to module</h2>
       <p class="einzug10"><a href="Package_energy_Energy-ADE.html">energy:Energy-ADE</a></p>
-      <h2>Derived from</h2>
-      <p class="einzug10"><a href="energy_EnergyDistributionSystem.html">energy:EnergyDistributionSystem</a></p>
       <h2>Attributes and associations</h2>
       <table width="800" border="0" cellspacing="3">
          <tr>
@@ -70,69 +68,54 @@ h3 {
                <p><strong><em>Type</em></strong></p>
             </td>
          </tr>
-         <tr><a name="energy_EnergyDistributionSystem_serviceLife_A"></a><td width="600" height="20" bgcolor="#EEEEEE">
-               <p><a href="#energy_EnergyDistributionSystem_serviceLife">energy:serviceLife  [0..1]&#xD;
+         <tr><a name="energy_Emitter_emitterType_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_Emitter_emitterType">energy:emitterType  [0..1]&#xD;
                      </a></p>
             </td>
-            <td width="600" height="20" bgcolor="#EEEEEE">
-               <p>ServiceLife</p>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>EmitterTypeValue</p>
             </td>
          </tr>
-         <tr><a name="energy_EnergyDistributionSystem_distributionPerimeter_A"></a><td width="600" height="20" bgcolor="#EEEEEE">
-               <p><a href="#energy_EnergyDistributionSystem_distributionPerimeter">energy:distributionPerimeter  [0..1]&#xD;
+         <tr><a name="energy_Emitter_unitNumber_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_Emitter_unitNumber">energy:unitNumber  [0..1]&#xD;
                      </a></p>
             </td>
-            <td width="600" height="20" bgcolor="#EEEEEE">
-               <p>DistributionTypeValue</p>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>Integer</p>
             </td>
          </tr>
-         <tr><a name="energy_PowerDistributionSystem_current_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
-               <p><a href="#energy_PowerDistributionSystem_current">energy:current  [0..1]&#xD;
+         <tr><a name="energy_Emitter_installedPower_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_Emitter_installedPower">energy:installedPower  [0..1]&#xD;
                      </a></p>
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
                <p>Measure</p>
             </td>
          </tr>
-         <tr><a name="energy_PowerDistributionSystem_voltage_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
-               <p><a href="#energy_PowerDistributionSystem_voltage">energy:voltage  [0..1]&#xD;
+         <tr><a name="energy_Emitter_thermalExchange_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_Emitter_thermalExchange">energy:thermalExchange  [0..1]&#xD;
                      </a></p>
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
-               <p>Measure</p>
+               <p>HeatExchangeType</p>
             </td>
          </tr>
-      </table><br></br><a name="energy_EnergyDistributionSystem_serviceLife"></a><table width="800" border="0" cellspacing="3">
+      </table><br></br><a name="energy_Emitter_emitterType"></a><table width="800" border="0" cellspacing="3">
          <tr>
-            <td width="600" height="20" bgcolor="#EEEEEE">
-               <h2>Attribute type: energy:serviceLife</h2>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:emitterType</h2>
             </td>
-            <td bgcolor="#EEEEEE">
-               <p><a href="#energy_EnergyDistributionSystem_serviceLife_A">back</a></p>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_Emitter_emitterType_A">back</a></p>
             </td>
          </tr>
       </table>
       <h3>Definition</h3>
-      <p class="einzug10"></p>
-      <h3>Cardinality</h3>
-      <p class="einzug10">0..1</p>
-      <h3>Data type</h3><a href="energy_ServiceLife.html">
-         <p class="einzug10">ServiceLife</p></a><br></br><a name="energy_EnergyDistributionSystem_distributionPerimeter"></a><table width="800" border="0" cellspacing="3">
-         <tr>
-            <td width="600" height="20" bgcolor="#EEEEEE">
-               <h2>Attribute type: energy:distributionPerimeter</h2>
-            </td>
-            <td bgcolor="#EEEEEE">
-               <p><a href="#energy_EnergyDistributionSystem_distributionPerimeter_A">back</a></p>
-            </td>
-         </tr>
-      </table>
-      <h3>Definition</h3>
-      <p class="einzug10"></p>
+      <p class="einzug10">Type of the energy emitter (e.g. radiators, radiant floor etc.).</p>
       <h3>Cardinality</h3>
       <p class="einzug10">0..1</p>
       <h3>Data type</h3>
-      <p class="einzug10">DistributionTypeValue (Enumeration)</p><br></br><table width="800" border="0" cellspacing="3">
+      <p class="einzug10">EmitterTypeValue (Enumeration)</p><br></br><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="70" height="20" bgcolor="#9DE5F7">
                <p><strong><em>Code</em></strong></p>
@@ -143,102 +126,136 @@ h3 {
          </tr>
          <tr>
             <td width="70" bgcolor="#EEEEEE">
-               <p>Building</p>
+               <p>Radiator</p>
             </td>
             <td width="300" bgcolor="#EEEEEE">
-               <p>Building</p>
+               <p>Radiator</p>
             </td>
             <td bgcolor="#EEEEEE">
-               <h4>Building with a unique energy conversion system.</h4>
+               <h4></h4>
             </td>
          </tr>
          <tr>
             <td width="70" bgcolor="#EEEEEE">
-               <p>Dwelling</p>
+               <p>Convector</p>
             </td>
             <td width="300" bgcolor="#EEEEEE">
-               <p>Dwelling</p>
+               <p>Convector</p>
             </td>
             <td bgcolor="#EEEEEE">
-               <h4>One energy conversion system per dwelling.</h4>
+               <h4></h4>
             </td>
          </tr>
          <tr>
             <td width="70" bgcolor="#EEEEEE">
-               <p>GroupOfBuildings</p>
+               <p>RadiantFloor</p>
             </td>
             <td width="300" bgcolor="#EEEEEE">
-               <p>GroupOfBuildings</p>
+               <p>RadiantFloor</p>
             </td>
             <td bgcolor="#EEEEEE">
-               <h4>Group of Building with a unique energy conversion system.The energy distribution runs between the buildings.</h4>
+               <h4></h4>
             </td>
          </tr>
          <tr>
             <td width="70" bgcolor="#EEEEEE">
-               <p>Room</p>
+               <p>RadiantCeiling</p>
             </td>
             <td width="300" bgcolor="#EEEEEE">
-               <p>Room</p>
+               <p>RadiantCeiling</p>
             </td>
             <td bgcolor="#EEEEEE">
-               <h4>One energy conversion system per room.</h4>
+               <h4></h4>
             </td>
          </tr>
          <tr>
             <td width="70" bgcolor="#EEEEEE">
-               <p>Staircase</p>
+               <p>RadiantWall</p>
             </td>
             <td width="300" bgcolor="#EEEEEE">
-               <p>Staircase</p>
+               <p>RadiantWall</p>
             </td>
             <td bgcolor="#EEEEEE">
-               <h4>One energy conversion system per building stair-case, with a distribution system supplying vertically the premises of the
-                  different storeys.
-               </h4>
+               <h4></h4>
             </td>
          </tr>
          <tr>
             <td width="70" bgcolor="#EEEEEE">
-               <p>Storey</p>
+               <p>SplitUnit</p>
             </td>
             <td width="300" bgcolor="#EEEEEE">
-               <p>Storey</p>
+               <p>SplitUnit</p>
             </td>
             <td bgcolor="#EEEEEE">
-               <h4>One energy conversion system per storey, with a distribution system supplying horizontally the premises of whole storey.</h4>
+               <h4></h4>
             </td>
          </tr>
-      </table><br></br><a name="energy_PowerDistributionSystem_current"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="70" bgcolor="#EEEEEE">
+               <p>2PipesFanCoilUnit</p>
+            </td>
+            <td width="300" bgcolor="#EEEEEE">
+               <p>2PipesFanCoilUnit</p>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <h4></h4>
+            </td>
+         </tr>
+         <tr>
+            <td width="70" bgcolor="#EEEEEE">
+               <p>4PipesFanCoilUnit</p>
+            </td>
+            <td width="300" bgcolor="#EEEEEE">
+               <p>4PipesFanCoilUnit</p>
+            </td>
+            <td bgcolor="#EEEEEE">
+               <h4></h4>
+            </td>
+         </tr>
+      </table><br></br><a name="energy_Emitter_unitNumber"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#CCCCCC">
-               <h2>Attribute type: energy:current</h2>
+               <h2>Attribute type: energy:unitNumber</h2>
             </td>
             <td bgcolor="#CCCCCC">
-               <p><a href="#energy_PowerDistributionSystem_current_A">back</a></p>
+               <p><a href="#energy_Emitter_unitNumber_A">back</a></p>
             </td>
          </tr>
       </table>
       <h3>Definition</h3>
-      <p class="einzug10"></p>
+      <p class="einzug10">Number of emitter units.</p>
       <h3>Cardinality</h3>
       <p class="einzug10">0..1</p>
       <h3>Data type</h3>
-      <p class="einzug10">Measure</p><br></br><a name="energy_PowerDistributionSystem_voltage"></a><table width="800" border="0" cellspacing="3">
+      <p class="einzug10">Integer (Type)</p><br></br><a name="energy_Emitter_installedPower"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#CCCCCC">
-               <h2>Attribute type: energy:voltage</h2>
+               <h2>Attribute type: energy:installedPower</h2>
             </td>
             <td bgcolor="#CCCCCC">
-               <p><a href="#energy_PowerDistributionSystem_voltage_A">back</a></p>
+               <p><a href="#energy_Emitter_installedPower_A">back</a></p>
             </td>
          </tr>
       </table>
       <h3>Definition</h3>
-      <p class="einzug10"></p>
+      <p class="einzug10">Total nominal power of the emitter units.</p>
       <h3>Cardinality</h3>
       <p class="einzug10">0..1</p>
       <h3>Data type</h3>
-      <p class="einzug10">Measure</p>
-   </body>
+      <p class="einzug10">Measure (Type)</p><br></br><a name="energy_Emitter_thermalExchange"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:thermalExchange</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_Emitter_thermalExchange_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10">Proportion of the different thermal exchanges (e.g. convection, radiative etc.).</p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..1</p>
+      <h3>Data type</h3><a href="energy_HeatExchangeType.html">
+         <p class="einzug10">HeatExchangeType</p></a></body>
 </html>

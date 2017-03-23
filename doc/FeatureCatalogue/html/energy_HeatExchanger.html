@@ -51,7 +51,7 @@ h3 {
 }      
       
     </style></head>
-   <body><a name=""></a><h1>energy:HeatPump</h1>
+   <body><a name=""></a><h1>energy:HeatExchanger</h1>
       <h2>Type</h2>
       <p class="einzug10">Feature Type</p>
       <h2>Definition</h2>
@@ -174,28 +174,28 @@ h3 {
                <p>EnergyDemand</p>
             </td>
          </tr>
-         <tr><a name="energy_HeatPump_heatSource_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
-               <p><a href="#energy_HeatPump_heatSource">energy:heatSource  [1]&#xD;
+         <tr><a name="energy_HeatExchanger_networkId_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_HeatExchanger_networkId">energy:networkId  [1]&#xD;
                      </a></p>
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
-               <p>HeatSourceTypeValue</p>
+               <p>CharacterString</p>
             </td>
          </tr>
-         <tr><a name="energy_HeatPump_copSourceTemperature_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
-               <p><a href="#energy_HeatPump_copSourceTemperature">energy:copSourceTemperature  [0..1]&#xD;
+         <tr><a name="energy_HeatExchanger_networkNodeId_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_HeatExchanger_networkNodeId">energy:networkNodeId  [1]&#xD;
                      </a></p>
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
-               <p>Measure</p>
+               <p>CharacterString</p>
             </td>
          </tr>
-         <tr><a name="energy_HeatPump_copOperationTemperature_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
-               <p><a href="#energy_HeatPump_copOperationTemperature">energy:copOperationTemperature  [0..1]&#xD;
+         <tr><a name="energy_HeatExchanger_primaryHeatSupplier_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_HeatExchanger_primaryHeatSupplier">energy:primaryHeatSupplier  [0..1]&#xD;
                      </a></p>
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
-               <p>Measure</p>
+               <p>CharacterString</p>
             </td>
          </tr>
       </table><br></br><a name="energy_EnergyConversionSystem_efficiencyIndicator"></a><table width="800" border="0" cellspacing="3">
@@ -393,13 +393,13 @@ h3 {
       <h3>Cardinality</h3>
       <p class="einzug10">0..*</p>
       <h3>Data type</h3><a href="energy_EnergyDemand.html">
-         <p class="einzug10">EnergyDemand</p></a><br></br><a name="energy_HeatPump_heatSource"></a><table width="800" border="0" cellspacing="3">
+         <p class="einzug10">EnergyDemand</p></a><br></br><a name="energy_HeatExchanger_networkId"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#CCCCCC">
-               <h2>Attribute type: energy:heatSource</h2>
+               <h2>Attribute type: energy:networkId</h2>
             </td>
             <td bgcolor="#CCCCCC">
-               <p><a href="#energy_HeatPump_heatSource_A">back</a></p>
+               <p><a href="#energy_HeatExchanger_networkId_A">back</a></p>
             </td>
          </tr>
       </table>
@@ -408,100 +408,36 @@ h3 {
       <h3>Cardinality</h3>
       <p class="einzug10">1</p>
       <h3>Data type</h3>
-      <p class="einzug10">HeatSourceTypeValue (Enumeration)</p><br></br><table width="800" border="0" cellspacing="3">
-         <tr>
-            <td width="70" height="20" bgcolor="#9DE5F7">
-               <p><strong><em>Code</em></strong></p>
-            </td>
-            <td colspan="2" width="700" bgcolor="#9DE5F7">
-               <p><strong><em>Text</em></strong></p>
-            </td>
-         </tr>
-         <tr>
-            <td width="70" bgcolor="#EEEEEE">
-               <p>AmbientAir</p>
-            </td>
-            <td width="300" bgcolor="#EEEEEE">
-               <p>AmbientAir</p>
-            </td>
-            <td bgcolor="#EEEEEE">
-               <h4></h4>
-            </td>
-         </tr>
-         <tr>
-            <td width="70" bgcolor="#EEEEEE">
-               <p>Aquifer</p>
-            </td>
-            <td width="300" bgcolor="#EEEEEE">
-               <p>Aquifer</p>
-            </td>
-            <td bgcolor="#EEEEEE">
-               <h4></h4>
-            </td>
-         </tr>
-         <tr>
-            <td width="70" bgcolor="#EEEEEE">
-               <p>ExhaustAir</p>
-            </td>
-            <td width="300" bgcolor="#EEEEEE">
-               <p>ExhaustAir</p>
-            </td>
-            <td bgcolor="#EEEEEE">
-               <h4></h4>
-            </td>
-         </tr>
-         <tr>
-            <td width="70" bgcolor="#EEEEEE">
-               <p>HorizontalGroundCollector</p>
-            </td>
-            <td width="300" bgcolor="#EEEEEE">
-               <p>HorizontalGroundCollector</p>
-            </td>
-            <td bgcolor="#EEEEEE">
-               <h4></h4>
-            </td>
-         </tr>
-         <tr>
-            <td width="70" bgcolor="#EEEEEE">
-               <p>VerticalGroundCollector</p>
-            </td>
-            <td width="300" bgcolor="#EEEEEE">
-               <p>VerticalGroundCollector</p>
-            </td>
-            <td bgcolor="#EEEEEE">
-               <h4></h4>
-            </td>
-         </tr>
-      </table><br></br><a name="energy_HeatPump_copSourceTemperature"></a><table width="800" border="0" cellspacing="3">
+      <p class="einzug10">CharacterString</p><br></br><a name="energy_HeatExchanger_networkNodeId"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#CCCCCC">
-               <h2>Attribute type: energy:copSourceTemperature</h2>
+               <h2>Attribute type: energy:networkNodeId</h2>
             </td>
             <td bgcolor="#CCCCCC">
-               <p><a href="#energy_HeatPump_copSourceTemperature_A">back</a></p>
+               <p><a href="#energy_HeatExchanger_networkNodeId_A">back</a></p>
             </td>
          </tr>
       </table>
       <h3>Definition</h3>
-      <p class="einzug10">Source temperature defining the Coefficient Of Performance of the heat pump.</p>
+      <p class="einzug10"></p>
       <h3>Cardinality</h3>
-      <p class="einzug10">0..1</p>
+      <p class="einzug10">1</p>
       <h3>Data type</h3>
-      <p class="einzug10">Measure (Type)</p><br></br><a name="energy_HeatPump_copOperationTemperature"></a><table width="800" border="0" cellspacing="3">
+      <p class="einzug10">CharacterString</p><br></br><a name="energy_HeatExchanger_primaryHeatSupplier"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#CCCCCC">
-               <h2>Attribute type: energy:copOperationTemperature</h2>
+               <h2>Attribute type: energy:primaryHeatSupplier</h2>
             </td>
             <td bgcolor="#CCCCCC">
-               <p><a href="#energy_HeatPump_copOperationTemperature_A">back</a></p>
+               <p><a href="#energy_HeatExchanger_primaryHeatSupplier_A">back</a></p>
             </td>
          </tr>
       </table>
       <h3>Definition</h3>
-      <p class="einzug10">Operation or supply water temperature defining the Coefficient Of Performance of the heat pump.</p>
+      <p class="einzug10"></p>
       <h3>Cardinality</h3>
       <p class="einzug10">0..1</p>
       <h3>Data type</h3>
-      <p class="einzug10">Measure (Type)</p>
+      <p class="einzug10">CharacterString (Type)</p>
    </body>
 </html>

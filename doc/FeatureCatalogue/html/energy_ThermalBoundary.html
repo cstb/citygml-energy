@@ -55,8 +55,8 @@ h3 {
       <h2>Type</h2>
       <p class="einzug10">Feature Type</p>
       <h2>Definition</h2>
-      <p class="einzug10">Thermal Boundaries delimit Thermal Zones. Thermal Boundaries represent physical relationships between two Thermal Zones or
-         a Thermal Zone and the building environment.
+      <p class="einzug10">Thermal Boundaries delimit Thermal Zones. Thermal Boundaries represent physical relationships between two Thermal Zones, or
+         a Thermal Zone and the outside environment, or a Thermal Zone and the ground. Their non-opening construction must be homogeneous.
       </p>
       <h2>Belongs to module</h2>
       <p class="einzug10"><a href="Package_energy_Energy-ADE.html">energy:Energy-ADE</a></p>
@@ -73,105 +73,136 @@ h3 {
             </td>
          </tr>
          <tr><a name="core__CityObject_creationDate_A"></a><td width="600" height="20" bgcolor="#EEEEEE">
-               <p><a href="#core__CityObject_creationDate">core:creationDate</a></p>
+               <p><a href="#core__CityObject_creationDate">core:creationDate  [0..1]&#xD;
+                     </a></p>
             </td>
             <td width="600" height="20" bgcolor="#EEEEEE">
                <p>Date</p>
             </td>
          </tr>
          <tr><a name="core__CityObject_terminationDate_A"></a><td width="600" height="20" bgcolor="#EEEEEE">
-               <p><a href="#core__CityObject_terminationDate">core:terminationDate</a></p>
+               <p><a href="#core__CityObject_terminationDate">core:terminationDate  [0..1]&#xD;
+                     </a></p>
             </td>
             <td width="600" height="20" bgcolor="#EEEEEE">
                <p>Date</p>
             </td>
          </tr>
          <tr><a name="core__CityObject_externalReference_A"></a><td width="600" height="20" bgcolor="#EEEEEE">
-               <p><a href="#core__CityObject_externalReference">core:externalReference</a></p>
+               <p><a href="#core__CityObject_externalReference">core:externalReference  [0..*]&#xD;
+                     </a></p>
             </td>
             <td width="600" height="20" bgcolor="#EEEEEE">
                <p>ExternalReference</p>
             </td>
          </tr>
          <tr><a name="core__CityObject_relativeToTerrain_A"></a><td width="600" height="20" bgcolor="#EEEEEE">
-               <p><a href="#core__CityObject_relativeToTerrain">core:relativeToTerrain</a></p>
+               <p><a href="#core__CityObject_relativeToTerrain">core:relativeToTerrain  [0..1]&#xD;
+                     </a></p>
             </td>
             <td width="600" height="20" bgcolor="#EEEEEE">
                <p>RelativeToTerrain</p>
             </td>
          </tr>
          <tr><a name="core__CityObject_relativeToWater_A"></a><td width="600" height="20" bgcolor="#EEEEEE">
-               <p><a href="#core__CityObject_relativeToWater">core:relativeToWater</a></p>
+               <p><a href="#core__CityObject_relativeToWater">core:relativeToWater  [0..1]&#xD;
+                     </a></p>
             </td>
             <td width="600" height="20" bgcolor="#EEEEEE">
                <p>RelativeToWater</p>
             </td>
          </tr>
          <tr><a name="core__CityObject_appearance_A"></a><td width="600" height="20" bgcolor="#EEEEEE">
-               <p><a href="#core__CityObject_appearance">core:appearance</a></p>
+               <p><a href="#core__CityObject_appearance">core:appearance  [0..*]&#xD;
+                     </a></p>
             </td>
             <td width="600" height="20" bgcolor="#EEEEEE">
                <p>AbstractAppearance</p>
             </td>
          </tr>
          <tr><a name="core__CityObject_genericAttribute_A"></a><td width="600" height="20" bgcolor="#EEEEEE">
-               <p><a href="#core__CityObject_genericAttribute">core:genericAttribute</a></p>
+               <p><a href="#core__CityObject_genericAttribute">core:genericAttribute  [0..*]&#xD;
+                     </a></p>
             </td>
             <td width="600" height="20" bgcolor="#EEEEEE">
                <p>AbstractGenericAttribute</p>
             </td>
          </tr>
          <tr><a name="energy_ThermalBoundary_thermalBoundaryType_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
-               <p><a href="#energy_ThermalBoundary_thermalBoundaryType">energy:thermalBoundaryType</a></p>
+               <p><a href="#energy_ThermalBoundary_thermalBoundaryType">energy:thermalBoundaryType  [1]&#xD;
+                     </a></p>
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
                <p>ThermalBoundaryTypeValue</p>
             </td>
          </tr>
          <tr><a name="energy_ThermalBoundary_azimuth_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
-               <p><a href="#energy_ThermalBoundary_azimuth">energy:azimuth</a></p>
+               <p><a href="#energy_ThermalBoundary_azimuth">energy:azimuth  [0..1]&#xD;
+                     </a></p>
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
                <p>Angle</p>
             </td>
          </tr>
          <tr><a name="energy_ThermalBoundary_inclination_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
-               <p><a href="#energy_ThermalBoundary_inclination">energy:inclination</a></p>
+               <p><a href="#energy_ThermalBoundary_inclination">energy:inclination  [0..1]&#xD;
+                     </a></p>
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
                <p>Angle</p>
             </td>
          </tr>
          <tr><a name="energy_ThermalBoundary_area_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
-               <p><a href="#energy_ThermalBoundary_area">energy:area</a></p>
+               <p><a href="#energy_ThermalBoundary_area">energy:area  [0..1]&#xD;
+                     </a></p>
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
                <p>Area</p>
             </td>
          </tr>
          <tr><a name="energy_ThermalBoundary_surfaceGeometry_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
-               <p><a href="#energy_ThermalBoundary_surfaceGeometry">energy:surfaceGeometry</a></p>
+               <p><a href="#energy_ThermalBoundary_surfaceGeometry">energy:surfaceGeometry  [0..1]&#xD;
+                     </a></p>
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
                <p>GM_MultiSurface</p>
             </td>
          </tr>
-         <tr><a name="energy_ThermalBoundary_composedOf_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
-               <p><a href="#energy_ThermalBoundary_composedOf">energy:composedOf</a></p>
+         <tr><a name="energy_ThermalBoundary_refurbishmentMeasureOnThermalBoundary_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_ThermalBoundary_refurbishmentMeasureOnThermalBoundary">energy:refurbishmentMeasureOnThermalBoundary  [0..*]&#xD;
+                     </a></p>
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
-               <p>ThermalComponent</p>
+               <p>RefurbishmentMeasure</p>
             </td>
          </tr>
-         <tr><a name="energy_ThermalBoundary_delimitsBy_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
-               <p><a href="#energy_ThermalBoundary_delimitsBy">energy:delimitsBy</a></p>
+         <tr><a name="energy_ThermalBoundary_staticConstruction_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_ThermalBoundary_staticConstruction">energy:staticConstruction  [0..1]&#xD;
+                     </a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>AbstractConstruction</p>
+            </td>
+         </tr>
+         <tr><a name="energy_ThermalBoundary_contains_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_ThermalBoundary_contains">energy:contains  [0..*]&#xD;
+                     </a></p>
+            </td>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <p>ThermalOpening</p>
+            </td>
+         </tr>
+         <tr><a name="energy_ThermalBoundary_delimits_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
+               <p><a href="#energy_ThermalBoundary_delimits">energy:delimits  [1..2]&#xD;
+                     </a></p>
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
                <p>ThermalZone</p>
             </td>
          </tr>
          <tr><a name="energy_ThermalBoundary_relatesTo_A"></a><td width="600" height="20" bgcolor="#CCCCCC">
-               <p><a href="#energy_ThermalBoundary_relatesTo">energy:relatesTo</a></p>
+               <p><a href="#energy_ThermalBoundary_relatesTo">energy:relatesTo  [0..*]&#xD;
+                     </a></p>
             </td>
             <td width="600" height="20" bgcolor="#CCCCCC">
                <p>_BoundarySurface</p>
@@ -578,7 +609,7 @@ h3 {
          </tr>
       </table>
       <h3>Definition</h3>
-      <p class="einzug10"></p>
+      <p class="einzug10">Total area of the Thermal Boundary, inclusive the included opening area</p>
       <h3>Cardinality</h3>
       <p class="einzug10">0..1</p>
       <h3>Data type</h3>
@@ -597,13 +628,50 @@ h3 {
       <h3>Cardinality</h3>
       <p class="einzug10">0..1</p>
       <h3>Data type</h3>
-      <p class="einzug10">GM_MultiSurface (Type)</p><br></br><a name="energy_ThermalBoundary_composedOf"></a><table width="800" border="0" cellspacing="3">
+      <p class="einzug10">GM_MultiSurface (Type)</p><br></br><a name="energy_ThermalBoundary_refurbishmentMeasureOnThermalBoundary"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#CCCCCC">
-               <h2>Attribute type: energy:composedOf</h2>
+               <h2>Attribute type: energy:refurbishmentMeasureOnThermalBoundary</h2>
             </td>
             <td bgcolor="#CCCCCC">
-               <p><a href="#energy_ThermalBoundary_composedOf_A">back</a></p>
+               <p><a href="#energy_ThermalBoundary_refurbishmentMeasureOnThermalBoundary_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10">Reference designation of the degree of refurbishment. This reference may be European (from the Tabula project) or local (used
+         for the Energy Action Plan of a city).
+      </p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..*</p>
+      <h3>Data type</h3><a href="energy_RefurbishmentMeasure.html">
+         <p class="einzug10">RefurbishmentMeasure</p></a><br></br><a name="energy_ThermalBoundary_staticConstruction"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:staticConstruction</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_ThermalBoundary_staticConstruction_A">back</a></p>
+            </td>
+         </tr>
+      </table>
+      <h3>Definition</h3>
+      <p class="einzug10">Construction of the static part of the Thermal Boundary (i.e. the non-opening building elements),  If the referenced Construction/ConstructionOrientation
+         object has more than one layer, the following rules for the layer order apply:<br><ul><br>	<li>For <b>outer </b>ThermalBoundaries,
+         the first Construction Layer is facing outside, last Construction Layer is facing inside (or contrary if ConstructionOrientation
+         is used and orientation is false)</li><br>	<li>For ThermalBoundaries of type <b>intermediaryFloor</b>, the first Construction
+         Layer is facing the thermalZone below while the last Construction Layer is facing the ThermalZone above</li><br></ul>
+      </p>
+      <h3>Cardinality</h3>
+      <p class="einzug10">0..1</p>
+      <h3>Data type</h3><a href="energy_AbstractConstruction.html">
+         <p class="einzug10">AbstractConstruction</p></a><br></br><a name="energy_ThermalBoundary_contains"></a><table width="800" border="0" cellspacing="3">
+         <tr>
+            <td width="600" height="20" bgcolor="#CCCCCC">
+               <h2>Attribute type: energy:contains</h2>
+            </td>
+            <td bgcolor="#CCCCCC">
+               <p><a href="#energy_ThermalBoundary_contains_A">back</a></p>
             </td>
          </tr>
       </table>
@@ -611,24 +679,23 @@ h3 {
       <p class="einzug10"></p>
       <h3>Cardinality</h3>
       <p class="einzug10">0..*</p>
-      <h3>Data type</h3><a href="energy_ThermalComponent.html">
-         <p class="einzug10">ThermalComponent</p></a><br></br><a name="energy_ThermalBoundary_delimitsBy"></a><table width="800" border="0" cellspacing="3">
+      <h3>Data type</h3><a href="energy_ThermalOpening.html">
+         <p class="einzug10">ThermalOpening</p></a><br></br><a name="energy_ThermalBoundary_delimits"></a><table width="800" border="0" cellspacing="3">
          <tr>
             <td width="600" height="20" bgcolor="#CCCCCC">
-               <h2>Attribute type: energy:delimitsBy</h2>
+               <h2>Attribute type: energy:delimits</h2>
             </td>
             <td bgcolor="#CCCCCC">
-               <p><a href="#energy_ThermalBoundary_delimitsBy_A">back</a></p>
+               <p><a href="#energy_ThermalBoundary_delimits_A">back</a></p>
             </td>
          </tr>
       </table>
       <h3>Definition</h3>
-      <p class="einzug10">In case two ThermalZones are referenced via the relation "delimitsBy", the following rule concerning the order of the related
+      <p class="einzug10">In case two ThermalZones are referenced via the relation "delimits", the following rule concerning the order of the related
          objects applys:<br><br>- For ThermalBoundary objects of type "intermediaryFloor!, the first related object is the upper
          ThermalZone, and the seconr related object is the lower ThermalZone<br>-  For all other ThermalBoundary types, the first
          related ThermalZone is in contact with the last Layer of the corresponding AbstractConstruction, and the  second related ThermalZone
-         is in contact with the first Layer of the corresponding AbstractConstruction, <br><br>Last layer is facing the first ThermalZone
-         and First layer is facing the second ThermalZone of the relation "delimitsBy"
+         is in contact with the first Layer of the corresponding AbstractConstruction,
       </p>
       <h3>Cardinality</h3>
       <p class="einzug10">1..2</p>
