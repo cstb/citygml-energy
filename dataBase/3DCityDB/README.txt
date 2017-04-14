@@ -1,1 +1,0 @@
-In this repository, there is a beta release of the PostgreSQL-based extension of the DCityDB for the current version of the Energy ADE (0.8.0)
