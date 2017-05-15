@@ -7,5 +7,6 @@ install: "pip install -r requirements.txt"
 #
 script:
   - cd tests
+  - pip freeze
   - python -m pytest test_xsd_validation.py
   
