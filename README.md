@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/cstb/citygml-energy.svg?branch=v0.9)](https://travis-ci.org/cstb/citygml-energy)
+
 # CityGML Energy ADE
 
 ## Abstract
