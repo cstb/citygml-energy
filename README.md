@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/cstb/citygml-energy.svg?branch=master)](https://travis-ci.org/cstb/citygml-energy)
+[![Build Status](https://travis-ci.org/cstb/citygml-energy.svg?branch=v0.8)](https://travis-ci.org/cstb/citygml-energy)
 
 # CityGML Energy ADE
 
