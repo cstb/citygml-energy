@@ -2,11 +2,6 @@ language: python
 python:
   - "2.7.11"
 # command to install dependencies
-install: "pip install -r requirements.txt"
-# command to run tests
-#
-script:
-  - cd tests
-  - pip freeze
-  - python -m pytest test_xsd_validation.py
-  
+install:
+  - "sudo apt-get build-dep py27-lxml"
+  - "pip install -r requirements.txt"
