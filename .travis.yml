@@ -3,5 +3,6 @@ python:
   - "2.7.11"
 # command to install dependencies
 install:
-  - "sudo apt-get build-dep py27-lxml"
+  - "sudo apt-get install libxml2-dev libxslt-dev python-dev"
+  - "sudo apt-get install python-lxml"
   - "pip install -r requirements.txt"
