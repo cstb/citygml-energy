@@ -19,7 +19,7 @@ It has been developed since May 2014 by an international consortium of urban ene
 * Ecole Polytechnique Fédérale de Lausanne
 * Centre Scientifique et Technique du Batiment
 * Electricité de France
-* Sinergis
+* Dedagroup Public Services
 * M.O.S.S Computer Grafik Systeme
 * Austrian Institute of Technology
 
