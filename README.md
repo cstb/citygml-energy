@@ -26,7 +26,7 @@ It has been developed since May 2014 by an international consortium of urban ene
 ![Special Interest Group 3D](./doc/logos/201309_SIG3D_Logo.png) ![University of Applied Sciences Stuttgart logo](./doc/logos/hft.jpg)  ![Technische Universität München logo](./doc/logos/tum.png)  ![Karlsruhe Institute für Technologie logo](./doc/logos/kit.jpg)
 ![RWTH Aachen University / E.ON Energy Research Center logo](./doc/logos/rwth_eon.jpg)  ![HafenCityUniversität Hamburg logo](./doc/logos/hcu.png)  ![European Institute for Energy Research logo](./doc/logos/eifer.png)
 ![Ecole Polytechnique Fédérale de Lausanne logo](./doc/logos/epfl.png)  ![Centre Scientifique et Technique du Batiment logo](./doc/logos/cstb.png)  ![Electricité de France logo](./doc/logos/edf.jpg)
-![Sinergis logo](./doc/logos/sinergis.png)  ![M.O.S.S Computer Grafik Systeme logo](./doc/logos/moss.jpg)  ![Austrian Institute of Technology](./doc/logos/ait.jpg)
+![DedagroupPS logo](./doc/logos/dedagroupPS.png)  ![M.O.S.S Computer Grafik Systeme logo](./doc/logos/moss.jpg)  ![Austrian Institute of Technology](./doc/logos/ait.jpg)
 
 <!--
 -->
